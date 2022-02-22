@@ -37,7 +37,7 @@ class RegretMatchingAgent(Agent):
     def act(self):
         return get_action(self.policy)
 
-    def update_policy(self, actions, player_rewards):
+    def update_policy(self, actions, *_):
         my_action = actions[self]
         opponent_name = actions.keys() - {self}
         opponent_action = actions[opponent_name.pop()]

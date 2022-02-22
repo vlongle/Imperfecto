@@ -56,10 +56,11 @@ class FixedPolicyAgent(Agent):
 
 def play_against_fixed_policy():
     """
-    regret-matching agent plays against a fixed policy agent.
+    regret-matching agent plays against a fixed policy agent in
+    rock-paper-scissor.
     """
     policies = []
-    for i in tqdm(range(500)):
+    for _ in tqdm(range(500)):
         regret_matching = RegretMatchingAgent(
             name='regret matching', n_actions=len(RockPaperScissor))
         #opponent_policy = np.array([1/3, 1/3, 1/3])
@@ -76,9 +77,11 @@ def play_against_fixed_policy():
 def play_against_regret_matching():
     """
     both agents are regret-matching agents.
+    Their avg policies should both converge to a Nash equilibrium,
+    which is [1/3, 1/3, 1/3] for rock-paper-scissor.
     """
     policies = [[], []]
-    for i in tqdm(range(500)):
+    for _ in tqdm(range(500)):
         regret_matching_1 = RegretMatchingAgent(
             name='regret matching 1', n_actions=len(RockPaperScissor))
         regret_matching_2 = RegretMatchingAgent(
@@ -93,5 +96,36 @@ def play_against_regret_matching():
     print('average policy 2', np.mean(policies[1], axis=0))
 
 
+def play_against_delay_regret_matching():
+    """
+    both agents are regret-matching agents. We delay the policy update of one agent
+    while updating the other for several games.
+    Their avg policies should both converge to a Nash equilibrium,
+    which is [1/3, 1/3, 1/3] for rock-paper-scissor.
+    """
+    regret_matching_1 = RegretMatchingAgent(
+        name='regret matching 1', n_actions=len(RockPaperScissor))
+    regret_matching_2 = RegretMatchingAgent(
+        name='regret matching 2', n_actions=len(RockPaperScissor))
+    agents = [regret_matching_1, regret_matching_2]
+    game = RockPaperScissorGame(agents, n_steps=1000)
+    policies = [[], []]
+    for i in range(40):
+        for _ in range(100):
+            # freeze second agent, to train first agent
+            game.run(freeze_ls=[regret_matching_2])
+            policies[0].append(regret_matching_1.policy)
+            policies[1].append(regret_matching_2.policy)
+        for _ in range(100):
+            # freeze first agent, to train second agent
+            game.run(freeze_ls=[regret_matching_1])
+            policies[0].append(regret_matching_1.policy)
+            policies[1].append(regret_matching_2.policy)
+
+        winner = np.argmax(game.eps_rewards[i])
+        print('iter', i, np.mean(
+            policies[0], axis=0), np.mean(policies[1], axis=0), winner)
+
+
 if __name__ == '__main__':
-    play_against_regret_matching()
+    play_against_delay_regret_matching()

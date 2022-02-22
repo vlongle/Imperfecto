@@ -12,6 +12,7 @@ class TwoPlayerGame:
         assert(len(agents) == 2)
         self.agents = agents
         self.n_steps = n_steps
+        self.eps_rewards = []
 
     def compute_rewards(self, actions):
         """
@@ -23,24 +24,30 @@ class TwoPlayerGame:
         """
         pass
 
-    def step(self):
+    def step(self, freeze_ls=[]):
         """
         Play one game.
          - get actions
          - get rewards
          - update policies
+        Args:
+            freeze_ls (optional): a list of agent not `freeze`. These agents' policies will not be updated.
         """
         actions = [agent.act() for agent in self.agents]
         rewards = self.compute_rewards(actions)
+        self.eps_rewards.append(rewards)
         # associate names with actions and rewards
         actions = dict(zip(self.agents, actions))
         rewards = dict(zip(self.agents, rewards))  # type: ignore
         for agent in self.agents:
-            agent.update_policy(actions, rewards)
+            if agent not in freeze_ls:
+                agent.update_policy(actions, rewards)
 
-    def run(self):
+    def run(self, freeze_ls=[]):
         """
         Play the game for n_steps.
+        Args:
+            freeze_ls (optional): a list of agent not `freeze`. These agents' policies will not be updated.
         """
         for _ in range(self.n_steps):
-            self.step()
+            self.step(freeze_ls)
