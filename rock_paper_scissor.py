@@ -38,6 +38,9 @@ class RockPaperScissorGame(TwoPlayerGame):
         return rewards
 
     def compute_counterfactual_rewards(self, opponent_action):
+        """
+        Compute the rewards for each of the agent's possible action given the opponent's (fixed) action.
+        """
         return np.array([self.compute_rewards([action, opponent_action])[0]
                          for action in RockPaperScissor])
 
@@ -51,16 +54,44 @@ class FixedPolicyAgent(Agent):
         return get_action(self.policy)
 
 
-if __name__ == '__main__':
+def play_against_fixed_policy():
+    """
+    regret-matching agent plays against a fixed policy agent.
+    """
     policies = []
     for i in tqdm(range(500)):
         regret_matching = RegretMatchingAgent(
             name='regret matching', n_actions=len(RockPaperScissor))
-        opponent_policy = np.array([1/3, 1/3, 1/3])
+        #opponent_policy = np.array([1/3, 1/3, 1/3])
+        opponent_policy = np.array([0.34, 0.33, 0.33])
         fixed_opponent = FixedPolicyAgent("fixed_opponent", opponent_policy)
         agents = [regret_matching, fixed_opponent]
-        game = RockPaperScissorGame(agents, n_steps=1000)
+        game = RockPaperScissorGame(agents, n_steps=5000)
         game.run()
         policies.append(regret_matching.policy)
 
     print('average policy', np.mean(policies, axis=0))
+
+
+def play_against_regret_matching():
+    """
+    both agents are regret-matching agents.
+    """
+    policies = [[], []]
+    for i in tqdm(range(500)):
+        regret_matching_1 = RegretMatchingAgent(
+            name='regret matching 1', n_actions=len(RockPaperScissor))
+        regret_matching_2 = RegretMatchingAgent(
+            name='regret matching 2', n_actions=len(RockPaperScissor))
+        agents = [regret_matching_1, regret_matching_2]
+        game = RockPaperScissorGame(agents, n_steps=1000)
+        game.run()
+        policies[0].append(regret_matching_1.policy)
+        policies[1].append(regret_matching_2.policy)
+
+    print('average policy 1', np.mean(policies[0], axis=0))
+    print('average policy 2', np.mean(policies[1], axis=0))
+
+
+if __name__ == '__main__':
+    play_against_regret_matching()

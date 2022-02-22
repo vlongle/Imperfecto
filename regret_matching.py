@@ -3,11 +3,13 @@ import numpy as np
 from utils import get_action
 
 
-def get_action(action_probs):
-    return np.random.choice(range(len(action_probs)), p=action_probs)
-
-
 class RegretMatchingAgent(Agent):
+    """
+    Regret Matching Agent works by maintaining a cumulative regret vector.
+    The current regret is the difference between the counterfactual reward and the reward of the actual action taken.
+    The policy is action distribution proportional to the positive entries of the cumulative regret vector.
+    """
+
     def __init__(self, name, n_actions):
         super().__init__(name)
         self.n_actions = n_actions
