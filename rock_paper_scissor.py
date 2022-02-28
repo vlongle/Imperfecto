@@ -3,8 +3,8 @@ from regret_matching import RegretMatchingAgent
 from game import TwoPlayerGame
 from agent import Agent
 import numpy as np
+import enlighten
 from utils import get_action
-from tqdm import tqdm
 np.random.seed(0)
 
 
@@ -34,7 +34,6 @@ class RockPaperScissorGame(TwoPlayerGame):
             rewards = [1, -1]
         else:
             rewards = [-1, 1]
-        #print(f"compute_rewards({actions}) -> {rewards}")
         return rewards
 
     def compute_counterfactual_rewards(self, opponent_action):
@@ -60,16 +59,20 @@ def play_against_fixed_policy():
     rock-paper-scissor.
     """
     policies = []
-    for _ in tqdm(range(500)):
+    n_iters = 500
+    manager = enlighten.get_manager()
+    pbar = manager.counter(total=n_iters, desc='Ticks', unit='ticks')
+    for _ in range(n_iters):
         regret_matching = RegretMatchingAgent(
             name='regret matching', n_actions=len(RockPaperScissor))
-        #opponent_policy = np.array([1/3, 1/3, 1/3])
-        opponent_policy = np.array([0.34, 0.33, 0.33])
+        opponent_policy = np.array([1/3, 1/3, 1/3])
+        #opponent_policy = np.array([0.34, 0.33, 0.33])
         fixed_opponent = FixedPolicyAgent("fixed_opponent", opponent_policy)
         agents = [regret_matching, fixed_opponent]
         game = RockPaperScissorGame(agents, n_steps=5000)
         game.run()
         policies.append(regret_matching.policy)
+        pbar.update()
 
     print('average policy', np.mean(policies, axis=0))
 
@@ -81,7 +84,10 @@ def play_against_regret_matching():
     which is [1/3, 1/3, 1/3] for rock-paper-scissor.
     """
     policies = [[], []]
-    for _ in tqdm(range(500)):
+    n_iters = 500
+    manager = enlighten.get_manager()
+    pbar = manager.counter(total=n_iters, desc='Ticks', unit='ticks')
+    for _ in range(n_iters):
         regret_matching_1 = RegretMatchingAgent(
             name='regret matching 1', n_actions=len(RockPaperScissor))
         regret_matching_2 = RegretMatchingAgent(
@@ -91,6 +97,7 @@ def play_against_regret_matching():
         game.run()
         policies[0].append(regret_matching_1.policy)
         policies[1].append(regret_matching_2.policy)
+        pbar.update()
 
     print('average policy 1', np.mean(policies[0], axis=0))
     print('average policy 2', np.mean(policies[1], axis=0))

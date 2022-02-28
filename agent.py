@@ -32,4 +32,5 @@ class Agent:
         rewards: dict with keys: agent class, values: reward received by that agent
         Update the agent's internal policy
         """
+        del actions, rewards
         pass

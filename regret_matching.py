@@ -44,7 +44,5 @@ class RegretMatchingAgent(Agent):
         # compute counterfactual rewards
         counterfactual_rewards = self.game.compute_counterfactual_rewards(
             opponent_action)
-        # print(
-        #     f"my_action = {my_action}; opponent_action = {opponent_action}; regret = {counterfactual_rewards - counterfactual_rewards[my_action]} ")
         self.cum_regrets += counterfactual_rewards - \
             counterfactual_rewards[my_action]
