@@ -1,4 +1,16 @@
-class Agent:
+"""A collection of agent classes.
+
+Includes:
+    - Agent
+    - FixedPolicyAgent
+"""
+from typing import Sequence
+from enum import Enum
+from abc import ABC, abstractmethod
+from utils import get_action
+
+
+class Agent(ABC):
     """
     Agent:
     - name (str)
@@ -20,17 +32,31 @@ class Agent:
     def set_game(self, game):
         self.game = game
 
-    def act(self):
+    @abstractmethod
+    def act(self, history: Sequence[Enum]) -> int:
         """
         Return the action the agent wants to take (given its current policy)
         """
         pass
 
+    @abstractmethod
     def update_policy(self, actions, rewards):
         """
         actions: dict with keys: agent class, values: action taken by that agent
         rewards: dict with keys: agent class, values: reward received by that agent
         Update the agent's internal policy
         """
+        pass
+
+
+class FixedPolicyAgent(Agent):
+    def __init__(self, name, policy):
+        super().__init__(name)
+        self.policy = policy
+
+    def act(self):
+        return get_action(self.policy)
+
+    def update_policy(self, actions, rewards):
         del actions, rewards
         pass

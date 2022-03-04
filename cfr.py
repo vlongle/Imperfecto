@@ -2,7 +2,7 @@ import numpy as np
 from regret_matching import RegretMatchingAgent
 import logging
 import enlighten
-import sys
+
 np.random.seed(0)
 
 
@@ -30,7 +30,7 @@ class counterfactualRegretMinimizer:
         self.n_iters = n_iters
         self.cum_regrets = {player: {} for player in self.game.players}
         # to calculate the average policy over many training iterations
-        self.stategy_sum = {player: {} for player in self.game.players}
+        self.strategy_sum = {player: {} for player in self.game.players}
 
     def get_policy(self, player, infostate):
         """
@@ -83,11 +83,11 @@ a list of integers
 
         # update cumulative regrets, which affect the policy
         self.cum_regrets[active_player][infostate] += regrets
-        if infostate not in self.stategy_sum[active_player]:
-            self.stategy_sum[active_player][infostate] = np.zeros(
+        if infostate not in self.strategy_sum[active_player]:
+            self.strategy_sum[active_player][infostate] = np.zeros(
                 len(self.game.actions))
 
-        self.stategy_sum[active_player][infostate] += reach_probs[active_player] * cur_policy
+        self.strategy_sum[active_player][infostate] += reach_probs[active_player] * cur_policy
         logging.debug(
             f"{' ' * 6} {self.format_hist(history):5}  {np.array2string(reach_probs, precision=2, suppress_small=True):15} {active_player} \t  {infostate:10}   {np.array2string(counterfactual_values - node_util, precision=2, suppress_small=True):10} \t  {np.array2string(cur_policy, precision=2, suppress_small=True)}")
         return node_util
@@ -95,9 +95,9 @@ a list of integers
     def get_avg_strats(self):
         avg_strats = {player: {} for player in self.game.players}
         for player in self.game.players:
-            for infostate in self.stategy_sum[player]:
+            for infostate in self.strategy_sum[player]:
                 avg_strats[player][infostate] = RegretMatchingAgent.regret_matching_policy(
-                    self.stategy_sum[player][infostate])
+                    self.strategy_sum[player][infostate])
         return avg_strats
 
     def train(self):
@@ -109,8 +109,9 @@ a list of integers
         pbar = manager.counter(total=self.n_iters, desc='CFR', unit='ticks')
         for i in range(self.n_iters):
             logging.debug(i)
-            chance_action = self.game.chance_action()
-            utils += self.cfr([chance_action], np.ones(len(self.game.players)))
+            # TODO: figure a more elegant way to do this
+            history = [] if not self.game.has_chance_player else [self.game.chance_action()]
+            utils += self.cfr(history, np.ones(len(self.game.players)))
             pbar.update()
         logging.debug('-' * 82)
 

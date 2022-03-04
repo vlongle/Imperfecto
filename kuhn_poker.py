@@ -64,16 +64,10 @@ from typing import Sequence
 from enum import Enum
 from cfr import counterfactualRegretMinimizer
 import numpy as np
+from utils import lessVerboseEnum
+from game import extensiveFormGame
 import logging
-logging.basicConfig(level=logging.DEBUG, format="%(message)s")
-
-
-class lessVerboseEnum(Enum):
-    def __repr__(self):
-        return self.name
-
-    def __str__(self):
-        return self.name
+logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 
 class KUHN_POKER_ACTIONS(lessVerboseEnum):
@@ -93,10 +87,15 @@ class KUHN_POKER_CHANCE_ACTIONS(lessVerboseEnum):
     KQ = 5  # player 1 wins
 
 
-class kuhnPokerGame:
+class kuhnPokerGame(extensiveFormGame):
+    """
+    TODO: add documentation
+    """
+
     def __init__(self):
         self.players = [0, 1]
         self.actions = KUHN_POKER_ACTIONS
+        self.has_chance_player = True
 
     def is_terminal(self, history):
         """
