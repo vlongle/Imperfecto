@@ -24,6 +24,6 @@ are consistent with what the player knows.
 | Games              | Progress    |
 | -----------        | ----------- |
 | Kuhn Poker         | :heavy_check_mark: |
-| Rock-paper-scissor | &#9745; |
+| Rock-paper-scissor | ✔️ |
 
 ## References
