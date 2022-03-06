@@ -1,5 +1,5 @@
 import numpy as np
-from regret_matching import RegretMatchingAgent
+from regret_matching import RegretMatchingPlayer
 import logging
 import enlighten
 
@@ -37,7 +37,7 @@ class counterfactualRegretMinimizer:
         Returns the policy for a given player and infostate.
         """
         cum_regrets = self.cum_regrets[player][infostate]
-        return RegretMatchingAgent.regret_matching_policy(cum_regrets)
+        return RegretMatchingPlayer.regret_matching_strategy(cum_regrets)
 
     def format_hist(self, hist):
         s = ''.join(str(a) for a in hist)
@@ -96,7 +96,7 @@ a list of integers
         avg_strats = {player: {} for player in self.game.players}
         for player in self.game.players:
             for infostate in self.strategy_sum[player]:
-                avg_strats[player][infostate] = RegretMatchingAgent.regret_matching_policy(
+                avg_strats[player][infostate] = RegretMatchingPlayer.regret_matching_strategy(
                     self.strategy_sum[player][infostate])
         return avg_strats
 

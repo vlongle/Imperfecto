@@ -8,7 +8,7 @@ from imperfect_info_games.games.game import ExtensiveFormGame
 from imperfect_info_games.player import FixedPolicyPlayer
 
 
-def evaluate_strategies(game_cls: Type[ExtensiveFormGame], strategies: Sequence[dict],
+def evaluate_strategies(Game: Type[ExtensiveFormGame], strategies: Sequence[dict],
                         n_iters: int) -> Sequence[float]:
     """Evaluates a set of strategies on a game.
 
@@ -29,10 +29,10 @@ def evaluate_strategies(game_cls: Type[ExtensiveFormGame], strategies: Sequence[
     """
     players = [FixedPolicyPlayer(str(i), strategy)
                for i, strategy in enumerate(strategies)]
-    game = game_cls(players)
-    avg_payofss = []
+    game = Game(players)
+    avg_payoffs = []
     for _ in range(n_iters):
-        payoffs = game.play()
-        avg_payofss.append(payoffs)
+        _, payoffs = game.play()
+        avg_payoffs.append(payoffs)
 
-    return np.mean(avg_payofss, axis=0)
+    return np.mean(avg_payoffs, axis=0)

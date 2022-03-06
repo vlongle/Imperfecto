@@ -30,11 +30,11 @@ class Player(ABC):
             Updates the strategy of the player given the revealed history.
     """
 
-    def __init__(self, name=None):
+    def __init__(self, name=""):
         self.name = name
 
     def __str__(self) -> str:
-        if self.name is None:
+        if self.name == "":
             return self.__class__.__name__
         else:
             return "Agent(" + self.name + ")"
@@ -58,15 +58,24 @@ class Player(ABC):
         """
         pass
 
-    def update_strategy(self, history: Sequence[Enum]) -> None:
+    def update_strategy(self, history: Sequence[Enum], player_id: int) -> None:
         """Update the strategy of the player at the end of the game.
 
         Args:
             - history (Sequence[Enum]): The history of the game, which *must*
                 be a terminal node.
+            - player_id (int): The id of the player to update (i.e., my id).
         """
-        del history
+        del history, player_id
         pass
+
+    @property
+    def game(self):
+        return self._game
+
+    @game.setter
+    def game(self, game):
+        self._game = game
 
 
 class FixedPolicyPlayer(Player):

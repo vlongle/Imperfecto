@@ -1,3 +1,10 @@
+"""A collection of 2-player rock paper scissor games.
+
+This includes:
+    - Standard Rock Paper Scissor
+    - Asymmetric Rock Paper Scissor
+"""
+from enum import IntEnum
 from typing import Sequence
 
 from imperfect_info_games.games.game import ExtensiveFormGame
@@ -5,7 +12,7 @@ from imperfect_info_games.player import Player
 from imperfect_info_games.utils import lessVerboseEnum
 
 
-class ROCK_PAPER_SCISSOR_ACTIONS(lessVerboseEnum):
+class ROCK_PAPER_SCISSOR_ACTIONS(lessVerboseEnum, IntEnum):
     """Available actions for the rock-paper-scissors game."""
     ROCK = 0
     PAPER = 1
@@ -13,12 +20,19 @@ class ROCK_PAPER_SCISSOR_ACTIONS(lessVerboseEnum):
 
 
 class RockPaperScissorGame(ExtensiveFormGame):
-    """A rock-paper-scissor (extensive-form) game."""
+    """A (standard) 2-player rock-paper-scissor (extensive-form) game.
+
+    Rock beats scissors, scissors beats paper, and paper beats rock.
+    Winner gets +1 payoff, loser gets -1 payoff.
+
+    The nash strategy (unexploitable) is (1/3, 1/3, 1/3)
+    """
+
+    actions = ROCK_PAPER_SCISSOR_ACTIONS
 
     def __init__(self, players: Sequence[Player]):
         assert len(players) == 2
         super().__init__(players)
-        self.actions = ROCK_PAPER_SCISSOR_ACTIONS
 
     def get_active_player(self, history: Sequence[ROCK_PAPER_SCISSOR_ACTIONS]) -> Player:
         if len(history) == 0:
@@ -59,6 +73,50 @@ class RockPaperScissorGame(ExtensiveFormGame):
             return "P1"
         else:
             raise ValueError("Invalid history " + str(history))
+
+
+class AsymmetricRockPaperScissorGame(RockPaperScissorGame):
+    """A asymmetric 2-player rock-paper-scissors (extensive-form) game.
+
+    Rock beats scissors, scissors beats paper, and paper beats rock.
+
+    **But** winner gets +2 payoff, loser gets -2 payoff when someone plays
+    scissor. Otherwise, winner gets +1 payoff, loser gets -1 payoff.
+
+    The nash strategy (unexploitable) is (0.4, 0.4, 0.2)
+    """
+
+    def get_payoffs(self, history: Sequence[ROCK_PAPER_SCISSOR_ACTIONS]) -> Sequence[float]:
+        """Override the get_payoffs function of standard rock-paper-scissors such that
+        the winner gets +2 payoff, loser gets -2 payoff when someone plays scissor. Otherwise,
+        winner gets +1 payoff, loser gets -1 payoff.
+
+        Args:
+            history: The history of the game.
+
+        Returns:
+            The payoffs of the players.
+        """
+        assert self.is_terminal(history)
+        if len(history) > 2:
+            raise ValueError("Invalid history " + str(history))
+
+        history_str = self.history_to_str(history)
+        match history_str:
+            case "ROCK-PAPER":
+                return [-1, 1]
+            case "ROCK-SCISSOR":
+                return [2, -2]
+            case "PAPER-ROCK":
+                return [1, -1]
+            case "PAPER-SCISSOR":
+                return [-2, 2]
+            case "SCISSOR-ROCK":
+                return [-2, 2]
+            case "SCISSOR-PAPER":
+                return [2, -2]
+        return [0, 0]
+
 
 # def play_against_fixed_policy():
 #     """

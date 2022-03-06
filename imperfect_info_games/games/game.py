@@ -1,8 +1,8 @@
 """A collection of game classes.
 """
 from abc import ABC, abstractmethod
-from enum import Enum, EnumMeta
-from typing import Sequence
+from enum import EnumMeta, IntEnum
+from typing import Sequence, Tuple
 
 from imperfect_info_games.player import Player
 
@@ -10,10 +10,13 @@ from imperfect_info_games.player import Player
 class ExtensiveFormGame(ABC):
     """Abstract class for extensive form games.
 
-    Required properties
+    Required class properties
+    -------------------
+        - actions (EnumMeta): The actions of the game.
+
+    Required instance properties
     -------------------
         - players (Sequence[Player]): The players of the game.
-        - actions (EnumMeta): The actions of the game.
 
     Abstract methods
     -----------------
@@ -30,49 +33,33 @@ class ExtensiveFormGame(ABC):
     ----------------------
         - history_to_str(self, history) -> str:
             Return a string representation of the history of the game.
-        - play(self) -> Sequence[float]:
+        - play(self) -> Tuple[Sequence[IntEnum], Sequence[float]]:
             Play the game with the current players and their strategies and return the payoffs.
     """
 
+    actions: EnumMeta
+
     def __init__(self, players: Sequence[Player]):
-        self._players = players
+        self.players = players
 
     @property
     def players(self) -> Sequence[Player]:
         """The players of the game."""
         return self._players
 
-    @property
-    def actions(self) -> EnumMeta:
-        """The actions of the game.
-
-        Example
-        -------
-        from utils import lessVerboseEnum
-
-        class ROCK_PAPER_SCISSOR_ACTIONS(lessVerboseEnum):
-            ROCK = 0
-            PAPER = 1
-            SCISSOR = 2
-        ... # define some child class of ExtensiveFormGame
-        game.actions = ROCK_PAPER_SCISSOR_ACTIONS
-        """
-        return self._actions
-
     @players.setter
     def players(self, val: Sequence[Player]) -> None:
         self._players = val
-
-    @actions.setter
-    def actions(self, val: EnumMeta) -> None:
-        self._actions = val
+        # setting game for each player
+        for player in self._players:
+            player.game = self
 
     @abstractmethod
-    def get_active_player(self, history: Sequence[Enum]) -> Player:
+    def get_active_player(self, history: Sequence[IntEnum]) -> Player:
         """Get the active player of the game at the current decision point.
 
         Args:
-            - history (Sequence[Enum]): The history of the game.
+            - history (Sequence[IntEnum]): The history of the game.
 
         Returns:
             - player (Player): The active player of the game at the current decision point.
@@ -80,11 +67,11 @@ class ExtensiveFormGame(ABC):
         pass
 
     @abstractmethod
-    def is_terminal(self, history: Sequence[Enum]) -> bool:
+    def is_terminal(self, history: Sequence[IntEnum]) -> bool:
         """Check if the game is in a terminal state.
 
         Args:
-            - history (Sequence[Enum]): The history of the game.
+            - history (Sequence[IntEnum]): The history of the game.
 
         Returns:
             - is_terminal (bool): True if the game is in a terminal state, False otherwise.
@@ -92,10 +79,10 @@ class ExtensiveFormGame(ABC):
         pass
 
     @abstractmethod
-    def get_payoffs(self, history: Sequence[Enum]) -> Sequence[float]:
+    def get_payoffs(self, history: Sequence[IntEnum]) -> Sequence[float]:
         """Return the payoff for each player at the current node. This node *must* be a terminal node.
         Args:
-            - history (Sequence[Enum]): The history of the game.
+            - history (Sequence[IntEnum]): The history of the game.
 
         Returns:
             - payoffs (Sequence[float]): The payoffs of the players at the end of the game.
@@ -103,33 +90,34 @@ class ExtensiveFormGame(ABC):
         pass
 
     @abstractmethod
-    def get_infostate(self, history: Sequence[Enum]) -> str:
+    def get_infostate(self, history: Sequence[IntEnum]) -> str:
         """Return the infostate (i.e. the information set) of the game.
 
         Args:
-            - history (Sequence[Enum]): The history of the game.
+            - history (Sequence[IntEnum]): The history of the game.
 
         Returns:
             - infostate (str): A string representation of the infostate of the game.
         """
         pass
 
-    def history_to_str(self, history: Sequence[Enum]) -> str:
+    def history_to_str(self, history: Sequence[IntEnum]) -> str:
         """Return a string representation of the history of the game.
 
         Args:
-            - history (Sequence[Enum]): The history of the game.
+            - history (Sequence[IntEnum]): The history of the game.
 
         Returns:
             - history_str (str): A string representation of the history of the game.
         """
         return '-'.join(str(action) for action in history)
 
-    def play(self) -> Sequence[float]:
+    def play(self) -> Tuple[Sequence[IntEnum], Sequence[float]]:
         """
         Play the game with the current players and their strategies and return the payoffs.
 
         Returns:
+            - history (Sequence[IntEnum]): The history of the game.
             - payoffs (Sequence[float]): The payoffs of the players at the end of the game.
         """
         history = []
@@ -139,4 +127,4 @@ class ExtensiveFormGame(ABC):
             action = getattr(self, "actions")(active_player.act(
                 infostate))  # convert int to action enum
             history.append(action)
-        return self.get_payoffs(history)
+        return history, self.get_payoffs(history)

@@ -22,10 +22,10 @@ players do not know exactly which node they are in. Instead, they only know that
 of nodes known as an information set. An information set represents all the possible worlds that
 are consistent with what the player knows. 
 
-| Games              | Progress    |
-| -----------        | ----------- |
-| Kuhn Poker         | ✔️ |
-| Rock-paper-scissor | ✔️ |
+| Games              | Algorithm       | Progress    |
+| -----------        | -----------     | ----------- |
+| Rock-paper-scissor | Regret matching | ✔️           |
+| Bar-crowding Game| Regret matching | ✔️           |
 
 ## References
 - [An Introduction to Counterfactual Regret Minimization (Neller \& Lanctot)](http://modelai.gettysburg.edu/2013/cfr/cfr.pdf) 
