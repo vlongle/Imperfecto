@@ -32,10 +32,11 @@ class rockPaperScissorPlusExtensiveGame(extensiveFormGame):
         return len(history) == 2
 
     def get_payoffs(self, history):
+        # WARNING: this is all WRONG btw lol!!
         assert self.is_terminal(history)
         match '-'.join(map(str, history)):
             case "ROCK-PAPER":
-                return [1, -1]
+                return [-1, 1]
             case "ROCK-SCISSOR":
                 return [2, -2]
             case "PAPER-ROCK":

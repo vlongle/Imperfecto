@@ -9,7 +9,7 @@ class lessVerboseEnum(Enum):
     """
     A less verbose version of the Enum class.
 
-    USAGE
+    Usage
     -----
     ```
         class Test(lessVerboseEnum):

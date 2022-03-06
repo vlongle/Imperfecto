@@ -1,6 +1,7 @@
 # Algorithms for Imperfect Information Games
 
-A collection of implementations of algorithms and games for games with imperfect information.
+A collection of heavily commented implementations of algorithms and games for games with imperfect information.
+
 ## Getting Started
 ```
 
@@ -23,7 +24,9 @@ are consistent with what the player knows.
 
 | Games              | Progress    |
 | -----------        | ----------- |
-| Kuhn Poker         | :heavy_check_mark: |
+| Kuhn Poker         | ✔️ |
 | Rock-paper-scissor | ✔️ |
 
 ## References
+- [An Introduction to Counterfactual Regret Minimization (Neller \& Lanctot)](http://modelai.gettysburg.edu/2013/cfr/cfr.pdf) 
+- [Steps to building a Poker AI  (Thomas Trenner)](https://medium.com/ai-in-plain-english/steps-to-building-a-poker-ai-part-1-outline-and-history-58fbedaf6ded)
