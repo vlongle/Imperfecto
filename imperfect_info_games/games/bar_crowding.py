@@ -9,8 +9,7 @@ Reference:
 from enum import IntEnum
 from typing import Sequence
 
-from imperfect_info_games.games.game import ExtensiveFormGame
-from imperfect_info_games.player import Player
+from imperfect_info_games.games.game import NormalFormGame
 from imperfect_info_games.utils import lessVerboseEnum
 
 
@@ -19,7 +18,7 @@ class BAR_CROWDING_ACTIONS(lessVerboseEnum, IntEnum):
     STAY_HOME = 1
 
 
-class BarCrowdingGame(ExtensiveFormGame):
+class BarCrowdingGame(NormalFormGame):
     """A 3-player bar-crowding game's version of El Farol Bar problem
    (https://en.wikipedia.org/wiki/El_Farol_Bar_problem).
 
@@ -44,18 +43,6 @@ class BarCrowdingGame(ExtensiveFormGame):
     actions = BAR_CROWDING_ACTIONS
     n_players = 3
 
-    def __init__(self, players: Sequence[Player]):
-        assert len(players) == self.n_players
-        super().__init__(players)
-
-    def get_active_player(self, history: Sequence[BAR_CROWDING_ACTIONS]) -> Player:
-        if len(history) not in range(len(self.players)):
-            raise ValueError("Invalid history " + str(history))
-        return self.players[len(history)]
-
-    def is_terminal(self, history: Sequence[BAR_CROWDING_ACTIONS]) -> bool:
-        return len(history) == 3
-
     def get_payoffs(self, history: Sequence[BAR_CROWDING_ACTIONS]) -> Sequence[float]:
         assert self.is_terminal(history)
         history_str = self.history_to_str(history)
@@ -79,9 +66,3 @@ class BarCrowdingGame(ExtensiveFormGame):
             case _:
                 # default case
                 raise ValueError("Invalid history " + str(history))
-
-    def get_infostate(self, history: Sequence[BAR_CROWDING_ACTIONS]) -> str:
-        info_str_dict = {0: "P0", 1: "P1", 2: "P2"}
-        if len(history) not in range(len(self.players)):
-            raise ValueError("Invalid history " + str(history))
-        return info_str_dict[len(history)]

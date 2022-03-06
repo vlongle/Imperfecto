@@ -16,6 +16,7 @@ from imperfect_info_games.algos.regret_matching import RegretMatchingPlayer
 from imperfect_info_games.evaluate import evaluate_strategies
 from imperfect_info_games.games.bar_crowding import BarCrowdingGame
 from imperfect_info_games.games.game import ExtensiveFormGame
+from imperfect_info_games.games.prisoner_dilemma import PrisonerDilemmaGame
 from imperfect_info_games.games.rock_paper_scissor import (
     AsymmetricRockPaperScissorGame,
     RockPaperScissorGame,
@@ -24,11 +25,25 @@ from imperfect_info_games.trainer import Trainer
 np.random.seed(0)
 
 
-def verify_nash_strategy(Game: Type[ExtensiveFormGame], nash_strategy: np.ndarray,
-                         n_iters: int = 10000) -> None:
+def generate_random_prob_dist(n_actions: int) -> np.ndarray:
+    """Generate a random probability distribution for a game.
+
+    Args:
+        n_actions: The number of actions in the game.
+
+    Returns:
+        A numpy array of shape (n_actions,).
     """
-    Verifies that the given strategy is a Nash equilibrium. Applicable for 2-player (normal form)
-    zero-sum games.
+    return np.random.dirichlet(np.ones(n_actions), size=1)[0]
+
+
+def verify_nash_strategy(Game: Type[ExtensiveFormGame], nash_strategy: np.ndarray,
+                         n_iters: int = 10000, n_random_strategies: int = 5) -> None:
+    """
+    Verifies (roughly) that the given strategy is a Nash equilibrium. The idea of
+    Nash strategy is only pplicable for 2-player (normal form).
+    zero-sum games. We verify Nash strategy by pitting the strategy against random opponent's strategy.
+    The Nash strategy should be unexploitable (i.e., having the payoff >= 0).
 
     Args:
         Game: The game to verify the strategy for.
@@ -43,8 +58,8 @@ def verify_nash_strategy(Game: Type[ExtensiveFormGame], nash_strategy: np.ndarra
     print("\n")
     P0_uniform_strategy = {"P0": nash_strategy}
 
-    strategies = [np.array([1/3, 1/3, 1/3]), np.array([1.0, 0.0, 0.0]), np.array([0.0, 1.0, 0.0]), np.array([0.0, 0.0, 1.0]),
-                  np.array([0.5, 0.5, 0.0]), np.array([0.5, 0.0, 0.5]), np.array([0.0, 0.5, 0.5]), np.array([0.4, 0.4, 0.2])]
+    strategies = [generate_random_prob_dist(
+        len(Game.actions))for _ in range(n_random_strategies)]
     print("P1 strategy \t \t payoff")
     print("-" * 40)
     with np.printoptions(suppress=True, precision=2):
@@ -110,18 +125,18 @@ def to_train_delay_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int =
 
 
 @click.command()
-@click.option("--game", type=click.Choice(["RockPaperScissorGame", "AsymmetricRockPaperScissorGame", "BarCrowdingGame"]),
+@click.option("--game", type=click.Choice(["RockPaperScissorGame", "AsymmetricRockPaperScissorGame", "BarCrowdingGame", "PrisonerDilemmaGame"]),
               default="RockPaperScissorGame", help="The game to demo.")
 @click.option("--n_iters", type=int, default=10000, help="The number of iterations to run the game for.")
 @click.option("--train_regret_matching", is_flag=True, default=False, help="Train regret matching players.")
 @click.option("--train_delay_regret_matching", is_flag=True, default=False, help="Train delay regret matching players.")
 def main(game: str, n_iters: int = 10000, train_regret_matching: bool = False, train_delay_regret_matching: bool = False):
-    """Demo for rock-paper-scissor games.
+    """Demo for N-player normal-form games using the regret-matching algorithm.
 
     Available games:
     ----------------
 
-    RockPaperScissorGame, AsymmetricRockPaperScissorGame, BarCrowdingGame
+    RockPaperScissorGame, AsymmetricRockPaperScissorGame, BarCrowdingGame, PrisonerDilemmaGame
 
     Available options:
     ------------------
@@ -138,10 +153,11 @@ def main(game: str, n_iters: int = 10000, train_regret_matching: bool = False, t
         "RockPaperScissorGame": RockPaperScissorGame,
         "AsymmetricRockPaperScissorGame": AsymmetricRockPaperScissorGame,
         "BarCrowdingGame": BarCrowdingGame,
+        "PrisonerDilemmaGame": PrisonerDilemmaGame,
     }
     nash_strategy_dict = {
         "RockPaperScissorGame": np.array([0.5, 0.5, 0.0]),
-        "AsymmetricRockPaperScissorGame": np.array([0.5, 0.5, 0.0])
+        "AsymmetricRockPaperScissorGame": np.array([0.5, 0.5, 0.0]),
     }
     Game = Game_dict[game]
     if game in nash_strategy_dict:

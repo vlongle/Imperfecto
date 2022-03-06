@@ -7,8 +7,7 @@ This includes:
 from enum import IntEnum
 from typing import Sequence
 
-from imperfect_info_games.games.game import ExtensiveFormGame
-from imperfect_info_games.player import Player
+from imperfect_info_games.games.game import NormalFormGame
 from imperfect_info_games.utils import lessVerboseEnum
 
 
@@ -19,7 +18,7 @@ class ROCK_PAPER_SCISSOR_ACTIONS(lessVerboseEnum, IntEnum):
     SCISSOR = 2
 
 
-class RockPaperScissorGame(ExtensiveFormGame):
+class RockPaperScissorGame(NormalFormGame):
     """A (standard) 2-player rock-paper-scissor (extensive-form) game.
 
     Payoff
@@ -34,18 +33,6 @@ class RockPaperScissorGame(ExtensiveFormGame):
 
     actions = ROCK_PAPER_SCISSOR_ACTIONS
     n_players = 2
-
-    def __init__(self, players: Sequence[Player]):
-        assert len(players) == self.n_players
-        super().__init__(players)
-
-    def get_active_player(self, history: Sequence[ROCK_PAPER_SCISSOR_ACTIONS]) -> Player:
-        if len(history) not in range(self.n_players):
-            raise ValueError("Invalid history " + str(history))
-        return self.players[len(history)]
-
-    def is_terminal(self, history: Sequence[ROCK_PAPER_SCISSOR_ACTIONS]) -> bool:
-        return len(history) == 2
 
     def get_payoffs(self, history: Sequence[ROCK_PAPER_SCISSOR_ACTIONS]) -> Sequence[float]:
         assert self.is_terminal(history)
@@ -64,12 +51,6 @@ class RockPaperScissorGame(ExtensiveFormGame):
             case "SCISSOR-PAPER":
                 return [1, -1]
         return [0, 0]
-
-    def get_infostate(self, history: Sequence[ROCK_PAPER_SCISSOR_ACTIONS]) -> str:
-        info_str_dict = {0: "P0", 1: "P1"}
-        if len(history) not in range(self.n_players):
-            raise ValueError("Invalid history " + str(history))
-        return info_str_dict[len(history)]
 
 
 class AsymmetricRockPaperScissorGame(RockPaperScissorGame):

@@ -130,3 +130,23 @@ class ExtensiveFormGame(ABC):
                 infostate))  # convert int to action enum
             history.append(action)
         return history, self.get_payoffs(history)
+
+
+class NormalFormGame(ExtensiveFormGame, ABC):
+    def __init__(self, players: Sequence[Player]):
+        assert len(players) == self.n_players
+        super().__init__(players)
+
+    def is_terminal(self, history: Sequence[IntEnum]) -> bool:
+        return len(history) == self.n_players
+
+    def get_infostate(self, history: Sequence[IntEnum]) -> str:
+        info_str_dict = {i: f"P{i}" for i in range(self.n_players)}
+        if len(history) not in range(self.n_players):
+            raise ValueError("Invalid history " + str(history))
+        return info_str_dict[len(history)]
+
+    def get_active_player(self, history: Sequence[IntEnum]) -> Player:
+        if len(history) not in range(self.n_players):
+            raise ValueError("Invalid history " + str(history))
+        return self.players[len(history)]
