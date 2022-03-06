@@ -13,6 +13,7 @@ class ExtensiveFormGame(ABC):
     Required class properties
     -------------------
         - actions (EnumMeta): The actions of the game.
+        - n_players (int): The number of players in the game.
 
     Required instance properties
     -------------------
@@ -38,6 +39,7 @@ class ExtensiveFormGame(ABC):
     """
 
     actions: EnumMeta
+    n_players: int
 
     def __init__(self, players: Sequence[Player]):
         self.players = players

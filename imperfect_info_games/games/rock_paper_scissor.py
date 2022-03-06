@@ -22,34 +22,33 @@ class ROCK_PAPER_SCISSOR_ACTIONS(lessVerboseEnum, IntEnum):
 class RockPaperScissorGame(ExtensiveFormGame):
     """A (standard) 2-player rock-paper-scissor (extensive-form) game.
 
+    Payoff
+    ------
     Rock beats scissors, scissors beats paper, and paper beats rock.
     Winner gets +1 payoff, loser gets -1 payoff.
 
+    Nash Equilibrium
+    ----------------
     The nash strategy (unexploitable) is (1/3, 1/3, 1/3)
     """
 
     actions = ROCK_PAPER_SCISSOR_ACTIONS
+    n_players = 2
 
     def __init__(self, players: Sequence[Player]):
-        assert len(players) == 2
+        assert len(players) == self.n_players
         super().__init__(players)
 
     def get_active_player(self, history: Sequence[ROCK_PAPER_SCISSOR_ACTIONS]) -> Player:
-        if len(history) == 0:
-            return self.players[0]
-        elif len(history) == 1:
-            return self.players[1]
-        else:
+        if len(history) not in range(self.n_players):
             raise ValueError("Invalid history " + str(history))
+        return self.players[len(history)]
 
     def is_terminal(self, history: Sequence[ROCK_PAPER_SCISSOR_ACTIONS]) -> bool:
         return len(history) == 2
 
     def get_payoffs(self, history: Sequence[ROCK_PAPER_SCISSOR_ACTIONS]) -> Sequence[float]:
         assert self.is_terminal(history)
-        if len(history) > 2:
-            raise ValueError("Invalid history " + str(history))
-
         history_str = self.history_to_str(history)
         match history_str:
             case "ROCK-PAPER":
@@ -67,22 +66,23 @@ class RockPaperScissorGame(ExtensiveFormGame):
         return [0, 0]
 
     def get_infostate(self, history: Sequence[ROCK_PAPER_SCISSOR_ACTIONS]) -> str:
-        if len(history) == 0:
-            return "P0"
-        elif len(history) == 1:
-            return "P1"
-        else:
+        info_str_dict = {0: "P0", 1: "P1"}
+        if len(history) not in range(self.n_players):
             raise ValueError("Invalid history " + str(history))
+        return info_str_dict[len(history)]
 
 
 class AsymmetricRockPaperScissorGame(RockPaperScissorGame):
     """A asymmetric 2-player rock-paper-scissors (extensive-form) game.
 
+    Payoff
+    ------
     Rock beats scissors, scissors beats paper, and paper beats rock.
-
     **But** winner gets +2 payoff, loser gets -2 payoff when someone plays
     scissor. Otherwise, winner gets +1 payoff, loser gets -1 payoff.
 
+    Nash Equilibrium
+    ----------------
     The nash strategy (unexploitable) is (0.4, 0.4, 0.2)
     """
 

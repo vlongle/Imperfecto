@@ -1,13 +1,10 @@
-"""A demo for rock paper scissor games.
+"""A demo for the regret-matching algorithm (Hart and Mas-Colell 2000) for various
+N-player normal form games.
 
 Usage
 -----
-`python3 rock_paper_scissor.py --help`
+`python3 regret_matching_demo.py --help`
 to print the options available.
-
-`python3 rock_paper_scissor.py --game=<game>`
-where <game> is one of ['RockPaperScissorGame', 'AsymmetricRockPaperScissorGame'].
-
 """
 from pprint import pprint
 from typing import Type
@@ -17,6 +14,7 @@ import numpy as np
 
 from imperfect_info_games.algos.regret_matching import RegretMatchingPlayer
 from imperfect_info_games.evaluate import evaluate_strategies
+from imperfect_info_games.games.bar_crowding import BarCrowdingGame
 from imperfect_info_games.games.game import ExtensiveFormGame
 from imperfect_info_games.games.rock_paper_scissor import (
     AsymmetricRockPaperScissorGame,
@@ -29,7 +27,8 @@ np.random.seed(0)
 def verify_nash_strategy(Game: Type[ExtensiveFormGame], nash_strategy: np.ndarray,
                          n_iters: int = 10000) -> None:
     """
-    Verifies that the given strategy is a Nash equilibrium.
+    Verifies that the given strategy is a Nash equilibrium. Applicable for 2-player (normal form)
+    zero-sum games.
 
     Args:
         Game: The game to verify the strategy for.
@@ -58,30 +57,29 @@ def verify_nash_strategy(Game: Type[ExtensiveFormGame], nash_strategy: np.ndarra
 
 
 def to_train_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int = 10000) -> None:
-    """Train both players by the regret-matching algorithm and print the average strategies and payoffs.
+    """Train all players simultaneously by the regret-matching algorithm and print the average
+    strategies and payoffs.
 
     Args:
         Game: The game to train the players for.
         n_iters: The number of iterations to run the game for.
     """
-    regret_matching_0 = RegretMatchingPlayer(
-        name='RM0', n_actions=len(Game.actions))
-    regret_matching_1 = RegretMatchingPlayer(
-        name='RM1', n_actions=len(Game.actions))
-    players = [regret_matching_0, regret_matching_1]
+    players = [RegretMatchingPlayer(name=f"RM{i}", n_actions=len(Game.actions))
+               for i in range(Game.n_players)]
     trainer = Trainer(Game, players, n_iters=n_iters)
     avg_payoffs = trainer.train()
-    print(
-        f'Training regret-matching players for game {Game.__name__} after {n_iters} iters:')
-    print('average strategies')
-    pprint(trainer.get_avg_strategies())
-    print(f'eps_rewards {avg_payoffs}')
-    print()
+    with np.printoptions(suppress=True, precision=2):
+        print(
+            f'Training regret-matching players for game {Game.__name__} after {n_iters} iters:')
+        print('average strategies:')
+        pprint(trainer.get_avg_strategies())
+        print(f'eps_rewards: {avg_payoffs}')
+        print()
 
 
 def to_train_delay_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int = 10000, freeze_duration: int = 10):
-    """Train both players by the regret-matching algorithm and print the average strategies and payoffs.
-    We alternatively freeze one player's strategy and train the other player. This is a process of
+    """Train all players by the regret-matching algorithm and print the average strategies and payoffs.
+    We alternatively freeze one player's strategy and train the other player(s). This is a process of
     co-evolution.
 
     Args:
@@ -92,28 +90,27 @@ def to_train_delay_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int =
     assert 0 < freeze_duration < n_iters
     # no. of intervals where someone is frozen
     freeze_interval = n_iters // freeze_duration
-    regret_matching_1 = RegretMatchingPlayer(
-        name='RM0', n_actions=len(Game.actions))
-    regret_matching_2 = RegretMatchingPlayer(
-        name='RM1', n_actions=len(Game.actions))
-    agents = [regret_matching_1, regret_matching_2]
-    trainer = Trainer(Game, agents, n_iters=freeze_duration)
+    players = [RegretMatchingPlayer(name=f"RM{i}", n_actions=len(Game.actions))
+               for i in range(Game.n_players)]
+    trainer = Trainer(Game, players, n_iters=freeze_duration)
     for _ in range(freeze_interval):
-        # evolve RM0, freeze RM1
-        trainer.train(freeze_ls=[regret_matching_2])
-        # evolve second agent, freeze 1st
-        trainer.train(freeze_ls=[regret_matching_1])
+        for i in range(Game.n_players):
+            # train player i freezing the rest
+            freeze_list = [player for player_id,
+                           player in enumerate(players) if player_id != i]
+            trainer.train(freeze_ls=freeze_list)
 
-    print(
-        f'Training delay regret-matching players for game {Game.__name__} after {n_iters} iters:')
-    print('average strategies')
-    pprint(trainer.get_avg_strategies())
-    print(f'eps_rewards {trainer.avg_payoffs}')
-    print()
+    with np.printoptions(suppress=True, precision=2):
+        print(
+            f'Training delay regret-matching players for game {Game.__name__} after {n_iters} iters:')
+        print('average strategies:')
+        pprint(trainer.get_avg_strategies())
+        print(f'eps_rewards: {trainer.avg_payoffs}')
+        print()
 
 
 @click.command()
-@click.option("--game", type=click.Choice(["RockPaperScissorGame", "AsymmetricRockPaperScissorGame"]),
+@click.option("--game", type=click.Choice(["RockPaperScissorGame", "AsymmetricRockPaperScissorGame", "BarCrowdingGame"]),
               default="RockPaperScissorGame", help="The game to demo.")
 @click.option("--n_iters", type=int, default=10000, help="The number of iterations to run the game for.")
 @click.option("--train_regret_matching", is_flag=True, default=False, help="Train regret matching players.")
@@ -124,7 +121,7 @@ def main(game: str, n_iters: int = 10000, train_regret_matching: bool = False, t
     Available games:
     ----------------
 
-    RockPaperScissorGame, AsymmetricRockPaperScissorGame
+    RockPaperScissorGame, AsymmetricRockPaperScissorGame, BarCrowdingGame
 
     Available options:
     ------------------
@@ -137,10 +134,19 @@ def main(game: str, n_iters: int = 10000, train_regret_matching: bool = False, t
     We will also show the Nash equilibrium for the game so the user can verify that the regret matching
     players' strategies indeed converge to Nash.
     """
-    Game = RockPaperScissorGame if game == "RockPaperScissorGame" else AsymmetricRockPaperScissorGame
-    nash_strategy = np.array(
-        [1/3, 1/3, 1/3]) if game == "RockPaperScissorGame" else np.array([0.4, 0.4, 0.2])
-    verify_nash_strategy(Game, nash_strategy, n_iters=n_iters)
+    Game_dict = {
+        "RockPaperScissorGame": RockPaperScissorGame,
+        "AsymmetricRockPaperScissorGame": AsymmetricRockPaperScissorGame,
+        "BarCrowdingGame": BarCrowdingGame,
+    }
+    nash_strategy_dict = {
+        "RockPaperScissorGame": np.array([0.5, 0.5, 0.0]),
+        "AsymmetricRockPaperScissorGame": np.array([0.5, 0.5, 0.0])
+    }
+    Game = Game_dict[game]
+    if game in nash_strategy_dict:
+        nash_strategy = nash_strategy_dict[game]
+        verify_nash_strategy(Game, nash_strategy, n_iters=n_iters)
 
     if train_regret_matching:
         to_train_regret_matching(Game, n_iters=n_iters)
