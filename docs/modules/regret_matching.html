@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Regret Matching &mdash; Imperfect Information Games 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/baselines_theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Counterfactual Regret Minimization" href="cfr.html" />
+    <link rel="prev" title="Bar Crowding Game" href="../games/bar_crowding.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Imperfect Information Games
+          
+
+          
+            
+            <img src="../_static/poker_meme.jpeg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#id1">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#background">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#id2">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#id3">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#todos">TODOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#license">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Demos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../imperfect_info_games.demos.html">imperfect_info_games.demos package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Games</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../games/kuhn_poker.html">Kuhn Poker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../games/rock_paper_scissor.html">Rock Paper Scissor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../games/prisoners_dilemma.html">Prisoner’s Dilemma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../games/bar_crowding.html">Bar Crowding Game</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Regret Matching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cfr.html">Counterfactual Regret Minimization</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Imperfect Information Games</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Regret Matching</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/modules/regret_matching.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-imperfect_info_games.algos.regret_matching">
+<span id="regret-matching"></span><h1>Regret Matching<a class="headerlink" href="#module-imperfect_info_games.algos.regret_matching" title="Permalink to this headline">¶</a></h1>
+<p>A class of regret matching player for N-player normal form games.
+See the paper “a simple adaptive procedure leading to correlated equilibrium” (2000)
+by Sergiu Hart and Andreu Mas-Colell.</p>
+<p>The algorithm works by maintaining a cumulative regret vector for each action. The current regret is the difference between the counterfactual reward and the reward of the actual action taken.</p>
+<p>The strategy is action distribution proportional to the positive entries of the cumulative regret vector.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="imperfect_info_games.algos.regret_matching.RegretMatchingPlayer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.algos.regret_matching.</span></span><span class="sig-name descname"><span class="pre">RegretMatchingPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Regret Matching (Hart and Mas-Colell 2000) Player works by maintaining a cumulative
+regret vector for each action.</p>
+<p>The current regret is the difference between the counterfactual reward and the reward of
+the actual action taken.</p>
+<p>The policy is action distribution proportional to the positive entries of the cumulative regret vector.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.act">
+<span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.act" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the action to take in this infostate.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>infostate (str): The infostate to take the action in.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>action (int): The action to take.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.regret_matching_strategy">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regret_matching_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regrets</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.regret_matching_strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the regret matching policy.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>regrets(np.ndarray): cumulative regrets vector.</p>
+</dd>
+<dt>Returns:</dt><dd><p>action_probs(np.ndarray): action distribution according to regret-matching policy.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.update_strategy">
+<span class="sig-name descname"><span class="pre">update_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">enum.IntEnum</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.update_strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the cumulative regret vector. This will update the strategy of the player as
+the strategy is computed from the cumulative regret vector.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>history(Sequence[]): history of the game.
+player_id(int): player id.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="cfr.html" class="btn btn-neutral float-right" title="Counterfactual Regret Minimization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../games/bar_crowding.html" class="btn btn-neutral float-left" title="Bar Crowding Game" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Long Le.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

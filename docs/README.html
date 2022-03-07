@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>About &mdash; Imperfect Information Games 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/baselines_theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="imperfect_info_games.demos package" href="imperfect_info_games.demos.html" />
+    <link rel="prev" title="Welcome to Imperfect Information Games’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Imperfect Information Games
+          
+
+          
+            
+            <img src="_static/poker_meme.jpeg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id1">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#background">Background</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#imperfect-information-games">Imperfect Information Games</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id2">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id3">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#writing-your-own-games">Writing Your Own Games!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#normal-form-games">Normal-form Games</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#todos">TODOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#license">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Demos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="imperfect_info_games.demos.html">imperfect_info_games.demos package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Games</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="games/kuhn_poker.html">Kuhn Poker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="games/rock_paper_scissor.html">Rock Paper Scissor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="games/prisoners_dilemma.html">Prisoner’s Dilemma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="games/bar_crowding.html">Bar Crowding Game</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/regret_matching.html">Regret Matching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/cfr.html">Counterfactual Regret Minimization</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Imperfect Information Games</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>About</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/README.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1 align="center">
+  <br>
+  <a><img src="https://raw.githubusercontent.com/vlongle/imperfect_information_games/main/imgs/poker_meme.jpeg" alt="Imperfect Information Games"></a>
+</h1><h4 align="center">A Reinforcement Learning AI to play the (simplified) Crab Game Bomb Tag game.</h4><p align="center">
+    <a href="https://github.com/vlongle/crabgame_ai/commits/main">
+    <img src="https://img.shields.io/github/last-commit/vlongle/imperfect_information_games.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub last commit">
+    <a href="https://github.com/vlongle/crabgame_ai/issues">
+    <img src="https://img.shields.io/github/issues-raw/vlongle/imperfect_information_games.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub issues">
+    <a href="https://github.com/vlongle/crabgame_ai/pulls">
+    <img src="https://img.shields.io/github/issues-pr-raw/vlongle/imperfect_information_games.svg?style=flat-square&logo=github&logoColor=white"
+         alt="GitHub pull requests">
+    <a href="https://twitter.com/intent/tweet?text=Try this dope Python module for AI in imperfect information games!:&url=https%3A%2F%2Fgithub.com%2Fvlongle%2Fimperfect_information_games">
+    <img src="https://img.shields.io/twitter/url/https/github.com/vlongle/imperfect_information_games.svg?style=flat-square&logo=twitter"
+         alt="GitHub tweet">
+</p><p align="center">
+  <a href="#about">About</a> •
+  <a href="#installation">Installation</a> •
+  <a href="#background">Background</a> •
+  <a href="#features">Features</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#references">References</a> •
+  <a href="#license">License</a>
+</p><div class="section" id="about">
+<h1>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h1>
+<p>A Python module of heavily commented implementations of algorithms and games for games
+with imperfect information such as Rock-Paper-Scissor and Poker. See <a class="reference external" href="#features">Features</a> for a
+list of games and algorithms we provide. See <a class="reference external" href="#installation">Installation</a> for instruction on how
+to install this module, and <a class="reference external" href="#getting-started">Getting Started</a> on usage and how to customize our
+module for your own game.</p>
+</div>
+<div class="section" id="id1">
+<h1>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Clone this repo and install it as a module.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/vlongle/imperfect_information_games.git
+$ cd imperfect_information_games
+$ pip3 install -e .
+</pre></div>
+</div>
+<p>Try to import the module to check if the installation has been successful.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3
+&gt;&gt; import imperfect_information_games
+</pre></div>
+</div>
+</div>
+<div class="section" id="background">
+<h1>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="imperfect-information-games">
+<h2>Imperfect Information Games<a class="headerlink" href="#imperfect-information-games" title="Permalink to this headline">¶</a></h2>
+<p>Games such as Chess are known as “perfect information” games as there is no private information to
+each player. Every player can observe each other’s moves, and the game state (i.e., the chess board).</p>
+<p>However, games such as Poker are “imperfect-information” as each player has their own private card.
+Games with simultaneously moves such as rock-paper-scissor can also be modeled as imperfect information
+as each player doesn’t know the opponent’s move ahead of time.</p>
+<p>Games with imperfect information are typically modeled as <a class="reference external" href="https://en.wikipedia.org/wiki/Extensive-form_game">extensive-form game (EFG)</a>.
+EFG models sequential game with a game. Players take turn to make a move until a termination node is
+reached, where the payoff is revealed. Players make decision at each decision node. However, the
+players do not know exactly which node they are in. Instead, they only know that they’re in a set
+of nodes known as an information set. An information set represents all the possible worlds that
+are consistent with what the player knows.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h1>Features<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Games</p></th>
+<th class="head"><p>Progress</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Rock-paper-scissor</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-odd"><td><p>Asymmetric Rock-paper-scissor</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-even"><td><p>Bar-crowding Game</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-odd"><td><p>Prisoner’s Dilemma</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-even"><td><p>Kuhn Poker</p></td>
+<td><p>✔️</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Algorithm</p></th>
+<th class="head"><p>Progress</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Regret Matching</p></td>
+<td><p>✔️</p></td>
+</tr>
+<tr class="row-odd"><td><p>Counterfactual Regret Minimization (CFR)</p></td>
+<td><p>✔️</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id3">
+<h1>Getting Started<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h1>
+<p>Look at all the demos that we have in <code class="docutils literal notranslate"><span class="pre">imperfect_info_games/demos</span></code> folder, and try any of them. For example, run (from the repo’s root folder)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 imperfect_info_games/demos/regret_matching_demo.py --help
+</pre></div>
+</div>
+<p>to print out the available options for that demo file. Pick your desired options and run a demo file. For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 imperfect_info_games/demos/regret_matching_demo.py --game PrisonerDilemmaGame
+--train_regret_matching
+</pre></div>
+</div>
+<div class="section" id="writing-your-own-games">
+<h2>Writing Your Own Games!<a class="headerlink" href="#writing-your-own-games" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="normal-form-games">
+<h3>Normal-form Games<a class="headerlink" href="#normal-form-games" title="Permalink to this headline">¶</a></h3>
+<p>Add a new game by writing an <code class="docutils literal notranslate"><span class="pre">ACTION_ENUM</span></code> class that defines the possible action that is
+available to each player. Then, write a Game class that inherits from our <code class="docutils literal notranslate"><span class="pre">NormalFormGame</span></code>. You will
+need to implement the <code class="docutils literal notranslate"><span class="pre">get_payoffs</span></code> function.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">intenum</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">sequence</span>
+
+<span class="kn">from</span> <span class="nn">imperfect_info_games.games.game</span> <span class="kn">import</span> <span class="n">normalformgame</span>
+<span class="kn">from</span> <span class="nn">imperfect_info_games.utils</span> <span class="kn">import</span> <span class="n">lessverboseenum</span>
+
+
+<span class="k">class</span> <span class="nc">MY_CUSTOM_ACTION</span><span class="p">(</span><span class="n">lessVerboseEnum</span><span class="p">,</span> <span class="n">IntEnum</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="k">class</span> <span class="nc">MyCustomNormalFormGame</span><span class="p">(</span><span class="n">NormalFormGame</span><span class="p">):</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="n">MY_CUSTOM_ACTION</span>
+    <span class="n">n_players</span> <span class="o">=</span> <span class="o">...</span>
+    <span class="k">def</span> <span class="nf">get_payoffs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">MY_CUSTOM_ACTION</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p>See <code class="docutils literal notranslate"><span class="pre">imperfect_info_games/games/prisoner_dilemma.py</span></code> for an example. You can then use your custom
+game with the functions available in <code class="docutils literal notranslate"><span class="pre">imperfect_info_games/demos/regret_matching_demo.py</span></code>. For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="kn">from</span> <span class="nn">imperfect_info_games.demos</span> <span class="kn">import</span> <span class="n">to_train_regret_matching</span>
+
+<span class="n">Game</span> <span class="o">=</span> <span class="n">MyCustomNormalFormGame</span>
+<span class="n">to_train_regret_matching</span><span class="p">(</span><span class="n">Game</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="todos">
+<h1>TODOs<a class="headerlink" href="#todos" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Implement other variations of counterfactual regret stuff like Monte Carlo, deep counterfactual</p></li>
+<li><p>Implement some cool visualization of training like this (<a class="reference external" href="https://medium.com/hackernoon/artificial-intelligence-poker-and-regret-part-2-ee2e329d6571">https://medium.com/hackernoon/artificial-intelligence-poker-and-regret-part-2-ee2e329d6571</a>).</p></li>
+<li><p>Implement bandit stuff (Exp3 for example, UCB, beta Thompson sampling stuff <a class="reference external" href="https://www.youtube.com/watch?v=XxTgX8FlDlI">https://www.youtube.com/watch?v=XxTgX8FlDlI</a>, <a class="reference external" href="https://www.cs.ubc.ca/labs/lci/mlrg/slides/Introduction_to_Bandits.pdf">https://www.cs.ubc.ca/labs/lci/mlrg/slides/Introduction_to_Bandits.pdf</a>). A whole book on bandit lol (<a class="reference external" href="https://tor-lattimore.com/downloads/book/book.pdf">https://tor-lattimore.com/downloads/book/book.pdf</a>)</p></li>
+<li><p>Consider opponent modeling as well (<a class="reference external" href="https://abhinavrobinson.medium.com/ai-wins-rock-paper-scissors-mostly-65e0542f945b">https://abhinavrobinson.medium.com/ai-wins-rock-paper-scissors-mostly-65e0542f945b</a> this is a nice summary, and the CMU slides somewhere as well… (
+<a class="reference external" href="http://www.cs.cmu.edu/afs/cs/academic/class/15780-s13/www/lec/ganzfried_gt.pdf">http://www.cs.cmu.edu/afs/cs/academic/class/15780-s13/www/lec/ganzfried_gt.pdf</a>))</p></li>
+<li><p>Maybe also implement some deep RL methods like Q-learning, actor-critic for these games.</p></li>
+</ul>
+</div>
+<div class="section" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="http://modelai.gettysburg.edu/2013/cfr/cfr.pdf">An Introduction to Counterfactual Regret Minimization (Neller &amp; Lanctot)</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/ai-in-plain-english/steps-to-building-a-poker-ai-part-1-outline-and-history-58fbedaf6ded">Steps to building a Poker AI  (Thomas Trenner)</a></p></li>
+<li><p>` &lt;<a class="reference external" href="https://www.kaggle.com/ihelon/rock-paper-scissors-agents-comparison">https://www.kaggle.com/ihelon/rock-paper-scissors-agents-comparison</a>&gt;`_</p></li>
+</ul>
+</div>
+<div class="section" id="license">
+<h1>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h1>
+<p>MIT License &#64; Long Le 2021.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="imperfect_info_games.demos.html" class="btn btn-neutral float-right" title="imperfect_info_games.demos package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Imperfect Information Games’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Long Le.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
