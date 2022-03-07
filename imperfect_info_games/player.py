@@ -15,13 +15,13 @@ class Player(ABC):
     """
     An abstract player class.
 
-   Properties
+   Attributes
    ----------
         - name (str): The name of the player.
 
     Abstract methods
     ----------------
-        - get_action(self, infostate) -> action:
+        - act(self, infostate) -> action:
             Returns the action to take in this infostate.
 
     Optional methods

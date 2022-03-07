@@ -60,22 +60,23 @@ different contributions to info-set-wide strategy by different paths with differ
 
 BUT, why do we use opponent's prob in reach prob. without also factoring our own? I guess we can put in our own prob. if we really want to but it's not neccessary?? Or maybe even undesirable as our strat changes...
 '''
-from typing import Sequence
 from enum import Enum
-from cfr import counterfactualRegretMinimizer
+from enum import IntEnum
+from typing import Sequence
+
 import numpy as np
-from utils import lessVerboseEnum
-from game import extensiveFormGame
-import logging
-logging.basicConfig(level=logging.INFO, format="%(message)s")
+
+from imperfect_info_games.games.game import ExtensiveFormGame
+from imperfect_info_games.player import Player
+from imperfect_info_games.utils import lessVerboseEnum
 
 
-class KUHN_POKER_ACTIONS(lessVerboseEnum):
+class KUHN_POKER_ACTIONS(lessVerboseEnum, IntEnum):
     PASS = 0
     BET = 1
 
 
-class KUHN_POKER_CHANCE_ACTIONS(lessVerboseEnum):
+class KUHN_POKER_CHANCE_ACTIONS(lessVerboseEnum, IntEnum):
     """
     3 cards J, Q, K dealt randomly to 2 players.
     """
@@ -87,24 +88,23 @@ class KUHN_POKER_CHANCE_ACTIONS(lessVerboseEnum):
     KQ = 5  # player 1 wins
 
 
-class kuhnPokerGame(extensiveFormGame):
+class KuhnPokerGame(ExtensiveFormGame):
     """
     TODO: add documentation
     """
+    actions = KUHN_POKER_ACTIONS
+    chance_actions = KUHN_POKER_CHANCE_ACTIONS
+    n_players = 2
+    has_chance_player = True
 
-    def __init__(self):
-        self.players = [0, 1]
-        self.actions = KUHN_POKER_ACTIONS
-        self.has_chance_player = True
-
-    def is_terminal(self, history):
-        """
-        This game has 5 terminal nodes
-        """
-        history = "-".join(map(str, history[1:]))  # excluding chance node
+    def is_terminal(self, history: Sequence[IntEnum]):
+        history_str = self.history_to_str(history[1:])  # ignore chance node
         terminal_nodes = ["PASS-PASS", "BET-BET", "BET-PASS",
                           "PASS-BET-PASS", "PASS-BET-BET"]
-        return history in terminal_nodes
+        return history_str in terminal_nodes
+
+    def get_active_player(self, history: Sequence[IntEnum]) -> Player:
+        return self.players[(len(history)-1) % 2]
 
     def get_winner(self, chance_action: KUHN_POKER_CHANCE_ACTIONS) -> int:
         if chance_action.value < 3:
@@ -136,31 +136,28 @@ class kuhnPokerGame(extensiveFormGame):
                 return 2 * self.showdown(history)  # wins 4 chips
         raise Exception("Invalid history")
 
-    def get_card(self, chance_action: KUHN_POKER_CHANCE_ACTIONS, player: int) -> str:
-        if player == 0:
-            return chance_action.name[0]
-        else:
-            return chance_action.name[1]
+    def get_card(self, chance_action: KUHN_POKER_CHANCE_ACTIONS, player_id: int) -> str:
+        return chance_action.name[player_id]
 
-    def get_infostate(self, player: int, history: Sequence[Enum]) -> str:
-        """
-        An info set of a player is uniquely determined by the history excluding the chance's action and the player's private card
-        - history: list of (action) Enum
-        """
-        my_card = self.get_card(history[0], player)  # type: ignore
+    def get_infostate(self, history: Sequence[Enum]) -> str:
+        player_id = self.get_active_player(history).player_id  # type: ignore
+        my_card = self.get_card(history[0], player_id)  # type: ignore
         return my_card + "-" + "-".join(map(str, history[1:]))
 
     def chance_action(self) -> KUHN_POKER_CHANCE_ACTIONS:
         return KUHN_POKER_CHANCE_ACTIONS(np.random.choice(range(len(KUHN_POKER_CHANCE_ACTIONS))))
 
-    def get_active_player(self, history) -> int:
-        return (len(history)-1) % 2
+    @staticmethod
+    def shorten_history(history_str: str) -> str:
+        """Shorten history string. For example, "KJ-PASS-BET" -> "KJPB".
+        Args:
+            - history_str: history string
 
-    def get_opponent(self, player: int) -> int:
-        return (player + 1) % 2
-
-
-if __name__ == "__main__":
-    game = kuhnPokerGame()
-    cfr_solver = counterfactualRegretMinimizer(game, n_iters=10000)
-    cfr_solver.train()
+        Returns:
+            - shortened history string
+        """
+        s = ''.join(str(a) for a in history_str)
+        replacements = {'-': '', 'PASS': 'P', 'BET': 'B'}
+        for k, v in replacements.items():
+            s = s.replace(k, v)
+        return s + ' ' * (5-len(s))

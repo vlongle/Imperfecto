@@ -69,14 +69,14 @@ class RegretMatchingPlayer(Player):
         """
         my_action = history[player_id]
         # compute counterfactual rewards
-        counterfactual_rewards = np.array([])
+        counterfactual_rewards = np.zeros(self.n_actions)
         for action in range(self.n_actions):
             action = self.game.actions(action)  # int to action enum
             counterfactual_history = copy(history)
             # suppose player `player_id` has played `action`
             counterfactual_history[player_id] = action
-            counterfactual_rewards = np.append(counterfactual_rewards,
-                                               self.game.get_payoffs(counterfactual_history)[player_id])
+            counterfactual_rewards[int(action)] = self.game.get_payoffs(
+                counterfactual_history)[player_id]
 
         self.cum_regrets += counterfactual_rewards - \
             counterfactual_rewards[int(my_action)]

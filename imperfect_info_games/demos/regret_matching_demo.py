@@ -1,6 +1,9 @@
 """A demo for the regret-matching algorithm (Hart and Mas-Colell 2000) for various
 N-player normal form games.
 
+For 2-player zero-sum game, regret matching algorithm's average strategy provably converges to Nash.
+However, it seems to work for more than 2-player games as well.
+
 Usage
 -----
 `python3 regret_matching_demo.py --help`

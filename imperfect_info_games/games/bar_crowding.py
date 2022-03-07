@@ -37,8 +37,9 @@ class BarCrowdingGame(NormalFormGame):
     Nash Equilibrium
     -----------------
     The pure Nash equilibria are
-    1. All three stay at home.
+    1. All three stay at home. (payoff = 1 for all)
     2. Three outcomes where exactly two players go to the bar, and one player stays at home.
+    (payoff = 1 for one player, 2 for the other two)
     """
     actions = BAR_CROWDING_ACTIONS
     n_players = 3

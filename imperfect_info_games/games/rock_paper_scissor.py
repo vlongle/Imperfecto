@@ -28,7 +28,7 @@ class RockPaperScissorGame(NormalFormGame):
 
     Nash Equilibrium
     ----------------
-    The nash strategy (unexploitable) is (1/3, 1/3, 1/3)
+    The nash strategy (unexploitable) is (1/3, 1/3, 1/3) (payoff = 0 for all)
     """
 
     actions = ROCK_PAPER_SCISSOR_ACTIONS
@@ -64,7 +64,7 @@ class AsymmetricRockPaperScissorGame(RockPaperScissorGame):
 
     Nash Equilibrium
     ----------------
-    The nash strategy (unexploitable) is (0.4, 0.4, 0.2)
+    The nash strategy (unexploitable) is (0.4, 0.4, 0.2) (payoff = 0 for all)
     """
 
     def get_payoffs(self, history: Sequence[ROCK_PAPER_SCISSOR_ACTIONS]) -> Sequence[float]:

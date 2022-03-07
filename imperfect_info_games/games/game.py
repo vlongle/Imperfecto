@@ -10,12 +10,12 @@ from imperfect_info_games.player import Player
 class ExtensiveFormGame(ABC):
     """Abstract class for extensive form games.
 
-    Required class properties
+    Required class attributes
     -------------------
         - actions (EnumMeta): The actions of the game.
         - n_players (int): The number of players in the game.
 
-    Required instance properties
+    Required instance attributes
     -------------------
         - players (Sequence[Player]): The players of the game.
 
@@ -130,6 +130,19 @@ class ExtensiveFormGame(ABC):
                 infostate))  # convert int to action enum
             history.append(action)
         return history, self.get_payoffs(history)
+
+    @staticmethod
+    def shorten_history(history_str: str) -> str:
+        """Shorten history string. Games with long action names should
+        override this method.
+
+        Args:
+            - history_str: history string
+
+        Returns:
+            - shortened history string
+        """
+        return history_str
 
 
 class NormalFormGame(ExtensiveFormGame, ABC):

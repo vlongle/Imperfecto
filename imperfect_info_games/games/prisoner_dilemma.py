@@ -32,7 +32,7 @@ class PrisonerDilemmaGame(NormalFormGame):
 
     Nash Equilibria
     ---------------
-    The only Nash Equilibrium is when both players snitch.
+    The only Nash Equilibrium is when both players snitch. (payoff = -2 for both)
     """
     actions = PRISONER_DILEMMA_ACTIONS
     n_players = 2
