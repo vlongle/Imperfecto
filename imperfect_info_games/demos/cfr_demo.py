@@ -1,3 +1,19 @@
+"""A demo for the Counterfactual regret minimization (CFR) algorithm ((Zinkevich et al. "Regret minimization in games with incomplete information" 2008) for various
+extensive-form game.
+
+Usage
+-----
+
+Run
+
+```
+python3 imperfect_info_games/demos/cfr_demo.py --help
+```
+
+to print the options available.
+
+"""
+
 import logging
 
 import click

@@ -1,0 +1,29 @@
+imperfect\_info\_games.algos package
+====================================
+
+Submodules
+----------
+
+imperfect\_info\_games.algos.cfr module
+---------------------------------------
+
+.. automodule:: imperfect_info_games.algos.cfr
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+imperfect\_info\_games.algos.regret\_matching module
+----------------------------------------------------
+
+.. automodule:: imperfect_info_games.algos.regret_matching
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: imperfect_info_games.algos
+   :members:
+   :undoc-members:
+   :show-inheritance:

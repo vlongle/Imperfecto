@@ -1,6 +1,10 @@
 """A class of regret matching player for N-player normal form games.
 See the paper "a simple adaptive procedure leading to correlated equilibrium" (2000)
-by SERGIU HART AND ANDREU MAS-COLELL.
+by Sergiu Hart and Andreu Mas-Colell.
+
+The algorithm works by maintaining a cumulative regret vector for each action. The current regret is the difference between the counterfactual reward and the reward of the actual action taken.
+
+The strategy is action distribution proportional to the positive entries of the cumulative regret vector.
 """
 from copy import copy
 from enum import IntEnum

@@ -59,6 +59,7 @@ So, we have established that weighting the contribution to info-set-wide regret 
 different contributions to info-set-wide strategy by different paths with different probs
 
 BUT, why do we use opponent's prob in reach prob. without also factoring our own? I guess we can put in our own prob. if we really want to but it's not neccessary?? Or maybe even undesirable as our strat changes...
+TODO: comment this...
 '''
 from enum import Enum
 from enum import IntEnum

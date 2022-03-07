@@ -6,9 +6,15 @@ However, it seems to work for more than 2-player games as well.
 
 Usage
 -----
-`python3 regret_matching_demo.py --help`
+Run
+
+```
+python3 imperfect_info_games/demos/regret_matching_demo.py --help
+```
+
 to print the options available.
 """
+
 from pprint import pprint
 from typing import Type
 
@@ -149,8 +155,7 @@ def main(game: str, n_iters: int = 10000, train_regret_matching: bool = False, t
         --train_regret_matching: Whether to train regret matching players.
         --train_delay_regret_matching: Whether to train delay regret matching players.
 
-    We will also show the Nash equilibrium for the game so the user can verify that the regret matching
-    players' strategies indeed converge to Nash.
+    We will also show the Nash equilibrium for 2-player zero-sum games so the user can verify that the regret matching players' strategies indeed converge to Nash.
     """
     Game_dict = {
         "RockPaperScissorGame": RockPaperScissorGame,

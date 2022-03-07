@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a><img src="imgs/poker_meme.jpeg" alt="Imperfect Information Games"></a>
+  <a><img src="https://raw.githubusercontent.com/vlongle/imperfect_information_games/main/imgs/poker_meme.jpeg" alt="Imperfect Information Games"></a>
 </h1>
 
 <h4 align="center">A Reinforcement Learning AI to play the (simplified) Crab Game Bomb Tag game.</h4>
@@ -135,10 +135,12 @@ to_train_regret_matching(Game)
 http://www.cs.cmu.edu/afs/cs/academic/class/15780-s13/www/lec/ganzfried_gt.pdf))
 - Maybe also implement some deep RL methods like Q-learning, actor-critic for these games.
 
+- More game: Leduc Poker, Texas Hold Em.
+
 ## References
 - [An Introduction to Counterfactual Regret Minimization (Neller \& Lanctot)](http://modelai.gettysburg.edu/2013/cfr/cfr.pdf) 
 - [Steps to building a Poker AI  (Thomas Trenner)](https://medium.com/ai-in-plain-english/steps-to-building-a-poker-ai-part-1-outline-and-history-58fbedaf6ded)
 - [](https://www.kaggle.com/ihelon/rock-paper-scissors-agents-comparison)
 
 ## License
-MIT License @ Long Le 2021.
+MIT License @ Long Le 2022.

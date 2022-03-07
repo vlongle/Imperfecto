@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Kuhn Poker &mdash; Imperfect Information Games 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/baselines_theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Rock Paper Scissor" href="rock_paper_scissor.html" />
+    <link rel="prev" title="imperfect_info_games.demos package" href="../imperfect_info_games.demos.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Imperfect Information Games
+          
+
+          
+            
+            <img src="../_static/poker_meme.jpeg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#id1">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#background">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#id2">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#id3">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#todos">TODOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#license">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Demos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../imperfect_info_games.demos.html">imperfect_info_games.demos package</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Games</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kuhn Poker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rock_paper_scissor.html">Rock Paper Scissor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prisoners_dilemma.html">Prisoner’s Dilemma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bar_crowding.html">Bar Crowding Game</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/regret_matching.html">Regret Matching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/cfr.html">Counterfactual Regret Minimization</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Imperfect Information Games</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Kuhn Poker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/games/kuhn_poker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-imperfect_info_games.games.kuhn_poker">
+<span id="kuhn-poker"></span><h1>Kuhn Poker<a class="headerlink" href="#module-imperfect_info_games.games.kuhn_poker" title="Permalink to this headline">¶</a></h1>
+<p>Kuhn Poker.
+- Two players
+- Three cards: 1,2,3
+- Each player gets a random card
+- On a turn, a player can either</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>pass: do nothing. The opponent takes all chip in the pot</p></li>
+<li><p>bet: place a chip in the pot</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>after two passes or two bets (not necessarily consecutive), the game ends. Player with the highest card wins.</p></li>
+<li><p>Maximum depth of the game tree is 3.</p></li>
+</ul>
+<dl>
+<dt>Game tree.</dt><dd><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><dl>
+<dt>[chance]</dt><dd><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+<dl>
+<dt>assign cards</dt><dd><blockquote>
+<div><div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div></blockquote>
+<p>[player1]
+/          pass        bet</p>
+</dd>
+</dl>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><a href="#id1"><span class="problematic" id="id2">|</span></a></div>
+</div>
+</div></blockquote>
+<dl>
+<dt>[player2]       [player2]</dt><dd><blockquote>
+<div><p>/           /     pass    bet   pass     bet</p>
+</div></blockquote>
+<div class="line-block">
+<div class="line">|       |         |</div>
+</div>
+<ol class="loweralpha simple" start="8">
+<li><p>[player1]   (1)       (h)
+/         pass   bet
+|     |
+(2)   (h)</p></li>
+</ol>
+</dd>
+</dl>
+</dd>
+<dt>Leaf nodes:</dt><dd><p>(h) - player has highest card wins!
+(1) - player 1 wins! (player 2 chickens out)
+(2) - player 2 wins! (player 1 chickens out)</p>
+</dd>
+</dl>
+<p>Information set: is a set of decision nodes of the decision-making player that are indistinguishable to that player.
+In our game, we have 12 info-sets. Each info-set has 2 states since the opponent can have any of the two cards that I’m not already holding. We have 6 ways to deal 2 out of 3 cards to 2 players, and 2 states / info-set so we have 6/2 = 3 info sets at every decision node. We have 4 decision nodes so 3 * 4 = 12 info sets.
+NOTE the subtle difference between the no. of info sets and the no. of nodes per info set. (the size of the info set). The size of the info. set tells us how many worlds are consistent with the player’s observations so far. The no. of info sets is more “meta”. The player, without entering into a game / trajectory, can reason ahead about the different info. sets that they can be in once some partial observations are available to them when the game starts.</p>
+<p>We will use Counterfactual Regret Minimization (CFR) that extends rock-paper-scissor regret-matching.</p>
+<dl class="simple">
+<dt>Notation:</dt><dd><ul class="simple">
+<li><p>sigma: policy</p></li>
+<li><p>h: history i.e. sequence of actions taken by players and chance</p></li>
+<li><p>pi(h | sigma) : reach probability of a particular history given a policy</p></li>
+</ul>
+</dd>
+</dl>
+<p><a class="reference external" href="https://cs.stackexchange.com/questions/132738/in-counterfactual-regret-minimization-why-are-additions-to-regret-weighted-by-r">https://cs.stackexchange.com/questions/132738/in-counterfactual-regret-minimization-why-are-additions-to-regret-weighted-by-r</a></p>
+<p>So that we can take into account average and stuff…
+In fact, this approach is very similar to advantage function in Q-learning</p>
+<p><a class="reference external" href="https://escholarship.org/content/qt9178b2q6/qt9178b2q6.pdf?t=ppfl6c">https://escholarship.org/content/qt9178b2q6/qt9178b2q6.pdf?t=ppfl6c</a>
+In fact, this paper writes cfr as advantage-function-like RL form!!</p>
+<p>So, we have established that weighting the contribution to info-set-wide regret by each hist (realized in different games) by the reach probability to that history is important to differentiate
+different contributions to info-set-wide strategy by different paths with different probs</p>
+<p>BUT, why do we use opponent’s prob in reach prob. without also factoring our own? I guess we can put in our own prob. if we really want to but it’s not neccessary?? Or maybe even undesirable as our strat changes…</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.kuhn_poker.</span></span><span class="sig-name descname"><span class="pre">KUHN_POKER_ACTIONS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS" title="Permalink to this definition">¶</a></dt>
+<dd><p>An enumeration.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.kuhn_poker.</span></span><span class="sig-name descname"><span class="pre">KUHN_POKER_CHANCE_ACTIONS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS" title="Permalink to this definition">¶</a></dt>
+<dd><p>3 cards J, Q, K dealt randomly to 2 players.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.kuhn_poker.</span></span><span class="sig-name descname"><span class="pre">KuhnPokerGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../imperfect_info_games.html#imperfect_info_games.player.Player" title="imperfect_info_games.player.Player"><span class="pre">imperfect_info_games.player.Player</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO: add documentation</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.actions">
+<span class="sig-name descname"><span class="pre">actions</span></span><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS" title="imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.chance_actions">
+<span class="sig-name descname"><span class="pre">chance_actions</span></span><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.chance_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="../imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS" title="imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_active_player">
+<span class="sig-name descname"><span class="pre">get_active_player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">enum.IntEnum</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../imperfect_info_games.html#imperfect_info_games.player.Player" title="imperfect_info_games.player.Player"><span class="pre">imperfect_info_games.player.Player</span></a></span></span><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_active_player" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the active player of the game at the current decision point.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>history (Sequence[IntEnum]): The history of the game.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>player (Player): The active player of the game at the current decision point.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_infostate">
+<span class="sig-name descname"><span class="pre">get_infostate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">enum.Enum</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_infostate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the infostate (i.e. the information set) of the game.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>history (Sequence[IntEnum]): The history of the game.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>infostate (str): A string representation of the infostate of the game.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_payoffs">
+<span class="sig-name descname"><span class="pre">get_payoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_payoffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>This game has 5 terminal nodes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.is_terminal">
+<span class="sig-name descname"><span class="pre">is_terminal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">enum.IntEnum</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.is_terminal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the game is in a terminal state.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><ul class="simple">
+<li><p>history (Sequence[IntEnum]): The history of the game.</p></li>
+</ul>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>is_terminal (bool): True if the game is in a terminal state, False otherwise.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.shorten_history">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shorten_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.shorten_history" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shorten history string. For example, “KJ-PASS-BET” -&gt; “KJPB”.
+Args:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>history_str: history string</p></li>
+</ul>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>shortened history string</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.showdown">
+<span class="sig-name descname"><span class="pre">showdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.showdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the payoff value ASSUMING that the pot contains 2 chips</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="rock_paper_scissor.html" class="btn btn-neutral float-right" title="Rock Paper Scissor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../imperfect_info_games.demos.html" class="btn btn-neutral float-left" title="imperfect_info_games.demos package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Long Le.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
