@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name='imperfect_info_games',
@@ -10,4 +10,6 @@ setup(
     keywords='python imperfect info algorithms',
     url='https://github.com/vlongle/imperfect_information_games',
     packages=[pkg for pkg in find_packages() if pkg != "tests"],
+    python_requires='>=3.10',
+    install_requires=['click', 'numpy', 'enlighten'],
 )

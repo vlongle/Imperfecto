@@ -1,7 +1,7 @@
 """The implementation of Counterfactual regret minimization (CFR) algorithm.
 (Zinkevich et al. "Regret minimization in games with incomplete information" 2008)
 
-CFR is a self-play algorithm that assumes that the joint strategy of all players in the game is
+CFR is a **self-play** algorithm that assumes that the joint strategy of all players in the game is
 public knowledge. The algorithm iteratively updates the regret of each player's action at each
 information set. The average strategy of each player in CFR provably converges to a Nash equilibrium.
 
