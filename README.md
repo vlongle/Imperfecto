@@ -33,11 +33,11 @@
 
 ## About
 
-A Python module of heavily commented implementations of algorithms and games for games 
+A Python module of heavily commented implementations of algorithms and games
 with imperfect information such as Rock-Paper-Scissor and Poker. See [Features](#features) for a
 list of games and algorithms we provide. See [Installation](#installation) for instruction on how
 to install this module, and [Getting Started](#getting-started) on usage and how to customize our
-module for your own game.
+module for your own game. For a complete documentation, see [Documentation](#documentation).
 
 ## Installation
 Clone this repo and install it as a module.
@@ -63,7 +63,7 @@ Games with simultaneously moves such as rock-paper-scissor can also be modeled a
 as each player doesn't know the opponent's move ahead of time.
 
 Games with imperfect information are typically modeled as [extensive-form game (EFG)](https://en.wikipedia.org/wiki/Extensive-form_game). 
-EFG models sequential game with a game. Players take turn to make a move until a termination node is
+EFG models sequential games with a game tree. Players take turn making moves until a termination node is
 reached, where the payoff is revealed. Players make decision at each decision node. However, the
 players do not know exactly which node they are in. Instead, they only know that they're in a set
 of nodes known as an information set. An information set represents all the possible worlds that
@@ -148,3 +148,4 @@ Please see [https://vlongle.github.io/imperfect_information_games/](https://vlon
 
 ## License
 MIT License @ Long Le 2022.
+
