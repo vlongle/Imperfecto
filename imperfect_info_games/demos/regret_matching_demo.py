@@ -93,7 +93,7 @@ def to_train_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int = 10000
         print(
             f'Training regret-matching players for game {Game.__name__} after {n_iters} iters:')
         print('average strategies:')
-        pprint(trainer.get_avg_strategies())
+        pprint(trainer.avg_strategies)
         print(f'eps_rewards: {avg_payoffs}')
         print()
 
@@ -125,7 +125,7 @@ def to_train_delay_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int =
         print(
             f'Training delay regret-matching players for game {Game.__name__} after {n_iters} iters:')
         print('average strategies:')
-        pprint(trainer.get_avg_strategies())
+        pprint(trainer.avg_strategies)
         print(f'eps_rewards: {trainer.avg_payoffs}')
         print()
 

@@ -1,15 +1,25 @@
-"""A class to train players in an extensive form game."""
+"""A class to train players in an extensive form game.
+
+The players are trained over a number of games by calling each player's ``update_strategy`` method
+after each game. The average payoffs and the average strategies during training are recorded.
+"""
 from typing import Sequence, Type
 
-import enlighten
 import numpy as np
 
+import enlighten
 from imperfect_info_games.algos.player import Player
 from imperfect_info_games.games.game import ExtensiveFormGame
 
 
 class Trainer:
     """A class to train players in an extensive form game.
+
+    Args:
+        Game: The game class to train players in.
+        players: The players to train.
+        n_iters: The number of games to train for.
+        display_status_bar: Whether to display a status bar during training.
 
     Attributes:
         game (ExtensiveFormGame): The game to train players in.
@@ -19,15 +29,6 @@ class Trainer:
         display_status_bar (bool): Whether to display a status bar during training.
         manager (enlighten.Manager): The enlighten manager to display the status bar.
         pbar (enlighten.Counter): The enlighten counter to display the status bar.
-
-        Args:
-            Game (Type[ExtensiveFormGame]): The game to train players in. Must take `players` as the args to __init__ function.
-            players (Sequence[Player]): The players to train.
-            n_iters (int): The number of games to train for.
-            display_status_bar (bool): Whether to display a status bar during training.
-    Methods:
-        train (Sequence[Player]): Train the players for `n_iter` games using each player's `update_strategy` function.
-        get_avg_strategies (): Get the average strategies of each player.
     """
 
     def __init__(self, Game: Type[ExtensiveFormGame], players: Sequence[Player], n_iters: int = 100,
@@ -45,6 +46,9 @@ class Trainer:
 
     def train(self, freeze_ls: Sequence[Player] = []) -> np.ndarray:
         """Train the players for `n_iter` games using each player's `update_strategy` function.
+
+        Note:
+            Players in the ``freeze_ls`` list will not be trained.
 
         Args:
             freeze_ls (Sequence[Player]): The players to freeze during training.
@@ -77,7 +81,8 @@ class Trainer:
         """
         return np.mean(self.ep_payoffs, axis=0)
 
-    def get_avg_strategies(self) -> dict:
+    @property
+    def avg_strategies(self) -> dict:
         """Get the average strategies of each player.
 
         Returns:

@@ -14,13 +14,13 @@ def evaluate_strategies(Game: Type[ExtensiveFormGame], strategies: Sequence[dict
 
     Args:
         Game: The game class to evaluate the strategies on (e.g., ``RockPaperScissorGame``).
-        strategies: A list of strategies, one strategy per each player
-                                        in the game.
-                        (e.g.,
-                            `player0_strat = {"P0": [1/3, 1/3, 1/3]} # equally likely rock-paper-scissor`
-                            `player1_strat = {"P1": [0.4, 0.4, 0.2]}`
-                            `strategies = [player0_strat, player1_strat]`
-                        )
+        strategies: A list of strategies, one strategy per each player in the game.
+                        Example::
+
+                            player0_strat = {"P0": [1/3, 1/3, 1/3]} # equally likely rock-paper-scissor
+                            player1_strat = {"P1": [0.4, 0.4, 0.2]}
+                            strategies = [player0_strat, player1_strat]
+
         n_iters: The number of iterations to run the game for.
 
     Returns:

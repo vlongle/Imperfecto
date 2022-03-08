@@ -203,14 +203,12 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A less verbose version of the Enum class.</span>
 
-<span class="sd">    Usage</span>
-<span class="sd">    -----</span>
-<span class="sd">    ```</span>
+<span class="sd">    Example::</span>
+
 <span class="sd">        class Test(lessVerboseEnum):</span>
 <span class="sd">            TEST=0</span>
 
 <span class="sd">        print(Test.TEST) # prints &quot;TEST&quot; instead of &quot;Test.TEST&quot;</span>
-<span class="sd">    ```</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -225,10 +223,10 @@
 <span class="sd">    Sample an action from an action probability distribution.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        action_probs (np.array): a numpy array of probabilities of length n_actions</span>
+<span class="sd">        action_probs: a numpy array of probabilities of length n_actions</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        int: the index of the action sampled with the given probabilities</span>
+<span class="sd">        the index of the action sampled with the given probabilities</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">action</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">action_probs</span><span class="p">)),</span> <span class="n">p</span><span class="o">=</span><span class="n">action_probs</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">action</span></div>

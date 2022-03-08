@@ -191,18 +191,28 @@
            <div itemprop="articleBody">
             
   <h1>Source code for imperfect_info_games.misc.trainer</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;A class to train players in an extensive form game.&quot;&quot;&quot;</span>
+<span></span><span class="sd">&quot;&quot;&quot;A class to train players in an extensive form game.</span>
+
+<span class="sd">The players are trained over a number of games by calling each player&#39;s ``update_strategy`` method</span>
+<span class="sd">after each game. The average payoffs and the average strategies during training are recorded.</span>
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Type</span>
 
-<span class="kn">import</span> <span class="nn">enlighten</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
+<span class="kn">import</span> <span class="nn">enlighten</span>
 <span class="kn">from</span> <span class="nn">imperfect_info_games.algos.player</span> <span class="kn">import</span> <span class="n">Player</span>
 <span class="kn">from</span> <span class="nn">imperfect_info_games.games.game</span> <span class="kn">import</span> <span class="n">ExtensiveFormGame</span>
 
 
 <div class="viewcode-block" id="Trainer"><a class="viewcode-back" href="../../../misc/trainer.html#imperfect_info_games.misc.trainer.Trainer">[docs]</a><span class="k">class</span> <span class="nc">Trainer</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;A class to train players in an extensive form game.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        Game: The game class to train players in.</span>
+<span class="sd">        players: The players to train.</span>
+<span class="sd">        n_iters: The number of games to train for.</span>
+<span class="sd">        display_status_bar: Whether to display a status bar during training.</span>
 
 <span class="sd">    Attributes:</span>
 <span class="sd">        game (ExtensiveFormGame): The game to train players in.</span>
@@ -212,15 +222,6 @@
 <span class="sd">        display_status_bar (bool): Whether to display a status bar during training.</span>
 <span class="sd">        manager (enlighten.Manager): The enlighten manager to display the status bar.</span>
 <span class="sd">        pbar (enlighten.Counter): The enlighten counter to display the status bar.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            Game (Type[ExtensiveFormGame]): The game to train players in. Must take `players` as the args to __init__ function.</span>
-<span class="sd">            players (Sequence[Player]): The players to train.</span>
-<span class="sd">            n_iters (int): The number of games to train for.</span>
-<span class="sd">            display_status_bar (bool): Whether to display a status bar during training.</span>
-<span class="sd">    Methods:</span>
-<span class="sd">        train (Sequence[Player]): Train the players for `n_iter` games using each player&#39;s `update_strategy` function.</span>
-<span class="sd">        get_avg_strategies (): Get the average strategies of each player.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Game</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">ExtensiveFormGame</span><span class="p">],</span> <span class="n">players</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Player</span><span class="p">],</span> <span class="n">n_iters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
@@ -238,6 +239,9 @@
 
 <div class="viewcode-block" id="Trainer.train"><a class="viewcode-back" href="../../../misc/trainer.html#imperfect_info_games.misc.trainer.Trainer.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freeze_ls</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Player</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Train the players for `n_iter` games using each player&#39;s `update_strategy` function.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            Players in the ``freeze_ls`` list will not be trained.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            freeze_ls (Sequence[Player]): The players to freeze during training.</span>
@@ -270,13 +274,14 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ep_payoffs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Trainer.get_avg_strategies"><a class="viewcode-back" href="../../../misc/trainer.html#imperfect_info_games.misc.trainer.Trainer.get_avg_strategies">[docs]</a>    <span class="k">def</span> <span class="nf">get_avg_strategies</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">avg_strategies</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Get the average strategies of each player.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            dict: The average strategies of each player.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">{</span><span class="n">player</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">strategies</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">player</span><span class="p">,</span> <span class="n">strategies</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ep_strategies</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span></div></div>
+        <span class="k">return</span> <span class="p">{</span><span class="n">player</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">strategies</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">player</span><span class="p">,</span> <span class="n">strategies</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ep_strategies</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span></div>
 </pre></div>
 
            </div>
