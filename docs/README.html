@@ -108,7 +108,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#todos">TODOs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id4">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#license">License</a></li>
 </ul>
@@ -230,11 +230,11 @@
   <a href="#license">License</a>
 </p><div class="section" id="about">
 <h1>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h1>
-<p>A Python module of heavily commented implementations of algorithms and games for games
+<p>A Python module of heavily commented implementations of algorithms and games
 with imperfect information such as Rock-Paper-Scissor and Poker. See <a class="reference external" href="#features">Features</a> for a
 list of games and algorithms we provide. See <a class="reference external" href="#installation">Installation</a> for instruction on how
 to install this module, and <a class="reference external" href="#getting-started">Getting Started</a> on usage and how to customize our
-module for your own game.</p>
+module for your own game. For a complete documentation, see <a class="reference external" href="#documentation">Documentation</a>.</p>
 </div>
 <div class="section" id="id1">
 <h1>Installation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
@@ -260,7 +260,7 @@ each player. Every player can observe each other’s moves, and the game state (
 Games with simultaneously moves such as rock-paper-scissor can also be modeled as imperfect information
 as each player doesn’t know the opponent’s move ahead of time.</p>
 <p>Games with imperfect information are typically modeled as <a class="reference external" href="https://en.wikipedia.org/wiki/Extensive-form_game">extensive-form game (EFG)</a>.
-EFG models sequential game with a game. Players take turn to make a move until a termination node is
+EFG models sequential games with a game tree. Players take turn making moves until a termination node is
 reached, where the payoff is revealed. Players make decision at each decision node. However, the
 players do not know exactly which node they are in. Instead, they only know that they’re in a set
 of nodes known as an information set. An information set represents all the possible worlds that
@@ -376,8 +376,8 @@ game with the functions available in <code class="docutils literal notranslate">
 <li><p>More game: Leduc Poker, Texas Hold Em.</p></li>
 </ul>
 </div>
-<div class="section" id="documentation">
-<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id4">
+<h1>Documentation<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h1>
 <p>Please see <a class="reference external" href="https://vlongle.github.io/imperfect_information_games/">https://vlongle.github.io/imperfect_information_games/</a> for full documentation.</p>
 </div>
 <div class="section" id="references">
