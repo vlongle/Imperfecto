@@ -12,6 +12,14 @@ imperfect\_info\_games.algos.cfr module
    :undoc-members:
    :show-inheritance:
 
+imperfect\_info\_games.algos.player module
+------------------------------------------
+
+.. automodule:: imperfect_info_games.algos.player
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 imperfect\_info\_games.algos.regret\_matching module
 ----------------------------------------------------
 

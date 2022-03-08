@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>imperfect_info_games.games.bar_crowding &mdash; Imperfect Information Games 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/baselines_theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Imperfect Information Games
+          
+
+          
+            
+            <img src="../../../_static/poker_meme.jpeg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id1">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#background">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id2">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id3">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#todos">TODOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#documentation">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#license">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Demos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../demos/cfr_demo.html">CFR Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../demos/regret_matching_demo.html">Regret Matching Demo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Games</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/game.html">Base Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/kuhn_poker.html">Kuhn Poker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/rock_paper_scissor.html">Rock Paper Scissor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/prisoners_dilemma.html">Prisoner’s Dilemma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/bar_crowding.html">Bar Crowding Game</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/player.html">Base Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/regret_matching.html">Regret Matching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/cfr.html">Counterfactual Regret Minimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/trainer.html">Trainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/evaluate.html">Evaluate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/utils.html">Utils</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Imperfect Information Games</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>imperfect_info_games.games.bar_crowding</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for imperfect_info_games.games.bar_crowding</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;A 3-player bar-crowding game&#39;s version of El Farol Bar problem</span>
+<span class="sd">(https://en.wikipedia.org/wiki/El_Farol_Bar_problem).</span>
+
+<span class="sd">Reference:</span>
+<span class="sd">    [Matthew Rouso&#39;s lecture](https://www.youtube.com/watch?v=P7Dg5FRH0cc)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
+
+<span class="kn">from</span> <span class="nn">imperfect_info_games.games.game</span> <span class="kn">import</span> <span class="n">NormalFormGame</span>
+<span class="kn">from</span> <span class="nn">imperfect_info_games.misc.utils</span> <span class="kn">import</span> <span class="n">lessVerboseEnum</span>
+
+
+<div class="viewcode-block" id="BAR_CROWDING_ACTIONS"><a class="viewcode-back" href="../../../games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS">[docs]</a><span class="k">class</span> <span class="nc">BAR_CROWDING_ACTIONS</span><span class="p">(</span><span class="n">lessVerboseEnum</span><span class="p">,</span> <span class="n">IntEnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Available actions for the bar-crowding game.&quot;&quot;&quot;</span>
+    <span class="n">GO_TO_BAR</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">STAY_HOME</span> <span class="o">=</span> <span class="mi">1</span></div>
+
+
+<div class="viewcode-block" id="BarCrowdingGame"><a class="viewcode-back" href="../../../games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BarCrowdingGame">[docs]</a><span class="k">class</span> <span class="nc">BarCrowdingGame</span><span class="p">(</span><span class="n">NormalFormGame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A 3-player bar-crowding game&#39;s version of El Farol Bar problem</span>
+<span class="sd">   (https://en.wikipedia.org/wiki/El_Farol_Bar_problem).</span>
+
+<span class="sd">    Each player has two actions: go to the bar and stay at home. Each player wants to go to the bar</span>
+<span class="sd">    but if all three of them go to the bar, the bar will be crowded. If only one player go to the bar,</span>
+<span class="sd">    then they will feel lonely and silly. Ideally, exactly two players should go to the bar and have</span>
+<span class="sd">    fun.</span>
+
+<span class="sd">    Payoff:</span>
+<span class="sd">        * If the bar is overcrowded, every player get a payoff of -1.</span>
+<span class="sd">        * If a player shows up and feel silly, they get a payoff of 0.</span>
+<span class="sd">        * If a player stays at home, they get a payoff of +1.</span>
+<span class="sd">        * If exactly two players go to the bar, they get a payoff of +2.</span>
+
+<span class="sd">    Nash Equilibrium:</span>
+<span class="sd">        The pure Nash equilibria are</span>
+<span class="sd">            1. All three stay at home. (payoff = 1 for all)</span>
+<span class="sd">            2. Three outcomes where exactly two players go to the bar, and one player stays at home.</span>
+<span class="sd">            (payoff = 1 for one player, 2 for the other two)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">actions</span> <span class="o">=</span> <span class="n">BAR_CROWDING_ACTIONS</span>
+    <span class="n">n_players</span> <span class="o">=</span> <span class="mi">3</span>
+
+<div class="viewcode-block" id="BarCrowdingGame.get_payoffs"><a class="viewcode-back" href="../../../games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BarCrowdingGame.get_payoffs">[docs]</a>    <span class="k">def</span> <span class="nf">get_payoffs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">BAR_CROWDING_ACTIONS</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_terminal</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+        <span class="n">history_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">history_to_str</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+        <span class="k">match</span> <span class="n">history_str</span><span class="p">:</span>
+            <span class="k">case</span> <span class="s2">&quot;STAY_HOME-STAY_HOME-STAY_HOME&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">case</span> <span class="s2">&quot;GO_TO_BAR-STAY_HOME-STAY_HOME&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">case</span> <span class="s2">&quot;STAY_HOME-GO_TO_BAR-STAY_HOME&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">case</span> <span class="s2">&quot;STAY_HOME-STAY_HOME-GO_TO_BAR&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+            <span class="k">case</span> <span class="s2">&quot;STAY_HOME-GO_TO_BAR-GO_TO_BAR&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+            <span class="k">case</span> <span class="s2">&quot;GO_TO_BAR-STAY_HOME-GO_TO_BAR&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+            <span class="k">case</span> <span class="s2">&quot;GO_TO_BAR-GO_TO_BAR-STAY_HOME&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">case</span> <span class="s2">&quot;GO_TO_BAR-GO_TO_BAR-GO_TO_BAR&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">case</span> <span class="k">_</span><span class="p">:</span>
+                <span class="c1"># default case</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid history &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">history</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Long Le.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

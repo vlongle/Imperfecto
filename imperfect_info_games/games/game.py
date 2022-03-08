@@ -1,45 +1,38 @@
-"""A collection of game classes.
+# -*- coding: utf-8 -*-
+"""A collection of base game classes.
+
+Classes:
+    * ExtensiveFormGame
+    * NormalFormGame
 """
 from abc import ABC, abstractmethod
 from enum import EnumMeta, IntEnum
 from typing import Sequence, Tuple
 
-from imperfect_info_games.player import Player
+from imperfect_info_games.algos.player import Player
 
 
 class ExtensiveFormGame(ABC):
     """Abstract class for extensive form games.
 
-    Required class attributes
-    -------------------
-        - actions (EnumMeta): The actions of the game.
-        - n_players (int): The number of players in the game.
+    In an extensive form game, players have some private information, and are unsure
+    about the true state of the world.
 
-    Required instance attributes
-    -------------------
-        - players (Sequence[Player]): The players of the game.
+    Note:
+        ``ExtensiveFormGame`` subclass must have class-level attribute ``actions``, and
+        ``n_players``.
 
-    Abstract methods
-    -----------------
-        - is_terminal(self, history) -> bool:
-             Return whether the game is terminal.
-        - get_payoffs(self, history) -> Sequence[float]:
-             Return the payoffs of the players at the end of the game.
-        - get_active_player(self, history) -> Player:
-             Return the active player.
-        - get_infostate(self, history) -> str
-             Return the string representation of the infostate (information set) of the game.
+    Args:
+        players: The players of the game.
 
-    Implementation methods
-    ----------------------
-        - history_to_str(self, history) -> str:
-            Return a string representation of the history of the game.
-        - play(self) -> Tuple[Sequence[IntEnum], Sequence[float]]:
-            Play the game with the current players and their strategies and return the payoffs.
+    Attributes:
+        actions: The actions of the game (class-level attribute).
+        n_players: The number of players in the game (class-level attribute).
+        players (Sequence[Player]): The players of the game.
     """
 
-    actions: EnumMeta
     n_players: int
+    actions: EnumMeta
 
     def __init__(self, players: Sequence[Player]):
         self.players = players
@@ -61,10 +54,10 @@ class ExtensiveFormGame(ABC):
         """Get the active player of the game at the current decision point.
 
         Args:
-            - history (Sequence[IntEnum]): The history of the game.
+            history: The history of the game.
 
         Returns:
-            - player (Player): The active player of the game at the current decision point.
+            The active player of the game at the current decision point.
         """
         pass
 
@@ -73,21 +66,25 @@ class ExtensiveFormGame(ABC):
         """Check if the game is in a terminal state.
 
         Args:
-            - history (Sequence[IntEnum]): The history of the game.
+            history: The history of the game.
 
         Returns:
-            - is_terminal (bool): True if the game is in a terminal state, False otherwise.
+            True if the game is in a terminal state, False otherwise.
         """
         pass
 
     @abstractmethod
     def get_payoffs(self, history: Sequence[IntEnum]) -> Sequence[float]:
-        """Return the payoff for each player at the current node. This node *must* be a terminal node.
+        """Return the payoff for each player at the current node.
+
+        Note:
+            history must be a terminal node.
+
         Args:
-            - history (Sequence[IntEnum]): The history of the game.
+            history: The history of the game.
 
         Returns:
-            - payoffs (Sequence[float]): The payoffs of the players at the end of the game.
+            The payoffs of the players at the end of the game.
         """
         pass
 
@@ -96,10 +93,10 @@ class ExtensiveFormGame(ABC):
         """Return the infostate (i.e. the information set) of the game.
 
         Args:
-            - history (Sequence[IntEnum]): The history of the game.
+            history: The history of the game.
 
         Returns:
-            - infostate (str): A string representation of the infostate of the game.
+            A string representation of the infostate of the game.
         """
         pass
 
@@ -107,10 +104,10 @@ class ExtensiveFormGame(ABC):
         """Return a string representation of the history of the game.
 
         Args:
-            - history (Sequence[IntEnum]): The history of the game.
+            history: The history of the game.
 
         Returns:
-            - history_str (str): A string representation of the history of the game.
+            A string representation of the history of the game.
         """
         return '-'.join(str(action) for action in history)
 
@@ -119,8 +116,7 @@ class ExtensiveFormGame(ABC):
         Play the game with the current players and their strategies and return the payoffs.
 
         Returns:
-            - history (Sequence[IntEnum]): The history of the game.
-            - payoffs (Sequence[float]): The payoffs of the players at the end of the game.
+            A tuple of the play-out history of the game and the payoffs of the players.
         """
         history = []
         while not self.is_terminal(history):
@@ -137,15 +133,24 @@ class ExtensiveFormGame(ABC):
         override this method.
 
         Args:
-            - history_str: history string
+            history_str: history string to shorten.
 
         Returns:
-            - shortened history string
+            a shortened history string.
         """
         return history_str
 
 
 class NormalFormGame(ExtensiveFormGame, ABC):
+    """N-player normal form game.
+
+    This class of game is a special form of extensive-form games. A normal form game involves every
+    player making simultaneous moves. Thus, they are unsure about each other's move.
+
+    Args:
+        players: The players of the game.
+    """
+
     def __init__(self, players: Sequence[Player]):
         assert len(players) == self.n_players
         super().__init__(players)

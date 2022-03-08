@@ -97,15 +97,18 @@
 <li class="toctree-l1"><a class="reference internal" href="README.html#id2">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html#id3">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html#todos">TODOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#documentation">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html#license">License</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Demos</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="imperfect_info_games.demos.html">imperfect_info_games.demos package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos/cfr_demo.html">CFR Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos/regret_matching_demo.html">Regret Matching Demo</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Games</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="games/game.html">Base Game</a></li>
 <li class="toctree-l1"><a class="reference internal" href="games/kuhn_poker.html">Kuhn Poker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="games/rock_paper_scissor.html">Rock Paper Scissor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="games/prisoners_dilemma.html">Prisoner’s Dilemma</a></li>
@@ -113,8 +116,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/player.html">Base Player</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/regret_matching.html">Regret Matching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/cfr.html">Counterfactual Regret Minimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="misc/trainer.html">Trainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/evaluate.html">Evaluate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/utils.html">Utils</a></li>
 </ul>
 
             
@@ -187,6 +197,7 @@
  <a href="#A"><strong>A</strong></a>
  | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
@@ -209,154 +220,425 @@
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.algos.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.act">act() (imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer method)</a>, <a href="modules/cfr.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.act">[1]</a>
+      <li><a href="algos.html#algos.cfr.CounterFactualRegretMinimizerPlayer.act">act() (algos.cfr.CounterFactualRegretMinimizerPlayer method)</a>
 
       <ul>
-        <li><a href="imperfect_info_games.algos.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.act">(imperfect_info_games.algos.regret_matching.RegretMatchingPlayer method)</a>, <a href="modules/regret_matching.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.act">[1]</a>
+        <li><a href="algos.html#algos.player.FixedPolicyPlayer.act">(algos.player.FixedPolicyPlayer method)</a>
 </li>
-        <li><a href="imperfect_info_games.html#imperfect_info_games.player.FixedPolicyPlayer.act">(imperfect_info_games.player.FixedPolicyPlayer method)</a>
+        <li><a href="algos.html#algos.player.Player.act">(algos.player.Player method)</a>
 </li>
-        <li><a href="imperfect_info_games.html#imperfect_info_games.player.Player.act">(imperfect_info_games.player.Player method)</a>
+        <li><a href="algos.html#algos.regret_matching.RegretMatchingPlayer.act">(algos.regret_matching.RegretMatchingPlayer method)</a>
+</li>
+        <li><a href="modules/cfr.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.act">(imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer method)</a>
+</li>
+        <li><a href="modules/player.html#imperfect_info_games.algos.player.FixedPolicyPlayer.act">(imperfect_info_games.algos.player.FixedPolicyPlayer method)</a>
+</li>
+        <li><a href="modules/player.html#imperfect_info_games.algos.player.Player.act">(imperfect_info_games.algos.player.Player method)</a>
+</li>
+        <li><a href="modules/regret_matching.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.act">(imperfect_info_games.algos.regret_matching.RegretMatchingPlayer method)</a>
 </li>
       </ul></li>
-      <li><a href="games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BarCrowdingGame.actions">actions (imperfect_info_games.games.bar_crowding.BarCrowdingGame attribute)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.bar_crowding.BarCrowdingGame.actions">[1]</a>
+      <li><a href="games.html#games.bar_crowding.BarCrowdingGame.actions">actions (games.bar_crowding.BarCrowdingGame attribute)</a>
 
       <ul>
-        <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.ExtensiveFormGame.actions">(imperfect_info_games.games.game.ExtensiveFormGame attribute)</a>
+        <li><a href="games.html#games.game.ExtensiveFormGame.actions">(games.game.ExtensiveFormGame attribute)</a>, <a href="games.html#id1">[1]</a>
 </li>
-        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.actions">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame attribute)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.actions">[1]</a>
+        <li><a href="games.html#games.kuhn_poker.KuhnPokerGame.actions">(games.kuhn_poker.KuhnPokerGame attribute)</a>
 </li>
-        <li><a href="games/prisoners_dilemma.html#imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame.actions">(imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame attribute)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame.actions">[1]</a>
+        <li><a href="games.html#games.prisoner_dilemma.PrisonerDilemmaGame.actions">(games.prisoner_dilemma.PrisonerDilemmaGame attribute)</a>
 </li>
-        <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.actions">(imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame attribute)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.actions">[1]</a>
+        <li><a href="games.html#games.rock_paper_scissor.RockPaperScissorGame.actions">(games.rock_paper_scissor.RockPaperScissorGame attribute)</a>
+</li>
+        <li><a href="games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BarCrowdingGame.actions">(imperfect_info_games.games.bar_crowding.BarCrowdingGame attribute)</a>
+</li>
+        <li><a href="games/game.html#id1">(imperfect_info_games.games.game.ExtensiveFormGame attribute)</a>, <a href="games/game.html#imperfect_info_games.games.game.ExtensiveFormGame.actions">[1]</a>
+</li>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.actions">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame attribute)</a>
+</li>
+        <li><a href="games/prisoners_dilemma.html#imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame.actions">(imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame attribute)</a>
+</li>
+        <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.actions">(imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame">AsymmetricRockPaperScissorGame (class in imperfect_info_games.games.rock_paper_scissor)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame">[1]</a>
+      <li>
+    algos
+
+      <ul>
+        <li><a href="algos.html#module-algos">module</a>
 </li>
-      <li><a href="imperfect_info_games.html#imperfect_info_games.trainer.Trainer.avg_payoffs">avg_payoffs (imperfect_info_games.trainer.Trainer property)</a>
+      </ul></li>
+      <li>
+    algos.cfr
+
+      <ul>
+        <li><a href="algos.html#module-algos.cfr">module</a>
 </li>
+      </ul></li>
+      <li>
+    algos.player
+
+      <ul>
+        <li><a href="algos.html#module-algos.player">module</a>
+</li>
+      </ul></li>
+      <li>
+    algos.regret_matching
+
+      <ul>
+        <li><a href="algos.html#module-algos.regret_matching">module</a>
+</li>
+      </ul></li>
+      <li><a href="misc/trainer.html#imperfect_info_games.misc.trainer.Trainer.Args">Args (imperfect_info_games.misc.trainer.Trainer attribute)</a>
+
+      <ul>
+        <li><a href="misc.html#misc.trainer.Trainer.Args">(misc.trainer.Trainer attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="games.html#games.rock_paper_scissor.AsymmetricRockPaperScissorGame">AsymmetricRockPaperScissorGame (class in games.rock_paper_scissor)</a>
+
+      <ul>
+        <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame">(class in imperfect_info_games.games.rock_paper_scissor)</a>
+</li>
+      </ul></li>
+      <li><a href="misc/trainer.html#imperfect_info_games.misc.trainer.Trainer.avg_payoffs">avg_payoffs (imperfect_info_games.misc.trainer.Trainer property)</a>
+
+      <ul>
+        <li><a href="misc.html#misc.trainer.Trainer.avg_payoffs">(misc.trainer.Trainer property)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS">BAR_CROWDING_ACTIONS (class in imperfect_info_games.games.bar_crowding)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS">[1]</a>
+      <li><a href="games.html#games.bar_crowding.BAR_CROWDING_ACTIONS">BAR_CROWDING_ACTIONS (class in games.bar_crowding)</a>
+
+      <ul>
+        <li><a href="games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS">(class in imperfect_info_games.games.bar_crowding)</a>
 </li>
+      </ul></li>
+      <li><a href="games.html#games.bar_crowding.BarCrowdingGame">BarCrowdingGame (class in games.bar_crowding)</a>
+
+      <ul>
+        <li><a href="games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BarCrowdingGame">(class in imperfect_info_games.games.bar_crowding)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BarCrowdingGame">BarCrowdingGame (class in imperfect_info_games.games.bar_crowding)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.bar_crowding.BarCrowdingGame">[1]</a>
+      <li><a href="games.html#games.kuhn_poker.KUHN_POKER_ACTIONS.BET">BET (games.kuhn_poker.KUHN_POKER_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS.BET">(imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS attribute)</a>
 </li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS.BET">BET (imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS attribute)</a>
-</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.algos.html#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.cfr">cfr() (imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer method)</a>, <a href="modules/cfr.html#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.cfr">[1]</a>
+      <li><a href="algos.html#algos.cfr.counterfactualRegretMinimizerTrainer.cfr">cfr() (algos.cfr.counterfactualRegretMinimizerTrainer method)</a>
+
+      <ul>
+        <li><a href="modules/cfr.html#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.cfr">(imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer method)</a>
 </li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.chance_action">chance_action() (imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>
+      </ul></li>
+      <li><a href="games.html#games.kuhn_poker.KuhnPokerGame.chance_action">chance_action() (games.kuhn_poker.KuhnPokerGame method)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.chance_action">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>
 </li>
+      </ul></li>
+      <li><a href="games.html#games.kuhn_poker.KuhnPokerGame.chance_actions">chance_actions (games.kuhn_poker.KuhnPokerGame attribute)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.chance_actions">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="algos.html#algos.cfr.CounterFactualRegretMinimizerPlayer">CounterFactualRegretMinimizerPlayer (class in algos.cfr)</a>
+
+      <ul>
+        <li><a href="modules/cfr.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer">(class in imperfect_info_games.algos.cfr)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.chance_actions">chance_actions (imperfect_info_games.games.kuhn_poker.KuhnPokerGame attribute)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.chance_actions">[1]</a>
+      <li><a href="algos.html#algos.cfr.counterfactualRegretMinimizerTrainer">counterfactualRegretMinimizerTrainer (class in algos.cfr)</a>
+
+      <ul>
+        <li><a href="modules/cfr.html#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer">(class in imperfect_info_games.algos.cfr)</a>
 </li>
-      <li><a href="imperfect_info_games.algos.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer">CounterFactualRegretMinimizerPlayer (class in imperfect_info_games.algos.cfr)</a>, <a href="modules/cfr.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer">[1]</a>
+      </ul></li>
+      <li><a href="algos.html#algos.cfr.CounterFactualRegretMinimizerPlayer.cum_regrets">cum_regrets (algos.cfr.CounterFactualRegretMinimizerPlayer attribute)</a>
+
+      <ul>
+        <li><a href="algos.html#algos.regret_matching.RegretMatchingPlayer.cum_regrets">(algos.regret_matching.RegretMatchingPlayer attribute)</a>
 </li>
-      <li><a href="imperfect_info_games.algos.html#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer">counterfactualRegretMinimizerTrainer (class in imperfect_info_games.algos.cfr)</a>, <a href="modules/cfr.html#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer">[1]</a>
+        <li><a href="modules/cfr.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.cum_regrets">(imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer attribute)</a>
 </li>
+        <li><a href="modules/regret_matching.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.cum_regrets">(imperfect_info_games.algos.regret_matching.RegretMatchingPlayer attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    demos
+
+      <ul>
+        <li><a href="demos.html#module-demos">module</a>
+</li>
+      </ul></li>
+      <li>
+    demos.cfr_demo
+
+      <ul>
+        <li><a href="demos.html#module-demos.cfr_demo">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    demos.regret_matching_demo
+
+      <ul>
+        <li><a href="demos.html#module-demos.regret_matching_demo">module</a>
+</li>
+      </ul></li>
+      <li><a href="misc/trainer.html#imperfect_info_games.misc.trainer.Trainer.display_status_bar">display_status_bar (imperfect_info_games.misc.trainer.Trainer attribute)</a>
+
+      <ul>
+        <li><a href="misc.html#misc.trainer.Trainer.display_status_bar">(misc.trainer.Trainer attribute)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.html#imperfect_info_games.evaluate.evaluate_strategies">evaluate_strategies() (in module imperfect_info_games.evaluate)</a>
+      <li><a href="misc/trainer.html#imperfect_info_games.misc.trainer.Trainer.ep_payoffs">ep_payoffs (imperfect_info_games.misc.trainer.Trainer attribute)</a>
+
+      <ul>
+        <li><a href="misc.html#misc.trainer.Trainer.ep_payoffs">(misc.trainer.Trainer attribute)</a>
 </li>
+      </ul></li>
+      <li><a href="misc/trainer.html#imperfect_info_games.misc.trainer.Trainer.ep_strategies">ep_strategies (imperfect_info_games.misc.trainer.Trainer attribute)</a>
+
+      <ul>
+        <li><a href="misc.html#misc.trainer.Trainer.ep_strategies">(misc.trainer.Trainer attribute)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.ExtensiveFormGame">ExtensiveFormGame (class in imperfect_info_games.games.game)</a>
+      <li><a href="misc/evaluate.html#imperfect_info_games.misc.evaluate.evaluate_strategies">evaluate_strategies() (in module imperfect_info_games.misc.evaluate)</a>
+
+      <ul>
+        <li><a href="misc.html#misc.evaluate.evaluate_strategies">(in module misc.evaluate)</a>
 </li>
+      </ul></li>
+      <li><a href="games.html#games.game.ExtensiveFormGame">ExtensiveFormGame (class in games.game)</a>
+
+      <ul>
+        <li><a href="games/game.html#imperfect_info_games.games.game.ExtensiveFormGame">(class in imperfect_info_games.games.game)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.html#imperfect_info_games.player.FixedPolicyPlayer">FixedPolicyPlayer (class in imperfect_info_games.player)</a>
+      <li><a href="algos.html#algos.player.FixedPolicyPlayer">FixedPolicyPlayer (class in algos.player)</a>
+
+      <ul>
+        <li><a href="modules/player.html#imperfect_info_games.algos.player.FixedPolicyPlayer">(class in imperfect_info_games.algos.player)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.html#imperfect_info_games.player.Player.game">game (imperfect_info_games.player.Player property)</a>
-</li>
-      <li><a href="imperfect_info_games.demos.html#imperfect_info_games.demos.regret_matching_demo.generate_random_prob_dist">generate_random_prob_dist() (in module imperfect_info_games.demos.regret_matching_demo)</a>
-</li>
-      <li><a href="imperfect_info_games.html#imperfect_info_games.utils.get_action">get_action() (in module imperfect_info_games.utils)</a>
-</li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.ExtensiveFormGame.get_active_player">get_active_player() (imperfect_info_games.games.game.ExtensiveFormGame method)</a>
+      <li><a href="algos.html#algos.cfr.counterfactualRegretMinimizerTrainer.game">game (algos.cfr.counterfactualRegretMinimizerTrainer attribute)</a>
 
       <ul>
-        <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.NormalFormGame.get_active_player">(imperfect_info_games.games.game.NormalFormGame method)</a>
+        <li><a href="algos.html#algos.player.Player.game">(algos.player.Player property)</a>
 </li>
-        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_active_player">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_active_player">[1]</a>
+        <li><a href="modules/cfr.html#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.game">(imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer attribute)</a>
+</li>
+        <li><a href="modules/player.html#imperfect_info_games.algos.player.Player.game">(imperfect_info_games.algos.player.Player property)</a>
+</li>
+        <li><a href="misc/trainer.html#imperfect_info_games.misc.trainer.Trainer.game">(imperfect_info_games.misc.trainer.Trainer attribute)</a>
+</li>
+        <li><a href="misc.html#misc.trainer.Trainer.game">(misc.trainer.Trainer attribute)</a>
 </li>
       </ul></li>
-      <li><a href="imperfect_info_games.algos.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies">get_avg_strategies() (imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer method)</a>, <a href="modules/cfr.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies">[1]</a>
+      <li>
+    games
 
       <ul>
-        <li><a href="imperfect_info_games.html#imperfect_info_games.trainer.Trainer.get_avg_strategies">(imperfect_info_games.trainer.Trainer method)</a>
+        <li><a href="games.html#module-games">module</a>
 </li>
       </ul></li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_card">get_card() (imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>
-</li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.ExtensiveFormGame.get_infostate">get_infostate() (imperfect_info_games.games.game.ExtensiveFormGame method)</a>
+      <li>
+    games.bar_crowding
 
       <ul>
-        <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.NormalFormGame.get_infostate">(imperfect_info_games.games.game.NormalFormGame method)</a>
+        <li><a href="games.html#module-games.bar_crowding">module</a>
 </li>
-        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_infostate">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_infostate">[1]</a>
+      </ul></li>
+      <li>
+    games.game
+
+      <ul>
+        <li><a href="games.html#module-games.game">module</a>
+</li>
+      </ul></li>
+      <li>
+    games.kuhn_poker
+
+      <ul>
+        <li><a href="games.html#module-games.kuhn_poker">module</a>
+</li>
+      </ul></li>
+      <li>
+    games.prisoner_dilemma
+
+      <ul>
+        <li><a href="games.html#module-games.prisoner_dilemma">module</a>
+</li>
+      </ul></li>
+      <li>
+    games.rock_paper_scissor
+
+      <ul>
+        <li><a href="games.html#module-games.rock_paper_scissor">module</a>
+</li>
+      </ul></li>
+      <li><a href="demos.html#demos.regret_matching_demo.generate_random_prob_dist">generate_random_prob_dist() (in module demos.regret_matching_demo)</a>
+
+      <ul>
+        <li><a href="demos/regret_matching_demo.html#imperfect_info_games.demos.regret_matching_demo.generate_random_prob_dist">(in module imperfect_info_games.demos.regret_matching_demo)</a>
+</li>
+      </ul></li>
+      <li><a href="misc/utils.html#imperfect_info_games.misc.utils.get_action">get_action() (in module imperfect_info_games.misc.utils)</a>
+
+      <ul>
+        <li><a href="misc.html#misc.utils.get_action">(in module misc.utils)</a>
+</li>
+      </ul></li>
+      <li><a href="games.html#games.game.ExtensiveFormGame.get_active_player">get_active_player() (games.game.ExtensiveFormGame method)</a>
+
+      <ul>
+        <li><a href="games.html#games.game.NormalFormGame.get_active_player">(games.game.NormalFormGame method)</a>
+</li>
+        <li><a href="games.html#games.kuhn_poker.KuhnPokerGame.get_active_player">(games.kuhn_poker.KuhnPokerGame method)</a>
+</li>
+        <li><a href="games/game.html#imperfect_info_games.games.game.ExtensiveFormGame.get_active_player">(imperfect_info_games.games.game.ExtensiveFormGame method)</a>
+</li>
+        <li><a href="games/game.html#imperfect_info_games.games.game.NormalFormGame.get_active_player">(imperfect_info_games.games.game.NormalFormGame method)</a>
+</li>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_active_player">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BarCrowdingGame.get_payoffs">get_payoffs() (imperfect_info_games.games.bar_crowding.BarCrowdingGame method)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.bar_crowding.BarCrowdingGame.get_payoffs">[1]</a>
+      <li><a href="algos.html#algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies">get_avg_strategies() (algos.cfr.CounterFactualRegretMinimizerPlayer method)</a>
 
       <ul>
-        <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.ExtensiveFormGame.get_payoffs">(imperfect_info_games.games.game.ExtensiveFormGame method)</a>
+        <li><a href="modules/cfr.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies">(imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer method)</a>
 </li>
-        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_payoffs">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_payoffs">[1]</a>
+        <li><a href="misc/trainer.html#id1">(imperfect_info_games.misc.trainer.Trainer method)</a>, <a href="misc/trainer.html#imperfect_info_games.misc.trainer.Trainer.get_avg_strategies">[1]</a>
 </li>
-        <li><a href="games/prisoners_dilemma.html#imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame.get_payoffs">(imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame method)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame.get_payoffs">[1]</a>
-</li>
-        <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame.get_payoffs">(imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame method)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame.get_payoffs">[1]</a>
-</li>
-        <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.get_payoffs">(imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame method)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.get_payoffs">[1]</a>
+        <li><a href="misc.html#id1">(misc.trainer.Trainer method)</a>, <a href="misc.html#misc.trainer.Trainer.get_avg_strategies">[1]</a>
 </li>
       </ul></li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_winner">get_winner() (imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>
+      <li><a href="games.html#games.kuhn_poker.KuhnPokerGame.get_card">get_card() (games.kuhn_poker.KuhnPokerGame method)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_card">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>
 </li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS.GO_TO_BAR">GO_TO_BAR (imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS attribute)</a>
+      </ul></li>
+      <li><a href="games.html#games.game.ExtensiveFormGame.get_infostate">get_infostate() (games.game.ExtensiveFormGame method)</a>
+
+      <ul>
+        <li><a href="games.html#games.game.NormalFormGame.get_infostate">(games.game.NormalFormGame method)</a>
 </li>
+        <li><a href="games.html#games.kuhn_poker.KuhnPokerGame.get_infostate">(games.kuhn_poker.KuhnPokerGame method)</a>
+</li>
+        <li><a href="games/game.html#imperfect_info_games.games.game.ExtensiveFormGame.get_infostate">(imperfect_info_games.games.game.ExtensiveFormGame method)</a>
+</li>
+        <li><a href="games/game.html#imperfect_info_games.games.game.NormalFormGame.get_infostate">(imperfect_info_games.games.game.NormalFormGame method)</a>
+</li>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_infostate">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>
+</li>
+      </ul></li>
+      <li><a href="games.html#games.bar_crowding.BarCrowdingGame.get_payoffs">get_payoffs() (games.bar_crowding.BarCrowdingGame method)</a>
+
+      <ul>
+        <li><a href="games.html#games.game.ExtensiveFormGame.get_payoffs">(games.game.ExtensiveFormGame method)</a>
+</li>
+        <li><a href="games.html#games.kuhn_poker.KuhnPokerGame.get_payoffs">(games.kuhn_poker.KuhnPokerGame method)</a>
+</li>
+        <li><a href="games.html#games.prisoner_dilemma.PrisonerDilemmaGame.get_payoffs">(games.prisoner_dilemma.PrisonerDilemmaGame method)</a>
+</li>
+        <li><a href="games.html#games.rock_paper_scissor.AsymmetricRockPaperScissorGame.get_payoffs">(games.rock_paper_scissor.AsymmetricRockPaperScissorGame method)</a>
+</li>
+        <li><a href="games.html#games.rock_paper_scissor.RockPaperScissorGame.get_payoffs">(games.rock_paper_scissor.RockPaperScissorGame method)</a>
+</li>
+        <li><a href="games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BarCrowdingGame.get_payoffs">(imperfect_info_games.games.bar_crowding.BarCrowdingGame method)</a>
+</li>
+        <li><a href="games/game.html#imperfect_info_games.games.game.ExtensiveFormGame.get_payoffs">(imperfect_info_games.games.game.ExtensiveFormGame method)</a>
+</li>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_payoffs">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>
+</li>
+        <li><a href="games/prisoners_dilemma.html#imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame.get_payoffs">(imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame method)</a>
+</li>
+        <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame.get_payoffs">(imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame method)</a>
+</li>
+        <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.get_payoffs">(imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame method)</a>
+</li>
+      </ul></li>
+      <li><a href="games.html#games.kuhn_poker.KuhnPokerGame.get_winner">get_winner() (games.kuhn_poker.KuhnPokerGame method)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_winner">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>
+</li>
+      </ul></li>
+      <li><a href="games.html#games.bar_crowding.BAR_CROWDING_ACTIONS.GO_TO_BAR">GO_TO_BAR (games.bar_crowding.BAR_CROWDING_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS.GO_TO_BAR">(imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS attribute)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="H">H</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.has_chance_player">has_chance_player (imperfect_info_games.games.kuhn_poker.KuhnPokerGame attribute)</a>
+      <li><a href="games.html#games.kuhn_poker.KuhnPokerGame.has_chance_player">has_chance_player (games.kuhn_poker.KuhnPokerGame attribute)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.has_chance_player">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.ExtensiveFormGame.history_to_str">history_to_str() (imperfect_info_games.games.game.ExtensiveFormGame method)</a>
+      <li><a href="games.html#games.game.ExtensiveFormGame.history_to_str">history_to_str() (games.game.ExtensiveFormGame method)</a>
+
+      <ul>
+        <li><a href="games/game.html#imperfect_info_games.games.game.ExtensiveFormGame.history_to_str">(imperfect_info_games.games.game.ExtensiveFormGame method)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -364,132 +646,110 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
-    imperfect_info_games
-
-      <ul>
-        <li><a href="imperfect_info_games.html#module-imperfect_info_games">module</a>
-</li>
-      </ul></li>
-      <li>
-    imperfect_info_games.algos
-
-      <ul>
-        <li><a href="imperfect_info_games.algos.html#module-imperfect_info_games.algos">module</a>
-</li>
-      </ul></li>
-      <li>
     imperfect_info_games.algos.cfr
 
       <ul>
-        <li><a href="imperfect_info_games.algos.html#module-imperfect_info_games.algos.cfr">module</a>, <a href="modules/cfr.html#module-imperfect_info_games.algos.cfr">[1]</a>
+        <li><a href="modules/cfr.html#module-imperfect_info_games.algos.cfr">module</a>
+</li>
+      </ul></li>
+      <li>
+    imperfect_info_games.algos.player
+
+      <ul>
+        <li><a href="modules/player.html#module-imperfect_info_games.algos.player">module</a>
 </li>
       </ul></li>
       <li>
     imperfect_info_games.algos.regret_matching
 
       <ul>
-        <li><a href="imperfect_info_games.algos.html#module-imperfect_info_games.algos.regret_matching">module</a>, <a href="modules/regret_matching.html#module-imperfect_info_games.algos.regret_matching">[1]</a>
-</li>
-      </ul></li>
-      <li>
-    imperfect_info_games.demos
-
-      <ul>
-        <li><a href="imperfect_info_games.demos.html#module-imperfect_info_games.demos">module</a>
+        <li><a href="modules/regret_matching.html#module-imperfect_info_games.algos.regret_matching">module</a>
 </li>
       </ul></li>
       <li>
     imperfect_info_games.demos.cfr_demo
 
       <ul>
-        <li><a href="imperfect_info_games.demos.html#module-imperfect_info_games.demos.cfr_demo">module</a>
+        <li><a href="demos/cfr_demo.html#module-imperfect_info_games.demos.cfr_demo">module</a>
 </li>
       </ul></li>
       <li>
     imperfect_info_games.demos.regret_matching_demo
 
       <ul>
-        <li><a href="imperfect_info_games.demos.html#module-imperfect_info_games.demos.regret_matching_demo">module</a>
+        <li><a href="demos/regret_matching_demo.html#module-imperfect_info_games.demos.regret_matching_demo">module</a>
 </li>
       </ul></li>
-      <li>
-    imperfect_info_games.evaluate
-
-      <ul>
-        <li><a href="imperfect_info_games.html#module-imperfect_info_games.evaluate">module</a>
-</li>
-      </ul></li>
-      <li>
-    imperfect_info_games.games
-
-      <ul>
-        <li><a href="imperfect_info_games.games.html#module-imperfect_info_games.games">module</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     imperfect_info_games.games.bar_crowding
 
       <ul>
-        <li><a href="games/bar_crowding.html#module-imperfect_info_games.games.bar_crowding">module</a>, <a href="imperfect_info_games.games.html#module-imperfect_info_games.games.bar_crowding">[1]</a>
+        <li><a href="games/bar_crowding.html#module-imperfect_info_games.games.bar_crowding">module</a>
 </li>
       </ul></li>
       <li>
     imperfect_info_games.games.game
 
       <ul>
-        <li><a href="imperfect_info_games.games.html#module-imperfect_info_games.games.game">module</a>
+        <li><a href="games/game.html#module-imperfect_info_games.games.game">module</a>
 </li>
       </ul></li>
       <li>
     imperfect_info_games.games.kuhn_poker
 
       <ul>
-        <li><a href="games/kuhn_poker.html#module-imperfect_info_games.games.kuhn_poker">module</a>, <a href="imperfect_info_games.games.html#module-imperfect_info_games.games.kuhn_poker">[1]</a>
+        <li><a href="games/kuhn_poker.html#module-imperfect_info_games.games.kuhn_poker">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     imperfect_info_games.games.prisoner_dilemma
 
       <ul>
-        <li><a href="games/prisoners_dilemma.html#module-imperfect_info_games.games.prisoner_dilemma">module</a>, <a href="imperfect_info_games.games.html#module-imperfect_info_games.games.prisoner_dilemma">[1]</a>
+        <li><a href="games/prisoners_dilemma.html#module-imperfect_info_games.games.prisoner_dilemma">module</a>
 </li>
       </ul></li>
       <li>
     imperfect_info_games.games.rock_paper_scissor
 
       <ul>
-        <li><a href="games/rock_paper_scissor.html#module-imperfect_info_games.games.rock_paper_scissor">module</a>, <a href="imperfect_info_games.games.html#module-imperfect_info_games.games.rock_paper_scissor">[1]</a>
+        <li><a href="games/rock_paper_scissor.html#module-imperfect_info_games.games.rock_paper_scissor">module</a>
 </li>
       </ul></li>
       <li>
-    imperfect_info_games.player
+    imperfect_info_games.misc.evaluate
 
       <ul>
-        <li><a href="imperfect_info_games.html#module-imperfect_info_games.player">module</a>
+        <li><a href="misc/evaluate.html#module-imperfect_info_games.misc.evaluate">module</a>
 </li>
       </ul></li>
       <li>
-    imperfect_info_games.trainer
+    imperfect_info_games.misc.trainer
 
       <ul>
-        <li><a href="imperfect_info_games.html#module-imperfect_info_games.trainer">module</a>
+        <li><a href="misc/trainer.html#module-imperfect_info_games.misc.trainer">module</a>
 </li>
       </ul></li>
       <li>
-    imperfect_info_games.utils
+    imperfect_info_games.misc.utils
 
       <ul>
-        <li><a href="imperfect_info_games.html#module-imperfect_info_games.utils">module</a>
+        <li><a href="misc/utils.html#module-imperfect_info_games.misc.utils">module</a>
 </li>
       </ul></li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.ExtensiveFormGame.is_terminal">is_terminal() (imperfect_info_games.games.game.ExtensiveFormGame method)</a>
+      <li><a href="games.html#games.game.ExtensiveFormGame.is_terminal">is_terminal() (games.game.ExtensiveFormGame method)</a>
 
       <ul>
-        <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.NormalFormGame.is_terminal">(imperfect_info_games.games.game.NormalFormGame method)</a>
+        <li><a href="games.html#games.game.NormalFormGame.is_terminal">(games.game.NormalFormGame method)</a>
 </li>
-        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.is_terminal">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.is_terminal">[1]</a>
+        <li><a href="games.html#games.kuhn_poker.KuhnPokerGame.is_terminal">(games.kuhn_poker.KuhnPokerGame method)</a>
+</li>
+        <li><a href="games/game.html#imperfect_info_games.games.game.ExtensiveFormGame.is_terminal">(imperfect_info_games.games.game.ExtensiveFormGame method)</a>
+</li>
+        <li><a href="games/game.html#imperfect_info_games.games.game.NormalFormGame.is_terminal">(imperfect_info_games.games.game.NormalFormGame method)</a>
+</li>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.is_terminal">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -498,81 +758,173 @@
 <h2 id="J">J</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JK">JK (imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
+      <li><a href="games.html#games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JK">JK (games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JK">(imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JQ">JQ (imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
+      <li><a href="games.html#games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JQ">JQ (games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JQ">(imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KJ">KJ (imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
+      <li><a href="games.html#games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KJ">KJ (games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KJ">(imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
 </li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KQ">KQ (imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
+      </ul></li>
+      <li><a href="games.html#games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KQ">KQ (games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KQ">(imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
 </li>
+      </ul></li>
+      <li><a href="games.html#games.kuhn_poker.KUHN_POKER_ACTIONS">KUHN_POKER_ACTIONS (class in games.kuhn_poker)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS">(class in imperfect_info_games.games.kuhn_poker)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS">KUHN_POKER_ACTIONS (class in imperfect_info_games.games.kuhn_poker)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS">[1]</a>
+      <li><a href="games.html#games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS">KUHN_POKER_CHANCE_ACTIONS (class in games.kuhn_poker)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS">(class in imperfect_info_games.games.kuhn_poker)</a>
 </li>
-      <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS">KUHN_POKER_CHANCE_ACTIONS (class in imperfect_info_games.games.kuhn_poker)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS">[1]</a>
+      </ul></li>
+      <li><a href="games.html#games.kuhn_poker.KuhnPokerGame">KuhnPokerGame (class in games.kuhn_poker)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame">(class in imperfect_info_games.games.kuhn_poker)</a>
 </li>
-      <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame">KuhnPokerGame (class in imperfect_info_games.games.kuhn_poker)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame">[1]</a>
-</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.html#imperfect_info_games.utils.lessVerboseEnum">lessVerboseEnum (class in imperfect_info_games.utils)</a>
+      <li><a href="misc/utils.html#imperfect_info_games.misc.utils.lessVerboseEnum">lessVerboseEnum (class in imperfect_info_games.misc.utils)</a>
+
+      <ul>
+        <li><a href="misc.html#misc.utils.lessVerboseEnum">(class in misc.utils)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="misc/trainer.html#imperfect_info_games.misc.trainer.Trainer.manager">manager (imperfect_info_games.misc.trainer.Trainer attribute)</a>
+
+      <ul>
+        <li><a href="misc.html#misc.trainer.Trainer.manager">(misc.trainer.Trainer attribute)</a>
+</li>
+      </ul></li>
+      <li>
+    misc
+
+      <ul>
+        <li><a href="misc.html#module-misc">module</a>
+</li>
+      </ul></li>
+      <li>
+    misc.evaluate
+
+      <ul>
+        <li><a href="misc.html#module-misc.evaluate">module</a>
+</li>
+      </ul></li>
+      <li>
+    misc.trainer
+
+      <ul>
+        <li><a href="misc.html#module-misc.trainer">module</a>
+</li>
+      </ul></li>
+      <li>
+    misc.utils
+
+      <ul>
+        <li><a href="misc.html#module-misc.utils">module</a>
+</li>
+      </ul></li>
       <li>
     module
 
       <ul>
-        <li><a href="imperfect_info_games.html#module-imperfect_info_games">imperfect_info_games</a>
+        <li><a href="algos.html#module-algos">algos</a>
 </li>
-        <li><a href="imperfect_info_games.algos.html#module-imperfect_info_games.algos">imperfect_info_games.algos</a>
+        <li><a href="algos.html#module-algos.cfr">algos.cfr</a>
 </li>
-        <li><a href="imperfect_info_games.algos.html#module-imperfect_info_games.algos.cfr">imperfect_info_games.algos.cfr</a>, <a href="modules/cfr.html#module-imperfect_info_games.algos.cfr">[1]</a>
+        <li><a href="algos.html#module-algos.player">algos.player</a>
 </li>
-        <li><a href="imperfect_info_games.algos.html#module-imperfect_info_games.algos.regret_matching">imperfect_info_games.algos.regret_matching</a>, <a href="modules/regret_matching.html#module-imperfect_info_games.algos.regret_matching">[1]</a>
+        <li><a href="algos.html#module-algos.regret_matching">algos.regret_matching</a>
 </li>
-        <li><a href="imperfect_info_games.demos.html#module-imperfect_info_games.demos">imperfect_info_games.demos</a>
+        <li><a href="demos.html#module-demos">demos</a>
 </li>
-        <li><a href="imperfect_info_games.demos.html#module-imperfect_info_games.demos.cfr_demo">imperfect_info_games.demos.cfr_demo</a>
+        <li><a href="demos.html#module-demos.cfr_demo">demos.cfr_demo</a>
 </li>
-        <li><a href="imperfect_info_games.demos.html#module-imperfect_info_games.demos.regret_matching_demo">imperfect_info_games.demos.regret_matching_demo</a>
+        <li><a href="demos.html#module-demos.regret_matching_demo">demos.regret_matching_demo</a>
 </li>
-        <li><a href="imperfect_info_games.html#module-imperfect_info_games.evaluate">imperfect_info_games.evaluate</a>
+        <li><a href="games.html#module-games">games</a>
 </li>
-        <li><a href="imperfect_info_games.games.html#module-imperfect_info_games.games">imperfect_info_games.games</a>
+        <li><a href="games.html#module-games.bar_crowding">games.bar_crowding</a>
 </li>
-        <li><a href="games/bar_crowding.html#module-imperfect_info_games.games.bar_crowding">imperfect_info_games.games.bar_crowding</a>, <a href="imperfect_info_games.games.html#module-imperfect_info_games.games.bar_crowding">[1]</a>
+        <li><a href="games.html#module-games.game">games.game</a>
 </li>
-        <li><a href="imperfect_info_games.games.html#module-imperfect_info_games.games.game">imperfect_info_games.games.game</a>
+        <li><a href="games.html#module-games.kuhn_poker">games.kuhn_poker</a>
 </li>
-        <li><a href="games/kuhn_poker.html#module-imperfect_info_games.games.kuhn_poker">imperfect_info_games.games.kuhn_poker</a>, <a href="imperfect_info_games.games.html#module-imperfect_info_games.games.kuhn_poker">[1]</a>
+        <li><a href="games.html#module-games.prisoner_dilemma">games.prisoner_dilemma</a>
 </li>
-        <li><a href="games/prisoners_dilemma.html#module-imperfect_info_games.games.prisoner_dilemma">imperfect_info_games.games.prisoner_dilemma</a>, <a href="imperfect_info_games.games.html#module-imperfect_info_games.games.prisoner_dilemma">[1]</a>
+        <li><a href="games.html#module-games.rock_paper_scissor">games.rock_paper_scissor</a>
 </li>
-        <li><a href="games/rock_paper_scissor.html#module-imperfect_info_games.games.rock_paper_scissor">imperfect_info_games.games.rock_paper_scissor</a>, <a href="imperfect_info_games.games.html#module-imperfect_info_games.games.rock_paper_scissor">[1]</a>
+        <li><a href="modules/cfr.html#module-imperfect_info_games.algos.cfr">imperfect_info_games.algos.cfr</a>
 </li>
-        <li><a href="imperfect_info_games.html#module-imperfect_info_games.player">imperfect_info_games.player</a>
+        <li><a href="modules/player.html#module-imperfect_info_games.algos.player">imperfect_info_games.algos.player</a>
 </li>
-        <li><a href="imperfect_info_games.html#module-imperfect_info_games.trainer">imperfect_info_games.trainer</a>
+        <li><a href="modules/regret_matching.html#module-imperfect_info_games.algos.regret_matching">imperfect_info_games.algos.regret_matching</a>
 </li>
-        <li><a href="imperfect_info_games.html#module-imperfect_info_games.utils">imperfect_info_games.utils</a>
+        <li><a href="demos/cfr_demo.html#module-imperfect_info_games.demos.cfr_demo">imperfect_info_games.demos.cfr_demo</a>
+</li>
+        <li><a href="demos/regret_matching_demo.html#module-imperfect_info_games.demos.regret_matching_demo">imperfect_info_games.demos.regret_matching_demo</a>
+</li>
+        <li><a href="games/bar_crowding.html#module-imperfect_info_games.games.bar_crowding">imperfect_info_games.games.bar_crowding</a>
+</li>
+        <li><a href="games/game.html#module-imperfect_info_games.games.game">imperfect_info_games.games.game</a>
+</li>
+        <li><a href="games/kuhn_poker.html#module-imperfect_info_games.games.kuhn_poker">imperfect_info_games.games.kuhn_poker</a>
+</li>
+        <li><a href="games/prisoners_dilemma.html#module-imperfect_info_games.games.prisoner_dilemma">imperfect_info_games.games.prisoner_dilemma</a>
+</li>
+        <li><a href="games/rock_paper_scissor.html#module-imperfect_info_games.games.rock_paper_scissor">imperfect_info_games.games.rock_paper_scissor</a>
+</li>
+        <li><a href="misc/evaluate.html#module-imperfect_info_games.misc.evaluate">imperfect_info_games.misc.evaluate</a>
+</li>
+        <li><a href="misc/trainer.html#module-imperfect_info_games.misc.trainer">imperfect_info_games.misc.trainer</a>
+</li>
+        <li><a href="misc/utils.html#module-imperfect_info_games.misc.utils">imperfect_info_games.misc.utils</a>
+</li>
+        <li><a href="misc.html#module-misc">misc</a>
+</li>
+        <li><a href="misc.html#module-misc.evaluate">misc.evaluate</a>
+</li>
+        <li><a href="misc.html#module-misc.trainer">misc.trainer</a>
+</li>
+        <li><a href="misc.html#module-misc.utils">misc.utils</a>
 </li>
       </ul></li>
   </ul></td>
@@ -581,132 +933,312 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.bar_crowding.BarCrowdingGame.n_players">n_players (imperfect_info_games.games.bar_crowding.BarCrowdingGame attribute)</a>
+      <li><a href="algos.html#algos.regret_matching.RegretMatchingPlayer.n_actions">n_actions (algos.regret_matching.RegretMatchingPlayer attribute)</a>
 
       <ul>
-        <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.ExtensiveFormGame.n_players">(imperfect_info_games.games.game.ExtensiveFormGame attribute)</a>
+        <li><a href="modules/regret_matching.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.n_actions">(imperfect_info_games.algos.regret_matching.RegretMatchingPlayer attribute)</a>
 </li>
-        <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.n_players">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame attribute)</a>
+      </ul></li>
+      <li><a href="misc/trainer.html#imperfect_info_games.misc.trainer.Trainer.n_iter">n_iter (imperfect_info_games.misc.trainer.Trainer attribute)</a>
+
+      <ul>
+        <li><a href="misc.html#misc.trainer.Trainer.n_iter">(misc.trainer.Trainer attribute)</a>
 </li>
-        <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame.n_players">(imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame attribute)</a>
+      </ul></li>
+      <li><a href="algos.html#algos.cfr.counterfactualRegretMinimizerTrainer.n_iters">n_iters (algos.cfr.counterfactualRegretMinimizerTrainer attribute)</a>
+
+      <ul>
+        <li><a href="modules/cfr.html#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.n_iters">(imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer attribute)</a>
 </li>
-        <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.n_players">(imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame attribute)</a>
+      </ul></li>
+      <li><a href="games.html#games.bar_crowding.BarCrowdingGame.n_players">n_players (games.bar_crowding.BarCrowdingGame attribute)</a>
+
+      <ul>
+        <li><a href="games.html#games.game.ExtensiveFormGame.n_players">(games.game.ExtensiveFormGame attribute)</a>, <a href="games.html#id0">[1]</a>
+</li>
+        <li><a href="games.html#games.kuhn_poker.KuhnPokerGame.n_players">(games.kuhn_poker.KuhnPokerGame attribute)</a>
+</li>
+        <li><a href="games.html#games.prisoner_dilemma.PrisonerDilemmaGame.n_players">(games.prisoner_dilemma.PrisonerDilemmaGame attribute)</a>
+</li>
+        <li><a href="games.html#games.rock_paper_scissor.RockPaperScissorGame.n_players">(games.rock_paper_scissor.RockPaperScissorGame attribute)</a>
+</li>
+        <li><a href="games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BarCrowdingGame.n_players">(imperfect_info_games.games.bar_crowding.BarCrowdingGame attribute)</a>
+</li>
+        <li><a href="games/game.html#id0">(imperfect_info_games.games.game.ExtensiveFormGame attribute)</a>, <a href="games/game.html#imperfect_info_games.games.game.ExtensiveFormGame.n_players">[1]</a>
+</li>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.n_players">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame attribute)</a>
+</li>
+        <li><a href="games/prisoners_dilemma.html#imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame.n_players">(imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame attribute)</a>
+</li>
+        <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.n_players">(imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame attribute)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.NormalFormGame">NormalFormGame (class in imperfect_info_games.games.game)</a>
+      <li><a href="algos.html#algos.player.FixedPolicyPlayer.name">name (algos.player.FixedPolicyPlayer attribute)</a>
+
+      <ul>
+        <li><a href="algos.html#algos.player.Player.name">(algos.player.Player attribute)</a>
 </li>
+        <li><a href="algos.html#algos.regret_matching.RegretMatchingPlayer.name">(algos.regret_matching.RegretMatchingPlayer attribute)</a>
+</li>
+        <li><a href="modules/player.html#imperfect_info_games.algos.player.FixedPolicyPlayer.name">(imperfect_info_games.algos.player.FixedPolicyPlayer attribute)</a>
+</li>
+        <li><a href="modules/player.html#imperfect_info_games.algos.player.Player.name">(imperfect_info_games.algos.player.Player attribute)</a>
+</li>
+        <li><a href="modules/regret_matching.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.name">(imperfect_info_games.algos.regret_matching.RegretMatchingPlayer attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="games.html#games.game.NormalFormGame">NormalFormGame (class in games.game)</a>
+
+      <ul>
+        <li><a href="games/game.html#imperfect_info_games.games.game.NormalFormGame">(class in imperfect_info_games.games.game)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.PAPER">PAPER (imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS attribute)</a>
+      <li><a href="games.html#games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.PAPER">PAPER (games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.PAPER">(imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS attribute)</a>
 </li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS.PASS">PASS (imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS attribute)</a>
+      </ul></li>
+      <li><a href="games.html#games.kuhn_poker.KUHN_POKER_ACTIONS.PASS">PASS (games.kuhn_poker.KUHN_POKER_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS.PASS">(imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS attribute)</a>
 </li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.ExtensiveFormGame.play">play() (imperfect_info_games.games.game.ExtensiveFormGame method)</a>
+      </ul></li>
+      <li><a href="misc/trainer.html#imperfect_info_games.misc.trainer.Trainer.pbar">pbar (imperfect_info_games.misc.trainer.Trainer attribute)</a>
+
+      <ul>
+        <li><a href="misc.html#misc.trainer.Trainer.pbar">(misc.trainer.Trainer attribute)</a>
 </li>
+      </ul></li>
+      <li><a href="games.html#games.game.ExtensiveFormGame.play">play() (games.game.ExtensiveFormGame method)</a>
+
+      <ul>
+        <li><a href="games/game.html#imperfect_info_games.games.game.ExtensiveFormGame.play">(imperfect_info_games.games.game.ExtensiveFormGame method)</a>
+</li>
+      </ul></li>
+      <li><a href="algos.html#algos.player.Player">Player (class in algos.player)</a>
+
+      <ul>
+        <li><a href="modules/player.html#imperfect_info_games.algos.player.Player">(class in imperfect_info_games.algos.player)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.html#imperfect_info_games.player.Player">Player (class in imperfect_info_games.player)</a>
+      <li><a href="algos.html#algos.cfr.CounterFactualRegretMinimizerPlayer.player_id">player_id (algos.cfr.CounterFactualRegretMinimizerPlayer attribute)</a>
+
+      <ul>
+        <li><a href="modules/cfr.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.player_id">(imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer attribute)</a>
 </li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.ExtensiveFormGame.players">players (imperfect_info_games.games.game.ExtensiveFormGame property)</a>
+      </ul></li>
+      <li><a href="games.html#games.game.ExtensiveFormGame.players">players (games.game.ExtensiveFormGame attribute)</a>
+
+      <ul>
+        <li><a href="games.html#id2">(games.game.ExtensiveFormGame property)</a>
 </li>
-      <li><a href="games/prisoners_dilemma.html#imperfect_info_games.games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS">PRISONER_DILEMMA_ACTIONS (class in imperfect_info_games.games.prisoner_dilemma)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS">[1]</a>
+        <li><a href="games/game.html#imperfect_info_games.games.game.ExtensiveFormGame.players">(imperfect_info_games.games.game.ExtensiveFormGame attribute)</a>
 </li>
-      <li><a href="games/prisoners_dilemma.html#imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame">PrisonerDilemmaGame (class in imperfect_info_games.games.prisoner_dilemma)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame">[1]</a>
+        <li><a href="games/game.html#id2">(imperfect_info_games.games.game.ExtensiveFormGame property)</a>
 </li>
+      </ul></li>
+      <li><a href="games.html#games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS">PRISONER_DILEMMA_ACTIONS (class in games.prisoner_dilemma)</a>
+
+      <ul>
+        <li><a href="games/prisoners_dilemma.html#imperfect_info_games.games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS">(class in imperfect_info_games.games.prisoner_dilemma)</a>
+</li>
+      </ul></li>
+      <li><a href="games.html#games.prisoner_dilemma.PrisonerDilemmaGame">PrisonerDilemmaGame (class in games.prisoner_dilemma)</a>
+
+      <ul>
+        <li><a href="games/prisoners_dilemma.html#imperfect_info_games.games.prisoner_dilemma.PrisonerDilemmaGame">(class in imperfect_info_games.games.prisoner_dilemma)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="Q">Q</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QJ">QJ (imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
+      <li><a href="games.html#games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QJ">QJ (games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QJ">(imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QK">QK (imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
+      <li><a href="games.html#games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QK">QK (games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QK">(imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS attribute)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.algos.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.regret_matching_strategy">regret_matching_strategy() (imperfect_info_games.algos.regret_matching.RegretMatchingPlayer static method)</a>, <a href="modules/regret_matching.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.regret_matching_strategy">[1]</a>
+      <li><a href="algos.html#algos.regret_matching.RegretMatchingPlayer.regret_matching_strategy">regret_matching_strategy() (algos.regret_matching.RegretMatchingPlayer static method)</a>
+
+      <ul>
+        <li><a href="modules/regret_matching.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.regret_matching_strategy">(imperfect_info_games.algos.regret_matching.RegretMatchingPlayer static method)</a>
 </li>
-      <li><a href="imperfect_info_games.algos.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer">RegretMatchingPlayer (class in imperfect_info_games.algos.regret_matching)</a>, <a href="modules/regret_matching.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer">[1]</a>
+      </ul></li>
+      <li><a href="algos.html#algos.regret_matching.RegretMatchingPlayer">RegretMatchingPlayer (class in algos.regret_matching)</a>
+
+      <ul>
+        <li><a href="modules/regret_matching.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer">(class in imperfect_info_games.algos.regret_matching)</a>
 </li>
+      </ul></li>
+      <li><a href="games.html#games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.ROCK">ROCK (games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.ROCK">(imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS attribute)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.ROCK">ROCK (imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS attribute)</a>
+      <li><a href="games.html#games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS">ROCK_PAPER_SCISSOR_ACTIONS (class in games.rock_paper_scissor)</a>
+
+      <ul>
+        <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS">(class in imperfect_info_games.games.rock_paper_scissor)</a>
 </li>
-      <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS">ROCK_PAPER_SCISSOR_ACTIONS (class in imperfect_info_games.games.rock_paper_scissor)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS">[1]</a>
+      </ul></li>
+      <li><a href="games.html#games.rock_paper_scissor.RockPaperScissorGame">RockPaperScissorGame (class in games.rock_paper_scissor)</a>
+
+      <ul>
+        <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame">(class in imperfect_info_games.games.rock_paper_scissor)</a>
 </li>
-      <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame">RockPaperScissorGame (class in imperfect_info_games.games.rock_paper_scissor)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame">[1]</a>
-</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.SCISSOR">SCISSOR (imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS attribute)</a>
-</li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.game.ExtensiveFormGame.shorten_history">shorten_history() (imperfect_info_games.games.game.ExtensiveFormGame static method)</a>
+      <li><a href="games.html#games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.SCISSOR">SCISSOR (games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS attribute)</a>
 
       <ul>
-        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.shorten_history">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame static method)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.shorten_history">[1]</a>
+        <li><a href="games/rock_paper_scissor.html#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.SCISSOR">(imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS attribute)</a>
 </li>
       </ul></li>
-      <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.showdown">showdown() (imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>, <a href="imperfect_info_games.games.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.showdown">[1]</a>
+      <li><a href="games.html#games.game.ExtensiveFormGame.shorten_history">shorten_history() (games.game.ExtensiveFormGame static method)</a>
+
+      <ul>
+        <li><a href="games.html#games.kuhn_poker.KuhnPokerGame.shorten_history">(games.kuhn_poker.KuhnPokerGame static method)</a>
 </li>
+        <li><a href="games/game.html#imperfect_info_games.games.game.ExtensiveFormGame.shorten_history">(imperfect_info_games.games.game.ExtensiveFormGame static method)</a>
+</li>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.shorten_history">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame static method)</a>
+</li>
+      </ul></li>
+      <li><a href="games.html#games.kuhn_poker.KuhnPokerGame.showdown">showdown() (games.kuhn_poker.KuhnPokerGame method)</a>
+
+      <ul>
+        <li><a href="games/kuhn_poker.html#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.showdown">(imperfect_info_games.games.kuhn_poker.KuhnPokerGame method)</a>
+</li>
+      </ul></li>
+      <li><a href="games.html#games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS.SILENCE">SILENCE (games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/prisoners_dilemma.html#imperfect_info_games.games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS.SILENCE">(imperfect_info_games.games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="games.html#games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS.SNITCH">SNITCH (games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/prisoners_dilemma.html#imperfect_info_games.games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS.SNITCH">(imperfect_info_games.games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS attribute)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS.SILENCE">SILENCE (imperfect_info_games.games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS attribute)</a>
+      <li><a href="games.html#games.bar_crowding.BAR_CROWDING_ACTIONS.STAY_HOME">STAY_HOME (games.bar_crowding.BAR_CROWDING_ACTIONS attribute)</a>
+
+      <ul>
+        <li><a href="games/bar_crowding.html#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS.STAY_HOME">(imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS attribute)</a>
 </li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS.SNITCH">SNITCH (imperfect_info_games.games.prisoner_dilemma.PRISONER_DILEMMA_ACTIONS attribute)</a>
+      </ul></li>
+      <li><a href="algos.html#algos.player.FixedPolicyPlayer.strategy">strategy (algos.player.FixedPolicyPlayer attribute)</a>
+
+      <ul>
+        <li><a href="algos.html#algos.regret_matching.RegretMatchingPlayer.strategy">(algos.regret_matching.RegretMatchingPlayer property)</a>
 </li>
-      <li><a href="imperfect_info_games.games.html#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS.STAY_HOME">STAY_HOME (imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS attribute)</a>
+        <li><a href="modules/player.html#imperfect_info_games.algos.player.FixedPolicyPlayer.strategy">(imperfect_info_games.algos.player.FixedPolicyPlayer attribute)</a>
 </li>
-      <li><a href="imperfect_info_games.algos.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.strategy">strategy (imperfect_info_games.algos.regret_matching.RegretMatchingPlayer property)</a>
+        <li><a href="modules/regret_matching.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.strategy">(imperfect_info_games.algos.regret_matching.RegretMatchingPlayer property)</a>
 </li>
-      <li><a href="imperfect_info_games.algos.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy">strategy() (imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer method)</a>, <a href="modules/cfr.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy">[1]</a>
+      </ul></li>
+      <li><a href="algos.html#algos.cfr.CounterFactualRegretMinimizerPlayer.strategy">strategy() (algos.cfr.CounterFactualRegretMinimizerPlayer method)</a>
+
+      <ul>
+        <li><a href="modules/cfr.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy">(imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer method)</a>
 </li>
+      </ul></li>
+      <li><a href="algos.html#algos.cfr.CounterFactualRegretMinimizerPlayer.strategy_sum">strategy_sum (algos.cfr.CounterFactualRegretMinimizerPlayer attribute)</a>
+
+      <ul>
+        <li><a href="modules/cfr.html#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy_sum">(imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer attribute)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.demos.html#imperfect_info_games.demos.regret_matching_demo.to_train_delay_regret_matching">to_train_delay_regret_matching() (in module imperfect_info_games.demos.regret_matching_demo)</a>
-</li>
-      <li><a href="imperfect_info_games.demos.html#imperfect_info_games.demos.regret_matching_demo.to_train_regret_matching">to_train_regret_matching() (in module imperfect_info_games.demos.regret_matching_demo)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.algos.html#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.train">train() (imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer method)</a>, <a href="modules/cfr.html#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.train">[1]</a>
+      <li><a href="demos.html#demos.regret_matching_demo.to_train_delay_regret_matching">to_train_delay_regret_matching() (in module demos.regret_matching_demo)</a>
 
       <ul>
-        <li><a href="imperfect_info_games.html#imperfect_info_games.trainer.Trainer.train">(imperfect_info_games.trainer.Trainer method)</a>
+        <li><a href="demos/regret_matching_demo.html#imperfect_info_games.demos.regret_matching_demo.to_train_delay_regret_matching">(in module imperfect_info_games.demos.regret_matching_demo)</a>
 </li>
       </ul></li>
-      <li><a href="imperfect_info_games.html#imperfect_info_games.trainer.Trainer">Trainer (class in imperfect_info_games.trainer)</a>
+      <li><a href="demos.html#demos.regret_matching_demo.to_train_regret_matching">to_train_regret_matching() (in module demos.regret_matching_demo)</a>
+
+      <ul>
+        <li><a href="demos/regret_matching_demo.html#imperfect_info_games.demos.regret_matching_demo.to_train_regret_matching">(in module imperfect_info_games.demos.regret_matching_demo)</a>
 </li>
+      </ul></li>
+      <li><a href="algos.html#algos.cfr.counterfactualRegretMinimizerTrainer.train">train() (algos.cfr.counterfactualRegretMinimizerTrainer method)</a>
+
+      <ul>
+        <li><a href="modules/cfr.html#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.train">(imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer method)</a>
+</li>
+        <li><a href="misc/trainer.html#id0">(imperfect_info_games.misc.trainer.Trainer method)</a>, <a href="misc/trainer.html#imperfect_info_games.misc.trainer.Trainer.train">[1]</a>
+</li>
+        <li><a href="misc.html#id0">(misc.trainer.Trainer method)</a>, <a href="misc.html#misc.trainer.Trainer.train">[1]</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="misc/trainer.html#imperfect_info_games.misc.trainer.Trainer">Trainer (class in imperfect_info_games.misc.trainer)</a>
+
+      <ul>
+        <li><a href="misc.html#misc.trainer.Trainer">(class in misc.trainer)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.algos.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.update_strategy">update_strategy() (imperfect_info_games.algos.regret_matching.RegretMatchingPlayer method)</a>, <a href="modules/regret_matching.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.update_strategy">[1]</a>
+      <li><a href="algos.html#algos.player.Player.update_strategy">update_strategy() (algos.player.Player method)</a>
 
       <ul>
-        <li><a href="imperfect_info_games.html#imperfect_info_games.player.Player.update_strategy">(imperfect_info_games.player.Player method)</a>
+        <li><a href="algos.html#algos.regret_matching.RegretMatchingPlayer.update_strategy">(algos.regret_matching.RegretMatchingPlayer method)</a>
+</li>
+        <li><a href="modules/player.html#imperfect_info_games.algos.player.Player.update_strategy">(imperfect_info_games.algos.player.Player method)</a>
+</li>
+        <li><a href="modules/regret_matching.html#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.update_strategy">(imperfect_info_games.algos.regret_matching.RegretMatchingPlayer method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -715,8 +1247,12 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="imperfect_info_games.demos.html#imperfect_info_games.demos.regret_matching_demo.verify_nash_strategy">verify_nash_strategy() (in module imperfect_info_games.demos.regret_matching_demo)</a>
+      <li><a href="demos.html#demos.regret_matching_demo.verify_nash_strategy">verify_nash_strategy() (in module demos.regret_matching_demo)</a>
+
+      <ul>
+        <li><a href="demos/regret_matching_demo.html#imperfect_info_games.demos.regret_matching_demo.verify_nash_strategy">(in module imperfect_info_games.demos.regret_matching_demo)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 

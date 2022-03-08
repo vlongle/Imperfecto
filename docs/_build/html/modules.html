@@ -97,15 +97,18 @@
 <li class="toctree-l1"><a class="reference internal" href="README.html#id2">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html#id3">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html#todos">TODOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#documentation">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html#license">License</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Demos</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="imperfect_info_games.demos.html">imperfect_info_games.demos package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos/cfr_demo.html">CFR Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos/regret_matching_demo.html">Regret Matching Demo</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Games</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="games/game.html">Base Game</a></li>
 <li class="toctree-l1"><a class="reference internal" href="games/kuhn_poker.html">Kuhn Poker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="games/rock_paper_scissor.html">Rock Paper Scissor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="games/prisoners_dilemma.html">Prisoner’s Dilemma</a></li>
@@ -113,8 +116,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/player.html">Base Player</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/regret_matching.html">Regret Matching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules/cfr.html">Counterfactual Regret Minimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="misc/trainer.html">Trainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/evaluate.html">Evaluate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc/utils.html">Utils</a></li>
 </ul>
 
             
@@ -186,40 +196,37 @@
 <h1>imperfect_info_games<a class="headerlink" href="#imperfect-info-games" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="imperfect_info_games.html">imperfect_info_games package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="imperfect_info_games.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="imperfect_info_games.algos.html">imperfect_info_games.algos package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.algos.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.algos.html#module-imperfect_info_games.algos.cfr">imperfect_info_games.algos.cfr module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.algos.html#module-imperfect_info_games.algos.regret_matching">imperfect_info_games.algos.regret_matching module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.algos.html#module-imperfect_info_games.algos">Module contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algos.html">algos package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="algos.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algos.html#module-algos.cfr">algos.cfr module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algos.html#module-algos.player">algos.player module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algos.html#module-algos.regret_matching">algos.regret_matching module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="algos.html#module-algos">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="imperfect_info_games.demos.html">imperfect_info_games.demos package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.demos.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.demos.html#module-imperfect_info_games.demos.cfr_demo">imperfect_info_games.demos.cfr_demo module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.demos.html#module-imperfect_info_games.demos.regret_matching_demo">imperfect_info_games.demos.regret_matching_demo module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.demos.html#module-imperfect_info_games.demos">Module contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demos.html">demos package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="demos.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos.html#module-demos.cfr_demo">demos.cfr_demo module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos.html#module-demos.regret_matching_demo">demos.regret_matching_demo module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demos.html#module-demos">Module contents</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="imperfect_info_games.games.html">imperfect_info_games.games package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.games.html#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.games.html#module-imperfect_info_games.games.bar_crowding">imperfect_info_games.games.bar_crowding module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.games.html#module-imperfect_info_games.games.game">imperfect_info_games.games.game module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.games.html#module-imperfect_info_games.games.kuhn_poker">imperfect_info_games.games.kuhn_poker module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.games.html#module-imperfect_info_games.games.prisoner_dilemma">imperfect_info_games.games.prisoner_dilemma module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.games.html#module-imperfect_info_games.games.rock_paper_scissor">imperfect_info_games.games.rock_paper_scissor module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="imperfect_info_games.games.html#module-imperfect_info_games.games">Module contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="games.html">games package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="games.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#module-games.bar_crowding">games.bar_crowding module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#module-games.game">games.game module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#module-games.kuhn_poker">games.kuhn_poker module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#module-games.prisoner_dilemma">games.prisoner_dilemma module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#module-games.rock_paper_scissor">games.rock_paper_scissor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="games.html#module-games">Module contents</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="imperfect_info_games.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imperfect_info_games.html#module-imperfect_info_games.evaluate">imperfect_info_games.evaluate module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imperfect_info_games.html#module-imperfect_info_games.player">imperfect_info_games.player module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imperfect_info_games.html#module-imperfect_info_games.trainer">imperfect_info_games.trainer module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imperfect_info_games.html#module-imperfect_info_games.utils">imperfect_info_games.utils module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="imperfect_info_games.html#module-imperfect_info_games">Module contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">misc package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="misc.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc.html#module-misc.evaluate">misc.evaluate module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc.html#module-misc.trainer">misc.trainer module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc.html#module-misc.utils">misc.utils module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="misc.html#module-misc">Module contents</a></li>
 </ul>
 </li>
 </ul>

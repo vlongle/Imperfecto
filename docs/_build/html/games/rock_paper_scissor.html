@@ -99,15 +99,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#id2">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#id3">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#todos">TODOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#documentation">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#license">License</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Demos</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../imperfect_info_games.demos.html">imperfect_info_games.demos package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/cfr_demo.html">CFR Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/regret_matching_demo.html">Regret Matching Demo</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Games</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="game.html">Base Game</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kuhn_poker.html">Kuhn Poker</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Rock Paper Scissor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prisoners_dilemma.html">Prisoner’s Dilemma</a></li>
@@ -115,8 +118,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/player.html">Base Player</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/regret_matching.html">Regret Matching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/cfr.html">Counterfactual Regret Minimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../misc/trainer.html">Trainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/evaluate.html">Evaluate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/utils.html">Utils</a></li>
 </ul>
 
             
@@ -189,68 +199,107 @@
 <p>A collection of 2-player rock paper scissor games.</p>
 <dl class="simple">
 <dt>This includes:</dt><dd><ul class="simple">
-<li><p>Standard Rock Paper Scissor</p></li>
-<li><p>Asymmetric Rock Paper Scissor</p></li>
+<li><p>A Standard Rock Paper Scissor class.</p></li>
+<li><p>An Asymmetric Rock Paper Scissor class.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py class">
-<dt class="sig sig-object py" id="imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.rock_paper_scissor.</span></span><span class="sig-name descname"><span class="pre">AsymmetricRockPaperScissorGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../imperfect_info_games.html#imperfect_info_games.player.Player" title="imperfect_info_games.player.Player"><span class="pre">imperfect_info_games.player.Player</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame" title="Permalink to this definition">¶</a></dt>
-<dd><p>An asymmetric 2-player rock-paper-scissors (extensive-form) game.</p>
-<p>Rock beats scissors, scissors beats paper, and paper beats rock.
-<strong>But</strong> winner gets +2 payoff, loser gets -2 payoff when someone plays
-scissor. Otherwise, winner gets +1 payoff, loser gets -1 payoff.</p>
-<p>The Nash strategy (unexploitable) is (0.4, 0.4, 0.2) (payoff = 0 for all)</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame.get_payoffs">
-<span class="sig-name descname"><span class="pre">get_payoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../imperfect_info_games.games.html#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS" title="imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS"><span class="pre">imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame.get_payoffs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Override the get_payoffs function of standard rock-paper-scissors such that
-the winner gets +2 payoff, loser gets -2 payoff when someone plays scissor. Otherwise,
-winner gets +1 payoff, loser gets -1 payoff.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>history: The history of the game.</p>
-</dd>
-<dt>Returns:</dt><dd><p>The payoffs of the players.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.rock_paper_scissor.</span></span><span class="sig-name descname"><span class="pre">ROCK_PAPER_SCISSOR_ACTIONS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS" title="Permalink to this definition">¶</a></dt>
-<dd><p>Available actions for the rock-paper-scissors game.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.rock_paper_scissor.</span></span><span class="sig-name descname"><span class="pre">ROCK_PAPER_SCISSOR_ACTIONS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/rock_paper_scissor.html#ROCK_PAPER_SCISSOR_ACTIONS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../misc/utils.html#imperfect_info_games.misc.utils.lessVerboseEnum" title="imperfect_info_games.misc.utils.lessVerboseEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.misc.utils.lessVerboseEnum</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></a></p>
+<p>Available actions for the rock-paper-scissors game.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.ROCK">
+<span class="sig-name descname"><span class="pre">ROCK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.ROCK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.PAPER">
+<span class="sig-name descname"><span class="pre">PAPER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.PAPER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.SCISSOR">
+<span class="sig-name descname"><span class="pre">SCISSOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS.SCISSOR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.rock_paper_scissor.</span></span><span class="sig-name descname"><span class="pre">RockPaperScissorGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../imperfect_info_games.html#imperfect_info_games.player.Player" title="imperfect_info_games.player.Player"><span class="pre">imperfect_info_games.player.Player</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame" title="Permalink to this definition">¶</a></dt>
-<dd><p>A (standard) 2-player rock-paper-scissor (extensive-form) game.</p>
-<p>Rock beats scissors, scissors beats paper, and paper beats rock.
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.rock_paper_scissor.</span></span><span class="sig-name descname"><span class="pre">RockPaperScissorGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/rock_paper_scissor.html#RockPaperScissorGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="game.html#imperfect_info_games.games.game.NormalFormGame" title="imperfect_info_games.games.game.NormalFormGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.games.game.NormalFormGame</span></code></a></p>
+<p>A (standard) 2-player rock-paper-scissor (extensive-form) game.</p>
+<dl class="simple">
+<dt>Payoff:</dt><dd><p>Rock beats scissors, scissors beats paper, and paper beats rock.
 Winner gets +1 payoff, loser gets -1 payoff.</p>
-<p>The nash strategy (unexploitable) is (1/3, 1/3, 1/3) (payoff = 0 for all)</p>
+</dd>
+<dt>Nash Equilibrium:</dt><dd><p>The nash strategy (unexploitable) is (1/3, 1/3, 1/3) (payoff = 0 for all)</p>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.actions">
 <span class="sig-name descname"><span class="pre">actions</span></span><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.actions" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="../imperfect_info_games.games.html#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS" title="imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS</span></code></a></p>
+<dd><p>alias of <a class="reference internal" href="#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS" title="imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS</span></code></a></p>
 </dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.n_players">
+<span class="sig-name descname"><span class="pre">n_players</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.n_players" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.get_payoffs">
-<span class="sig-name descname"><span class="pre">get_payoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../imperfect_info_games.games.html#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS" title="imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS"><span class="pre">imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.get_payoffs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the payoff for each player at the current node. This node <em>must</em> be a terminal node.
-Args:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>history (Sequence[IntEnum]): The history of the game.</p></li>
-</ul>
-</div></blockquote>
+<span class="sig-name descname"><span class="pre">get_payoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/rock_paper_scissor.html#RockPaperScissorGame.get_payoffs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame.get_payoffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the payoff for each player at the current node.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>history must be a terminal node.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference internal" href="#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS" title="imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">ROCK_PAPER_SCISSOR_ACTIONS</span></code></a>]) – The history of the game.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The payoffs of the players at the end of the game.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.rock_paper_scissor.</span></span><span class="sig-name descname"><span class="pre">AsymmetricRockPaperScissorGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/rock_paper_scissor.html#AsymmetricRockPaperScissorGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame" title="imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.games.rock_paper_scissor.RockPaperScissorGame</span></code></a></p>
+<p>An asymmetric 2-player rock-paper-scissors (extensive-form) game.</p>
 <dl class="simple">
-<dt>Returns:</dt><dd><ul class="simple">
-<li><p>payoffs (Sequence[float]): The payoffs of the players at the end of the game.</p></li>
-</ul>
+<dt>Payoff:</dt><dd><p>Rock beats scissors, scissors beats paper, and paper beats rock.
+<strong>But</strong> winner gets +2 payoff, loser gets -2 payoff when someone plays
+scissor. Otherwise, winner gets +1 payoff, loser gets -1 payoff.</p>
+</dd>
+<dt>Nash Equilibrium:</dt><dd><p>The Nash strategy (unexploitable) is (0.4, 0.4, 0.2) (payoff = 0 for all)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame.get_payoffs">
+<span class="sig-name descname"><span class="pre">get_payoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/rock_paper_scissor.html#AsymmetricRockPaperScissorGame.get_payoffs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.rock_paper_scissor.AsymmetricRockPaperScissorGame.get_payoffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the get_payoffs function of standard rock-paper-scissors.</p>
+<p>The winner gets +2 payoff, loser gets -2 payoff when someone plays scissor. Otherwise,
+winner gets +1 payoff, loser gets -1 payoff.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference internal" href="#imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS" title="imperfect_info_games.games.rock_paper_scissor.ROCK_PAPER_SCISSOR_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">ROCK_PAPER_SCISSOR_ACTIONS</span></code></a>]) – The history of the game.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The payoffs of the players.</p>
 </dd>
 </dl>
 </dd></dl>

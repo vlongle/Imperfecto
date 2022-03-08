@@ -42,7 +42,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Regret Matching" href="../modules/regret_matching.html" />
+    <link rel="next" title="Base Player" href="../modules/player.html" />
     <link rel="prev" title="Prisoner’s Dilemma" href="prisoners_dilemma.html" /> 
 </head>
 
@@ -99,27 +99,34 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#id2">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#id3">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#todos">TODOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#documentation">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#license">License</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Demos</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../imperfect_info_games.demos.html">imperfect_info_games.demos package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/cfr_demo.html">CFR Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/regret_matching_demo.html">Regret Matching Demo</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Games</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="game.html">Base Game</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kuhn_poker.html">Kuhn Poker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rock_paper_scissor.html">Rock Paper Scissor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prisoners_dilemma.html">Prisoner’s Dilemma</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Bar Crowding Game</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#reference">Reference:</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bar Crowding Game</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/player.html">Base Player</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/regret_matching.html">Regret Matching</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../modules/cfr.html">Counterfactual Regret Minimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../misc/trainer.html">Trainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/evaluate.html">Evaluate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/utils.html">Utils</a></li>
 </ul>
 
             
@@ -191,33 +198,56 @@
 <span id="bar-crowding-game"></span><h1>Bar Crowding Game<a class="headerlink" href="#module-imperfect_info_games.games.bar_crowding" title="Permalink to this headline">¶</a></h1>
 <p>A 3-player bar-crowding game’s version of El Farol Bar problem
 (<a class="reference external" href="https://en.wikipedia.org/wiki/El_Farol_Bar_problem">https://en.wikipedia.org/wiki/El_Farol_Bar_problem</a>).</p>
-<div class="section" id="reference">
-<h2>Reference:<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
-<p>[Matthew Rouso’s lecture](<a class="reference external" href="https://www.youtube.com/watch?v=P7Dg5FRH0cc">https://www.youtube.com/watch?v=P7Dg5FRH0cc</a>)</p>
+<dl class="simple">
+<dt>Reference:</dt><dd><p>[Matthew Rouso’s lecture](<a class="reference external" href="https://www.youtube.com/watch?v=P7Dg5FRH0cc">https://www.youtube.com/watch?v=P7Dg5FRH0cc</a>)</p>
+</dd>
+</dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.bar_crowding.</span></span><span class="sig-name descname"><span class="pre">BAR_CROWDING_ACTIONS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS" title="Permalink to this definition">¶</a></dt>
-<dd><p>An enumeration.</p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.bar_crowding.</span></span><span class="sig-name descname"><span class="pre">BAR_CROWDING_ACTIONS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/bar_crowding.html#BAR_CROWDING_ACTIONS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../misc/utils.html#imperfect_info_games.misc.utils.lessVerboseEnum" title="imperfect_info_games.misc.utils.lessVerboseEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.misc.utils.lessVerboseEnum</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></a></p>
+<p>Available actions for the bar-crowding game.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS.GO_TO_BAR">
+<span class="sig-name descname"><span class="pre">GO_TO_BAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS.GO_TO_BAR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS.STAY_HOME">
+<span class="sig-name descname"><span class="pre">STAY_HOME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS.STAY_HOME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="imperfect_info_games.games.bar_crowding.BarCrowdingGame">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.bar_crowding.</span></span><span class="sig-name descname"><span class="pre">BarCrowdingGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../imperfect_info_games.html#imperfect_info_games.player.Player" title="imperfect_info_games.player.Player"><span class="pre">imperfect_info_games.player.Player</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.games.bar_crowding.BarCrowdingGame" title="Permalink to this definition">¶</a></dt>
-<dd><p>A 3-player bar-crowding game’s version of El Farol Bar problem
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.bar_crowding.</span></span><span class="sig-name descname"><span class="pre">BarCrowdingGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/bar_crowding.html#BarCrowdingGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.bar_crowding.BarCrowdingGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="game.html#imperfect_info_games.games.game.NormalFormGame" title="imperfect_info_games.games.game.NormalFormGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.games.game.NormalFormGame</span></code></a></p>
+<p>A 3-player bar-crowding game’s version of El Farol Bar problem
 (<a class="reference external" href="https://en.wikipedia.org/wiki/El_Farol_Bar_problem">https://en.wikipedia.org/wiki/El_Farol_Bar_problem</a>).</p>
 <blockquote>
 <div><p>Each player has two actions: go to the bar and stay at home. Each player wants to go to the bar
 but if all three of them go to the bar, the bar will be crowded. If only one player go to the bar,
 then they will feel lonely and silly. Ideally, exactly two players should go to the bar and have
 fun.</p>
-<p>If the bar is overcrowded, every player get a payoff of -1.
-If a player shows up and feel silly, they get a payoff of 0.
-If a player stays at home, they get a payoff of +1.
-If exactly two players go to the bar, they get a payoff of +2.</p>
-<p>The pure Nash equilibria are
-1. All three stay at home. (payoff = 1 for all)
-2. Three outcomes where exactly two players go to the bar, and one player stays at home.
+<dl>
+<dt>Payoff:</dt><dd><ul class="simple">
+<li><p>If the bar is overcrowded, every player get a payoff of -1.</p></li>
+<li><p>If a player shows up and feel silly, they get a payoff of 0.</p></li>
+<li><p>If a player stays at home, they get a payoff of +1.</p></li>
+<li><p>If exactly two players go to the bar, they get a payoff of +2.</p></li>
+</ul>
+</dd>
+<dt>Nash Equilibrium:</dt><dd><dl>
+<dt>The pure Nash equilibria are</dt><dd><ol class="arabic simple">
+<li><p>All three stay at home. (payoff = 1 for all)</p></li>
+</ol>
+<p>2. Three outcomes where exactly two players go to the bar, and one player stays at home.
 (payoff = 1 for one player, 2 for the other two)</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </div></blockquote>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="imperfect_info_games.games.bar_crowding.BarCrowdingGame.actions">
@@ -225,27 +255,34 @@ If exactly two players go to the bar, they get a payoff of +2.</p>
 <dd><p>alias of <a class="reference internal" href="#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS" title="imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS</span></code></a></p>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.games.bar_crowding.BarCrowdingGame.n_players">
+<span class="sig-name descname"><span class="pre">n_players</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#imperfect_info_games.games.bar_crowding.BarCrowdingGame.n_players" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="imperfect_info_games.games.bar_crowding.BarCrowdingGame.get_payoffs">
-<span class="sig-name descname"><span class="pre">get_payoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS" title="imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS"><span class="pre">imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#imperfect_info_games.games.bar_crowding.BarCrowdingGame.get_payoffs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the payoff for each player at the current node. This node <em>must</em> be a terminal node.
-Args:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>history (Sequence[IntEnum]): The history of the game.</p></li>
-</ul>
-</div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><ul class="simple">
-<li><p>payoffs (Sequence[float]): The payoffs of the players at the end of the game.</p></li>
-</ul>
+<span class="sig-name descname"><span class="pre">get_payoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/bar_crowding.html#BarCrowdingGame.get_payoffs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.bar_crowding.BarCrowdingGame.get_payoffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the payoff for each player at the current node.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>history must be a terminal node.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference internal" href="#imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS" title="imperfect_info_games.games.bar_crowding.BAR_CROWDING_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">BAR_CROWDING_ACTIONS</span></code></a>]) – The history of the game.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The payoffs of the players at the end of the game.</p>
 </dd>
 </dl>
 </dd></dl>
 
 </dd></dl>
 
-</div>
 </div>
 
 
@@ -254,7 +291,7 @@ Args:</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../modules/regret_matching.html" class="btn btn-neutral float-right" title="Regret Matching" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../modules/player.html" class="btn btn-neutral float-right" title="Base Player" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="prisoners_dilemma.html" class="btn btn-neutral float-left" title="Prisoner’s Dilemma" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

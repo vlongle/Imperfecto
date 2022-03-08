@@ -30,7 +30,33 @@ release = '1.0.0'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx_click.ext']
+extensions = ["sphinx.ext.napoleon",  # for Google-style Python docstrings support (https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html)
+              "sphinx.ext.intersphinx",  # allow to link external docs
+              "sphinx_click.ext",
+              "sphinx.ext.autodoc",
+              # https://sphinx-toolbox.readthedocs.io/en/latest/extensions/more_autodoc/typehints.html
+              # make typing pretty
+              'sphinx_toolbox.more_autodoc.typehints',
+              "sphinx_autodoc_typehints",
+              "sphinx.ext.autosummary",
+              "sphinx.ext.mathjax",
+              "sphinx.ext.ifconfig",
+              "sphinx.ext.viewcode",
+              ]
+# list of external docs
+intersphinx_mapping = {
+    "python": ("https://docs.python.org/3/", None),
+    "sphinx": ("https://www.sphinx-doc.org/en/stable/", None),
+    "pytest": ("https://docs.pytest.org/en/stable", None),
+    "pytest-regressions": ("https://pytest-regressions.readthedocs.io/en/latest/", None),
+    "coincidence": ("https://coincidence.readthedocs.io/en/latest", None),
+    "autodocsumm": ("https://autodocsumm.readthedocs.io/en/latest", None),
+    'numpy': ('http://docs.scipy.org/doc/numpy/', None),
+    'enlighten': ('https://python-enlighten.readthedocs.io/en/stable/', None),
+}
+
+autosummary_generate = True
+autodoc_member_order = 'bysource'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -54,6 +80,7 @@ html_theme = 'sphinx_rtd_theme'
 # adding open baselines_theme
 def setup(app):
     app.add_css_file("css/baselines_theme.css")
+    return {}
 
 
 html_logo = "_static/poker_meme.jpeg"

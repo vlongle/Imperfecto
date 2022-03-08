@@ -22,14 +22,6 @@ imperfect\_info\_games.evaluate module
    :undoc-members:
    :show-inheritance:
 
-imperfect\_info\_games.player module
-------------------------------------
-
-.. automodule:: imperfect_info_games.player
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 imperfect\_info\_games.trainer module
 -------------------------------------
 

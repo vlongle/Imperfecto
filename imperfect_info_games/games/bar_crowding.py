@@ -2,18 +2,18 @@
 (https://en.wikipedia.org/wiki/El_Farol_Bar_problem).
 
 Reference:
-----------
-[Matthew Rouso's lecture](https://www.youtube.com/watch?v=P7Dg5FRH0cc)
+    [Matthew Rouso's lecture](https://www.youtube.com/watch?v=P7Dg5FRH0cc)
 """
 
 from enum import IntEnum
 from typing import Sequence
 
 from imperfect_info_games.games.game import NormalFormGame
-from imperfect_info_games.utils import lessVerboseEnum
+from imperfect_info_games.misc.utils import lessVerboseEnum
 
 
 class BAR_CROWDING_ACTIONS(lessVerboseEnum, IntEnum):
+    """Available actions for the bar-crowding game."""
     GO_TO_BAR = 0
     STAY_HOME = 1
 
@@ -27,20 +27,19 @@ class BarCrowdingGame(NormalFormGame):
     then they will feel lonely and silly. Ideally, exactly two players should go to the bar and have
     fun.
 
-    Payoff
-    -------
-    If the bar is overcrowded, every player get a payoff of -1.
-    If a player shows up and feel silly, they get a payoff of 0.
-    If a player stays at home, they get a payoff of +1.
-    If exactly two players go to the bar, they get a payoff of +2.
+    Payoff:
+        * If the bar is overcrowded, every player get a payoff of -1.
+        * If a player shows up and feel silly, they get a payoff of 0.
+        * If a player stays at home, they get a payoff of +1.
+        * If exactly two players go to the bar, they get a payoff of +2.
 
-    Nash Equilibrium
-    -----------------
-    The pure Nash equilibria are
-    1. All three stay at home. (payoff = 1 for all)
-    2. Three outcomes where exactly two players go to the bar, and one player stays at home.
-    (payoff = 1 for one player, 2 for the other two)
+    Nash Equilibrium:
+        The pure Nash equilibria are
+            1. All three stay at home. (payoff = 1 for all)
+            2. Three outcomes where exactly two players go to the bar, and one player stays at home.
+            (payoff = 1 for one player, 2 for the other two)
     """
+
     actions = BAR_CROWDING_ACTIONS
     n_players = 3
 

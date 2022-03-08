@@ -1,16 +1,12 @@
 """A demo for the Counterfactual regret minimization (CFR) algorithm ((Zinkevich et al. "Regret minimization in games with incomplete information" 2008) for various
 extensive-form game.
 
-Usage
------
+Usage:
+    Run::
 
-Run
+        $ python3 imperfect_info_games/demos/cfr_demo.py --help
 
-```
-python3 imperfect_info_games/demos/cfr_demo.py --help
-```
-
-to print the options available.
+to print the available options.
 
 """
 
@@ -66,8 +62,7 @@ def main(game: str, n_iters: int = 10000, verbose_level: str = "INFO"):
     Game = Game_dict[game]
     players = [CounterFactualRegretMinimizerPlayer(
         f"cfr{i}", i) for i in range(Game.n_players)]
-    cfr_solver = counterfactualRegretMinimizerTrainer(
-        Game(players), n_iters=n_iters)
+    cfr_solver = counterfactualRegretMinimizerTrainer(Game, players, n_iters)
     cfr_solver.train()
 
 

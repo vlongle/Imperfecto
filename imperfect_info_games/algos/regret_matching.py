@@ -12,8 +12,8 @@ from typing import List
 
 import numpy as np
 
-from imperfect_info_games.player import Player
-from imperfect_info_games.utils import get_action
+from imperfect_info_games.algos.player import Player
+from imperfect_info_games.misc.utils import get_action
 
 
 class RegretMatchingPlayer(Player):
@@ -25,6 +25,15 @@ class RegretMatchingPlayer(Player):
     the actual action taken.
 
     The policy is action distribution proportional to the positive entries of the cumulative regret vector.
+
+    Args:
+        name(str): name of the player.
+        n_actions(int): number of actions.
+
+    Attributes:
+        name(str): name of the player.
+        n_actions(int): number of actions.
+        cum_regrets(np.array): cumulative regret vector of shape (n_actions,).
     """
 
     def __init__(self, name: str, n_actions: int):
@@ -38,15 +47,20 @@ class RegretMatchingPlayer(Player):
     def __repr__(self):
         return "Regret Matching Agent(" + self.name + ")"
 
+    @property
+    def strategy(self):
+        """The regret matching strategy."""
+        return self.regret_matching_strategy(self.cum_regrets)
+
     @staticmethod
     def regret_matching_strategy(regrets: np.ndarray) -> np.ndarray:
         """Return the regret matching policy.
 
         Args:
-            regrets(np.ndarray): cumulative regrets vector.
+            regrets: cumulative regrets vector.
 
         Returns:
-            action_probs(np.ndarray): action distribution according to regret-matching policy.
+            action distribution according to regret-matching policy.
         """
         action_probs = np.where(regrets > 0, regrets, 0)
         if np.sum(action_probs) > 0:
@@ -54,10 +68,6 @@ class RegretMatchingPlayer(Player):
         else:
             action_probs = np.ones(len(action_probs)) / len(action_probs)
         return action_probs
-
-    @property
-    def strategy(self):
-        return self.regret_matching_strategy(self.cum_regrets)
 
     def act(self, infostate: str) -> int:
         del infostate
@@ -68,8 +78,8 @@ class RegretMatchingPlayer(Player):
         the strategy is computed from the cumulative regret vector.
 
         Args:
-            history(Sequence[]): history of the game.
-            player_id(int): player id.
+            history: history of the game.
+            player_id: player id.
         """
         my_action = history[player_id]
         # compute counterfactual rewards

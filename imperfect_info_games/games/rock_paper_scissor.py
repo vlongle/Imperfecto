@@ -1,14 +1,14 @@
 """A collection of 2-player rock paper scissor games.
 
 This includes:
-    - Standard Rock Paper Scissor
-    - Asymmetric Rock Paper Scissor
+    - A Standard Rock Paper Scissor class.
+    - An Asymmetric Rock Paper Scissor class.
 """
 from enum import IntEnum
 from typing import Sequence
 
 from imperfect_info_games.games.game import NormalFormGame
-from imperfect_info_games.utils import lessVerboseEnum
+from imperfect_info_games.misc.utils import lessVerboseEnum
 
 
 class ROCK_PAPER_SCISSOR_ACTIONS(lessVerboseEnum, IntEnum):
@@ -21,14 +21,12 @@ class ROCK_PAPER_SCISSOR_ACTIONS(lessVerboseEnum, IntEnum):
 class RockPaperScissorGame(NormalFormGame):
     """A (standard) 2-player rock-paper-scissor (extensive-form) game.
 
-    Payoff
-    ------
-    Rock beats scissors, scissors beats paper, and paper beats rock.
-    Winner gets +1 payoff, loser gets -1 payoff.
+    Payoff:
+        Rock beats scissors, scissors beats paper, and paper beats rock.
+        Winner gets +1 payoff, loser gets -1 payoff.
 
-    Nash Equilibrium
-    ----------------
-    The nash strategy (unexploitable) is (1/3, 1/3, 1/3) (payoff = 0 for all)
+    Nash Equilibrium:
+        The nash strategy (unexploitable) is (1/3, 1/3, 1/3) (payoff = 0 for all)
     """
 
     actions = ROCK_PAPER_SCISSOR_ACTIONS
@@ -56,20 +54,19 @@ class RockPaperScissorGame(NormalFormGame):
 class AsymmetricRockPaperScissorGame(RockPaperScissorGame):
     """An asymmetric 2-player rock-paper-scissors (extensive-form) game.
 
-    Payoff
-    ------
-    Rock beats scissors, scissors beats paper, and paper beats rock.
-    **But** winner gets +2 payoff, loser gets -2 payoff when someone plays
-    scissor. Otherwise, winner gets +1 payoff, loser gets -1 payoff.
+    Payoff:
+        Rock beats scissors, scissors beats paper, and paper beats rock.
+        **But** winner gets +2 payoff, loser gets -2 payoff when someone plays
+        scissor. Otherwise, winner gets +1 payoff, loser gets -1 payoff.
 
-    Nash Equilibrium
-    ----------------
-    The Nash strategy (unexploitable) is (0.4, 0.4, 0.2) (payoff = 0 for all)
+    Nash Equilibrium:
+        The Nash strategy (unexploitable) is (0.4, 0.4, 0.2) (payoff = 0 for all)
     """
 
     def get_payoffs(self, history: Sequence[ROCK_PAPER_SCISSOR_ACTIONS]) -> Sequence[float]:
-        """Override the get_payoffs function of standard rock-paper-scissors such that
-        the winner gets +2 payoff, loser gets -2 payoff when someone plays scissor. Otherwise,
+        """Override the get_payoffs function of standard rock-paper-scissors.
+
+        The winner gets +2 payoff, loser gets -2 payoff when someone plays scissor. Otherwise,
         winner gets +1 payoff, loser gets -1 payoff.
 
         Args:

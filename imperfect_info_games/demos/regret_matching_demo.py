@@ -4,15 +4,12 @@ N-player normal form games.
 For 2-player zero-sum game, regret matching algorithm's average strategy provably converges to Nash.
 However, it seems to work for more than 2-player games as well.
 
-Usage
------
-Run
+Usage:
+    Run::
 
-```
-python3 imperfect_info_games/demos/regret_matching_demo.py --help
-```
+        $ python3 imperfect_info_games/demos/regret_matching_demo.py --help
 
-to print the options available.
+to print the available options.
 """
 
 from pprint import pprint
@@ -22,7 +19,6 @@ import click
 import numpy as np
 
 from imperfect_info_games.algos.regret_matching import RegretMatchingPlayer
-from imperfect_info_games.evaluate import evaluate_strategies
 from imperfect_info_games.games.bar_crowding import BarCrowdingGame
 from imperfect_info_games.games.game import ExtensiveFormGame
 from imperfect_info_games.games.prisoner_dilemma import PrisonerDilemmaGame
@@ -30,7 +26,8 @@ from imperfect_info_games.games.rock_paper_scissor import (
     AsymmetricRockPaperScissorGame,
     RockPaperScissorGame,
 )
-from imperfect_info_games.trainer import Trainer
+from imperfect_info_games.misc.evaluate import evaluate_strategies
+from imperfect_info_games.misc.trainer import Trainer
 np.random.seed(0)
 
 

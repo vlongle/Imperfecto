@@ -16,12 +16,14 @@ Welcome to Imperfect Information Games's documentation!
    :maxdepth: 1
    :caption: Demos
 
-   imperfect_info_games.demos
+   demos/cfr_demo
+   demos/regret_matching_demo
 
 .. toctree::
    :maxdepth: 1
    :caption: Games
 
+   games/game
    games/kuhn_poker
    games/rock_paper_scissor
    games/prisoners_dilemma
@@ -31,9 +33,18 @@ Welcome to Imperfect Information Games's documentation!
    :maxdepth: 1
    :caption: Algorithms
 
+   modules/player
    modules/regret_matching
    modules/cfr
 
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Miscellaneous 
+
+   misc/trainer
+   misc/evaluate
+   misc/utils
 
 
 

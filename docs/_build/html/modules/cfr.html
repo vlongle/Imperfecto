@@ -42,6 +42,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Trainer" href="../misc/trainer.html" />
     <link rel="prev" title="Regret Matching" href="regret_matching.html" /> 
 </head>
 
@@ -98,15 +99,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html#id2">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#id3">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#todos">TODOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html#documentation">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#references">References</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../README.html#license">License</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Demos</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../imperfect_info_games.demos.html">imperfect_info_games.demos package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/cfr_demo.html">CFR Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos/regret_matching_demo.html">Regret Matching Demo</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Games</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../games/game.html">Base Game</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/kuhn_poker.html">Kuhn Poker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/rock_paper_scissor.html">Rock Paper Scissor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../games/prisoners_dilemma.html">Prisoner’s Dilemma</a></li>
@@ -114,8 +118,15 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="player.html">Base Player</a></li>
 <li class="toctree-l1"><a class="reference internal" href="regret_matching.html">Regret Matching</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Counterfactual Regret Minimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../misc/trainer.html">Trainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/evaluate.html">Evaluate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/utils.html">Utils</a></li>
 </ul>
 
             
@@ -196,85 +207,98 @@ reach probabilities.</p>
 different infostates of their opponent. Therefore, not every node (history) in the infostate is
 equally likely to be reached, so the reach probs should be taken into account to skew the action
 distribution at that infostate appropriately.</p>
+<p>The cfr formulation looks similar to the advantage function in RL Q-learning.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.algos.cfr.</span></span><span class="sig-name descname"><span class="pre">CounterFactualRegretMinimizerPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer" title="Permalink to this definition">¶</a></dt>
-<dd><p>CounterFactualRegretMinimizerPlayer.</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>player_id: int</dt><dd><p>the player id of the player in the game.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>cum_regrets: dict</dt><dd><p>map from infostate to a regret vector of size n_actions</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>strategy_sum: dict</dt><dd><p>map from infostate to the cumulative strategy at that infostate until now. Useful for
-calculating the average strategy over many iters</p>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>act(self, infostate: str)</dt><dd><p>returns the action to take at a given infostate.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>get_avg_strategies(self)</dt><dd><p>returns the average strategy of the player at each infostate.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>strategy(self, infostate: str)</dt><dd><p>returns the strategy for a given player at an infostate.</p>
-</dd>
-</dl>
-</li>
-</ul>
-</div></blockquote>
-<dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.act">
-<span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.act" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the action to take in this infostate.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><ul class="simple">
-<li><p>infostate (str): The infostate to take the action in.</p></li>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.algos.cfr.</span></span><span class="sig-name descname"><span class="pre">CounterFactualRegretMinimizerPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#CounterFactualRegretMinimizerPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="player.html#imperfect_info_games.algos.player.Player" title="imperfect_info_games.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.algos.player.Player</span></code></a></p>
+<p>CounterFactualRegretMinimizerPlayer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – name of the player.</p></li>
+<li><p><strong>player_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – id of the player.</p></li>
 </ul>
 </dd>
-<dt>Returns:</dt><dd><ul class="simple">
-<li><p>action (int): The action to take.</p></li>
-</ul>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.player_id">
+<span class="sig-name descname"><span class="pre">player_id</span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.player_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>the player id of this player in the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies">
-<span class="sig-name descname"><span class="pre">get_avg_strategies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the average strategy of the player at each infostate.</p>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>avg_strategies (dict): map from infostate to the average strategy at that infostate.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.cum_regrets">
+<span class="sig-name descname"><span class="pre">cum_regrets</span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.cum_regrets" title="Permalink to this definition">¶</a></dt>
+<dd><p>map from infostate to a regret vector of size n_actions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy_sum">
+<span class="sig-name descname"><span class="pre">strategy_sum</span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy_sum" title="Permalink to this definition">¶</a></dt>
+<dd><p>map from infostate to the cumulative strategy at that infostate until now. Useful for calculating the average strategy over many iters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy">
-<span class="sig-name descname"><span class="pre">strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#CounterFactualRegretMinimizerPlayer.strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy" title="Permalink to this definition">¶</a></dt>
 <dd><p>the strategy for a given player at a infostate.</p>
-<dl class="simple">
-<dt>Args:</dt><dd><p>player (Player): player to get the strategy for.
-infostate (str): string representing the infostate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>infostate</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – string representing the infostate</p>
 </dd>
-<dt>Returns:</dt><dd><p>action_probs (np.ndarray): array of shape (len(self.game.actions)) representing
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>array of shape (len(game.actions)) representing
 the action probability distribution.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.act">
+<span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#CounterFactualRegretMinimizerPlayer.act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.act" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the action to take given an infostate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>infostate</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The infostate to take the action in.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The action to take.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies">
+<span class="sig-name descname"><span class="pre">get_avg_strategies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#CounterFactualRegretMinimizerPlayer.get_avg_strategies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the average strategy of the player at each infostate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>map from infostate to the average strategy at that infostate.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -283,43 +307,46 @@ the action probability distribution.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.algos.cfr.</span></span><span class="sig-name descname"><span class="pre">counterfactualRegretMinimizerTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer" title="Permalink to this definition">¶</a></dt>
-<dd><p>CFR (Zinkevich et al. “Regret minimization in games with incomplete information” 2008)
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.algos.cfr.</span></span><span class="sig-name descname"><span class="pre">counterfactualRegretMinimizerTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#counterfactualRegretMinimizerTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>CFR (Zinkevich et al. “Regret minimization in games with incomplete information” 2008)
 is a self-play algorithm that assumes that the joint strategy of all players in the game is
 public knowledge. The algorithm iteratively updates the regret of each player’s action at each
 information set. The average strategy of each player in CFR provably converges to a Nash equilibrium.</p>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>game: Game</dt><dd><p>the game to train on.</p>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>n_iters: int</dt><dd><p>the number of iterations to run CFR for.</p>
-</dd>
-</dl>
-</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Game</strong> (<em>Type</em><em>[</em><a class="reference internal" href="../games/game.html#imperfect_info_games.games.game.ExtensiveFormGame" title="imperfect_info_games.games.game.ExtensiveFormGame"><em>ExtensiveFormGame</em></a><em>]</em>) – the game class to be trained.</p></li>
+<li><p><strong>players</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference internal" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer" title="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">CounterFactualRegretMinimizerPlayer</span></code></a>]) – the players in the game, each of type <code class="docutils literal notranslate"><span class="pre">CounterFactualRegretMinimizerPlayer</span></code>.</p></li>
+<li><p><strong>n_iters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – number of iterations to run the algorithm.</p></li>
 </ul>
-</div></blockquote>
-<blockquote>
-<div><ul class="simple">
-<li><dl class="simple">
-<dt>train(self)</dt><dd><p>trains the game using CFR for <cite>n_iters</cite> iterations.</p>
 </dd>
 </dl>
-</li>
-<li><dl class="simple">
-<dt>cfr(self, infostate: str, reach_probs: np.ndarray, player: Player,</dt><dd><p>opponent: Player, reach_probs_opponent: np.ndarray)
-runs the CFR update step on a given infostate.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.game">
+<span class="sig-name descname"><span class="pre">game</span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.game" title="Permalink to this definition">¶</a></dt>
+<dd><p>the game to train on.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../games/game.html#imperfect_info_games.games.game.ExtensiveFormGame" title="imperfect_info_games.games.game.ExtensiveFormGame">ExtensiveFormGame</a></p>
 </dd>
 </dl>
-</li>
-</ul>
-</div></blockquote>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.n_iters">
+<span class="sig-name descname"><span class="pre">n_iters</span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.n_iters" title="Permalink to this definition">¶</a></dt>
+<dd><p>the number of iterations to run CFR for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.cfr">
-<span class="sig-name descname"><span class="pre">cfr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">enum.IntEnum</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reach_probs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">numpy.ndarray</span></span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.cfr" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">cfr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reach_probs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#counterfactualRegretMinimizerTrainer.cfr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.cfr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Counterfactual regret minimization update step at the current node.</p>
 <dl class="simple">
 <dt>CFR is quite similar to advantage function in classic Q-learning. For example,</dt><dd><ul class="simple">
@@ -328,20 +355,32 @@ runs the CFR update step on a given infostate.</p>
 <li><p>regret ~ advantage function: Q(s, a) - V(s)</p></li>
 </ul>
 </dd>
-<dt>Args:</dt><dd><p>history (List[IntEnum]): list of actions taken so far (current node)
-reach_probs (np.ndarray): array of shape game.n_players. The reach probabilities for the
-current infostate (current node) played by the players’ joint strategy.</p>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a>]) – list of actions taken so far (current node)</p></li>
+<li><p><strong>reach_probs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>) – array of shape game.n_players. The reach probabilities for the current infostate (current node) played by the players’ joint strategy.</p></li>
+</ul>
 </dd>
-<dt>Returns:</dt><dd><p>node_util (np.ndarray): the utility (expected payoff) of the current node for
-each player.</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the utility (expected payoff) of the current node for each player.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.train">
-<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.train" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#counterfactualRegretMinimizerTrainer.train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train the game using CFR for <cite>n_iters</cite> iterations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -354,6 +393,7 @@ each player.</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../misc/trainer.html" class="btn btn-neutral float-right" title="Trainer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="regret_matching.html" class="btn btn-neutral float-left" title="Regret Matching" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

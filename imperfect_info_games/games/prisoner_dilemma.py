@@ -1,14 +1,17 @@
-"""A 2-player vintage classical Prisoner's Dilemma game.
-(https://en.wikipedia.org/wiki/Prisoner%27s_dilemma)
+"""A 2-player vintage Prisoner's Dilemma game (https://en.wikipedia.org/wiki/Prisoner%27s_dilemma).
+
+This is a classic paradox in game theory where a stable outcome (i.e., a Nash equilibrium) is worse
+off for both players.
 """
 from enum import IntEnum
 from typing import Sequence
 
 from imperfect_info_games.games.game import NormalFormGame
-from imperfect_info_games.utils import lessVerboseEnum
+from imperfect_info_games.misc.utils import lessVerboseEnum
 
 
 class PRISONER_DILEMMA_ACTIONS(lessVerboseEnum, IntEnum):
+    """Available actions in the Prisoner's Dilemma game."""
     SNITCH = 0
     SILENCE = 1
 
@@ -24,16 +27,15 @@ class PrisonerDilemmaGame(NormalFormGame):
     1 year for another mirror crime that the police was able to catch. However, if both of them betray
     each other, they will both serve 2 years.
 
-    Payoff
-    -------
-    If both silence, get 1 year each.
-    If both betray, get 2 years each.
-    If one silence and one snitches, the snitch goes free and the silent partner gets 3 years.
+    Payoff:
+        * If both silence, get 1 year each.
+        * If both betray, get 2 years each.
+        * If one silence and one snitches, the snitch goes free and the silent partner gets 3 years.
 
-    Nash Equilibria
-    ---------------
-    The only Nash Equilibrium is when both players snitch. (payoff = -2 for both)
+    Nash Equilibria:
+        The only Nash Equilibrium is when both players snitch. (payoff = -2 for both)
     """
+
     actions = PRISONER_DILEMMA_ACTIONS
     n_players = 2
 

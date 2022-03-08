@@ -12,60 +12,49 @@ Reach probabilities are factored in since the nodes in one's player infostate mi
 different infostates of their opponent. Therefore, not every node (history) in the infostate is
 equally likely to be reached, so the reach probs should be taken into account to skew the action
 distribution at that infostate appropriately.
+
+The cfr formulation looks similar to the advantage function in RL Q-learning.
 """
 
 from enum import IntEnum
 import logging
-from typing import List
+from typing import List, Sequence
 
 import enlighten
 import numpy as np
 
+from imperfect_info_games.algos.player import Player
 from imperfect_info_games.algos.regret_matching import RegretMatchingPlayer
-from imperfect_info_games.player import Player
-from imperfect_info_games.utils import get_action
+from imperfect_info_games.misc.utils import get_action
 
 
 class CounterFactualRegretMinimizerPlayer(Player):
     """CounterFactualRegretMinimizerPlayer.
 
-    Attributes
-    ----------
-        - player_id: int
-            the player id of the player in the game.
-        - cum_regrets: dict
-            map from infostate to a regret vector of size n_actions
-        - strategy_sum: dict
-            map from infostate to the cumulative strategy at that infostate until now. Useful for
-            calculating the average strategy over many iters
+    Args:
+        name: name of the player.
+        player_id: id of the player.
 
-    Methods
-    -------
-        - act(self, infostate: str)
-            returns the action to take at a given infostate.
-        - get_avg_strategies(self)
-            returns the average strategy of the player at each infostate.
-        - strategy(self, infostate: str)
-            returns the strategy for a given player at an infostate.
+    Attributes:
+        player_id (int): the player id of this player in the game.
+        cum_regrets (dict): map from infostate to a regret vector of size n_actions.
+        strategy_sum (dict): map from infostate to the cumulative strategy at that infostate until now. Useful for calculating the average strategy over many iters.
     """
 
-    def __init__(self, name, player_id):
+    def __init__(self, name: str, player_id: int):
         super().__init__(name)
         self.player_id = player_id
-        self.cum_regrets = {}  # map from infostate to a regret vector of size n_actions
-        # map from infostate to the cumulative strategy at that info state until now. Useful for
-        # calculating the average strategy over many iters
+        self.cum_regrets = {}
         self.strategy_sum = {}
 
     def strategy(self, infostate: str) -> np.ndarray:
         """the strategy for a given player at a infostate.
 
         Args:
-            player (Player): player to get the strategy for.
-            infostate (str): string representing the infostate
+            infostate: string representing the infostate
 
         Returns:
-            action_probs (np.ndarray): array of shape (len(self.game.actions)) representing
+            array of shape (len(game.actions)) representing
             the action probability distribution.
         """
         cum_regrets = self.cum_regrets[infostate]
@@ -78,7 +67,7 @@ class CounterFactualRegretMinimizerPlayer(Player):
         """Returns the average strategy of the player at each infostate.
 
         Returns:
-            avg_strategies (dict): map from infostate to the average strategy at that infostate.
+            map from infostate to the average strategy at that infostate.
         """
         avg_strats = {}
         for infostate, strat_sum in self.strategy_sum.items():
@@ -94,42 +83,35 @@ class counterfactualRegretMinimizerTrainer:
     public knowledge. The algorithm iteratively updates the regret of each player's action at each
     information set. The average strategy of each player in CFR provably converges to a Nash equilibrium.
 
-    Properties
-    ----------
-        - game: Game
-            the game to train on.
-        - n_iters: int
-            the number of iterations to run CFR for.
+    Args:
+        Game (Type[ExtensiveFormGame]): the game class to be trained.
+        players: the players in the game, each of type ``CounterFactualRegretMinimizerPlayer``.
+        n_iters: number of iterations to run the algorithm.
 
-    Methods
-    -------
-        - train(self)
-            trains the game using CFR for `n_iters` iterations.
-        - cfr(self, infostate: str, reach_probs: np.ndarray, player: Player,
-            opponent: Player, reach_probs_opponent: np.ndarray)
-            runs the CFR update step on a given infostate.
+    Attributes:
+        game (ExtensiveFormGame): the game to train on.
+        n_iters (int): the number of iterations to run CFR for.
+
     """
 
-    def __init__(self, game, n_iters: int):
-        self.game = game
+    def __init__(self, Game, players: Sequence[CounterFactualRegretMinimizerPlayer], n_iters: int = 100):
+        self.game = Game(players)
         self.n_iters = n_iters
 
     def cfr(self, history: List[IntEnum], reach_probs: np.ndarray) -> np.ndarray:
         """ Counterfactual regret minimization update step at the current node.
 
         CFR is quite similar to advantage function in classic Q-learning. For example,
-            - node_utils ~ V(s)
-            - counterfactual_values ~ Q(s, a)
-            - regret ~ advantage function: Q(s, a) - V(s)
+            * node_utils ~ V(s)
+            * counterfactual_values ~ Q(s, a)
+            * regret ~ advantage function: Q(s, a) - V(s)
 
         Args:
-            history (List[IntEnum]): list of actions taken so far (current node)
-            reach_probs (np.ndarray): array of shape game.n_players. The reach probabilities for the
-            current infostate (current node) played by the players' joint strategy.
+            history: list of actions taken so far (current node)
+            reach_probs: array of shape game.n_players. The reach probabilities for the current infostate (current node) played by the players' joint strategy.
 
         Returns:
-            node_util (np.ndarray): the utility (expected payoff) of the current node for
-            each player.
+            the utility (expected payoff) of the current node for each player.
         """
         if self.game.is_terminal(history):
             return np.array(self.game.get_payoffs(history))

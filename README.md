@@ -3,16 +3,16 @@
   <a><img src="https://raw.githubusercontent.com/vlongle/imperfect_information_games/main/imgs/poker_meme.jpeg" alt="Imperfect Information Games"></a>
 </h1>
 
-<h4 align="center">A Reinforcement Learning AI to play the (simplified) Crab Game Bomb Tag game.</h4>
+<h4 align="center">A Python module of imperfect information games and learning algorithms.</h4>
 
 <p align="center">
-    <a href="https://github.com/vlongle/crabgame_ai/commits/main">
+    <a href="https://github.com/vlongle/imperfect_information_games/commits/main">
     <img src="https://img.shields.io/github/last-commit/vlongle/imperfect_information_games.svg?style=flat-square&logo=github&logoColor=white"
          alt="GitHub last commit">
-    <a href="https://github.com/vlongle/crabgame_ai/issues">
+    <a href="https://github.com/vlongle/imperfect_information_games/issues">
     <img src="https://img.shields.io/github/issues-raw/vlongle/imperfect_information_games.svg?style=flat-square&logo=github&logoColor=white"
          alt="GitHub issues">
-    <a href="https://github.com/vlongle/crabgame_ai/pulls">
+    <a href="https://github.com/vlongle/imperfect_information_games/pulls">
     <img src="https://img.shields.io/github/issues-pr-raw/vlongle/imperfect_information_games.svg?style=flat-square&logo=github&logoColor=white"
          alt="GitHub pull requests">
     <a href="https://twitter.com/intent/tweet?text=Try this dope Python module for AI in imperfect information games!:&url=https%3A%2F%2Fgithub.com%2Fvlongle%2Fimperfect_information_games">
@@ -26,6 +26,7 @@
   <a href="#background">Background</a> •
   <a href="#features">Features</a> •
   <a href="#getting-started">Getting Started</a> •
+  <a href="#documentation">Documentation</a> •
   <a href="#references">References</a> •
   <a href="#license">License</a>
 </p>
@@ -136,6 +137,9 @@ http://www.cs.cmu.edu/afs/cs/academic/class/15780-s13/www/lec/ganzfried_gt.pdf))
 - Maybe also implement some deep RL methods like Q-learning, actor-critic for these games.
 
 - More game: Leduc Poker, Texas Hold Em.
+
+## Documentation
+Please see [https://vlongle.github.io/imperfect_information_games/](https://vlongle.github.io/imperfect_information_games/) for full documentation.
 
 ## References
 - [An Introduction to Counterfactual Regret Minimization (Neller \& Lanctot)](http://modelai.gettysburg.edu/2013/cfr/cfr.pdf) 
