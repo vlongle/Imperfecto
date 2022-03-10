@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>imperfecto.algos.cfr &mdash; Imperfect Information Games 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/baselines_theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Imperfect Information Games
+          
+
+          
+            
+            <img src="../../../_static/poker_meme.jpeg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id1">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#background">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id2">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id3">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#todos">TODOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id4">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#license">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Demos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../demos/cfr_demo.html">CFR Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../demos/regret_matching_demo.html">Regret Matching Demo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Games</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/game.html">Base Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/kuhn_poker.html">Kuhn Poker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/rock_paper_scissor.html">Rock Paper Scissor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/prisoners_dilemma.html">Prisoner’s Dilemma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/bar_crowding.html">Bar Crowding Game</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/player.html">Base Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/regret_matching.html">Regret Matching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/cfr.html">Counterfactual Regret Minimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/trainer.html">Trainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/evaluate.html">Evaluate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/utils.html">Utils</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Imperfect Information Games</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>imperfecto.algos.cfr</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for imperfecto.algos.cfr</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;The implementation of Counterfactual regret minimization (CFR) algorithm.</span>
+<span class="sd">(Zinkevich et al. &quot;Regret minimization in games with incomplete information&quot; 2008)</span>
+
+<span class="sd">CFR is a **self-play** algorithm that assumes that the joint strategy of all players in the game is</span>
+<span class="sd">public knowledge. The algorithm iteratively updates the regret of each player&#39;s action at each</span>
+<span class="sd">information set. The average strategy of each player in CFR provably converges to a Nash equilibrium.</span>
+
+<span class="sd">Counterfactual regrets are calculated by searching down the game tree, taking into account the</span>
+<span class="sd">reach probabilities.</span>
+
+<span class="sd">Reach probabilities are factored in since the nodes in one&#39;s player infostate might belong to</span>
+<span class="sd">different infostates of their opponent. Therefore, not every node (history) in the infostate is</span>
+<span class="sd">equally likely to be reached, so the reach probs should be taken into account to skew the action</span>
+<span class="sd">distribution at that infostate appropriately.</span>
+
+<span class="sd">The cfr formulation looks similar to the advantage function in RL Q-learning.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Sequence</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">enlighten</span>
+<span class="kn">from</span> <span class="nn">imperfecto.algos.player</span> <span class="kn">import</span> <span class="n">Player</span>
+<span class="kn">from</span> <span class="nn">imperfecto.algos.regret_matching</span> <span class="kn">import</span> <span class="n">RegretMatchingPlayer</span>
+<span class="kn">from</span> <span class="nn">imperfecto.misc.utils</span> <span class="kn">import</span> <span class="n">get_action</span>
+
+
+<div class="viewcode-block" id="CounterFactualRegretMinimizerPlayer"><a class="viewcode-back" href="../../../modules/cfr.html#imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer">[docs]</a><span class="k">class</span> <span class="nc">CounterFactualRegretMinimizerPlayer</span><span class="p">(</span><span class="n">Player</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;CounterFactualRegretMinimizerPlayer.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        name: name of the player.</span>
+<span class="sd">        player_id: id of the player.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        player_id (int): the player id of this player in the game.</span>
+<span class="sd">        cum_regrets (dict): map from infostate to a regret vector of size n_actions.</span>
+<span class="sd">        strategy_sum (dict): map from infostate to the cumulative strategy at that infostate until now. Useful for calculating the average strategy over many iters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">player_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">player_id</span> <span class="o">=</span> <span class="n">player_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cum_regrets</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strategy_sum</span> <span class="o">=</span> <span class="p">{}</span>
+
+<div class="viewcode-block" id="CounterFactualRegretMinimizerPlayer.strategy"><a class="viewcode-back" href="../../../modules/cfr.html#imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy">[docs]</a>    <span class="k">def</span> <span class="nf">strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">infostate</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;the strategy for a given player at a infostate.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            infostate: string representing the infostate</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            array of shape (len(game.actions)) representing</span>
+<span class="sd">            the action probability distribution.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cum_regrets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cum_regrets</span><span class="p">[</span><span class="n">infostate</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">RegretMatchingPlayer</span><span class="o">.</span><span class="n">regret_matching_strategy</span><span class="p">(</span><span class="n">cum_regrets</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CounterFactualRegretMinimizerPlayer.act"><a class="viewcode-back" href="../../../modules/cfr.html#imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.act">[docs]</a>    <span class="k">def</span> <span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">infostate</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">get_action</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="p">(</span><span class="n">infostate</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="CounterFactualRegretMinimizerPlayer.get_avg_strategies"><a class="viewcode-back" href="../../../modules/cfr.html#imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies">[docs]</a>    <span class="k">def</span> <span class="nf">get_avg_strategies</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Returns the average strategy of the player at each infostate.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            map from infostate to the average strategy at that infostate.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">avg_strats</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">infostate</span><span class="p">,</span> <span class="n">strat_sum</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy_sum</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">avg_strats</span><span class="p">[</span><span class="n">infostate</span><span class="p">]</span> <span class="o">=</span> <span class="n">RegretMatchingPlayer</span><span class="o">.</span><span class="n">regret_matching_strategy</span><span class="p">(</span>
+                <span class="n">strat_sum</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">avg_strats</span></div></div>
+
+
+<div class="viewcode-block" id="counterfactualRegretMinimizerTrainer"><a class="viewcode-back" href="../../../modules/cfr.html#imperfecto.algos.cfr.counterfactualRegretMinimizerTrainer">[docs]</a><span class="k">class</span> <span class="nc">counterfactualRegretMinimizerTrainer</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    CFR (Zinkevich et al. &quot;Regret minimization in games with incomplete information&quot; 2008)</span>
+<span class="sd">    is a self-play algorithm that assumes that the joint strategy of all players in the game is</span>
+<span class="sd">    public knowledge. The algorithm iteratively updates the regret of each player&#39;s action at each</span>
+<span class="sd">    information set. The average strategy of each player in CFR provably converges to a Nash equilibrium.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        Game (Type[ExtensiveFormGame]): the game class to be trained.</span>
+<span class="sd">        players: the players in the game, each of type ``CounterFactualRegretMinimizerPlayer``.</span>
+<span class="sd">        n_iters: number of iterations to run the algorithm.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        game (ExtensiveFormGame): the game to train on.</span>
+<span class="sd">        n_iters (int): the number of iterations to run CFR for.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Game</span><span class="p">,</span> <span class="n">players</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">CounterFactualRegretMinimizerPlayer</span><span class="p">],</span> <span class="n">n_iters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="n">Game</span><span class="p">(</span><span class="n">players</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span> <span class="o">=</span> <span class="n">n_iters</span>
+
+<div class="viewcode-block" id="counterfactualRegretMinimizerTrainer.cfr"><a class="viewcode-back" href="../../../modules/cfr.html#imperfecto.algos.cfr.counterfactualRegretMinimizerTrainer.cfr">[docs]</a>    <span class="k">def</span> <span class="nf">cfr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">IntEnum</span><span class="p">],</span> <span class="n">reach_probs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot; Counterfactual regret minimization update step at the current node.</span>
+
+<span class="sd">        CFR is quite similar to advantage function in classic Q-learning. For example,</span>
+<span class="sd">            * node_utils ~ V(s)</span>
+<span class="sd">            * counterfactual_values ~ Q(s, a)</span>
+<span class="sd">            * regret ~ advantage function: Q(s, a) - V(s)</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            history: list of actions taken so far (current node)</span>
+<span class="sd">            reach_probs: array of shape game.n_players. The reach probabilities for the current infostate (current node) played by the players&#39; joint strategy.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            the utility (expected payoff) of the current node for each player.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">is_terminal</span><span class="p">(</span><span class="n">history</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">get_payoffs</span><span class="p">(</span><span class="n">history</span><span class="p">))</span>
+        <span class="n">active_player</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">get_active_player</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+        <span class="n">active_player_id</span> <span class="o">=</span> <span class="n">active_player</span><span class="o">.</span><span class="n">player_id</span>
+        <span class="n">infostate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">get_infostate</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+        <span class="c1"># create cum_regrets for the current infostate if it doesn&#39;t exist</span>
+        <span class="k">if</span> <span class="n">infostate</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">active_player</span><span class="o">.</span><span class="n">cum_regrets</span><span class="p">:</span>
+            <span class="n">active_player</span><span class="o">.</span><span class="n">cum_regrets</span><span class="p">[</span><span class="n">infostate</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">actions</span><span class="p">))</span>
+
+        <span class="n">cur_policy</span> <span class="o">=</span> <span class="n">active_player</span><span class="o">.</span><span class="n">strategy</span><span class="p">(</span><span class="n">infostate</span><span class="p">)</span>
+
+        <span class="n">counterfactual_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+            <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">n_players</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">actions</span><span class="p">)))</span>
+
+        <span class="n">node_utils</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">n_players</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">actions</span><span class="p">:</span>
+            <span class="n">new_reach_probs</span> <span class="o">=</span> <span class="n">reach_probs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">new_reach_probs</span><span class="p">[</span><span class="n">active_player_id</span><span class="p">]</span> <span class="o">*=</span> <span class="n">cur_policy</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">action</span><span class="p">)]</span>
+            <span class="n">counterfactual_values</span><span class="p">[:,</span> <span class="n">action</span><span class="o">.</span><span class="n">value</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cfr</span><span class="p">(</span>
+                <span class="n">history</span> <span class="o">+</span> <span class="p">[</span><span class="n">action</span><span class="p">],</span> <span class="n">new_reach_probs</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">player_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">n_players</span><span class="p">):</span>
+            <span class="c1"># dot product</span>
+            <span class="n">node_utils</span><span class="p">[</span><span class="n">player_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">cur_policy</span> <span class="o">@</span> <span class="n">counterfactual_values</span><span class="p">[</span><span class="n">player_id</span><span class="p">,</span> <span class="p">:]</span>
+
+        <span class="c1"># note that regrets for this node are weighted by reach_probability</span>
+        <span class="c1"># assuming that the current player always plays to reach this infostate</span>
+        <span class="c1"># discount = prod of reach_probs except the active_player_id entry</span>
+        <span class="n">discount</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">reach_probs</span><span class="p">[:</span><span class="n">active_player_id</span><span class="p">])</span> <span class="o">*</span> \
+            <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">reach_probs</span><span class="p">[</span><span class="n">active_player_id</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:])</span>
+        <span class="n">regrets</span> <span class="o">=</span> <span class="p">(</span><span class="n">counterfactual_values</span><span class="p">[</span><span class="n">active_player_id</span><span class="p">,</span>
+                   <span class="p">:]</span> <span class="o">-</span> <span class="n">node_utils</span><span class="p">[</span><span class="n">active_player_id</span><span class="p">])</span> <span class="o">*</span> <span class="n">discount</span>
+
+        <span class="c1"># update cumulative regrets, which affect the policy</span>
+        <span class="n">active_player</span><span class="o">.</span><span class="n">cum_regrets</span><span class="p">[</span><span class="n">infostate</span><span class="p">]</span> <span class="o">+=</span> <span class="n">regrets</span>
+
+        <span class="c1"># update strategy_sum</span>
+        <span class="k">if</span> <span class="n">infostate</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">active_player</span><span class="o">.</span><span class="n">strategy_sum</span><span class="p">:</span>
+            <span class="n">active_player</span><span class="o">.</span><span class="n">strategy_sum</span><span class="p">[</span><span class="n">infostate</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">actions</span><span class="p">))</span>
+        <span class="n">active_player</span><span class="o">.</span><span class="n">strategy_sum</span><span class="p">[</span><span class="n">infostate</span><span class="p">]</span> <span class="o">+=</span> <span class="n">reach_probs</span><span class="p">[</span><span class="n">active_player_id</span><span class="p">]</span> <span class="o">*</span> <span class="n">cur_policy</span>
+
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="mi">6</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">shorten_history</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">history_to_str</span><span class="p">(</span><span class="n">history</span><span class="p">))</span><span class="si">:</span><span class="s2">5</span><span class="si">}</span><span class="se">\t</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="n">reach_probs</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">suppress_small</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">:</span><span class="s2">15</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">active_player</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> </span><span class="se">\t\t</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">shorten_history</span><span class="p">(</span><span class="n">infostate</span><span class="p">)</span><span class="si">:</span><span class="s2">5</span><span class="si">}</span><span class="se">\t</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="n">counterfactual_values</span><span class="p">[</span><span class="n">active_player_id</span><span class="p">]</span> <span class="o">-</span> <span class="n">node_utils</span><span class="p">[</span><span class="n">active_player_id</span><span class="p">],</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">suppress_small</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">:</span><span class="s2">15</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">  </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="n">cur_policy</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">suppress_small</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">node_utils</span></div>
+
+<div class="viewcode-block" id="counterfactualRegretMinimizerTrainer.train"><a class="viewcode-back" href="../../../modules/cfr.html#imperfecto.algos.cfr.counterfactualRegretMinimizerTrainer.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Train the game using CFR for `n_iters` iterations.&quot;&quot;&quot;</span>
+        <span class="n">utils</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">n_players</span><span class="p">)</span>
+        <span class="n">manager</span> <span class="o">=</span> <span class="n">enlighten</span><span class="o">.</span><span class="n">get_manager</span><span class="p">()</span>
+        <span class="n">pbar</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="n">counter</span><span class="p">(</span>
+            <span class="n">total</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;CFR/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;ticks&#39;</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="s1">&#39;iter | hist | reach_prob | active_player | infostate |    regrets </span><span class="se">\t</span><span class="s1">|   policy&#39;</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">82</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span><span class="p">):</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">history</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="p">,</span> <span class="s2">&quot;has_chance_player&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">has_chance_player</span><span class="p">:</span>
+                <span class="n">history</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">chance_action</span><span class="p">()]</span>
+            <span class="n">utils</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cfr</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">players</span><span class="p">)))</span>
+            <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">82</span><span class="p">)</span>
+
+        <span class="n">avg_strats</span> <span class="o">=</span> <span class="p">{</span><span class="n">player</span><span class="p">:</span> <span class="n">player</span><span class="o">.</span><span class="n">get_avg_strategies</span><span class="p">()</span>
+                      <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">players</span><span class="p">}</span>
+        <span class="n">num_spaces</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">actions</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;info_set |  avg_policy </span><span class="si">{</span><span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="n">num_spaces</span><span class="si">}</span><span class="s2">|  avg_regrets&quot;</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">82</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">players</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">info_set</span> <span class="ow">in</span> <span class="n">player</span><span class="o">.</span><span class="n">cum_regrets</span><span class="p">:</span>
+                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">shorten_history</span><span class="p">(</span><span class="n">info_set</span><span class="p">)</span><span class="si">:</span><span class="s2">10</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="n">avg_strats</span><span class="p">[</span><span class="n">player</span><span class="p">][</span><span class="n">info_set</span><span class="p">],</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">suppress_small</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">:{</span><span class="mi">4</span>  <span class="o">*</span> <span class="n">num_spaces</span><span class="si">}}</span><span class="s2">&quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">cum_regrets</span><span class="p">[</span><span class="n">info_set</span><span class="p">]</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">suppress_small</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">:{</span><span class="mi">4</span> <span class="o">*</span> <span class="n">num_spaces</span><span class="si">}}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">82</span><span class="p">)</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Average utilities for Game </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> over </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span><span class="si">}</span><span class="s2"> iters: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="n">utils</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">suppress_small</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div></div>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">See</span>
+<span class="sd">https://aipokertutorial.com/the-cfr-algorithm/</span>
+<span class="sd">and OpenSpiel&#39;s external sampling CFR:</span>
+<span class="sd">    http://mlanctot.info/files/papers/nips09mccfr.pdf</span>
+<span class="sd">    Outcome &amp; external sampling:</span>
+<span class="sd">        https://github.com/deepmind/open_spiel/blob/master/open_spiel/python/algorithms/external_sampling_mccfr.py</span>
+<span class="sd">        https://github.com/deepmind/open_spiel/blob/master/open_spiel/python/algorithms/outcome_sampling_mccfr.py</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="CounterFactualRegretMinimizerMonteCarlo"><a class="viewcode-back" href="../../../modules/cfr.html#imperfecto.algos.cfr.CounterFactualRegretMinimizerMonteCarlo">[docs]</a><span class="k">class</span> <span class="nc">CounterFactualRegretMinimizerMonteCarlo</span><span class="p">:</span>
+    <span class="k">pass</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Long Le.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

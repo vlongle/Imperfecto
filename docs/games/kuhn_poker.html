@@ -194,8 +194,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-imperfect_info_games.games.kuhn_poker">
-<span id="kuhn-poker"></span><h1>Kuhn Poker<a class="headerlink" href="#module-imperfect_info_games.games.kuhn_poker" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-imperfecto.games.kuhn_poker">
+<span id="kuhn-poker"></span><h1>Kuhn Poker<a class="headerlink" href="#module-imperfecto.games.kuhn_poker" title="Permalink to this headline">¶</a></h1>
 <p>An implement of Kuhn Poker game.</p>
 <p>We have two players. We have three cards: Jack, Queen, King, where King beats Queen and Queen beats
 Jack. In this game, each player gets a random card. On a turn, a player can either</p>
@@ -245,64 +245,64 @@ The number of info sets is more “meta”. A player, without entering into a ga
 the game starts.</p>
 </div>
 <dl class="py class">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.kuhn_poker.</span></span><span class="sig-name descname"><span class="pre">KUHN_POKER_ACTIONS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/kuhn_poker.html#KUHN_POKER_ACTIONS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../misc/utils.html#imperfect_info_games.misc.utils.lessVerboseEnum" title="imperfect_info_games.misc.utils.lessVerboseEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.misc.utils.lessVerboseEnum</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></a></p>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KUHN_POKER_ACTIONS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfecto.games.kuhn_poker.</span></span><span class="sig-name descname"><span class="pre">KUHN_POKER_ACTIONS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/kuhn_poker.html#KUHN_POKER_ACTIONS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.kuhn_poker.KUHN_POKER_ACTIONS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../misc/utils.html#imperfecto.misc.utils.lessVerboseEnum" title="imperfecto.misc.utils.lessVerboseEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfecto.misc.utils.lessVerboseEnum</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></a></p>
 <p>Available actions in Kuhn Poker.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS.PASS">
-<span class="sig-name descname"><span class="pre">PASS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS.PASS" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KUHN_POKER_ACTIONS.PASS">
+<span class="sig-name descname"><span class="pre">PASS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#imperfecto.games.kuhn_poker.KUHN_POKER_ACTIONS.PASS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS.BET">
-<span class="sig-name descname"><span class="pre">BET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS.BET" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KUHN_POKER_ACTIONS.BET">
+<span class="sig-name descname"><span class="pre">BET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#imperfecto.games.kuhn_poker.KUHN_POKER_ACTIONS.BET" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.kuhn_poker.</span></span><span class="sig-name descname"><span class="pre">KUHN_POKER_CHANCE_ACTIONS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/kuhn_poker.html#KUHN_POKER_CHANCE_ACTIONS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="../misc/utils.html#imperfect_info_games.misc.utils.lessVerboseEnum" title="imperfect_info_games.misc.utils.lessVerboseEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.misc.utils.lessVerboseEnum</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></a></p>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfecto.games.kuhn_poker.</span></span><span class="sig-name descname"><span class="pre">KUHN_POKER_CHANCE_ACTIONS</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/kuhn_poker.html#KUHN_POKER_CHANCE_ACTIONS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../misc/utils.html#imperfecto.misc.utils.lessVerboseEnum" title="imperfecto.misc.utils.lessVerboseEnum"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfecto.misc.utils.lessVerboseEnum</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></a></p>
 <p>Availble chance actions in Kuhn Poker.</p>
 <p>We have 3 cards J, Q, K dealt randomly to 2 players.</p>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JQ">
-<span class="sig-name descname"><span class="pre">JQ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JQ" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JQ">
+<span class="sig-name descname"><span class="pre">JQ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JQ" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JK">
-<span class="sig-name descname"><span class="pre">JK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JK" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JK">
+<span class="sig-name descname"><span class="pre">JK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.JK" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QK">
-<span class="sig-name descname"><span class="pre">QK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QK" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QK">
+<span class="sig-name descname"><span class="pre">QK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QK" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QJ">
-<span class="sig-name descname"><span class="pre">QJ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QJ" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QJ">
+<span class="sig-name descname"><span class="pre">QJ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.QJ" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KJ">
-<span class="sig-name descname"><span class="pre">KJ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KJ" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KJ">
+<span class="sig-name descname"><span class="pre">KJ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KJ" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KQ">
-<span class="sig-name descname"><span class="pre">KQ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KQ" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KQ">
+<span class="sig-name descname"><span class="pre">KQ</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">5</span></em><a class="headerlink" href="#imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS.KQ" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.games.kuhn_poker.</span></span><span class="sig-name descname"><span class="pre">KuhnPokerGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/kuhn_poker.html#KuhnPokerGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="game.html#imperfect_info_games.games.game.ExtensiveFormGame" title="imperfect_info_games.games.game.ExtensiveFormGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.games.game.ExtensiveFormGame</span></code></a></p>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfecto.games.kuhn_poker.</span></span><span class="sig-name descname"><span class="pre">KuhnPokerGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/kuhn_poker.html#KuhnPokerGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">imperfecto.games.game.ExtensiveFormGame</span></code></p>
 <p>A Kuhn Poker (<a class="reference external" href="https://en.wikipedia.org/wiki/Kuhn_poker">https://en.wikipedia.org/wiki/Kuhn_poker</a>) game class.</p>
 <dl class="simple">
 <dt>Payoff:</dt><dd><p>The winner wins whatever is in the pot. A player can win either in showdown by having the
@@ -318,30 +318,30 @@ probability 1/3. The first player’s expected payoff under Nash equilibria is -
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.actions">
-<span class="sig-name descname"><span class="pre">actions</span></span><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.actions" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS" title="imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.games.kuhn_poker.KUHN_POKER_ACTIONS</span></code></a></p>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame.actions">
+<span class="sig-name descname"><span class="pre">actions</span></span><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame.actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#imperfecto.games.kuhn_poker.KUHN_POKER_ACTIONS" title="imperfecto.games.kuhn_poker.KUHN_POKER_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfecto.games.kuhn_poker.KUHN_POKER_ACTIONS</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.chance_actions">
-<span class="sig-name descname"><span class="pre">chance_actions</span></span><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.chance_actions" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS" title="imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS</span></code></a></p>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame.chance_actions">
+<span class="sig-name descname"><span class="pre">chance_actions</span></span><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame.chance_actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS" title="imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS</span></code></a></p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.n_players">
-<span class="sig-name descname"><span class="pre">n_players</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.n_players" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame.n_players">
+<span class="sig-name descname"><span class="pre">n_players</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame.n_players" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.has_chance_player">
-<span class="sig-name descname"><span class="pre">has_chance_player</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.has_chance_player" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame.has_chance_player">
+<span class="sig-name descname"><span class="pre">has_chance_player</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame.has_chance_player" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.is_terminal">
-<span class="sig-name descname"><span class="pre">is_terminal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/kuhn_poker.html#KuhnPokerGame.is_terminal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.is_terminal" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame.is_terminal">
+<span class="sig-name descname"><span class="pre">is_terminal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/kuhn_poker.html#KuhnPokerGame.is_terminal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame.is_terminal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check if the game is in a terminal state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -354,15 +354,15 @@ probability 1/3. The first player’s expected payoff under Nash equilibria is -
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_active_player">
-<span class="sig-name descname"><span class="pre">get_active_player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/kuhn_poker.html#KuhnPokerGame.get_active_player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_active_player" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame.get_active_player">
+<span class="sig-name descname"><span class="pre">get_active_player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/kuhn_poker.html#KuhnPokerGame.get_active_player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame.get_active_player" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the active player of the game at the current decision point.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a>]) – The history of the game.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference internal" href="../modules/player.html#imperfect_info_games.algos.player.Player" title="imperfect_info_games.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a></p>
+<dd class="field-even"><p><a class="reference internal" href="../modules/player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a></p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>The active player of the game at the current decision point.</p>
@@ -371,12 +371,12 @@ probability 1/3. The first player’s expected payoff under Nash equilibria is -
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_winner">
-<span class="sig-name descname"><span class="pre">get_winner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chance_action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/kuhn_poker.html#KuhnPokerGame.get_winner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_winner" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame.get_winner">
+<span class="sig-name descname"><span class="pre">get_winner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chance_action</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/kuhn_poker.html#KuhnPokerGame.get_winner"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame.get_winner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the winner of the game given a chance action.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>chance_action</strong> (<a class="reference internal" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS" title="imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">KUHN_POKER_CHANCE_ACTIONS</span></code></a>) – the chance action</p>
+<dd class="field-odd"><p><strong>chance_action</strong> (<a class="reference internal" href="#imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS" title="imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">KUHN_POKER_CHANCE_ACTIONS</span></code></a>) – the chance action</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
@@ -388,8 +388,8 @@ probability 1/3. The first player’s expected payoff under Nash equilibria is -
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.showdown">
-<span class="sig-name descname"><span class="pre">showdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/kuhn_poker.html#KuhnPokerGame.showdown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.showdown" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame.showdown">
+<span class="sig-name descname"><span class="pre">showdown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/kuhn_poker.html#KuhnPokerGame.showdown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame.showdown" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the payoff value of the game in the showdown case given a history.</p>
 <p>Winner is the player with the highest card. We don’t take into account the amount of chips
 in the pot. Winner gets +1 point while loser gets -1 point.</p>
@@ -407,8 +407,8 @@ in the pot. Winner gets +1 point while loser gets -1 point.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_payoffs">
-<span class="sig-name descname"><span class="pre">get_payoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/kuhn_poker.html#KuhnPokerGame.get_payoffs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_payoffs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame.get_payoffs">
+<span class="sig-name descname"><span class="pre">get_payoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/kuhn_poker.html#KuhnPokerGame.get_payoffs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame.get_payoffs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the payoff for each player at the current node.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -425,13 +425,13 @@ in the pot. Winner gets +1 point while loser gets -1 point.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_card">
-<span class="sig-name descname"><span class="pre">get_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chance_action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/kuhn_poker.html#KuhnPokerGame.get_card"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_card" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame.get_card">
+<span class="sig-name descname"><span class="pre">get_card</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chance_action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/kuhn_poker.html#KuhnPokerGame.get_card"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame.get_card" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the card that a chance action has dealt to a player.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>chance_action</strong> (<a class="reference internal" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS" title="imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">KUHN_POKER_CHANCE_ACTIONS</span></code></a>) – a chance action</p></li>
+<li><p><strong>chance_action</strong> (<a class="reference internal" href="#imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS" title="imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">KUHN_POKER_CHANCE_ACTIONS</span></code></a>) – a chance action</p></li>
 <li><p><strong>player_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – the player who receives the card</p></li>
 </ul>
 </dd>
@@ -445,8 +445,8 @@ in the pot. Winner gets +1 point while loser gets -1 point.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_infostate">
-<span class="sig-name descname"><span class="pre">get_infostate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/kuhn_poker.html#KuhnPokerGame.get_infostate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.get_infostate" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame.get_infostate">
+<span class="sig-name descname"><span class="pre">get_infostate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/kuhn_poker.html#KuhnPokerGame.get_infostate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame.get_infostate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the infostate (i.e. the information set) of the game.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -462,13 +462,13 @@ in the pot. Winner gets +1 point while loser gets -1 point.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.chance_action">
-<span class="sig-name descname"><span class="pre">chance_action</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/kuhn_poker.html#KuhnPokerGame.chance_action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.chance_action" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame.chance_action">
+<span class="sig-name descname"><span class="pre">chance_action</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/kuhn_poker.html#KuhnPokerGame.chance_action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame.chance_action" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a chance action.</p>
 <p>We have 3 cards J, Q, K dealt randomly to 2 players. This function handles the card dealing.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS" title="imperfect_info_games.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">KUHN_POKER_CHANCE_ACTIONS</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS" title="imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS"><code class="xref py py-class docutils literal notranslate"><span class="pre">KUHN_POKER_CHANCE_ACTIONS</span></code></a></p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>a chance action</p>
@@ -477,8 +477,8 @@ in the pot. Winner gets +1 point while loser gets -1 point.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.games.kuhn_poker.KuhnPokerGame.shorten_history">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shorten_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history_str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/games/kuhn_poker.html#KuhnPokerGame.shorten_history"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.games.kuhn_poker.KuhnPokerGame.shorten_history" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame.shorten_history">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shorten_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history_str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/kuhn_poker.html#KuhnPokerGame.shorten_history"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame.shorten_history" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shorten history string. For example, “KJ-PASS-BET” -&gt; “KJPB”.
 :type history_str: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>
 :param history_str: history string</p>

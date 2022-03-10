@@ -1,7 +1,7 @@
 Base Player
 ====================================
 
-.. automodule:: imperfect_info_games.algos.player
+.. automodule:: imperfecto.algos.player
    :members:
    :undoc-members:
    :show-inheritance:

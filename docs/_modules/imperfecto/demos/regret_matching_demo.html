@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>imperfecto.demos.regret_matching_demo &mdash; Imperfect Information Games 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/baselines_theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Imperfect Information Games
+          
+
+          
+            
+            <img src="../../../_static/poker_meme.jpeg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id1">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#background">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id2">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id3">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#todos">TODOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id4">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#license">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Demos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../demos/cfr_demo.html">CFR Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../demos/regret_matching_demo.html">Regret Matching Demo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Games</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/game.html">Base Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/kuhn_poker.html">Kuhn Poker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/rock_paper_scissor.html">Rock Paper Scissor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/prisoners_dilemma.html">Prisoner’s Dilemma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/bar_crowding.html">Bar Crowding Game</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/player.html">Base Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/regret_matching.html">Regret Matching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/cfr.html">Counterfactual Regret Minimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/trainer.html">Trainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/evaluate.html">Evaluate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/utils.html">Utils</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Imperfect Information Games</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>imperfecto.demos.regret_matching_demo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for imperfecto.demos.regret_matching_demo</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;A demo for the regret-matching algorithm (Hart and Mas-Colell 2000) for various</span>
+<span class="sd">N-player normal form games.</span>
+
+<span class="sd">For 2-player zero-sum game, regret matching algorithm&#39;s average strategy provably converges to Nash.</span>
+<span class="sd">However, it seems to work for more than 2-player games as well.</span>
+
+<span class="sd">Usage:</span>
+<span class="sd">    Run::</span>
+
+<span class="sd">        $ python3 imperfecto/demos/regret_matching_demo.py --help</span>
+
+<span class="sd">to print the available options.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Type</span>
+
+<span class="kn">import</span> <span class="nn">click</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">imperfecto.algos.regret_matching</span> <span class="kn">import</span> <span class="n">RegretMatchingPlayer</span>
+<span class="kn">from</span> <span class="nn">imperfecto.games.bar_crowding</span> <span class="kn">import</span> <span class="n">BarCrowdingGame</span>
+<span class="kn">from</span> <span class="nn">imperfecto.games.game</span> <span class="kn">import</span> <span class="n">ExtensiveFormGame</span>
+<span class="kn">from</span> <span class="nn">imperfecto.games.prisoner_dilemma</span> <span class="kn">import</span> <span class="n">PrisonerDilemmaGame</span>
+<span class="kn">from</span> <span class="nn">imperfecto.games.rock_paper_scissor</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AsymmetricRockPaperScissorGame</span><span class="p">,</span>
+    <span class="n">RockPaperScissorGame</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">imperfecto.misc.evaluate</span> <span class="kn">import</span> <span class="n">evaluate_strategies</span>
+<span class="kn">from</span> <span class="nn">imperfecto.misc.trainer</span> <span class="kn">import</span> <span class="n">Trainer</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="generate_random_prob_dist"><a class="viewcode-back" href="../../../demos/regret_matching_demo.html#imperfecto.demos.regret_matching_demo.generate_random_prob_dist">[docs]</a><span class="k">def</span> <span class="nf">generate_random_prob_dist</span><span class="p">(</span><span class="n">n_actions</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Generate a random probability distribution for a game.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        n_actions: The number of actions in the game.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A numpy array of shape (n_actions,).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">dirichlet</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_actions</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="verify_nash_strategy"><a class="viewcode-back" href="../../../demos/regret_matching_demo.html#imperfecto.demos.regret_matching_demo.verify_nash_strategy">[docs]</a><span class="k">def</span> <span class="nf">verify_nash_strategy</span><span class="p">(</span><span class="n">Game</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">ExtensiveFormGame</span><span class="p">],</span> <span class="n">nash_strategy</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                         <span class="n">n_iters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">n_random_strategies</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Verifies (roughly) that the given strategy is a Nash equilibrium. The idea of</span>
+<span class="sd">    Nash strategy is only pplicable for 2-player (normal form).</span>
+<span class="sd">    zero-sum games. We verify Nash strategy by pitting the strategy against random opponent&#39;s strategy.</span>
+<span class="sd">    The Nash strategy should be unexploitable (i.e., having the payoff &gt;= 0).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        Game: The game to verify the strategy for.</span>
+<span class="sd">        nash_strategy: The strategy to verify.</span>
+<span class="sd">        n_iters: The number of iterations to run the game for.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;In </span><span class="si">{</span><span class="n">Game</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">, the nash strategy </span><span class="si">{</span><span class="n">nash_strategy</span><span class="si">}</span><span class="s2"> is unexploitable by &quot;</span>
+          <span class="s2">&quot;any other strategy.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;That means that it will always have 0 payoff against all strategy[p, q, 1-p-q]. Do the math with the &quot;</span>
+          <span class="s2">&quot;normal form game matrix to convince yourself that this is true.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In this example, we will fix P0 strategy to be nash strategy, and vary P1 strategy&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">P0_uniform_strategy</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;P0&quot;</span><span class="p">:</span> <span class="n">nash_strategy</span><span class="p">}</span>
+
+    <span class="n">strategies</span> <span class="o">=</span> <span class="p">[</span><span class="n">generate_random_prob_dist</span><span class="p">(</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">Game</span><span class="o">.</span><span class="n">actions</span><span class="p">))</span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_random_strategies</span><span class="p">)]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P1 strategy </span><span class="se">\t</span><span class="s2"> </span><span class="se">\t</span><span class="s2"> payoff&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">strat</span> <span class="ow">in</span> <span class="n">strategies</span><span class="p">:</span>
+            <span class="n">P1_strategy</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;P1&quot;</span><span class="p">:</span> <span class="n">strat</span><span class="p">}</span>
+            <span class="n">avg_payoffs</span> <span class="o">=</span> <span class="n">evaluate_strategies</span><span class="p">(</span><span class="n">Game</span><span class="p">,</span> <span class="p">[</span>
+                <span class="n">P0_uniform_strategy</span><span class="p">,</span> <span class="n">P1_strategy</span><span class="p">],</span> <span class="n">n_iters</span><span class="o">=</span><span class="n">n_iters</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="n">strat</span><span class="p">)</span><span class="si">:</span><span class="s2">20</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2"> </span><span class="si">{</span><span class="n">avg_payoffs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="to_train_regret_matching"><a class="viewcode-back" href="../../../demos/regret_matching_demo.html#imperfecto.demos.regret_matching_demo.to_train_regret_matching">[docs]</a><span class="k">def</span> <span class="nf">to_train_regret_matching</span><span class="p">(</span><span class="n">Game</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">ExtensiveFormGame</span><span class="p">],</span> <span class="n">n_iters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Train all players simultaneously by the regret-matching algorithm and print the average</span>
+<span class="sd">    strategies and payoffs.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        Game: The game to train the players for.</span>
+<span class="sd">        n_iters: The number of iterations to run the game for.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="n">RegretMatchingPlayer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;RM</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">n_actions</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">Game</span><span class="o">.</span><span class="n">actions</span><span class="p">))</span>
+               <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Game</span><span class="o">.</span><span class="n">n_players</span><span class="p">)]</span>
+    <span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">Game</span><span class="p">,</span> <span class="n">players</span><span class="p">,</span> <span class="n">n_iters</span><span class="o">=</span><span class="n">n_iters</span><span class="p">)</span>
+    <span class="n">avg_payoffs</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+    <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;Training regret-matching players for game </span><span class="si">{</span><span class="n">Game</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> after </span><span class="si">{</span><span class="n">n_iters</span><span class="si">}</span><span class="s1"> iters:&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;average strategies:&#39;</span><span class="p">)</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">avg_strategies</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;eps_rewards: </span><span class="si">{</span><span class="n">avg_payoffs</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="to_train_delay_regret_matching"><a class="viewcode-back" href="../../../demos/regret_matching_demo.html#imperfecto.demos.regret_matching_demo.to_train_delay_regret_matching">[docs]</a><span class="k">def</span> <span class="nf">to_train_delay_regret_matching</span><span class="p">(</span><span class="n">Game</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">ExtensiveFormGame</span><span class="p">],</span> <span class="n">n_iters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">freeze_duration</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Train all players by the regret-matching algorithm and print the average strategies and payoffs.</span>
+<span class="sd">    We alternatively freeze one player&#39;s strategy and train the other player(s). This is a process of</span>
+<span class="sd">    co-evolution.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        Game: The game to train the players for.</span>
+<span class="sd">        n_iters: The number of iterations to run the game for.</span>
+<span class="sd">        freeze_duration: The number of iterations to freeze the strategy of the player that is not being trained.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">freeze_duration</span> <span class="o">&lt;</span> <span class="n">n_iters</span>
+    <span class="c1"># no. of intervals where someone is frozen</span>
+    <span class="n">freeze_interval</span> <span class="o">=</span> <span class="n">n_iters</span> <span class="o">//</span> <span class="n">freeze_duration</span>
+    <span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="n">RegretMatchingPlayer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;RM</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">n_actions</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">Game</span><span class="o">.</span><span class="n">actions</span><span class="p">))</span>
+               <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Game</span><span class="o">.</span><span class="n">n_players</span><span class="p">)]</span>
+    <span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">Game</span><span class="p">,</span> <span class="n">players</span><span class="p">,</span> <span class="n">n_iters</span><span class="o">=</span><span class="n">freeze_duration</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">freeze_interval</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Game</span><span class="o">.</span><span class="n">n_players</span><span class="p">):</span>
+            <span class="c1"># train player i freezing the rest</span>
+            <span class="n">freeze_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">player</span> <span class="k">for</span> <span class="n">player_id</span><span class="p">,</span>
+                           <span class="n">player</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">players</span><span class="p">)</span> <span class="k">if</span> <span class="n">player_id</span> <span class="o">!=</span> <span class="n">i</span><span class="p">]</span>
+            <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">freeze_ls</span><span class="o">=</span><span class="n">freeze_list</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;Training delay regret-matching players for game </span><span class="si">{</span><span class="n">Game</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> after </span><span class="si">{</span><span class="n">n_iters</span><span class="si">}</span><span class="s1"> iters:&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;average strategies:&#39;</span><span class="p">)</span>
+        <span class="n">pprint</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">avg_strategies</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;eps_rewards: </span><span class="si">{</span><span class="n">trainer</span><span class="o">.</span><span class="n">avg_payoffs</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">()</span></div>
+
+
+<span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--game&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Choice</span><span class="p">([</span><span class="s2">&quot;RockPaperScissorGame&quot;</span><span class="p">,</span> <span class="s2">&quot;AsymmetricRockPaperScissorGame&quot;</span><span class="p">,</span> <span class="s2">&quot;BarCrowdingGame&quot;</span><span class="p">,</span> <span class="s2">&quot;PrisonerDilemmaGame&quot;</span><span class="p">]),</span>
+              <span class="n">default</span><span class="o">=</span><span class="s2">&quot;RockPaperScissorGame&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The game to demo.&quot;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--n_iters&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The number of iterations to run the game for.&quot;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--train_regret_matching&quot;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Train regret matching players.&quot;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--train_delay_regret_matching&quot;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Train delay regret matching players.&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">game</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">n_iters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">train_regret_matching</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">train_delay_regret_matching</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Demo for N-player normal-form games using the regret-matching algorithm.</span>
+
+<span class="sd">    Available games:</span>
+<span class="sd">    ----------------</span>
+
+<span class="sd">    RockPaperScissorGame, AsymmetricRockPaperScissorGame, BarCrowdingGame, PrisonerDilemmaGame</span>
+
+<span class="sd">    Available options:</span>
+<span class="sd">    ------------------</span>
+
+<span class="sd">        --game: The game to demo.</span>
+<span class="sd">        --n_iters: The number of iterations to run the game for.</span>
+<span class="sd">        --train_regret_matching: Whether to train regret matching players.</span>
+<span class="sd">        --train_delay_regret_matching: Whether to train delay regret matching players.</span>
+
+<span class="sd">    We will also show the Nash equilibrium for 2-player zero-sum games so the user can verify that the regret matching players&#39; strategies indeed converge to Nash.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Game_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;RockPaperScissorGame&quot;</span><span class="p">:</span> <span class="n">RockPaperScissorGame</span><span class="p">,</span>
+        <span class="s2">&quot;AsymmetricRockPaperScissorGame&quot;</span><span class="p">:</span> <span class="n">AsymmetricRockPaperScissorGame</span><span class="p">,</span>
+        <span class="s2">&quot;BarCrowdingGame&quot;</span><span class="p">:</span> <span class="n">BarCrowdingGame</span><span class="p">,</span>
+        <span class="s2">&quot;PrisonerDilemmaGame&quot;</span><span class="p">:</span> <span class="n">PrisonerDilemmaGame</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">nash_strategy_dict</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;RockPaperScissorGame&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+        <span class="s2">&quot;AsymmetricRockPaperScissorGame&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+    <span class="p">}</span>
+    <span class="n">Game</span> <span class="o">=</span> <span class="n">Game_dict</span><span class="p">[</span><span class="n">game</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">nash_strategy_dict</span><span class="p">:</span>
+        <span class="n">nash_strategy</span> <span class="o">=</span> <span class="n">nash_strategy_dict</span><span class="p">[</span><span class="n">game</span><span class="p">]</span>
+        <span class="n">verify_nash_strategy</span><span class="p">(</span><span class="n">Game</span><span class="p">,</span> <span class="n">nash_strategy</span><span class="p">,</span> <span class="n">n_iters</span><span class="o">=</span><span class="n">n_iters</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">train_regret_matching</span><span class="p">:</span>
+        <span class="n">to_train_regret_matching</span><span class="p">(</span><span class="n">Game</span><span class="p">,</span> <span class="n">n_iters</span><span class="o">=</span><span class="n">n_iters</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">train_delay_regret_matching</span><span class="p">:</span>
+        <span class="n">to_train_delay_regret_matching</span><span class="p">(</span><span class="n">Game</span><span class="p">,</span> <span class="n">n_iters</span><span class="o">=</span><span class="n">n_iters</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Long Le.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

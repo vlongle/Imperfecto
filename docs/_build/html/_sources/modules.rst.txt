@@ -1,5 +1,5 @@
-imperfect_info_games
-====================
+imperfecto
+==========
 
 .. toctree::
    :maxdepth: 4

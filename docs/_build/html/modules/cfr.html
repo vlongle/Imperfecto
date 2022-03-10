@@ -194,8 +194,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-imperfect_info_games.algos.cfr">
-<span id="counterfactual-regret-minimization"></span><h1>Counterfactual Regret Minimization<a class="headerlink" href="#module-imperfect_info_games.algos.cfr" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-imperfecto.algos.cfr">
+<span id="counterfactual-regret-minimization"></span><h1>Counterfactual Regret Minimization<a class="headerlink" href="#module-imperfecto.algos.cfr" title="Permalink to this headline">¶</a></h1>
 <p>The implementation of Counterfactual regret minimization (CFR) algorithm.
 (Zinkevich et al. “Regret minimization in games with incomplete information” 2008)</p>
 <p>CFR is a <strong>self-play</strong> algorithm that assumes that the joint strategy of all players in the game is
@@ -209,9 +209,9 @@ equally likely to be reached, so the reach probs should be taken into account to
 distribution at that infostate appropriately.</p>
 <p>The cfr formulation looks similar to the advantage function in RL Q-learning.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.algos.cfr.</span></span><span class="sig-name descname"><span class="pre">CounterFactualRegretMinimizerPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#CounterFactualRegretMinimizerPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="player.html#imperfect_info_games.algos.player.Player" title="imperfect_info_games.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.algos.player.Player</span></code></a></p>
+<dt class="sig sig-object py" id="imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfecto.algos.cfr.</span></span><span class="sig-name descname"><span class="pre">CounterFactualRegretMinimizerPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/algos/cfr.html#CounterFactualRegretMinimizerPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfecto.algos.player.Player</span></code></a></p>
 <p>CounterFactualRegretMinimizerPlayer.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -222,8 +222,8 @@ distribution at that infostate appropriately.</p>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.player_id">
-<span class="sig-name descname"><span class="pre">player_id</span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.player_id" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.player_id">
+<span class="sig-name descname"><span class="pre">player_id</span></span><a class="headerlink" href="#imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.player_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>the player id of this player in the game.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -233,8 +233,8 @@ distribution at that infostate appropriately.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.cum_regrets">
-<span class="sig-name descname"><span class="pre">cum_regrets</span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.cum_regrets" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.cum_regrets">
+<span class="sig-name descname"><span class="pre">cum_regrets</span></span><a class="headerlink" href="#imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.cum_regrets" title="Permalink to this definition">¶</a></dt>
 <dd><p>map from infostate to a regret vector of size n_actions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -244,8 +244,8 @@ distribution at that infostate appropriately.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy_sum">
-<span class="sig-name descname"><span class="pre">strategy_sum</span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy_sum" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy_sum">
+<span class="sig-name descname"><span class="pre">strategy_sum</span></span><a class="headerlink" href="#imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy_sum" title="Permalink to this definition">¶</a></dt>
 <dd><p>map from infostate to the cumulative strategy at that infostate until now. Useful for calculating the average strategy over many iters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -255,8 +255,8 @@ distribution at that infostate appropriately.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy">
-<span class="sig-name descname"><span class="pre">strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#CounterFactualRegretMinimizerPlayer.strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy">
+<span class="sig-name descname"><span class="pre">strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/algos/cfr.html#CounterFactualRegretMinimizerPlayer.strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.strategy" title="Permalink to this definition">¶</a></dt>
 <dd><p>the strategy for a given player at a infostate.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -273,8 +273,8 @@ the action probability distribution.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.act">
-<span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#CounterFactualRegretMinimizerPlayer.act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.act" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.act">
+<span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/algos/cfr.html#CounterFactualRegretMinimizerPlayer.act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.act" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the action to take given an infostate.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -290,8 +290,8 @@ the action probability distribution.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies">
-<span class="sig-name descname"><span class="pre">get_avg_strategies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#CounterFactualRegretMinimizerPlayer.get_avg_strategies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies">
+<span class="sig-name descname"><span class="pre">get_avg_strategies</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/algos/cfr.html#CounterFactualRegretMinimizerPlayer.get_avg_strategies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the average strategy of the player at each infostate.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -306,8 +306,8 @@ the action probability distribution.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.algos.cfr.</span></span><span class="sig-name descname"><span class="pre">counterfactualRegretMinimizerTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#counterfactualRegretMinimizerTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.cfr.counterfactualRegretMinimizerTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfecto.algos.cfr.</span></span><span class="sig-name descname"><span class="pre">counterfactualRegretMinimizerTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/algos/cfr.html#counterfactualRegretMinimizerTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.algos.cfr.counterfactualRegretMinimizerTrainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>CFR (Zinkevich et al. “Regret minimization in games with incomplete information” 2008)
 is a self-play algorithm that assumes that the joint strategy of all players in the game is
@@ -316,26 +316,26 @@ information set. The average strategy of each player in CFR provably converges t
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Game</strong> (<em>Type</em><em>[</em><a class="reference internal" href="../games/game.html#imperfect_info_games.games.game.ExtensiveFormGame" title="imperfect_info_games.games.game.ExtensiveFormGame"><em>ExtensiveFormGame</em></a><em>]</em>) – the game class to be trained.</p></li>
-<li><p><strong>players</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference internal" href="#imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer" title="imperfect_info_games.algos.cfr.CounterFactualRegretMinimizerPlayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">CounterFactualRegretMinimizerPlayer</span></code></a>]) – the players in the game, each of type <code class="docutils literal notranslate"><span class="pre">CounterFactualRegretMinimizerPlayer</span></code>.</p></li>
+<li><p><strong>Game</strong> (<em>Type</em><em>[</em><a class="reference internal" href="../games.html#games.game.ExtensiveFormGame" title="games.game.ExtensiveFormGame"><em>ExtensiveFormGame</em></a><em>]</em>) – the game class to be trained.</p></li>
+<li><p><strong>players</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference internal" href="#imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer" title="imperfecto.algos.cfr.CounterFactualRegretMinimizerPlayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">CounterFactualRegretMinimizerPlayer</span></code></a>]) – the players in the game, each of type <code class="docutils literal notranslate"><span class="pre">CounterFactualRegretMinimizerPlayer</span></code>.</p></li>
 <li><p><strong>n_iters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – number of iterations to run the algorithm.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.game">
-<span class="sig-name descname"><span class="pre">game</span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.game" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.cfr.counterfactualRegretMinimizerTrainer.game">
+<span class="sig-name descname"><span class="pre">game</span></span><a class="headerlink" href="#imperfecto.algos.cfr.counterfactualRegretMinimizerTrainer.game" title="Permalink to this definition">¶</a></dt>
 <dd><p>the game to train on.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../games/game.html#imperfect_info_games.games.game.ExtensiveFormGame" title="imperfect_info_games.games.game.ExtensiveFormGame">ExtensiveFormGame</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../games.html#games.game.ExtensiveFormGame" title="games.game.ExtensiveFormGame">ExtensiveFormGame</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.n_iters">
-<span class="sig-name descname"><span class="pre">n_iters</span></span><a class="headerlink" href="#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.n_iters" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.cfr.counterfactualRegretMinimizerTrainer.n_iters">
+<span class="sig-name descname"><span class="pre">n_iters</span></span><a class="headerlink" href="#imperfecto.algos.cfr.counterfactualRegretMinimizerTrainer.n_iters" title="Permalink to this definition">¶</a></dt>
 <dd><p>the number of iterations to run CFR for.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -345,8 +345,8 @@ information set. The average strategy of each player in CFR provably converges t
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.cfr">
-<span class="sig-name descname"><span class="pre">cfr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reach_probs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#counterfactualRegretMinimizerTrainer.cfr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.cfr" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.cfr.counterfactualRegretMinimizerTrainer.cfr">
+<span class="sig-name descname"><span class="pre">cfr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reach_probs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/algos/cfr.html#counterfactualRegretMinimizerTrainer.cfr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.algos.cfr.counterfactualRegretMinimizerTrainer.cfr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Counterfactual regret minimization update step at the current node.</p>
 <dl class="simple">
 <dt>CFR is quite similar to advantage function in classic Q-learning. For example,</dt><dd><ul class="simple">
@@ -373,8 +373,8 @@ information set. The average strategy of each player in CFR provably converges t
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.train">
-<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/cfr.html#counterfactualRegretMinimizerTrainer.train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.cfr.counterfactualRegretMinimizerTrainer.train" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.cfr.counterfactualRegretMinimizerTrainer.train">
+<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/algos/cfr.html#counterfactualRegretMinimizerTrainer.train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.algos.cfr.counterfactualRegretMinimizerTrainer.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train the game using CFR for <cite>n_iters</cite> iterations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -383,6 +383,12 @@ information set. The average strategy of each player in CFR provably converges t
 </dl>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="imperfecto.algos.cfr.CounterFactualRegretMinimizerMonteCarlo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfecto.algos.cfr.</span></span><span class="sig-name descname"><span class="pre">CounterFactualRegretMinimizerMonteCarlo</span></span><a class="reference internal" href="../_modules/imperfecto/algos/cfr.html#CounterFactualRegretMinimizerMonteCarlo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.algos.cfr.CounterFactualRegretMinimizerMonteCarlo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 </div>

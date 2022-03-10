@@ -1,7 +1,7 @@
 Trainer
 ====================================
 
-.. automodule:: imperfect_info_games.misc.trainer
+.. automodule:: imperfecto.misc.trainer
    :members:
    :undoc-members:
    :show-inheritance:

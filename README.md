@@ -33,7 +33,7 @@
 
 ## About
 
-A Python module of heavily commented implementations of algorithms and games
+Imperfecto is a Python module of heavily commented implementations of algorithms and games
 with imperfect information such as Rock-Paper-Scissor and Poker. See [Features](#features) for a
 list of games and algorithms we provide. See [Installation](#installation) for instruction on how
 to install this module, and [Getting Started](#getting-started) on usage and how to customize our
@@ -43,7 +43,7 @@ module for your own game. For a complete documentation, see [Documentation](#doc
 Clone this repo and install it as a module.
 ```
 $ git clone https://github.com/vlongle/imperfect_information_games.git
-$ cd imperfect_information_games
+$ cd imperfecto
 $ pip3 install -e .
 ```
 Try to import the module to check if the installation has been successful.
@@ -78,20 +78,26 @@ are consistent with what the player knows.
  | Bar-crowding Game             | ✔️           |
  | Prisoner's Dilemma            | ✔️           |
  | Kuhn Poker                    | ✔️           |
+ |Leduc Poker ||
+ |Texas Hold' Em||
 
  | Algorithm                                | Progress    |
  | -----------                              | ----------- |
  | Regret Matching                          | ✔️           |
  | Counterfactual Regret Minimization (CFR) | ✔️           |
+| Monte Carlo CFR| |
+|Deep CFR| |
+|Bandit | |
+|Opponent modeling||
 
 ## Getting Started
-Look at all the demos that we have in `imperfect_info_games/demos` folder, and try any of them. For example, run (from the repo's root folder)
+Look at all the demos that we have in `imperfecto/demos` folder, and try any of them. For example, run (from the repo's root folder)
 ```
-$ python3 imperfect_info_games/demos/regret_matching_demo.py --help
+$ python3 imperfecto/demos/regret_matching_demo.py --help
 ```
 to print out the available options for that demo file. Pick your desired options and run a demo file. For example,
 ```
-$ python3 imperfect_info_games/demos/regret_matching_demo.py --game PrisonerDilemmaGame
+$ python3 imperfecto/demos/regret_matching_demo.py --game PrisonerDilemmaGame
 --train_regret_matching
 ```
 
@@ -106,8 +112,8 @@ need to implement the `get_payoffs` function.
 from enum import intenum
 from typing import sequence
 
-from imperfect_info_games.games.game import normalformgame
-from imperfect_info_games.utils import lessverboseenum
+from imperfecto.games.game import normalformgame
+from imperfecto.utils import lessverboseenum
 
 
 class MY_CUSTOM_ACTION(lessVerboseEnum, IntEnum):
@@ -119,11 +125,11 @@ class MyCustomNormalFormGame(NormalFormGame):
     def get_payoffs(self, history: Sequence[MY_CUSTOM_ACTION]) -> Sequence[float]:
         ...
 ```
-See `imperfect_info_games/games/prisoner_dilemma.py` for an example. You can then use your custom
-game with the functions available in `imperfect_info_games/demos/regret_matching_demo.py`. For example,
+See `imperfecto/games/prisoner_dilemma.py` for an example. You can then use your custom
+game with the functions available in `imperfecto/demos/regret_matching_demo.py`. For example,
 ```
 ...
-from imperfect_info_games.demos import to_train_regret_matching
+from imperfecto.demos import to_train_regret_matching
 
 Game = MyCustomNormalFormGame
 to_train_regret_matching(Game)

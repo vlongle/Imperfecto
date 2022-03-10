@@ -1,7 +1,7 @@
 Counterfactual Regret Minimization
 ====================================
 
-.. automodule:: imperfect_info_games.algos.cfr
+.. automodule:: imperfecto.algos.cfr
    :members:
    :undoc-members:
    :show-inheritance:

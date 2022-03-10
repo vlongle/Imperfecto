@@ -1,7 +1,7 @@
 Prisoner's Dilemma
 ====================================
 
-.. automodule:: imperfect_info_games.games.prisoner_dilemma
+.. automodule:: imperfecto.games.prisoner_dilemma
    :members:
    :undoc-members:
    :show-inheritance:

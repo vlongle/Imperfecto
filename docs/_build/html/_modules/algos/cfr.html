@@ -213,12 +213,12 @@
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Sequence</span>
 
-<span class="kn">import</span> <span class="nn">enlighten</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">imperfect_info_games.algos.player</span> <span class="kn">import</span> <span class="n">Player</span>
-<span class="kn">from</span> <span class="nn">imperfect_info_games.algos.regret_matching</span> <span class="kn">import</span> <span class="n">RegretMatchingPlayer</span>
-<span class="kn">from</span> <span class="nn">imperfect_info_games.misc.utils</span> <span class="kn">import</span> <span class="n">get_action</span>
+<span class="kn">import</span> <span class="nn">enlighten</span>
+<span class="kn">from</span> <span class="nn">imperfecto.algos.player</span> <span class="kn">import</span> <span class="n">Player</span>
+<span class="kn">from</span> <span class="nn">imperfecto.algos.regret_matching</span> <span class="kn">import</span> <span class="n">RegretMatchingPlayer</span>
+<span class="kn">from</span> <span class="nn">imperfecto.misc.utils</span> <span class="kn">import</span> <span class="n">get_action</span>
 
 
 <div class="viewcode-block" id="CounterFactualRegretMinimizerPlayer"><a class="viewcode-back" href="../../algos.html#algos.cfr.CounterFactualRegretMinimizerPlayer">[docs]</a><span class="k">class</span> <span class="nc">CounterFactualRegretMinimizerPlayer</span><span class="p">(</span><span class="n">Player</span><span class="p">):</span>
@@ -390,6 +390,23 @@
         <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;-&#39;</span> <span class="o">*</span> <span class="mi">82</span><span class="p">)</span>
         <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;Average utilities for Game </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> over </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span><span class="si">}</span><span class="s2"> iters: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">array2string</span><span class="p">(</span><span class="n">utils</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">suppress_small</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div></div>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">See</span>
+<span class="sd">https://aipokertutorial.com/the-cfr-algorithm/</span>
+<span class="sd">and OpenSpiel&#39;s external sampling CFR:</span>
+<span class="sd">    http://mlanctot.info/files/papers/nips09mccfr.pdf</span>
+<span class="sd">    Outcome &amp; external sampling:</span>
+<span class="sd">        https://github.com/deepmind/open_spiel/blob/master/open_spiel/python/algorithms/external_sampling_mccfr.py</span>
+<span class="sd">        https://github.com/deepmind/open_spiel/blob/master/open_spiel/python/algorithms/outcome_sampling_mccfr.py</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="CounterFactualRegretMinimizerMonteCarlo"><a class="viewcode-back" href="../../algos.html#algos.cfr.CounterFactualRegretMinimizerMonteCarlo">[docs]</a><span class="k">class</span> <span class="nc">CounterFactualRegretMinimizerMonteCarlo</span><span class="p">:</span>
+    <span class="k">pass</span></div>
 </pre></div>
 
            </div>

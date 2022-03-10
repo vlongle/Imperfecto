@@ -12,7 +12,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../imperfect_info_games'))
+sys.path.insert(0, os.path.abspath('../imperfecto'))
 
 
 # -- Project information -----------------------------------------------------

@@ -194,40 +194,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-imperfect_info_games.misc.trainer">
-<span id="trainer"></span><h1>Trainer<a class="headerlink" href="#module-imperfect_info_games.misc.trainer" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-imperfecto.misc.trainer">
+<span id="trainer"></span><h1>Trainer<a class="headerlink" href="#module-imperfecto.misc.trainer" title="Permalink to this headline">¶</a></h1>
 <p>A class to train players in an extensive form game.</p>
 <p>The players are trained over a number of games by calling each player’s <code class="docutils literal notranslate"><span class="pre">update_strategy</span></code> method
 after each game. The average payoffs and the average strategies during training are recorded.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="imperfect_info_games.misc.trainer.Trainer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.misc.trainer.</span></span><span class="sig-name descname"><span class="pre">Trainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_status_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/misc/trainer.html#Trainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.misc.trainer.Trainer" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.misc.trainer.Trainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfecto.misc.trainer.</span></span><span class="sig-name descname"><span class="pre">Trainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_status_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/misc/trainer.html#Trainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.misc.trainer.Trainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A class to train players in an extensive form game.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Game</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>[<a class="reference internal" href="../games/game.html#imperfect_info_games.games.game.ExtensiveFormGame" title="imperfect_info_games.games.game.ExtensiveFormGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExtensiveFormGame</span></code></a>]) – The game class to train players in.</p></li>
-<li><p><strong>players</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference internal" href="../modules/player.html#imperfect_info_games.algos.player.Player" title="imperfect_info_games.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a>]) – The players to train.</p></li>
+<li><p><strong>Game</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ExtensiveFormGame</span></code>]) – The game class to train players in.</p></li>
+<li><p><strong>players</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference internal" href="../modules/player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a>]) – The players to train.</p></li>
 <li><p><strong>n_iters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The number of games to train for.</p></li>
 <li><p><strong>display_status_bar</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a>) – Whether to display a status bar during training.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.misc.trainer.Trainer.game">
-<span class="sig-name descname"><span class="pre">game</span></span><a class="headerlink" href="#imperfect_info_games.misc.trainer.Trainer.game" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.misc.trainer.Trainer.game">
+<span class="sig-name descname"><span class="pre">game</span></span><a class="headerlink" href="#imperfecto.misc.trainer.Trainer.game" title="Permalink to this definition">¶</a></dt>
 <dd><p>The game to train players in.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../games/game.html#imperfect_info_games.games.game.ExtensiveFormGame" title="imperfect_info_games.games.game.ExtensiveFormGame">ExtensiveFormGame</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="../games.html#games.game.ExtensiveFormGame" title="games.game.ExtensiveFormGame">ExtensiveFormGame</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.misc.trainer.Trainer.n_iter">
-<span class="sig-name descname"><span class="pre">n_iter</span></span><a class="headerlink" href="#imperfect_info_games.misc.trainer.Trainer.n_iter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.misc.trainer.Trainer.n_iter">
+<span class="sig-name descname"><span class="pre">n_iter</span></span><a class="headerlink" href="#imperfecto.misc.trainer.Trainer.n_iter" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of games to train for.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -237,8 +237,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.misc.trainer.Trainer.ep_strategies">
-<span class="sig-name descname"><span class="pre">ep_strategies</span></span><a class="headerlink" href="#imperfect_info_games.misc.trainer.Trainer.ep_strategies" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.misc.trainer.Trainer.ep_strategies">
+<span class="sig-name descname"><span class="pre">ep_strategies</span></span><a class="headerlink" href="#imperfecto.misc.trainer.Trainer.ep_strategies" title="Permalink to this definition">¶</a></dt>
 <dd><p>The strategies of each player in each game.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -248,8 +248,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.misc.trainer.Trainer.ep_payoffs">
-<span class="sig-name descname"><span class="pre">ep_payoffs</span></span><a class="headerlink" href="#imperfect_info_games.misc.trainer.Trainer.ep_payoffs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.misc.trainer.Trainer.ep_payoffs">
+<span class="sig-name descname"><span class="pre">ep_payoffs</span></span><a class="headerlink" href="#imperfecto.misc.trainer.Trainer.ep_payoffs" title="Permalink to this definition">¶</a></dt>
 <dd><p>The payoffs of each player in each game over the course of this trainer instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -259,8 +259,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.misc.trainer.Trainer.display_status_bar">
-<span class="sig-name descname"><span class="pre">display_status_bar</span></span><a class="headerlink" href="#imperfect_info_games.misc.trainer.Trainer.display_status_bar" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.misc.trainer.Trainer.display_status_bar">
+<span class="sig-name descname"><span class="pre">display_status_bar</span></span><a class="headerlink" href="#imperfecto.misc.trainer.Trainer.display_status_bar" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether to display a status bar during training.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -270,8 +270,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.misc.trainer.Trainer.manager">
-<span class="sig-name descname"><span class="pre">manager</span></span><a class="headerlink" href="#imperfect_info_games.misc.trainer.Trainer.manager" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.misc.trainer.Trainer.manager">
+<span class="sig-name descname"><span class="pre">manager</span></span><a class="headerlink" href="#imperfecto.misc.trainer.Trainer.manager" title="Permalink to this definition">¶</a></dt>
 <dd><p>The enlighten manager to display the status bar.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -281,8 +281,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.misc.trainer.Trainer.pbar">
-<span class="sig-name descname"><span class="pre">pbar</span></span><a class="headerlink" href="#imperfect_info_games.misc.trainer.Trainer.pbar" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.misc.trainer.Trainer.pbar">
+<span class="sig-name descname"><span class="pre">pbar</span></span><a class="headerlink" href="#imperfecto.misc.trainer.Trainer.pbar" title="Permalink to this definition">¶</a></dt>
 <dd><p>The enlighten counter to display the status bar.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -292,8 +292,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.misc.trainer.Trainer.train">
-<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freeze_ls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/misc/trainer.html#Trainer.train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.misc.trainer.Trainer.train" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.misc.trainer.Trainer.train">
+<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freeze_ls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/misc/trainer.html#Trainer.train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.misc.trainer.Trainer.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train the players for <cite>n_iter</cite> games using each player’s <cite>update_strategy</cite> function.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -313,8 +313,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="imperfect_info_games.misc.trainer.Trainer.avg_payoffs">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avg_payoffs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></em><a class="headerlink" href="#imperfect_info_games.misc.trainer.Trainer.avg_payoffs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.misc.trainer.Trainer.avg_payoffs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avg_payoffs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></em><a class="headerlink" href="#imperfecto.misc.trainer.Trainer.avg_payoffs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the average payoffs of each player over the course of this trainer instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -327,8 +327,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="imperfect_info_games.misc.trainer.Trainer.avg_strategies">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avg_strategies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></em><a class="headerlink" href="#imperfect_info_games.misc.trainer.Trainer.avg_strategies" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.misc.trainer.Trainer.avg_strategies">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avg_strategies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></em><a class="headerlink" href="#imperfecto.misc.trainer.Trainer.avg_strategies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the average strategies of each player.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>

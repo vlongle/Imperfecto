@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 setup(
-    name='imperfect_info_games',
+    name='imperfecto',
     version='1.0.0',
     author='Long Le',
     author_email='vietlong.lenguyen@gmail.com',

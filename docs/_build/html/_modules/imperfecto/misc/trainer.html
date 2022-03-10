@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>imperfecto.misc.trainer &mdash; Imperfect Information Games 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/baselines_theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Imperfect Information Games
+          
+
+          
+            
+            <img src="../../../_static/poker_meme.jpeg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id1">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#background">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id2">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id3">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#todos">TODOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id4">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#license">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Demos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../demos/cfr_demo.html">CFR Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../demos/regret_matching_demo.html">Regret Matching Demo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Games</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/game.html">Base Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/kuhn_poker.html">Kuhn Poker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/rock_paper_scissor.html">Rock Paper Scissor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/prisoners_dilemma.html">Prisoner’s Dilemma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/bar_crowding.html">Bar Crowding Game</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/player.html">Base Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/regret_matching.html">Regret Matching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/cfr.html">Counterfactual Regret Minimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/trainer.html">Trainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/evaluate.html">Evaluate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/utils.html">Utils</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Imperfect Information Games</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>imperfecto.misc.trainer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for imperfecto.misc.trainer</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;A class to train players in an extensive form game.</span>
+
+<span class="sd">The players are trained over a number of games by calling each player&#39;s ``update_strategy`` method</span>
+<span class="sd">after each game. The average payoffs and the average strategies during training are recorded.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Type</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">enlighten</span>
+<span class="kn">from</span> <span class="nn">imperfecto.algos.player</span> <span class="kn">import</span> <span class="n">Player</span>
+<span class="kn">from</span> <span class="nn">imperfecto.games.game</span> <span class="kn">import</span> <span class="n">ExtensiveFormGame</span>
+
+
+<div class="viewcode-block" id="Trainer"><a class="viewcode-back" href="../../../misc/trainer.html#imperfecto.misc.trainer.Trainer">[docs]</a><span class="k">class</span> <span class="nc">Trainer</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;A class to train players in an extensive form game.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        Game: The game class to train players in.</span>
+<span class="sd">        players: The players to train.</span>
+<span class="sd">        n_iters: The number of games to train for.</span>
+<span class="sd">        display_status_bar: Whether to display a status bar during training.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        game (ExtensiveFormGame): The game to train players in.</span>
+<span class="sd">        n_iter (int): The number of games to train for.</span>
+<span class="sd">        ep_strategies (dict): The strategies of each player in each game.</span>
+<span class="sd">        ep_payoffs (np.ndarray): The payoffs of each player in each game over the course of this trainer instance.</span>
+<span class="sd">        display_status_bar (bool): Whether to display a status bar during training.</span>
+<span class="sd">        manager (enlighten.Manager): The enlighten manager to display the status bar.</span>
+<span class="sd">        pbar (enlighten.Counter): The enlighten counter to display the status bar.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Game</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">ExtensiveFormGame</span><span class="p">],</span> <span class="n">players</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Player</span><span class="p">],</span> <span class="n">n_iters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+                 <span class="n">display_status_bar</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">game</span> <span class="o">=</span> <span class="n">Game</span><span class="p">(</span><span class="n">players</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span> <span class="o">=</span> <span class="n">n_iters</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ep_strategies</span> <span class="o">=</span> <span class="p">{</span><span class="n">player</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">player</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">players</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ep_payoffs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">display_status_bar</span> <span class="o">=</span> <span class="n">display_status_bar</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">display_status_bar</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">manager</span> <span class="o">=</span> <span class="n">enlighten</span><span class="o">.</span><span class="n">get_manager</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pbar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">counter</span><span class="p">(</span>
+                <span class="n">total</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;RM/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;ticks&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Trainer.train"><a class="viewcode-back" href="../../../misc/trainer.html#imperfecto.misc.trainer.Trainer.train">[docs]</a>    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">freeze_ls</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Player</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Train the players for `n_iter` games using each player&#39;s `update_strategy` function.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            Players in the ``freeze_ls`` list will not be trained.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            freeze_ls (Sequence[Player]): The players to freeze during training.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            np.ndarray: The average payoffs of each player during this `train` call.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ep_payoffs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iters</span><span class="p">):</span>
+            <span class="n">history</span><span class="p">,</span> <span class="n">payoffs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+            <span class="n">ep_payoffs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">payoffs</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">player_id</span><span class="p">,</span> <span class="n">player</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">players</span><span class="p">):</span>
+                <span class="c1"># check if strategy is a property of the player object</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">player</span><span class="p">,</span> <span class="s1">&#39;strategy&#39;</span><span class="p">):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ep_strategies</span><span class="p">[</span><span class="n">player</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="n">player</span><span class="o">.</span><span class="n">strategy</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+                <span class="k">if</span> <span class="n">player</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">freeze_ls</span><span class="p">:</span>
+                    <span class="n">player</span><span class="o">.</span><span class="n">update_strategy</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">player_id</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">display_status_bar</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ep_payoffs</span> <span class="o">+=</span> <span class="n">ep_payoffs</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ep_payoffs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">avg_payoffs</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get the average payoffs of each player over the course of this trainer instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            np.ndarray: The average payoffs of each player.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ep_payoffs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">avg_strategies</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Get the average strategies of each player.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: The average strategies of each player.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">{</span><span class="n">player</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">strategies</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">player</span><span class="p">,</span> <span class="n">strategies</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">ep_strategies</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Long Le.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -194,23 +194,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-imperfect_info_games.demos.regret_matching_demo">
-<span id="regret-matching-demo"></span><h1>Regret Matching Demo<a class="headerlink" href="#module-imperfect_info_games.demos.regret_matching_demo" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-imperfecto.demos.regret_matching_demo">
+<span id="regret-matching-demo"></span><h1>Regret Matching Demo<a class="headerlink" href="#module-imperfecto.demos.regret_matching_demo" title="Permalink to this headline">¶</a></h1>
 <p>A demo for the regret-matching algorithm (Hart and Mas-Colell 2000) for various
 N-player normal form games.</p>
 <p>For 2-player zero-sum game, regret matching algorithm’s average strategy provably converges to Nash.
 However, it seems to work for more than 2-player games as well.</p>
 <dl>
 <dt>Usage:</dt><dd><p>Run:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 imperfect_info_games/demos/regret_matching_demo.py --help
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python3 imperfecto/demos/regret_matching_demo.py --help
 </pre></div>
 </div>
 </dd>
 </dl>
 <p>to print the available options.</p>
 <dl class="py function">
-<dt class="sig sig-object py" id="imperfect_info_games.demos.regret_matching_demo.generate_random_prob_dist">
-<span class="sig-prename descclassname"><span class="pre">imperfect_info_games.demos.regret_matching_demo.</span></span><span class="sig-name descname"><span class="pre">generate_random_prob_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_actions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/demos/regret_matching_demo.html#generate_random_prob_dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.demos.regret_matching_demo.generate_random_prob_dist" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.demos.regret_matching_demo.generate_random_prob_dist">
+<span class="sig-prename descclassname"><span class="pre">imperfecto.demos.regret_matching_demo.</span></span><span class="sig-name descname"><span class="pre">generate_random_prob_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_actions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/demos/regret_matching_demo.html#generate_random_prob_dist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.demos.regret_matching_demo.generate_random_prob_dist" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate a random probability distribution for a game.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -226,8 +226,8 @@ However, it seems to work for more than 2-player games as well.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="imperfect_info_games.demos.regret_matching_demo.verify_nash_strategy">
-<span class="sig-prename descclassname"><span class="pre">imperfect_info_games.demos.regret_matching_demo.</span></span><span class="sig-name descname"><span class="pre">verify_nash_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nash_strategy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_random_strategies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/demos/regret_matching_demo.html#verify_nash_strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.demos.regret_matching_demo.verify_nash_strategy" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.demos.regret_matching_demo.verify_nash_strategy">
+<span class="sig-prename descclassname"><span class="pre">imperfecto.demos.regret_matching_demo.</span></span><span class="sig-name descname"><span class="pre">verify_nash_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nash_strategy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_random_strategies</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/demos/regret_matching_demo.html#verify_nash_strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.demos.regret_matching_demo.verify_nash_strategy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Verifies (roughly) that the given strategy is a Nash equilibrium. The idea of
 Nash strategy is only pplicable for 2-player (normal form).
 zero-sum games. We verify Nash strategy by pitting the strategy against random opponent’s strategy.
@@ -235,7 +235,7 @@ The Nash strategy should be unexploitable (i.e., having the payoff &gt;= 0).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Game</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>[<a class="reference internal" href="../games/game.html#imperfect_info_games.games.game.ExtensiveFormGame" title="imperfect_info_games.games.game.ExtensiveFormGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExtensiveFormGame</span></code></a>]) – The game to verify the strategy for.</p></li>
+<li><p><strong>Game</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ExtensiveFormGame</span></code>]) – The game to verify the strategy for.</p></li>
 <li><p><strong>nash_strategy</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>) – The strategy to verify.</p></li>
 <li><p><strong>n_iters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The number of iterations to run the game for.</p></li>
 </ul>
@@ -247,14 +247,14 @@ The Nash strategy should be unexploitable (i.e., having the payoff &gt;= 0).</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="imperfect_info_games.demos.regret_matching_demo.to_train_regret_matching">
-<span class="sig-prename descclassname"><span class="pre">imperfect_info_games.demos.regret_matching_demo.</span></span><span class="sig-name descname"><span class="pre">to_train_regret_matching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/demos/regret_matching_demo.html#to_train_regret_matching"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.demos.regret_matching_demo.to_train_regret_matching" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.demos.regret_matching_demo.to_train_regret_matching">
+<span class="sig-prename descclassname"><span class="pre">imperfecto.demos.regret_matching_demo.</span></span><span class="sig-name descname"><span class="pre">to_train_regret_matching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/demos/regret_matching_demo.html#to_train_regret_matching"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.demos.regret_matching_demo.to_train_regret_matching" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train all players simultaneously by the regret-matching algorithm and print the average
 strategies and payoffs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Game</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>[<a class="reference internal" href="../games/game.html#imperfect_info_games.games.game.ExtensiveFormGame" title="imperfect_info_games.games.game.ExtensiveFormGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExtensiveFormGame</span></code></a>]) – The game to train the players for.</p></li>
+<li><p><strong>Game</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ExtensiveFormGame</span></code>]) – The game to train the players for.</p></li>
 <li><p><strong>n_iters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The number of iterations to run the game for.</p></li>
 </ul>
 </dd>
@@ -265,15 +265,15 @@ strategies and payoffs.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="imperfect_info_games.demos.regret_matching_demo.to_train_delay_regret_matching">
-<span class="sig-prename descclassname"><span class="pre">imperfect_info_games.demos.regret_matching_demo.</span></span><span class="sig-name descname"><span class="pre">to_train_delay_regret_matching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freeze_duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/demos/regret_matching_demo.html#to_train_delay_regret_matching"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.demos.regret_matching_demo.to_train_delay_regret_matching" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.demos.regret_matching_demo.to_train_delay_regret_matching">
+<span class="sig-prename descclassname"><span class="pre">imperfecto.demos.regret_matching_demo.</span></span><span class="sig-name descname"><span class="pre">to_train_delay_regret_matching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freeze_duration</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/demos/regret_matching_demo.html#to_train_delay_regret_matching"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.demos.regret_matching_demo.to_train_delay_regret_matching" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train all players by the regret-matching algorithm and print the average strategies and payoffs.
 We alternatively freeze one player’s strategy and train the other player(s). This is a process of
 co-evolution.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Game</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>[<a class="reference internal" href="../games/game.html#imperfect_info_games.games.game.ExtensiveFormGame" title="imperfect_info_games.games.game.ExtensiveFormGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExtensiveFormGame</span></code></a>]) – The game to train the players for.</p></li>
+<li><p><strong>Game</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Type" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Type</span></code></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ExtensiveFormGame</span></code>]) – The game to train the players for.</p></li>
 <li><p><strong>n_iters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The number of iterations to run the game for.</p></li>
 <li><p><strong>freeze_duration</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The number of iterations to freeze the strategy of the player that is not being trained.</p></li>
 </ul>

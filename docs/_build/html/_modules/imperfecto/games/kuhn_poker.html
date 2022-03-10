@@ -1,0 +1,428 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>imperfecto.games.kuhn_poker &mdash; Imperfect Information Games 1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/baselines_theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Imperfect Information Games
+          
+
+          
+            
+            <img src="../../../_static/poker_meme.jpeg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id1">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#background">Background</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id2">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id3">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#todos">TODOs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#id4">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#references">References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html#license">License</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Demos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../demos/cfr_demo.html">CFR Demo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../demos/regret_matching_demo.html">Regret Matching Demo</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Games</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/game.html">Base Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/kuhn_poker.html">Kuhn Poker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/rock_paper_scissor.html">Rock Paper Scissor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/prisoners_dilemma.html">Prisoner’s Dilemma</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../games/bar_crowding.html">Bar Crowding Game</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Algorithms</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/player.html">Base Player</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/regret_matching.html">Regret Matching</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules/cfr.html">Counterfactual Regret Minimization</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/trainer.html">Trainer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/evaluate.html">Evaluate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/utils.html">Utils</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Imperfect Information Games</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>imperfecto.games.kuhn_poker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for imperfecto.games.kuhn_poker</h1><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39;An implement of Kuhn Poker game.</span>
+
+<span class="sd">We have two players. We have three cards: Jack, Queen, King, where King beats Queen and Queen beats</span>
+<span class="sd">Jack. In this game, each player gets a random card. On a turn, a player can either</span>
+<span class="sd">    * pass: do nothing. The opponent wins all chip in the pot.</span>
+<span class="sd">    * bet: place a chip in the pot.</span>
+<span class="sd">After two passes or two bets (not necessarily consecutive), the game ends. Player with the highest card wins.</span>
+
+<span class="sd">The Maximum depth of the game tree is 3. The game tree is as follows.</span>
+<span class="sd">Game tree::</span>
+
+<span class="sd">                [chance]</span>
+<span class="sd">                   |</span>
+<span class="sd">              assign cards</span>
+<span class="sd">                   |</span>
+<span class="sd">                [player1]</span>
+<span class="sd">                /      \\</span>
+
+<span class="sd">            [pass]      [bet]</span>
+<span class="sd">             |             |</span>
+<span class="sd">          [player2]       [player2]</span>
+<span class="sd">            /   \\         /   \\</span>
+<span class="sd">          pass    bet   pass     bet</span>
+<span class="sd">           |      |       |         |</span>
+<span class="sd">           (h)  [player1]   (1)       (h)</span>
+<span class="sd">                /   \\</span>
+
+<span class="sd">              pass   bet</span>
+<span class="sd">                |     |</span>
+<span class="sd">                (2)   (h)</span>
+
+<span class="sd">Leaf nodes notation:</span>
+<span class="sd">    * (h): player has highest card wins!</span>
+<span class="sd">    * (1): player 1 wins! (player 2 chickens out)</span>
+<span class="sd">    * (2): player 2 wins! (player 1 chickens out)</span>
+
+<span class="sd">In this game, we have 12 info-sets. Each info-set has 2 states since the opponent can have any of the two cards that I&#39;m not already holding. We have 6 ways to deal 2 out of 3 cards to 2 players, and 2 states / info-set so we have 6/2 = 3 info sets at every decision node. We have 4 decision nodes so 3 * 4 = 12 info sets.</span>
+
+<span class="sd">Note:</span>
+<span class="sd">    There&#39;s a subtle difference between the number of info sets and the number of nodes per info set (the size of the info set). The size of the info set tells us how many worlds are consistent with the player&#39;s observations so far.</span>
+<span class="sd">    The number of info sets is more &quot;meta&quot;. A player, without entering into a game / trajectory, can reason ahead about the different info sets that they can be in once some partial observations are available to them when</span>
+<span class="sd">    the game starts.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">imperfecto.algos.player</span> <span class="kn">import</span> <span class="n">Player</span>
+<span class="kn">from</span> <span class="nn">imperfecto.games.game</span> <span class="kn">import</span> <span class="n">ExtensiveFormGame</span>
+<span class="kn">from</span> <span class="nn">imperfecto.misc.utils</span> <span class="kn">import</span> <span class="n">lessVerboseEnum</span>
+
+
+<div class="viewcode-block" id="KUHN_POKER_ACTIONS"><a class="viewcode-back" href="../../../games/kuhn_poker.html#imperfecto.games.kuhn_poker.KUHN_POKER_ACTIONS">[docs]</a><span class="k">class</span> <span class="nc">KUHN_POKER_ACTIONS</span><span class="p">(</span><span class="n">lessVerboseEnum</span><span class="p">,</span> <span class="n">IntEnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Available actions in Kuhn Poker.&quot;&quot;&quot;</span>
+    <span class="n">PASS</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">BET</span> <span class="o">=</span> <span class="mi">1</span></div>
+
+
+<div class="viewcode-block" id="KUHN_POKER_CHANCE_ACTIONS"><a class="viewcode-back" href="../../../games/kuhn_poker.html#imperfecto.games.kuhn_poker.KUHN_POKER_CHANCE_ACTIONS">[docs]</a><span class="k">class</span> <span class="nc">KUHN_POKER_CHANCE_ACTIONS</span><span class="p">(</span><span class="n">lessVerboseEnum</span><span class="p">,</span> <span class="n">IntEnum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Availble chance actions in Kuhn Poker.</span>
+
+<span class="sd">    We have 3 cards J, Q, K dealt randomly to 2 players.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">JQ</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># player 2 wins</span>
+    <span class="n">JK</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># player 2 wins</span>
+    <span class="n">QK</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># player 2 wins</span>
+    <span class="n">QJ</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># player 1 wins</span>
+    <span class="n">KJ</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># player 1 wins</span>
+    <span class="n">KQ</span> <span class="o">=</span> <span class="mi">5</span>  <span class="c1"># player 1 wins</span></div>
+
+
+<div class="viewcode-block" id="KuhnPokerGame"><a class="viewcode-back" href="../../../games/kuhn_poker.html#imperfecto.games.kuhn_poker.KuhnPokerGame">[docs]</a><span class="k">class</span> <span class="nc">KuhnPokerGame</span><span class="p">(</span><span class="n">ExtensiveFormGame</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A Kuhn Poker (https://en.wikipedia.org/wiki/Kuhn_poker) game class.</span>
+
+<span class="sd">    Payoff:</span>
+<span class="sd">        The winner wins whatever is in the pot. A player can win either in showdown by having the</span>
+<span class="sd">        highest card or win by having their opponent chickens out.</span>
+
+<span class="sd">    Nash equilibrium:</span>
+<span class="sd">        There are infinitely many Nash equilibria. Player one can choose any probability ``alpha``</span>
+<span class="sd">        in [0, 1/3] to bet when having Jack, and pass when the other play bets. They should bet with</span>
+<span class="sd">        probability ``3 * alpha`` when having a King, and if the other player bets, they should bet.</span>
+<span class="sd">        They should always pass when having a Queen, and if the other player bets, they should pass.</span>
+<span class="sd">        The second player should always bet when having a King; when having a Queen, check if possible</span>
+<span class="sd">        otherwise call with probability 1/3. When they have a Jack, they should never call and bet with</span>
+<span class="sd">        probability 1/3. The first player&#39;s expected payoff under Nash equilibria is -1/18.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">actions</span> <span class="o">=</span> <span class="n">KUHN_POKER_ACTIONS</span>
+    <span class="n">chance_actions</span> <span class="o">=</span> <span class="n">KUHN_POKER_CHANCE_ACTIONS</span>
+    <span class="n">n_players</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">has_chance_player</span> <span class="o">=</span> <span class="kc">True</span>
+
+<div class="viewcode-block" id="KuhnPokerGame.is_terminal"><a class="viewcode-back" href="../../../games/kuhn_poker.html#imperfecto.games.kuhn_poker.KuhnPokerGame.is_terminal">[docs]</a>    <span class="k">def</span> <span class="nf">is_terminal</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">IntEnum</span><span class="p">]):</span>
+        <span class="n">history_str</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">history_to_str</span><span class="p">(</span><span class="n">history</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>  <span class="c1"># ignore chance node</span>
+        <span class="n">terminal_nodes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;PASS-PASS&quot;</span><span class="p">,</span> <span class="s2">&quot;BET-BET&quot;</span><span class="p">,</span> <span class="s2">&quot;BET-PASS&quot;</span><span class="p">,</span>
+                          <span class="s2">&quot;PASS-BET-PASS&quot;</span><span class="p">,</span> <span class="s2">&quot;PASS-BET-BET&quot;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">history_str</span> <span class="ow">in</span> <span class="n">terminal_nodes</span></div>
+
+<div class="viewcode-block" id="KuhnPokerGame.get_active_player"><a class="viewcode-back" href="../../../games/kuhn_poker.html#imperfecto.games.kuhn_poker.KuhnPokerGame.get_active_player">[docs]</a>    <span class="k">def</span> <span class="nf">get_active_player</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">IntEnum</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Player</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">players</span><span class="p">[(</span><span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="KuhnPokerGame.get_winner"><a class="viewcode-back" href="../../../games/kuhn_poker.html#imperfecto.games.kuhn_poker.KuhnPokerGame.get_winner">[docs]</a>    <span class="k">def</span> <span class="nf">get_winner</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chance_action</span><span class="p">:</span> <span class="n">KUHN_POKER_CHANCE_ACTIONS</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the winner of the game given a chance action.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            chance_action: the chance action</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            the winner (player_id) of the game</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">chance_action</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="KuhnPokerGame.showdown"><a class="viewcode-back" href="../../../games/kuhn_poker.html#imperfecto.games.kuhn_poker.KuhnPokerGame.showdown">[docs]</a>    <span class="k">def</span> <span class="nf">showdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Return the payoff value of the game in the showdown case given a history.</span>
+
+<span class="sd">        Winner is the player with the highest card. We don&#39;t take into account the amount of chips</span>
+<span class="sd">        in the pot. Winner gets +1 point while loser gets -1 point.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            history: the history of the game</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            the payoff value of the game in the showdown case</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">winner</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_winner</span><span class="p">(</span><span class="n">history</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">winner</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="KuhnPokerGame.get_payoffs"><a class="viewcode-back" href="../../../games/kuhn_poker.html#imperfecto.games.kuhn_poker.KuhnPokerGame.get_payoffs">[docs]</a>    <span class="k">def</span> <span class="nf">get_payoffs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_terminal</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+        <span class="k">match</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">history</span><span class="p">[</span><span class="mi">1</span><span class="p">:])):</span>
+            <span class="k">case</span> <span class="s2">&quot;PASS-PASS&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">1</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">showdown</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>  <span class="c1"># wins 2 chips</span>
+            <span class="k">case</span> <span class="s2">&quot;BET-BET&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">showdown</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>  <span class="c1"># wins 4 chips</span>
+            <span class="k">case</span> <span class="s2">&quot;BET-PASS&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># player 2 forfeits, player 1 wins</span>
+            <span class="k">case</span> <span class="s2">&quot;PASS-BET-PASS&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># player 1 forfeits, player 2 wins</span>
+            <span class="k">case</span> <span class="s2">&quot;PASS-BET-BET&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">showdown</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>  <span class="c1"># wins 4 chips</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Invalid history&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="KuhnPokerGame.get_card"><a class="viewcode-back" href="../../../games/kuhn_poker.html#imperfecto.games.kuhn_poker.KuhnPokerGame.get_card">[docs]</a>    <span class="k">def</span> <span class="nf">get_card</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chance_action</span><span class="p">:</span> <span class="n">KUHN_POKER_CHANCE_ACTIONS</span><span class="p">,</span> <span class="n">player_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return the card that a chance action has dealt to a player.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            chance_action: a chance action</span>
+<span class="sd">            player_id: the player who receives the card</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            the card that the chance action has dealt to the player</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">chance_action</span><span class="o">.</span><span class="n">name</span><span class="p">[</span><span class="n">player_id</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="KuhnPokerGame.get_infostate"><a class="viewcode-back" href="../../../games/kuhn_poker.html#imperfecto.games.kuhn_poker.KuhnPokerGame.get_infostate">[docs]</a>    <span class="k">def</span> <span class="nf">get_infostate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Enum</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">player_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_active_player</span><span class="p">(</span><span class="n">history</span><span class="p">)</span><span class="o">.</span><span class="n">player_id</span>  <span class="c1"># type: ignore</span>
+        <span class="n">my_card</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_card</span><span class="p">(</span><span class="n">history</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">player_id</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="k">return</span> <span class="n">my_card</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span> <span class="o">+</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">history</span><span class="p">[</span><span class="mi">1</span><span class="p">:]))</span></div>
+
+<div class="viewcode-block" id="KuhnPokerGame.chance_action"><a class="viewcode-back" href="../../../games/kuhn_poker.html#imperfecto.games.kuhn_poker.KuhnPokerGame.chance_action">[docs]</a>    <span class="k">def</span> <span class="nf">chance_action</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">KUHN_POKER_CHANCE_ACTIONS</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Return a chance action.</span>
+
+<span class="sd">        We have 3 cards J, Q, K dealt randomly to 2 players. This function handles the card dealing.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            a chance action</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">KUHN_POKER_CHANCE_ACTIONS</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">KUHN_POKER_CHANCE_ACTIONS</span><span class="p">))))</span></div>
+
+<div class="viewcode-block" id="KuhnPokerGame.shorten_history"><a class="viewcode-back" href="../../../games/kuhn_poker.html#imperfecto.games.kuhn_poker.KuhnPokerGame.shorten_history">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">shorten_history</span><span class="p">(</span><span class="n">history_str</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Shorten history string. For example, &quot;KJ-PASS-BET&quot; -&gt; &quot;KJPB&quot;.</span>
+<span class="sd">        Args:</span>
+<span class="sd">            history_str: history string</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A shortened history string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">history_str</span><span class="p">)</span>
+        <span class="n">replacements</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;-&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;PASS&#39;</span><span class="p">:</span> <span class="s1">&#39;P&#39;</span><span class="p">,</span> <span class="s1">&#39;BET&#39;</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">}</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">replacements</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">s</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2022, Long Le.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

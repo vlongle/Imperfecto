@@ -200,7 +200,7 @@
 <span class="sd">Usage:</span>
 <span class="sd">    Run::</span>
 
-<span class="sd">        $ python3 imperfect_info_games/demos/regret_matching_demo.py --help</span>
+<span class="sd">        $ python3 imperfecto/demos/regret_matching_demo.py --help</span>
 
 <span class="sd">to print the available options.</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -211,16 +211,16 @@
 <span class="kn">import</span> <span class="nn">click</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">imperfect_info_games.algos.regret_matching</span> <span class="kn">import</span> <span class="n">RegretMatchingPlayer</span>
-<span class="kn">from</span> <span class="nn">imperfect_info_games.games.bar_crowding</span> <span class="kn">import</span> <span class="n">BarCrowdingGame</span>
-<span class="kn">from</span> <span class="nn">imperfect_info_games.games.game</span> <span class="kn">import</span> <span class="n">ExtensiveFormGame</span>
-<span class="kn">from</span> <span class="nn">imperfect_info_games.games.prisoner_dilemma</span> <span class="kn">import</span> <span class="n">PrisonerDilemmaGame</span>
-<span class="kn">from</span> <span class="nn">imperfect_info_games.games.rock_paper_scissor</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">imperfecto.algos.regret_matching</span> <span class="kn">import</span> <span class="n">RegretMatchingPlayer</span>
+<span class="kn">from</span> <span class="nn">imperfecto.games.bar_crowding</span> <span class="kn">import</span> <span class="n">BarCrowdingGame</span>
+<span class="kn">from</span> <span class="nn">imperfecto.games.game</span> <span class="kn">import</span> <span class="n">ExtensiveFormGame</span>
+<span class="kn">from</span> <span class="nn">imperfecto.games.prisoner_dilemma</span> <span class="kn">import</span> <span class="n">PrisonerDilemmaGame</span>
+<span class="kn">from</span> <span class="nn">imperfecto.games.rock_paper_scissor</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">AsymmetricRockPaperScissorGame</span><span class="p">,</span>
     <span class="n">RockPaperScissorGame</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">imperfect_info_games.misc.evaluate</span> <span class="kn">import</span> <span class="n">evaluate_strategies</span>
-<span class="kn">from</span> <span class="nn">imperfect_info_games.misc.trainer</span> <span class="kn">import</span> <span class="n">Trainer</span>
+<span class="kn">from</span> <span class="nn">imperfecto.misc.evaluate</span> <span class="kn">import</span> <span class="n">evaluate_strategies</span>
+<span class="kn">from</span> <span class="nn">imperfecto.misc.trainer</span> <span class="kn">import</span> <span class="n">Trainer</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 

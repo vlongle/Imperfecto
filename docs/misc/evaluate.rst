@@ -1,7 +1,7 @@
 Evaluate
 ====================================
 
-.. automodule:: imperfect_info_games.misc.evaluate
+.. automodule:: imperfecto.misc.evaluate
    :members:
    :undoc-members:
    :show-inheritance:

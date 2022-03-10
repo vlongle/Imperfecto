@@ -194,17 +194,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-imperfect_info_games.algos.regret_matching">
-<span id="regret-matching"></span><h1>Regret Matching<a class="headerlink" href="#module-imperfect_info_games.algos.regret_matching" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-imperfecto.algos.regret_matching">
+<span id="regret-matching"></span><h1>Regret Matching<a class="headerlink" href="#module-imperfecto.algos.regret_matching" title="Permalink to this headline">¶</a></h1>
 <p>A class of regret matching player for N-player normal form games.
 See the paper “a simple adaptive procedure leading to correlated equilibrium” (2000)
 by Sergiu Hart and Andreu Mas-Colell.</p>
 <p>The algorithm works by maintaining a cumulative regret vector for each action. The current regret is the difference between the counterfactual reward and the reward of the actual action taken.</p>
 <p>The strategy is action distribution proportional to the positive entries of the cumulative regret vector.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.regret_matching.RegretMatchingPlayer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfect_info_games.algos.regret_matching.</span></span><span class="sig-name descname"><span class="pre">RegretMatchingPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_actions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/regret_matching.html#RegretMatchingPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="player.html#imperfect_info_games.algos.player.Player" title="imperfect_info_games.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfect_info_games.algos.player.Player</span></code></a></p>
+<dt class="sig sig-object py" id="imperfecto.algos.regret_matching.RegretMatchingPlayer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfecto.algos.regret_matching.</span></span><span class="sig-name descname"><span class="pre">RegretMatchingPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_actions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/algos/regret_matching.html#RegretMatchingPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.algos.regret_matching.RegretMatchingPlayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfecto.algos.player.Player</span></code></a></p>
 <p>Regret Matching (Hart and Mas-Colell 2000) Player works by maintaining a cumulative
 regret vector for each action.</p>
 <p>The current regret is the difference between the counterfactual reward and the reward of
@@ -219,8 +219,8 @@ the actual action taken.</p>
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.name" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.regret_matching.RegretMatchingPlayer.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#imperfecto.algos.regret_matching.RegretMatchingPlayer.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>name of the player.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -230,8 +230,8 @@ the actual action taken.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.n_actions">
-<span class="sig-name descname"><span class="pre">n_actions</span></span><a class="headerlink" href="#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.n_actions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.regret_matching.RegretMatchingPlayer.n_actions">
+<span class="sig-name descname"><span class="pre">n_actions</span></span><a class="headerlink" href="#imperfecto.algos.regret_matching.RegretMatchingPlayer.n_actions" title="Permalink to this definition">¶</a></dt>
 <dd><p>number of actions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -241,8 +241,8 @@ the actual action taken.</p>
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.cum_regrets">
-<span class="sig-name descname"><span class="pre">cum_regrets</span></span><a class="headerlink" href="#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.cum_regrets" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.regret_matching.RegretMatchingPlayer.cum_regrets">
+<span class="sig-name descname"><span class="pre">cum_regrets</span></span><a class="headerlink" href="#imperfecto.algos.regret_matching.RegretMatchingPlayer.cum_regrets" title="Permalink to this definition">¶</a></dt>
 <dd><p>cumulative regret vector of shape (n_actions,).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -252,14 +252,14 @@ the actual action taken.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.strategy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">strategy</span></span><a class="headerlink" href="#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.strategy" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.regret_matching.RegretMatchingPlayer.strategy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">strategy</span></span><a class="headerlink" href="#imperfecto.algos.regret_matching.RegretMatchingPlayer.strategy" title="Permalink to this definition">¶</a></dt>
 <dd><p>The regret matching strategy.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.regret_matching_strategy">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regret_matching_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regrets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/regret_matching.html#RegretMatchingPlayer.regret_matching_strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.regret_matching_strategy" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.regret_matching.RegretMatchingPlayer.regret_matching_strategy">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regret_matching_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regrets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/algos/regret_matching.html#RegretMatchingPlayer.regret_matching_strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.algos.regret_matching.RegretMatchingPlayer.regret_matching_strategy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the regret matching policy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -275,8 +275,8 @@ the actual action taken.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.act">
-<span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/regret_matching.html#RegretMatchingPlayer.act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.act" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.regret_matching.RegretMatchingPlayer.act">
+<span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/algos/regret_matching.html#RegretMatchingPlayer.act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.algos.regret_matching.RegretMatchingPlayer.act" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the action to take given an infostate.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -292,8 +292,8 @@ the actual action taken.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.update_strategy">
-<span class="sig-name descname"><span class="pre">update_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfect_info_games/algos/regret_matching.html#RegretMatchingPlayer.update_strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfect_info_games.algos.regret_matching.RegretMatchingPlayer.update_strategy" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="imperfecto.algos.regret_matching.RegretMatchingPlayer.update_strategy">
+<span class="sig-name descname"><span class="pre">update_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/algos/regret_matching.html#RegretMatchingPlayer.update_strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.algos.regret_matching.RegretMatchingPlayer.update_strategy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the cumulative regret vector. This will update the strategy of the player as
 the strategy is computed from the cumulative regret vector.</p>
 <dl class="field-list simple">
