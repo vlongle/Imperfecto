@@ -4,7 +4,7 @@
 
    <h1 align="center">
      <br>
-     <a><img src="https://raw.githubusercontent.com/vlongle/imperfect_information_games/main/imgs/poker_meme.jpeg" alt="Imperfect Information Games"></a>
+     <a><img src="https://raw.githubusercontent.com/vlongle/Imperfecto/main/imgs/poker_meme.jpeg" alt="Imperfect Information Games"></a>
    </h1>
 
 
@@ -18,17 +18,17 @@
 .. raw:: html
 
    <p align="center">
-       <a href="https://github.com/vlongle/imperfect_information_games/commits/main">
-       <img src="https://img.shields.io/github/last-commit/vlongle/imperfect_information_games.svg?style=flat-square&logo=github&logoColor=white"
+       <a href="https://github.com/vlongle/Imperfecto/commits/main">
+       <img src="https://img.shields.io/github/last-commit/vlongle/Imperfecto.svg?style=flat-square&logo=github&logoColor=white"
             alt="GitHub last commit">
-       <a href="https://github.com/vlongle/imperfect_information_games/issues">
-       <img src="https://img.shields.io/github/issues-raw/vlongle/imperfect_information_games.svg?style=flat-square&logo=github&logoColor=white"
+       <a href="https://github.com/vlongle/Imperfecto/issues">
+       <img src="https://img.shields.io/github/issues-raw/vlongle/Imperfecto.svg?style=flat-square&logo=github&logoColor=white"
             alt="GitHub issues">
-       <a href="https://github.com/vlongle/imperfect_information_games/pulls">
-       <img src="https://img.shields.io/github/issues-pr-raw/vlongle/imperfect_information_games.svg?style=flat-square&logo=github&logoColor=white"
+       <a href="https://github.com/vlongle/Imperfecto/pulls">
+       <img src="https://img.shields.io/github/issues-pr-raw/vlongle/Imperfecto.svg?style=flat-square&logo=github&logoColor=white"
             alt="GitHub pull requests">
-       <a href="https://twitter.com/intent/tweet?text=Try this dope Python module for AI in imperfect information games!:&url=https%3A%2F%2Fgithub.com%2Fvlongle%2Fimperfect_information_games">
-       <img src="https://img.shields.io/twitter/url/https/github.com/vlongle/imperfect_information_games.svg?style=flat-square&logo=twitter"
+       <a href="https://twitter.com/intent/tweet?text=Try this dope Python module for AI in imperfect information games!:&url=https%3A%2F%2Fgithub.com%2Fvlongle%2FImperfecto">
+       <img src="https://img.shields.io/twitter/url/https/github.com/vlongle/Imperfecto.svg?style=flat-square&logo=twitter"
             alt="GitHub tweet">
    </p>
 
@@ -64,7 +64,7 @@ Clone this repo and install it as a module.
 
 .. code-block::
 
-   $ git clone https://github.com/vlongle/imperfect_information_games.git
+   $ git clone https://github.com/vlongle/Imperfecto.git
    $ cd imperfecto
    $ pip3 install -e .
 
@@ -73,7 +73,7 @@ Try to import the module to check if the installation has been successful.
 .. code-block::
 
    $ python3
-   >> import imperfect_information_games
+   >> import imperfecto
 
 Background
 ----------
@@ -209,7 +209,7 @@ TODOs
 Documentation
 -------------
 
-Please see `https://vlongle.github.io/imperfect_information_games/ <https://vlongle.github.io/imperfect_information_games/>`_ for full documentation.
+Please see `https://vlongle.github.io/Imperfecto/ <https://vlongle.github.io/Imperfecto/>`_ for full documentation.
 
 References
 ----------
