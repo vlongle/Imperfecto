@@ -36,11 +36,15 @@ Leaf nodes notation:
     * (1): player 1 wins! (player 2 chickens out)
     * (2): player 2 wins! (player 1 chickens out)
 
-In this game, we have 12 info-sets. Each info-set has 2 states since the opponent can have any of the two cards that I'm not already holding. We have 4 decision nodes (excluding the chance's action), and a player's private information consists of their own card, which takes 3 possible values so we have 3 * 4 = 12 info sets.
+In this game, we have 12 info-sets. Each info-set has 2 states since the opponent can have any of the
+two cards that I'm not already holding. We have 4 decision nodes (excluding the chance's action),
+and a player's private information consists of their own card, which takes 3 possible values so we have 3 * 4 = 12 info sets.
 
 Note:
-    There's a subtle difference between the number of info sets and the number of nodes per info set (the size of the info set). The size of the info set tells us how many worlds are consistent with the player's observations so far.
-    The number of info sets is more "meta". A player, without entering into a game / trajectory, can reason ahead about the different info sets that they can be in once some partial observations are available to them when
+    There's a subtle difference between the number of info sets and the number of nodes per info set
+    (the size of the info set). The size of the info set tells us how many worlds are consistent with the player's observations so far.
+    The number of info sets is more "meta". A player, without entering into a game / trajectory,
+    can reason ahead about the different info sets that they can be in once some partial observations are available to them when
     the game starts.
 '''
 

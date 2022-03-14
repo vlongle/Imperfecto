@@ -235,11 +235,15 @@ Game tree:</p>
 </ul>
 </dd>
 </dl>
-<p>In this game, we have 12 info-sets. Each info-set has 2 states since the opponent can have any of the two cards that I’m not already holding. We have 6 ways to deal 2 out of 3 cards to 2 players, and 2 states / info-set so we have 6/2 = 3 info sets at every decision node. We have 4 decision nodes so 3 * 4 = 12 info sets.</p>
+<p>In this game, we have 12 info-sets. Each info-set has 2 states since the opponent can have any of the
+two cards that I’m not already holding. We have 4 decision nodes (excluding the chance’s action),
+and a player’s private information consists of their own card, which takes 3 possible values so we have 3 * 4 = 12 info sets.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>There’s a subtle difference between the number of info sets and the number of nodes per info set (the size of the info set). The size of the info set tells us how many worlds are consistent with the player’s observations so far.
-The number of info sets is more “meta”. A player, without entering into a game / trajectory, can reason ahead about the different info sets that they can be in once some partial observations are available to them when
+<p>There’s a subtle difference between the number of info sets and the number of nodes per info set
+(the size of the info set). The size of the info set tells us how many worlds are consistent with the player’s observations so far.
+The number of info sets is more “meta”. A player, without entering into a game / trajectory,
+can reason ahead about the different info sets that they can be in once some partial observations are available to them when
 the game starts.</p>
 </div>
 <dl class="py class">

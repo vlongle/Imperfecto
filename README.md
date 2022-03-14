@@ -143,7 +143,7 @@ http://www.cs.cmu.edu/afs/cs/academic/class/15780-s13/www/lec/ganzfried_gt.pdf))
 - Maybe also implement some deep RL methods like Q-learning, actor-critic for these games.
 
 - More game: Leduc Poker, Texas Hold Em.
-
+- Rock-paper-scissor game visualization: https://www.kaggle.com/jamesmcguigan/rock-paper-scissors-multi-armed-bandit, https://github.com/seekpl/rps-game
 ## Documentation
 Please see [https://vlongle.github.io/Imperfecto/](https://vlongle.github.io/Imperfecto/) for full documentation.
 
@@ -152,6 +152,9 @@ Please see [https://vlongle.github.io/Imperfecto/](https://vlongle.github.io/Imp
 - [Steps to building a Poker AI  (Thomas Trenner)](https://medium.com/ai-in-plain-english/steps-to-building-a-poker-ai-part-1-outline-and-history-58fbedaf6ded)
 - [](https://www.kaggle.com/ihelon/rock-paper-scissors-agents-comparison)
 
+## Image Credit
+An image of the French poker player [Patrick Bruel](https://en.wikipedia.org/wiki/Patrick_Bruel).
+Sourced from [knowyourmeme.com](https://knowyourmeme.com/)
 ## License
 MIT License @ Long Le 2022.
 

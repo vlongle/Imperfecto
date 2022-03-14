@@ -207,23 +207,18 @@
 <span class="sd">distribution at that infostate appropriately.</span>
 
 <span class="sd">The cfr formulation looks similar to the advantage function in RL Q-learning.</span>
-
-<span class="sd">.. math::</span>
-<span class="sd">    v(\\sigma, h)</span>
-
-<span class="sd">something inline :math:`\\sigma a^2 + b^2 = c^2`</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">IntEnum</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Sequence</span>
 
-<span class="kn">import</span> <span class="nn">enlighten</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
+<span class="kn">import</span> <span class="nn">enlighten</span>
 <span class="kn">from</span> <span class="nn">imperfecto.algos.player</span> <span class="kn">import</span> <span class="n">Player</span>
 <span class="kn">from</span> <span class="nn">imperfecto.algos.regret_matching</span> <span class="kn">import</span> <span class="n">RegretMatchingPlayer</span>
-<span class="kn">from</span> <span class="nn">imperfecto.misc.utils</span> <span class="kn">import</span> <span class="n">get_action</span>
 
 
 <div class="viewcode-block" id="CounterFactualRegretMinimizerPlayer"><a class="viewcode-back" href="../../algos.html#algos.cfr.CounterFactualRegretMinimizerPlayer">[docs]</a><span class="k">class</span> <span class="nc">CounterFactualRegretMinimizerPlayer</span><span class="p">(</span><span class="n">Player</span><span class="p">):</span>
@@ -236,7 +231,9 @@
 <span class="sd">    Attributes:</span>
 <span class="sd">        player_id (int): the player id of this player in the game.</span>
 <span class="sd">        cum_regrets (dict): map from infostate to a regret vector of size n_actions.</span>
-<span class="sd">        strategy_sum (dict): map from infostate to the cumulative strategy at that infostate until now. Useful for calculating the average strategy over many iters.</span>
+<span class="sd">        strategy_sum (dict): map from infostate to the cumulative strategy at that infostate until now.</span>
+<span class="sd">                            Useful for calculating the average strategy over many iters.</span>
+<span class="sd">        strategy (dict): map from instostate to np.array of shape (n_actions,).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">player_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
@@ -244,22 +241,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">player_id</span> <span class="o">=</span> <span class="n">player_id</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cum_regrets</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">strategy_sum</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="p">{}</span>
 
-<div class="viewcode-block" id="CounterFactualRegretMinimizerPlayer.strategy"><a class="viewcode-back" href="../../algos.html#algos.cfr.CounterFactualRegretMinimizerPlayer.strategy">[docs]</a>    <span class="k">def</span> <span class="nf">strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">infostate</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;the strategy for a given player at a infostate.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            infostate: string representing the infostate</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            array of shape (len(game.actions)) representing</span>
-<span class="sd">            the action probability distribution.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="CounterFactualRegretMinimizerPlayer.update_strategy"><a class="viewcode-back" href="../../algos.html#algos.cfr.CounterFactualRegretMinimizerPlayer.update_strategy">[docs]</a>    <span class="k">def</span> <span class="nf">update_strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">IntEnum</span><span class="p">],</span> <span class="n">player_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">del</span> <span class="n">player_id</span>
+        <span class="n">infostate</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">get_infostate</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
         <span class="n">cum_regrets</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cum_regrets</span><span class="p">[</span><span class="n">infostate</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">RegretMatchingPlayer</span><span class="o">.</span><span class="n">regret_matching_strategy</span><span class="p">(</span><span class="n">cum_regrets</span><span class="p">)</span></div>
-
-<div class="viewcode-block" id="CounterFactualRegretMinimizerPlayer.act"><a class="viewcode-back" href="../../algos.html#algos.cfr.CounterFactualRegretMinimizerPlayer.act">[docs]</a>    <span class="k">def</span> <span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">infostate</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">get_action</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="p">(</span><span class="n">infostate</span><span class="p">))</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="p">[</span><span class="n">infostate</span><span class="p">]</span> <span class="o">=</span> <span class="n">RegretMatchingPlayer</span><span class="o">.</span><span class="n">regret_matching_strategy</span><span class="p">(</span>
+            <span class="n">cum_regrets</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="CounterFactualRegretMinimizerPlayer.get_avg_strategies"><a class="viewcode-back" href="../../algos.html#algos.cfr.CounterFactualRegretMinimizerPlayer.get_avg_strategies">[docs]</a>    <span class="k">def</span> <span class="nf">get_avg_strategies</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Returns the average strategy of the player at each infostate.</span>
@@ -276,6 +265,8 @@
 
 <div class="viewcode-block" id="counterfactualRegretMinimizerTrainer"><a class="viewcode-back" href="../../algos.html#algos.cfr.counterfactualRegretMinimizerTrainer">[docs]</a><span class="k">class</span> <span class="nc">counterfactualRegretMinimizerTrainer</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    CFR with chance-sampling.</span>
+
 <span class="sd">    CFR (Zinkevich et al. &quot;Regret minimization in games with incomplete information&quot; 2008)</span>
 <span class="sd">    is a self-play algorithm that assumes that the joint strategy of all players in the game is</span>
 <span class="sd">    public knowledge. The algorithm iteratively updates the regret of each player&#39;s action at each</span>
@@ -306,7 +297,8 @@
 
 <span class="sd">        Args:</span>
 <span class="sd">            history: list of actions taken so far (current node)</span>
-<span class="sd">            reach_probs: array of shape game.n_players. The reach probabilities for the current infostate (current node) played by the players&#39; joint strategy.</span>
+<span class="sd">            reach_probs: array of shape game.n_players. The reach probabilities for</span>
+<span class="sd">                        the current infostate (current node) played by the players&#39; joint strategy.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            the utility (expected payoff) of the current node for each player.</span>
@@ -321,7 +313,10 @@
             <span class="n">active_player</span><span class="o">.</span><span class="n">cum_regrets</span><span class="p">[</span><span class="n">infostate</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
                 <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">actions</span><span class="p">))</span>
 
-        <span class="n">cur_policy</span> <span class="o">=</span> <span class="n">active_player</span><span class="o">.</span><span class="n">strategy</span><span class="p">(</span><span class="n">infostate</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">infostate</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">active_player</span><span class="o">.</span><span class="n">strategy</span><span class="p">:</span>
+            <span class="n">active_player</span><span class="o">.</span><span class="n">strategy</span><span class="p">[</span><span class="n">infostate</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">actions</span><span class="p">))</span>
+        <span class="n">cur_policy</span> <span class="o">=</span> <span class="n">active_player</span><span class="o">.</span><span class="n">strategy</span><span class="p">[</span><span class="n">infostate</span><span class="p">]</span>
 
         <span class="n">counterfactual_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
             <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">n_players</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">actions</span><span class="p">)))</span>
@@ -347,6 +342,7 @@
 
         <span class="c1"># update cumulative regrets, which affect the policy</span>
         <span class="n">active_player</span><span class="o">.</span><span class="n">cum_regrets</span><span class="p">[</span><span class="n">infostate</span><span class="p">]</span> <span class="o">+=</span> <span class="n">regrets</span>
+        <span class="n">active_player</span><span class="o">.</span><span class="n">update_strategy</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">active_player_id</span><span class="p">)</span>
 
         <span class="c1"># update strategy_sum</span>
         <span class="k">if</span> <span class="n">infostate</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">active_player</span><span class="o">.</span><span class="n">strategy_sum</span><span class="p">:</span>
@@ -408,10 +404,6 @@
 
 
 <span class="sd">&quot;&quot;&quot;</span>
-
-
-<div class="viewcode-block" id="CounterFactualRegretMinimizerMonteCarlo"><a class="viewcode-back" href="../../algos.html#algos.cfr.CounterFactualRegretMinimizerMonteCarlo">[docs]</a><span class="k">class</span> <span class="nc">CounterFactualRegretMinimizerMonteCarlo</span><span class="p">:</span>
-    <span class="k">pass</span></div>
 </pre></div>
 
            </div>

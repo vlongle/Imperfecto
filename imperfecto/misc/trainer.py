@@ -6,12 +6,12 @@ after each game. The average payoffs and the average strategies during training 
 import logging
 from typing import Sequence, Type
 
-import numpy as np
-
 import enlighten
+import numpy as np
+import pandas as pd
+
 from imperfecto.algos.player import Player
 from imperfecto.games.game import ExtensiveFormGame
-import pandas as pd
 
 
 class NormalFormTrainer:
@@ -40,6 +40,7 @@ class NormalFormTrainer:
         self.n_iters = n_iters
         self.ep_strategies = {player: [] for player in self.game.players}
         self.ep_payoffs = []
+        self.ep_histories = []
         self.display_status_bar = display_status_bar
         if self.display_status_bar:
             self.manager = enlighten.get_manager()
@@ -53,18 +54,18 @@ class NormalFormTrainer:
             Players in the ``freeze_ls`` list will not be trained.
 
         Args:
-            freeze_ls (Sequence[Player]): The players to freeze during training.
+            freeze_ls: The players to freeze during training.
 
         Returns:
-            np.ndarray: The average payoffs of each player during this `train` call.
+            The average payoffs of each player during this `train` call.
         """
-        ep_payoffs = []
         num_spaces = 8 * self.game.n_players
         logging.debug(
             f"iter | history {' '* num_spaces} | payoffs")
         for i in range(self.n_iters):
             history, payoffs = self.game.play()
-            ep_payoffs.append(payoffs)
+            self.ep_payoffs.append(payoffs)
+            self.ep_histories.append(history)
             for player_id, player in enumerate(self.game.players):
                 self.ep_strategies[player].append(
                     player.strategy)
@@ -74,15 +75,14 @@ class NormalFormTrainer:
                 self.pbar.update()
             logging.debug(
                 f"{i:4}  {self.game.history_to_str(history):{int(1.5 * num_spaces)}} {np.array2string(np.array(payoffs)):2}")
-        self.ep_payoffs += ep_payoffs
-        return np.mean(ep_payoffs, axis=0)
+        return np.mean(self.ep_payoffs[-self.n_iters:], axis=0)
 
     @property
     def avg_payoffs(self) -> np.ndarray:
         """Get the average payoffs of each player over the course of this trainer instance.
 
         Returns:
-            np.ndarray: The average payoffs of each player.
+            The average payoffs of each player.
         """
         return np.mean(self.ep_payoffs, axis=0)
 
@@ -91,48 +91,77 @@ class NormalFormTrainer:
         """Get the average strategies of each player.
 
         Returns:
-            dict: The average strategies of each player.
+            The average strategies of each player.
         """
 
         return {player: np.mean(strategies, axis=0) for player, strategies in self.ep_strategies.items()}
 
-    def moving_avg(self, arr):
+    def moving_avg(self, arr: np.ndarray) -> np.ndarray:
         """Compute the moving average of an array.
 
         Args:
-            arr (np.ndarray): The array to compute the moving average of.
+            arr: The 2D array to compute the moving average of. The first axis
+            is iter / time.
 
         Returns:
-            np.ndarray: The moving average of the array.
+            The moving average of the array.
         """
         avg = np.cumsum(arr, axis=0, dtype=float)
         discount = np.repeat(
             np.arange(1, arr.shape[0] + 1), arr.shape[1], axis=0).reshape(arr.shape)
         return avg / discount
 
-    def store_strategies(self, filenames) -> None:
-        """Store the average strategies of each player in a csv file.
+    def make_df(self, strategies: np.ndarray, player_name: str) -> pd.DataFrame:
+        """Make a dataframe from a strategy array.
 
         Args:
-            filename (str): The name of the csv file to store the strategies in.
+            strategies: The strategies to make a dataframe from.
+            player_name: The name of the player.
         """
         actions = list(map(str, self.game.actions))  # type: ignore
-        dfs = []
-        avg_dfs = []
-        for player, strategies in self.ep_strategies.items():
-            strategies = np.array(strategies)
-            avg_strategies = self.moving_avg(strategies)
-            df = pd.DataFrame(strategies, columns=actions)
-            avg_df = pd.DataFrame(avg_strategies, columns=actions)
-            df["player"] = player.name
-            df["iter"] = df.index
-            avg_df["player"] = player.name
-            avg_df["iter"] = avg_df.index
-            dfs.append(df)
-            avg_dfs.append(avg_df)
+        df = pd.DataFrame(strategies, columns=actions)
+        df["player"] = player_name
+        df["iter"] = df.index
+        return df
 
+    def store_strategies(self, filenames: dict) -> None:
+        """Store the episodic strategies and average strategies of each player in json files.
+
+        Args:
+            filenames: The names of the json files to store the strategies and average strategies in.
+                        Must have key 'strategy_file' and 'avg_strategy_file' and string values
+                        corresponding to the file locations.
+        """
+        dfs = [self.make_df(np.array(strategies), player.name)
+               for player, strategies in self.ep_strategies.items()]
+        avg_dfs = [self.make_df(self.moving_avg(np.array(strategies)), player.name)
+                   for player, strategies in self.ep_strategies.items()]
         df = pd.concat(dfs, ignore_index=True)
         avg_df = pd.concat(avg_dfs, ignore_index=True)
         # write json to file
-        df.to_json(filenames[0], orient='records', indent=2)
-        avg_df.to_json(filenames[1], orient='records', indent=2)
+        df.to_json(filenames['strategy_file'], orient='records', indent=2)
+        avg_df.to_json(filenames['avg_strategy_file'],
+                       orient='records', indent=2)
+
+    def store_histories_payoffs(self, filenames: dict) -> None:
+        """Store the episodic histories and payoffs of each player in json files.
+
+        Args:
+            filenames: The names of the json files to store the histories and payoffs in.
+                        Must have key 'histories_payoffs_file'.
+        """
+        df = pd.DataFrame()
+        df["history"] = list(
+            map(lambda e: list(map(str, e)), self.ep_histories))
+        df["payoffs"] = list(self.moving_avg(np.array(self.ep_payoffs)))
+        df["iter"] = df.index
+        df.to_json(filenames['histories_payoffs_file'],
+                   orient='records', indent=2)
+
+    def store_data(self, filenames: dict) -> None:
+        """Record data about the training process.
+        Args:
+            filenames: The names of the json files to store data in.
+        """
+        self.store_strategies(filenames)
+        self.store_histories_payoffs(filenames)

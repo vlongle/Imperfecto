@@ -94,9 +94,15 @@ def to_train_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int = 10000
             f'Training regret-matching players for game {Game.__name__} after {n_iters} iters:')
         print('average strategies:')
         pprint(trainer.avg_strategies)
-        print(f'eps_rewards: {avg_payoffs}')
+        print(f'average eps_rewards: {avg_payoffs}')
         print()
-    trainer.store_strategies(["strategy.json", "avg_strategy.json"])
+
+    filenames = {
+        'strategy_file': 'strategy.json',
+        'avg_strategy_file': 'avg_strategy.json',
+        'histories_payoffs_file': 'histories_payoffs.json',
+    }
+    trainer.store_data(filenames)
 
 
 def to_train_delay_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int = 10000, freeze_duration: int = 10):
@@ -129,18 +135,28 @@ def to_train_delay_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int =
         pprint(trainer.avg_strategies)
         print(f'eps_rewards: {trainer.avg_payoffs}')
         print()
-    trainer.store_strategies(["strategy.json", "avg_strategy.json"])
+    filenames = {
+        'strategy_file': 'strategy.json',
+        'avg_strategy_file': 'avg_strategy.json',
+        'histories_payoffs_file': 'histories_payoffs.json',
+    }
+    trainer.store_data(filenames)
 
 
 @click.command()
-@click.option("--game", type=click.Choice(["RockPaperScissorGame", "AsymmetricRockPaperScissorGame", "BarCrowdingGame", "PrisonerDilemmaGame"]),
+@click.option("--game", type=click.Choice(["RockPaperScissorGame",
+                                           "AsymmetricRockPaperScissorGame", "BarCrowdingGame", "PrisonerDilemmaGame"]),
               default="RockPaperScissorGame", help="The game to demo.")
 @click.option("--n_iters", type=int, default=10000, help="The number of iterations to run the game for.")
 @click.option("--train_regret_matching", is_flag=True, default=False, help="Train regret matching players.")
-@click.option("--train_delay_regret_matching", is_flag=True, default=False, help="Train delay regret matching players.")
-@click.option("--verbose_level", type=click.Choice(["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]), default="INFO", help="The verbosity level of the game.")
+@click.option("--train_delay_regret_matching", is_flag=True, default=False,
+              help="Train delay regret matching players.")
+@click.option("--verbose_level", type=click.Choice(["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]),
+              default="INFO", help="The verbosity level of the game.")
 @click.option("--seed", type=int, default=0, help="The random seed to use for the game.")
-def main(game: str, n_iters: int = 10000, train_regret_matching: bool = False, train_delay_regret_matching: bool = False, verbose_level: str = "INFO", seed: int = 0) -> None:
+def main(game: str, n_iters: int = 10000, train_regret_matching: bool = False,
+         train_delay_regret_matching: bool = False,
+         verbose_level: str = "INFO", seed: int = 0) -> None:
     """Demo for N-player normal-form games using the regret-matching algorithm.
 
     Available games:
@@ -156,7 +172,8 @@ def main(game: str, n_iters: int = 10000, train_regret_matching: bool = False, t
         --train_regret_matching: Whether to train regret matching players.
         --train_delay_regret_matching: Whether to train delay regret matching players.
 
-    We will also show the Nash equilibrium for 2-player zero-sum games so the user can verify that the regret matching players' strategies indeed converge to Nash.
+    We will also show the Nash equilibrium for 2-player zero-sum games so the user can verify that
+    the regret matching players' strategies indeed converge to Nash.
     """
     logging.basicConfig(level=getattr(
         logging, verbose_level), format="%(message)s")

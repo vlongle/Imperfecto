@@ -18,12 +18,22 @@
 
 <body>
     <div class="container">
-        <h3> Strategy</h3>
-        <div id="strategy"></div>
-        <h3> Average Strategy</h3>
-        <div id="avg_strategy"></div>
-        <h3> Moving Average Payoff </h3>
-        <div id="avg_payoff"></div>
+        <div class="row">
+            <div class="col-sm-6">
+                <h3> Strategy</h3>
+                <div id="strategy"></div>
+            </div>
+            <div class="col-sm-6">
+                <h3> Average Strategy</h3>
+                <div id="avg_strategy"></div>
+            </div>
+        </div>
+
+        <h3> Payoff </h3>
+        <div id="payoff"></div>
+        <h3> Game Replay </h3>
+        <div id="gameReplay">
+        </div>
 
         <div class="row">
             <div class="col-sm-6">
@@ -32,9 +42,11 @@
                     <output id="sliderOutput">0</output>
                 </div>
 
-                <div id="replay_control">
-                    <button type="button" id="start" class="btn btn-primary">start</button>
-                    <button type="button" id="stop" class="btn btn-danger">stop</button>
+                <div class="row">
+                    <div id="replay_control">
+                        <button type="button" id="start" class="btn btn-primary">start</button>
+                        <button type="button" id="stop" class="btn btn-danger">stop</button>
+                    </div>
                 </div>
             </div>
 
@@ -43,9 +55,20 @@
                     <button type="button" id="speedUp" class="btn btn-info">speed up ⏩</button>
                     <button type="button" id="slowDown" class="btn btn-info">slow down ⏬</button>
                 </div>
-                <output id="speedOutput" class="d-flex justify-content-center">Speed: 1.0 </output>
+                <output id="speedOutput" class="d-flex justify-content-center"><strong>Speed</strong>: 1.0 </output>
             </div>
         </div>
+
+        <br> <br> <br> <br>
+        <footer class="gradient-custom-2 text-center text-dark fixed-bottom">
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                Imperfecto 2022 @
+                <strong> Long Le (<a href="https://github.com/vlongle/Imperfecto">Github</a>) </strong>
+            </div>
+            <!-- Copyright -->
+        </footer>
     </div>
+
     <script defer type="module" src="index.js"></script>
 </body>

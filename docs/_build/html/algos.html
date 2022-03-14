@@ -36,7 +36,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -212,9 +211,6 @@ different infostates of their opponent. Therefore, not every node (history) in t
 equally likely to be reached, so the reach probs should be taken into account to skew the action
 distribution at that infostate appropriately.</p>
 <p>The cfr formulation looks similar to the advantage function in RL Q-learning.</p>
-<div class="math notranslate nohighlight">
-\[v(\sigma, h)\]</div>
-<p>something inline <span class="math notranslate nohighlight">\(\sigma a^2 + b^2 = c^2\)</span></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="algos.cfr.CounterFactualRegretMinimizerPlayer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algos.cfr.</span></span><span class="sig-name descname"><span class="pre">CounterFactualRegretMinimizerPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/cfr.html#CounterFactualRegretMinimizerPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.cfr.CounterFactualRegretMinimizerPlayer" title="Permalink to this definition">¶</a></dt>
@@ -253,7 +249,19 @@ distribution at that infostate appropriately.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="algos.cfr.CounterFactualRegretMinimizerPlayer.strategy_sum">
 <span class="sig-name descname"><span class="pre">strategy_sum</span></span><a class="headerlink" href="#algos.cfr.CounterFactualRegretMinimizerPlayer.strategy_sum" title="Permalink to this definition">¶</a></dt>
-<dd><p>map from infostate to the cumulative strategy at that infostate until now. Useful for calculating the average strategy over many iters.</p>
+<dd><p>map from infostate to the cumulative strategy at that infostate until now.
+Useful for calculating the average strategy over many iters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="algos.cfr.CounterFactualRegretMinimizerPlayer.strategy">
+<span class="sig-name descname"><span class="pre">strategy</span></span><a class="headerlink" href="#algos.cfr.CounterFactualRegretMinimizerPlayer.strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>map from instostate to np.array of shape (n_actions,).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
@@ -262,36 +270,15 @@ distribution at that infostate appropriately.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="algos.cfr.CounterFactualRegretMinimizerPlayer.strategy">
-<span class="sig-name descname"><span class="pre">strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/cfr.html#CounterFactualRegretMinimizerPlayer.strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.cfr.CounterFactualRegretMinimizerPlayer.strategy" title="Permalink to this definition">¶</a></dt>
-<dd><p>the strategy for a given player at a infostate.</p>
+<dt class="sig sig-object py" id="algos.cfr.CounterFactualRegretMinimizerPlayer.update_strategy">
+<span class="sig-name descname"><span class="pre">update_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/cfr.html#CounterFactualRegretMinimizerPlayer.update_strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.cfr.CounterFactualRegretMinimizerPlayer.update_strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the strategy of the player at the end of the game.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>infostate</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – string representing the infostate</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>array of shape (len(game.actions)) representing
-the action probability distribution.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="algos.cfr.CounterFactualRegretMinimizerPlayer.act">
-<span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/cfr.html#CounterFactualRegretMinimizerPlayer.act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.cfr.CounterFactualRegretMinimizerPlayer.act" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the action to take given an infostate.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>infostate</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The infostate to take the action in.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The action to take.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a>]) – The history of the game, which <em>must</em> be a terminal node.</p></li>
+<li><p><strong>player_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The id of the player to update (i.e., my id).</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -316,6 +303,7 @@ the action probability distribution.</p>
 <dt class="sig sig-object py" id="algos.cfr.counterfactualRegretMinimizerTrainer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algos.cfr.</span></span><span class="sig-name descname"><span class="pre">counterfactualRegretMinimizerTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/cfr.html#counterfactualRegretMinimizerTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.cfr.counterfactualRegretMinimizerTrainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>CFR with chance-sampling.</p>
 <p>CFR (Zinkevich et al. “Regret minimization in games with incomplete information” 2008)
 is a self-play algorithm that assumes that the joint strategy of all players in the game is
 public knowledge. The algorithm iteratively updates the regret of each player’s action at each
@@ -367,7 +355,8 @@ information set. The average strategy of each player in CFR provably converges t
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a>]) – list of actions taken so far (current node)</p></li>
-<li><p><strong>reach_probs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>) – array of shape game.n_players. The reach probabilities for the current infostate (current node) played by the players’ joint strategy.</p></li>
+<li><p><strong>reach_probs</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>) – array of shape game.n_players. The reach probabilities for
+the current infostate (current node) played by the players’ joint strategy.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type</dt>
@@ -390,12 +379,6 @@ information set. The average strategy of each player in CFR provably converges t
 </dl>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="algos.cfr.CounterFactualRegretMinimizerMonteCarlo">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algos.cfr.</span></span><span class="sig-name descname"><span class="pre">CounterFactualRegretMinimizerMonteCarlo</span></span><a class="reference internal" href="_modules/algos/cfr.html#CounterFactualRegretMinimizerMonteCarlo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.cfr.CounterFactualRegretMinimizerMonteCarlo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 </dd></dl>
 
 </div>
@@ -427,9 +410,20 @@ information set. The average strategy of each player in CFR provably converges t
 </dl>
 </dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="algos.player.Player.strategy">
+<span class="sig-name descname"><span class="pre">strategy</span></span><a class="headerlink" href="#algos.player.Player.strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>map from instostate to np.array of shape (n_actions,).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="algos.player.Player.act">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/player.html#Player.act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.player.Player.act" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/player.html#Player.act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.player.Player.act" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the action to take given an infostate.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -446,7 +440,7 @@ information set. The average strategy of each player in CFR provably converges t
 
 <dl class="py method">
 <dt class="sig sig-object py" id="algos.player.Player.update_strategy">
-<span class="sig-name descname"><span class="pre">update_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/player.html#Player.update_strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.player.Player.update_strategy" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/player.html#Player.update_strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.player.Player.update_strategy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the strategy of the player at the end of the game.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -466,6 +460,41 @@ information set. The average strategy of each player in CFR provably converges t
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">game</span></span><a class="headerlink" href="#algos.player.Player.game" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py property">
+<dt class="sig sig-object py" id="id0">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">strategy</span></span><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dict with key = infostate and value = np.array of shape (n_actions,).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="algos.player.NormalFormPlayer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algos.player.</span></span><span class="sig-name descname"><span class="pre">NormalFormPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/player.html#NormalFormPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.player.NormalFormPlayer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#algos.player.Player" title="algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">algos.player.Player</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="algos.player.NormalFormPlayer.strategy">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">strategy</span></span><a class="headerlink" href="#algos.player.NormalFormPlayer.strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>A np.array of shape (n_actions,).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="algos.player.NormalFormPlayer.act">
+<span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/player.html#NormalFormPlayer.act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.player.NormalFormPlayer.act" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the action to take given an infostate.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>infostate</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The infostate to take the action in.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The action to take.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -476,8 +505,8 @@ information set. The average strategy of each player in CFR provably converges t
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The name of the player.</p></li>
-<li><p><strong>strategy</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – The fixed strategy of the player.</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The name of the player.</p></li>
+<li><p><strong>strategy</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – The fixed strategy of the player.</p></li>
 </ul>
 </dd>
 </dl>
@@ -504,18 +533,18 @@ information set. The average strategy of each player in CFR provably converges t
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="algos.player.FixedPolicyPlayer.act">
-<span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/player.html#FixedPolicyPlayer.act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.player.FixedPolicyPlayer.act" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the action to take given an infostate.</p>
+<dt class="sig sig-object py" id="algos.player.FixedPolicyPlayer.update_strategy">
+<span class="sig-name descname"><span class="pre">update_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/player.html#FixedPolicyPlayer.update_strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.player.FixedPolicyPlayer.update_strategy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the strategy of the player at the end of the game.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>infostate</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The infostate to take the action in.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></a>]) – The history of the game, which <em>must</em> be a terminal node.</p></li>
+<li><p><strong>player_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – The id of the player to update (i.e., my id).</p></li>
+</ul>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The action to take.</p>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -533,7 +562,7 @@ by Sergiu Hart and Andreu Mas-Colell.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="algos.regret_matching.RegretMatchingPlayer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algos.regret_matching.</span></span><span class="sig-name descname"><span class="pre">RegretMatchingPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_actions</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/regret_matching.html#RegretMatchingPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.regret_matching.RegretMatchingPlayer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="modules/player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfecto.algos.player.Player</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="modules/player.html#imperfecto.algos.player.NormalFormPlayer" title="imperfecto.algos.player.NormalFormPlayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfecto.algos.player.NormalFormPlayer</span></code></a></p>
 <p>Regret Matching (Hart and Mas-Colell 2000) Player works by maintaining a cumulative
 regret vector for each action.</p>
 <p>The current regret is the difference between the counterfactual reward and the reward of
@@ -580,12 +609,6 @@ the actual action taken.</p>
 </dl>
 </dd></dl>
 
-<dl class="py property">
-<dt class="sig sig-object py" id="algos.regret_matching.RegretMatchingPlayer.strategy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">strategy</span></span><a class="headerlink" href="#algos.regret_matching.RegretMatchingPlayer.strategy" title="Permalink to this definition">¶</a></dt>
-<dd><p>The regret matching strategy.</p>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="algos.regret_matching.RegretMatchingPlayer.regret_matching_strategy">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regret_matching_strategy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regrets</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/regret_matching.html#RegretMatchingPlayer.regret_matching_strategy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.regret_matching.RegretMatchingPlayer.regret_matching_strategy" title="Permalink to this definition">¶</a></dt>
@@ -599,23 +622,6 @@ the actual action taken.</p>
 </dd>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>action distribution according to regret-matching policy.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="algos.regret_matching.RegretMatchingPlayer.act">
-<span class="sig-name descname"><span class="pre">act</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">infostate</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/regret_matching.html#RegretMatchingPlayer.act"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.regret_matching.RegretMatchingPlayer.act" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the action to take given an infostate.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>infostate</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The infostate to take the action in.</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The action to take.</p>
 </dd>
 </dl>
 </dd></dl>

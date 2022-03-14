@@ -20,10 +20,10 @@ from enum import IntEnum
 import logging
 from typing import List, Sequence
 
-import enlighten
 import numpy as np
 import numpy as np
 
+import enlighten
 from imperfecto.algos.player import Player
 from imperfecto.algos.regret_matching import RegretMatchingPlayer
 
@@ -38,7 +38,8 @@ class CounterFactualRegretMinimizerPlayer(Player):
     Attributes:
         player_id (int): the player id of this player in the game.
         cum_regrets (dict): map from infostate to a regret vector of size n_actions.
-        strategy_sum (dict): map from infostate to the cumulative strategy at that infostate until now. Useful for calculating the average strategy over many iters.
+        strategy_sum (dict): map from infostate to the cumulative strategy at that infostate until now.
+                            Useful for calculating the average strategy over many iters.
         strategy (dict): map from instostate to np.array of shape (n_actions,).
     """
 
@@ -103,7 +104,8 @@ class counterfactualRegretMinimizerTrainer:
 
         Args:
             history: list of actions taken so far (current node)
-            reach_probs: array of shape game.n_players. The reach probabilities for the current infostate (current node) played by the players' joint strategy.
+            reach_probs: array of shape game.n_players. The reach probabilities for
+                        the current infostate (current node) played by the players' joint strategy.
 
         Returns:
             the utility (expected payoff) of the current node for each player.

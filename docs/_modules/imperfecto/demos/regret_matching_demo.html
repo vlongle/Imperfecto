@@ -205,6 +205,7 @@
 <span class="sd">to print the available options.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Type</span>
 
@@ -220,8 +221,7 @@
     <span class="n">RockPaperScissorGame</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">imperfecto.misc.evaluate</span> <span class="kn">import</span> <span class="n">evaluate_strategies</span>
-<span class="kn">from</span> <span class="nn">imperfecto.misc.trainer</span> <span class="kn">import</span> <span class="n">Trainer</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">imperfecto.misc.trainer</span> <span class="kn">import</span> <span class="n">NormalFormTrainer</span>
 
 
 <div class="viewcode-block" id="generate_random_prob_dist"><a class="viewcode-back" href="../../../demos/regret_matching_demo.html#imperfecto.demos.regret_matching_demo.generate_random_prob_dist">[docs]</a><span class="k">def</span> <span class="nf">generate_random_prob_dist</span><span class="p">(</span><span class="n">n_actions</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
@@ -280,7 +280,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="n">RegretMatchingPlayer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;RM</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">n_actions</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">Game</span><span class="o">.</span><span class="n">actions</span><span class="p">))</span>
                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Game</span><span class="o">.</span><span class="n">n_players</span><span class="p">)]</span>
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">Game</span><span class="p">,</span> <span class="n">players</span><span class="p">,</span> <span class="n">n_iters</span><span class="o">=</span><span class="n">n_iters</span><span class="p">)</span>
+    <span class="n">trainer</span> <span class="o">=</span> <span class="n">NormalFormTrainer</span><span class="p">(</span><span class="n">Game</span><span class="p">,</span> <span class="n">players</span><span class="p">,</span> <span class="n">n_iters</span><span class="o">=</span><span class="n">n_iters</span><span class="p">)</span>
     <span class="n">avg_payoffs</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
     <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">printoptions</span><span class="p">(</span><span class="n">suppress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span>
@@ -288,7 +288,14 @@
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;average strategies:&#39;</span><span class="p">)</span>
         <span class="n">pprint</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">avg_strategies</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;eps_rewards: </span><span class="si">{</span><span class="n">avg_payoffs</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">()</span></div>
+        <span class="nb">print</span><span class="p">()</span>
+
+    <span class="n">filenames</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;strategy_file&#39;</span><span class="p">:</span> <span class="s1">&#39;strategy.json&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;avg_strategy_file&#39;</span><span class="p">:</span> <span class="s1">&#39;avg_strategy.json&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;payoff_history_file&#39;</span><span class="p">:</span> <span class="s1">&#39;payoff_history.json&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">trainer</span><span class="o">.</span><span class="n">store_data</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="to_train_delay_regret_matching"><a class="viewcode-back" href="../../../demos/regret_matching_demo.html#imperfecto.demos.regret_matching_demo.to_train_delay_regret_matching">[docs]</a><span class="k">def</span> <span class="nf">to_train_delay_regret_matching</span><span class="p">(</span><span class="n">Game</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">ExtensiveFormGame</span><span class="p">],</span> <span class="n">n_iters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">freeze_duration</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">):</span>
@@ -306,7 +313,7 @@
     <span class="n">freeze_interval</span> <span class="o">=</span> <span class="n">n_iters</span> <span class="o">//</span> <span class="n">freeze_duration</span>
     <span class="n">players</span> <span class="o">=</span> <span class="p">[</span><span class="n">RegretMatchingPlayer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;RM</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">n_actions</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">Game</span><span class="o">.</span><span class="n">actions</span><span class="p">))</span>
                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Game</span><span class="o">.</span><span class="n">n_players</span><span class="p">)]</span>
-    <span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span><span class="n">Game</span><span class="p">,</span> <span class="n">players</span><span class="p">,</span> <span class="n">n_iters</span><span class="o">=</span><span class="n">freeze_duration</span><span class="p">)</span>
+    <span class="n">trainer</span> <span class="o">=</span> <span class="n">NormalFormTrainer</span><span class="p">(</span><span class="n">Game</span><span class="p">,</span> <span class="n">players</span><span class="p">,</span> <span class="n">n_iters</span><span class="o">=</span><span class="n">freeze_duration</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">freeze_interval</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Game</span><span class="o">.</span><span class="n">n_players</span><span class="p">):</span>
             <span class="c1"># train player i freezing the rest</span>
@@ -320,16 +327,29 @@
         <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;average strategies:&#39;</span><span class="p">)</span>
         <span class="n">pprint</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">avg_strategies</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;eps_rewards: </span><span class="si">{</span><span class="n">trainer</span><span class="o">.</span><span class="n">avg_payoffs</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">()</span></div>
+        <span class="nb">print</span><span class="p">()</span>
+    <span class="n">filenames</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;strategy_file&#39;</span><span class="p">:</span> <span class="s1">&#39;strategy.json&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;avg_strategy_file&#39;</span><span class="p">:</span> <span class="s1">&#39;avg_strategy.json&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;payoff_history_file&#39;</span><span class="p">:</span> <span class="s1">&#39;payoff_history.json&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+    <span class="n">trainer</span><span class="o">.</span><span class="n">store_data</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span></div>
 
 
 <span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">()</span>
-<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--game&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Choice</span><span class="p">([</span><span class="s2">&quot;RockPaperScissorGame&quot;</span><span class="p">,</span> <span class="s2">&quot;AsymmetricRockPaperScissorGame&quot;</span><span class="p">,</span> <span class="s2">&quot;BarCrowdingGame&quot;</span><span class="p">,</span> <span class="s2">&quot;PrisonerDilemmaGame&quot;</span><span class="p">]),</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--game&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Choice</span><span class="p">([</span><span class="s2">&quot;RockPaperScissorGame&quot;</span><span class="p">,</span>
+                                           <span class="s2">&quot;AsymmetricRockPaperScissorGame&quot;</span><span class="p">,</span> <span class="s2">&quot;BarCrowdingGame&quot;</span><span class="p">,</span> <span class="s2">&quot;PrisonerDilemmaGame&quot;</span><span class="p">]),</span>
               <span class="n">default</span><span class="o">=</span><span class="s2">&quot;RockPaperScissorGame&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The game to demo.&quot;</span><span class="p">)</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--n_iters&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The number of iterations to run the game for.&quot;</span><span class="p">)</span>
 <span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--train_regret_matching&quot;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Train regret matching players.&quot;</span><span class="p">)</span>
-<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--train_delay_regret_matching&quot;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Train delay regret matching players.&quot;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">game</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">n_iters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">train_regret_matching</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">train_delay_regret_matching</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--train_delay_regret_matching&quot;</span><span class="p">,</span> <span class="n">is_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+              <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Train delay regret matching players.&quot;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--verbose_level&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">click</span><span class="o">.</span><span class="n">Choice</span><span class="p">([</span><span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span> <span class="s2">&quot;INFO&quot;</span><span class="p">,</span> <span class="s2">&quot;WARNING&quot;</span><span class="p">,</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">,</span> <span class="s2">&quot;CRITICAL&quot;</span><span class="p">]),</span>
+              <span class="n">default</span><span class="o">=</span><span class="s2">&quot;INFO&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The verbosity level of the game.&quot;</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span><span class="s2">&quot;--seed&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;The random seed to use for the game.&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">game</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">n_iters</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">train_regret_matching</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+         <span class="n">train_delay_regret_matching</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+         <span class="n">verbose_level</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;INFO&quot;</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Demo for N-player normal-form games using the regret-matching algorithm.</span>
 
 <span class="sd">    Available games:</span>
@@ -345,8 +365,12 @@
 <span class="sd">        --train_regret_matching: Whether to train regret matching players.</span>
 <span class="sd">        --train_delay_regret_matching: Whether to train delay regret matching players.</span>
 
-<span class="sd">    We will also show the Nash equilibrium for 2-player zero-sum games so the user can verify that the regret matching players&#39; strategies indeed converge to Nash.</span>
+<span class="sd">    We will also show the Nash equilibrium for 2-player zero-sum games so the user can verify that</span>
+<span class="sd">    the regret matching players&#39; strategies indeed converge to Nash.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="nb">getattr</span><span class="p">(</span>
+        <span class="n">logging</span><span class="p">,</span> <span class="n">verbose_level</span><span class="p">),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
     <span class="n">Game_dict</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;RockPaperScissorGame&quot;</span><span class="p">:</span> <span class="n">RockPaperScissorGame</span><span class="p">,</span>
         <span class="s2">&quot;AsymmetricRockPaperScissorGame&quot;</span><span class="p">:</span> <span class="n">AsymmetricRockPaperScissorGame</span><span class="p">,</span>

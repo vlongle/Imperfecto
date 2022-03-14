@@ -235,8 +235,8 @@ Example:</p>
 <p>The players are trained over a number of games by calling each player’s <code class="docutils literal notranslate"><span class="pre">update_strategy</span></code> method
 after each game. The average payoffs and the average strategies during training are recorded.</p>
 <dl class="py class">
-<dt class="sig sig-object py" id="misc.trainer.Trainer">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">misc.trainer.</span></span><span class="sig-name descname"><span class="pre">Trainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_status_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/misc/trainer.html#Trainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#misc.trainer.Trainer" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">misc.trainer.</span></span><span class="sig-name descname"><span class="pre">NormalFormTrainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Game</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">players</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display_status_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/misc/trainer.html#NormalFormTrainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#misc.trainer.NormalFormTrainer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>A class to train players in an extensive form game.</p>
 <dl class="field-list simple">
@@ -250,8 +250,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd>
 </dl>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="misc.trainer.Trainer.game">
-<span class="sig-name descname"><span class="pre">game</span></span><a class="headerlink" href="#misc.trainer.Trainer.game" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.game">
+<span class="sig-name descname"><span class="pre">game</span></span><a class="headerlink" href="#misc.trainer.NormalFormTrainer.game" title="Permalink to this definition">¶</a></dt>
 <dd><p>The game to train players in.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -261,8 +261,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="misc.trainer.Trainer.n_iter">
-<span class="sig-name descname"><span class="pre">n_iter</span></span><a class="headerlink" href="#misc.trainer.Trainer.n_iter" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.n_iter">
+<span class="sig-name descname"><span class="pre">n_iter</span></span><a class="headerlink" href="#misc.trainer.NormalFormTrainer.n_iter" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of games to train for.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -272,8 +272,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="misc.trainer.Trainer.ep_strategies">
-<span class="sig-name descname"><span class="pre">ep_strategies</span></span><a class="headerlink" href="#misc.trainer.Trainer.ep_strategies" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.ep_strategies">
+<span class="sig-name descname"><span class="pre">ep_strategies</span></span><a class="headerlink" href="#misc.trainer.NormalFormTrainer.ep_strategies" title="Permalink to this definition">¶</a></dt>
 <dd><p>The strategies of each player in each game.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -283,8 +283,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="misc.trainer.Trainer.ep_payoffs">
-<span class="sig-name descname"><span class="pre">ep_payoffs</span></span><a class="headerlink" href="#misc.trainer.Trainer.ep_payoffs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.ep_payoffs">
+<span class="sig-name descname"><span class="pre">ep_payoffs</span></span><a class="headerlink" href="#misc.trainer.NormalFormTrainer.ep_payoffs" title="Permalink to this definition">¶</a></dt>
 <dd><p>The payoffs of each player in each game over the course of this trainer instance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -294,8 +294,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="misc.trainer.Trainer.display_status_bar">
-<span class="sig-name descname"><span class="pre">display_status_bar</span></span><a class="headerlink" href="#misc.trainer.Trainer.display_status_bar" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.display_status_bar">
+<span class="sig-name descname"><span class="pre">display_status_bar</span></span><a class="headerlink" href="#misc.trainer.NormalFormTrainer.display_status_bar" title="Permalink to this definition">¶</a></dt>
 <dd><p>Whether to display a status bar during training.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -305,8 +305,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="misc.trainer.Trainer.manager">
-<span class="sig-name descname"><span class="pre">manager</span></span><a class="headerlink" href="#misc.trainer.Trainer.manager" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.manager">
+<span class="sig-name descname"><span class="pre">manager</span></span><a class="headerlink" href="#misc.trainer.NormalFormTrainer.manager" title="Permalink to this definition">¶</a></dt>
 <dd><p>The enlighten manager to display the status bar.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -316,8 +316,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="misc.trainer.Trainer.pbar">
-<span class="sig-name descname"><span class="pre">pbar</span></span><a class="headerlink" href="#misc.trainer.Trainer.pbar" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.pbar">
+<span class="sig-name descname"><span class="pre">pbar</span></span><a class="headerlink" href="#misc.trainer.NormalFormTrainer.pbar" title="Permalink to this definition">¶</a></dt>
 <dd><p>The enlighten counter to display the status bar.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -327,8 +327,8 @@ after each game. The average payoffs and the average strategies during training 
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="misc.trainer.Trainer.train">
-<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freeze_ls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/misc/trainer.html#Trainer.train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#misc.trainer.Trainer.train" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.train">
+<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">freeze_ls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/misc/trainer.html#NormalFormTrainer.train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#misc.trainer.NormalFormTrainer.train" title="Permalink to this definition">¶</a></dt>
 <dd><p>Train the players for <cite>n_iter</cite> games using each player’s <cite>update_strategy</cite> function.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -336,41 +336,119 @@ after each game. The average payoffs and the average strategies during training 
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>freeze_ls</strong> (<em>Sequence</em><em>[</em><a class="reference internal" href="modules/player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player"><em>Player</em></a><em>]</em>) – The players to freeze during training.</p>
+<dd class="field-odd"><p><strong>freeze_ls</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference internal" href="modules/player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a>]) – The players to freeze during training.</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The average payoffs of each player during this <cite>train</cite> call.</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></p>
 </dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The average payoffs of each player during this <cite>train</cite> call.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="misc.trainer.Trainer.avg_payoffs">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avg_payoffs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></em><a class="headerlink" href="#misc.trainer.Trainer.avg_payoffs" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.avg_payoffs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avg_payoffs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></em><a class="headerlink" href="#misc.trainer.NormalFormTrainer.avg_payoffs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the average payoffs of each player over the course of this trainer instance.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The average payoffs of each player.</p>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></p>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>np.ndarray</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The average payoffs of each player.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="misc.trainer.Trainer.avg_strategies">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avg_strategies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></em><a class="headerlink" href="#misc.trainer.Trainer.avg_strategies" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.avg_strategies">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">avg_strategies</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></em><a class="headerlink" href="#misc.trainer.NormalFormTrainer.avg_strategies" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get the average strategies of each player.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The average strategies of each player.</p>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The average strategies of each player.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.moving_avg">
+<span class="sig-name descname"><span class="pre">moving_avg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/misc/trainer.html#NormalFormTrainer.moving_avg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#misc.trainer.NormalFormTrainer.moving_avg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the moving average of an array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arr</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>) – The array to compute the moving average of.</p>
 </dd>
 <dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+<dd class="field-even"><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The moving average of the array.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.make_df">
+<span class="sig-name descname"><span class="pre">make_df</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strategies</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/misc/trainer.html#NormalFormTrainer.make_df"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#misc.trainer.NormalFormTrainer.make_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a dataframe from a strategy array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>strategies</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>) – The strategies to make a dataframe from.</p></li>
+<li><p><strong>player_name</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – The name of the player.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.store_strategies">
+<span class="sig-name descname"><span class="pre">store_strategies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filenames</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/misc/trainer.html#NormalFormTrainer.store_strategies"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#misc.trainer.NormalFormTrainer.store_strategies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store the episodic strategies and average strategies of each player in json files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filenames</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – The names of the json files to store the strategies and average strategies in.
+Must have key ‘strategy_file’ and ‘avg_strategy_file’ and string values
+corresponding to the file locations.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.store_histories_payoffs">
+<span class="sig-name descname"><span class="pre">store_histories_payoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filenames</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/misc/trainer.html#NormalFormTrainer.store_histories_payoffs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#misc.trainer.NormalFormTrainer.store_histories_payoffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store the episodic histories and payoffs of each player in json files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filenames</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>) – The names of the json files to store the histories and payoffs in.
+Must have key ‘history_payoffs_file’.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="misc.trainer.NormalFormTrainer.store_data">
+<span class="sig-name descname"><span class="pre">store_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filenames</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/misc/trainer.html#NormalFormTrainer.store_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#misc.trainer.NormalFormTrainer.store_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Record data about the training process.
+:type filenames: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>
+:param filenames: The names of the json files to store data in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></p>
 </dd>
 </dl>
 </dd></dl>

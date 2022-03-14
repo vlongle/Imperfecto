@@ -229,11 +229,15 @@
 <span class="sd">    * (1): player 1 wins! (player 2 chickens out)</span>
 <span class="sd">    * (2): player 2 wins! (player 1 chickens out)</span>
 
-<span class="sd">In this game, we have 12 info-sets. Each info-set has 2 states since the opponent can have any of the two cards that I&#39;m not already holding. We have 6 ways to deal 2 out of 3 cards to 2 players, and 2 states / info-set so we have 6/2 = 3 info sets at every decision node. We have 4 decision nodes so 3 * 4 = 12 info sets.</span>
+<span class="sd">In this game, we have 12 info-sets. Each info-set has 2 states since the opponent can have any of the</span>
+<span class="sd">two cards that I&#39;m not already holding. We have 4 decision nodes (excluding the chance&#39;s action),</span>
+<span class="sd">and a player&#39;s private information consists of their own card, which takes 3 possible values so we have 3 * 4 = 12 info sets.</span>
 
 <span class="sd">Note:</span>
-<span class="sd">    There&#39;s a subtle difference between the number of info sets and the number of nodes per info set (the size of the info set). The size of the info set tells us how many worlds are consistent with the player&#39;s observations so far.</span>
-<span class="sd">    The number of info sets is more &quot;meta&quot;. A player, without entering into a game / trajectory, can reason ahead about the different info sets that they can be in once some partial observations are available to them when</span>
+<span class="sd">    There&#39;s a subtle difference between the number of info sets and the number of nodes per info set</span>
+<span class="sd">    (the size of the info set). The size of the info set tells us how many worlds are consistent with the player&#39;s observations so far.</span>
+<span class="sd">    The number of info sets is more &quot;meta&quot;. A player, without entering into a game / trajectory,</span>
+<span class="sd">    can reason ahead about the different info sets that they can be in once some partial observations are available to them when</span>
 <span class="sd">    the game starts.</span>
 <span class="sd">&#39;&#39;&#39;</span>
 

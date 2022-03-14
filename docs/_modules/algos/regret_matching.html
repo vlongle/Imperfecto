@@ -205,11 +205,10 @@
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">imperfecto.algos.player</span> <span class="kn">import</span> <span class="n">Player</span>
-<span class="kn">from</span> <span class="nn">imperfecto.misc.utils</span> <span class="kn">import</span> <span class="n">get_action</span>
+<span class="kn">from</span> <span class="nn">imperfecto.algos.player</span> <span class="kn">import</span> <span class="n">NormalFormPlayer</span>
 
 
-<div class="viewcode-block" id="RegretMatchingPlayer"><a class="viewcode-back" href="../../algos.html#algos.regret_matching.RegretMatchingPlayer">[docs]</a><span class="k">class</span> <span class="nc">RegretMatchingPlayer</span><span class="p">(</span><span class="n">Player</span><span class="p">):</span>
+<div class="viewcode-block" id="RegretMatchingPlayer"><a class="viewcode-back" href="../../algos.html#algos.regret_matching.RegretMatchingPlayer">[docs]</a><span class="k">class</span> <span class="nc">RegretMatchingPlayer</span><span class="p">(</span><span class="n">NormalFormPlayer</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Regret Matching (Hart and Mas-Colell 2000) Player works by maintaining a cumulative</span>
 <span class="sd">    regret vector for each action.</span>
@@ -240,11 +239,6 @@
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot;Regret Matching Agent(&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
 
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The regret matching strategy.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">regret_matching_strategy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cum_regrets</span><span class="p">)</span>
-
 <div class="viewcode-block" id="RegretMatchingPlayer.regret_matching_strategy"><a class="viewcode-back" href="../../algos.html#algos.regret_matching.RegretMatchingPlayer.regret_matching_strategy">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">regret_matching_strategy</span><span class="p">(</span><span class="n">regrets</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Return the regret matching policy.</span>
@@ -261,10 +255,6 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">action_probs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">action_probs</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">action_probs</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">action_probs</span></div>
-
-<div class="viewcode-block" id="RegretMatchingPlayer.act"><a class="viewcode-back" href="../../algos.html#algos.regret_matching.RegretMatchingPlayer.act">[docs]</a>    <span class="k">def</span> <span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">infostate</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="k">del</span> <span class="n">infostate</span>
-        <span class="k">return</span> <span class="n">get_action</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RegretMatchingPlayer.update_strategy"><a class="viewcode-back" href="../../algos.html#algos.regret_matching.RegretMatchingPlayer.update_strategy">[docs]</a>    <span class="k">def</span> <span class="nf">update_strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">IntEnum</span><span class="p">],</span> <span class="n">player_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Update the cumulative regret vector. This will update the strategy of the player as</span>
@@ -286,7 +276,9 @@
                 <span class="n">counterfactual_history</span><span class="p">)[</span><span class="n">player_id</span><span class="p">]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">cum_regrets</span> <span class="o">+=</span> <span class="n">counterfactual_rewards</span> <span class="o">-</span> \
-            <span class="n">counterfactual_rewards</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">my_action</span><span class="p">)]</span></div></div>
+            <span class="n">counterfactual_rewards</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">my_action</span><span class="p">)]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">regret_matching_strategy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cum_regrets</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

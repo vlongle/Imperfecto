@@ -201,6 +201,8 @@
 <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span>
 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
 <span class="kn">from</span> <span class="nn">imperfecto.misc.utils</span> <span class="kn">import</span> <span class="n">get_action</span>
 
 
@@ -210,10 +212,12 @@
 
 <span class="sd">   Attributes:</span>
 <span class="sd">        name (str): The name of the player.</span>
+<span class="sd">        strategy (dict): map from instostate to np.array of shape (n_actions,).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
@@ -227,8 +231,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="s2">&quot;Player(&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>
 
-<div class="viewcode-block" id="Player.act"><a class="viewcode-back" href="../../algos.html#algos.player.Player.act">[docs]</a>    <span class="nd">@abstractmethod</span>
-    <span class="k">def</span> <span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">infostate</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="viewcode-block" id="Player.act"><a class="viewcode-back" href="../../algos.html#algos.player.Player.act">[docs]</a>    <span class="k">def</span> <span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">infostate</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Returns the action to take given an infostate.</span>
 
@@ -238,16 +241,20 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            The action to take.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">pass</span></div>
+        <span class="k">if</span> <span class="n">infostate</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="p">:</span>
+            <span class="c1"># uniform</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="p">[</span><span class="n">infostate</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span>
+                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">actions</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">actions</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">get_action</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="p">[</span><span class="n">infostate</span><span class="p">])</span></div>
 
-<div class="viewcode-block" id="Player.update_strategy"><a class="viewcode-back" href="../../algos.html#algos.player.Player.update_strategy">[docs]</a>    <span class="k">def</span> <span class="nf">update_strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Enum</span><span class="p">],</span> <span class="n">player_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="viewcode-block" id="Player.update_strategy"><a class="viewcode-back" href="../../algos.html#algos.player.Player.update_strategy">[docs]</a>    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">update_strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Enum</span><span class="p">],</span> <span class="n">player_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Update the strategy of the player at the end of the game.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            history: The history of the game, which *must* be a terminal node.</span>
 <span class="sd">            player_id: The id of the player to update (i.e., my id).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">del</span> <span class="n">history</span><span class="p">,</span> <span class="n">player_id</span>
         <span class="k">pass</span></div>
 
     <span class="nd">@property</span>
@@ -256,15 +263,48 @@
 
     <span class="nd">@game</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">game</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">game</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_game</span> <span class="o">=</span> <span class="n">game</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_game</span> <span class="o">=</span> <span class="n">game</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;A dict with key = infostate and value = np.array of shape (n_actions,).&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_strategy</span>
+
+    <span class="nd">@strategy</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strategy</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_strategy</span> <span class="o">=</span> <span class="n">strategy</span></div>
+
+
+<div class="viewcode-block" id="NormalFormPlayer"><a class="viewcode-back" href="../../algos.html#algos.player.NormalFormPlayer">[docs]</a><span class="k">class</span> <span class="nc">NormalFormPlayer</span><span class="p">(</span><span class="n">Player</span><span class="p">,</span> <span class="n">ABC</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;A np.array of shape (n_actions,).&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_strategy</span>
+
+    <span class="nd">@strategy</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strategy</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_strategy</span> <span class="o">=</span> <span class="n">strategy</span>
+
+<div class="viewcode-block" id="NormalFormPlayer.act"><a class="viewcode-back" href="../../algos.html#algos.player.NormalFormPlayer.act">[docs]</a>    <span class="k">def</span> <span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">infostate</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">infostate</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># uniform strategy</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span>
+                <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">actions</span><span class="p">))</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">game</span><span class="o">.</span><span class="n">actions</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">get_action</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="p">)</span>  <span class="c1"># type: ignore</span></div></div>
 
 
 <div class="viewcode-block" id="FixedPolicyPlayer"><a class="viewcode-back" href="../../algos.html#algos.player.FixedPolicyPlayer">[docs]</a><span class="k">class</span> <span class="nc">FixedPolicyPlayer</span><span class="p">(</span><span class="n">Player</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A player with a given fixed strategy.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        name (str): The name of the player.</span>
-<span class="sd">        strategy (dict): The fixed strategy of the player.</span>
+<span class="sd">        name: The name of the player.</span>
+<span class="sd">        strategy: The fixed strategy of the player.</span>
 
 <span class="sd">    Attributes:</span>
 <span class="sd">        name (str): The name of the player.</span>
@@ -275,8 +315,9 @@
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">strategy</span>
 
-<div class="viewcode-block" id="FixedPolicyPlayer.act"><a class="viewcode-back" href="../../algos.html#algos.player.FixedPolicyPlayer.act">[docs]</a>    <span class="k">def</span> <span class="nf">act</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">infostate</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">get_action</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">strategy</span><span class="p">[</span><span class="n">infostate</span><span class="p">])</span></div></div>
+<div class="viewcode-block" id="FixedPolicyPlayer.update_strategy"><a class="viewcode-back" href="../../algos.html#algos.player.FixedPolicyPlayer.update_strategy">[docs]</a>    <span class="k">def</span> <span class="nf">update_strategy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">history</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Enum</span><span class="p">],</span> <span class="n">player_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">del</span> <span class="n">history</span><span class="p">,</span> <span class="n">player_id</span>  <span class="c1"># do nothing</span>
+        <span class="k">pass</span></div></div>
 </pre></div>
 
            </div>
