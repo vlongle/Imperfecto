@@ -6,12 +6,12 @@ after each game. The average payoffs and the average strategies during training 
 import logging
 from typing import Sequence, Type
 
-import enlighten
 import numpy as np
-import pandas as pd
 
+import enlighten
 from imperfecto.algos.player import Player
 from imperfecto.games.game import ExtensiveFormGame
+import pandas as pd
 
 
 class NormalFormTrainer:
@@ -59,7 +59,9 @@ class NormalFormTrainer:
             np.ndarray: The average payoffs of each player during this `train` call.
         """
         ep_payoffs = []
-        logging.debug("iter | history \t \t | payoffs")
+        num_spaces = 8 * self.game.n_players
+        logging.debug(
+            f"iter | history {' '* num_spaces} | payoffs")
         for i in range(self.n_iters):
             history, payoffs = self.game.play()
             ep_payoffs.append(payoffs)
@@ -71,7 +73,7 @@ class NormalFormTrainer:
             if self.display_status_bar:
                 self.pbar.update()
             logging.debug(
-                f'{i:4}  {self.game.history_to_str(history):20} {np.array2string(np.array(payoffs)):2}')
+                f"{i:4}  {self.game.history_to_str(history):{int(1.5 * num_spaces)}} {np.array2string(np.array(payoffs)):2}")
         self.ep_payoffs += ep_payoffs
         return np.mean(ep_payoffs, axis=0)
 
@@ -91,6 +93,7 @@ class NormalFormTrainer:
         Returns:
             dict: The average strategies of each player.
         """
+
         return {player: np.mean(strategies, axis=0) for player, strategies in self.ep_strategies.items()}
 
     def moving_avg(self, arr):

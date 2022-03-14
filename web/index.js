@@ -1,7 +1,27 @@
-async function loadData(filename) {
-    let response = await fetch('./' + filename); //(with path)
-    let json = await response.json();
-    return json;
+// async function loadData(filename) {
+//     let response = await fetch('./' + filename); //(with path)
+//     let json = await response.json();
+//     return json;
+// }
+
+/** Request a response from the server
+ * @param {string} requestName - the name of the request
+ * @param {Array.<Object>} args - the arguments to the request
+ *
+ * @returns {JSON} the response from the server
+ *
+ * Example:
+ * const data = await request("someRequestName", [arg1, arg2]);
+ */
+async function request(requestName, args) {
+    let url = '/' + requestName;
+    args.forEach(arg => {
+        url += `/${arg}`;
+    });
+    console.log("request: " + url);
+    const response = await fetch(url);
+    let answer = await response.json();
+    return answer;
 }
 
 // a bunch of colors for the players
@@ -130,8 +150,11 @@ function plotGraph(rawData, elt, time) {
             alert("Error: number of actions " + n_actions + " not supported");
     }
 }
-let strategy = await loadData('strategy.json');
-let averageStrategy = await loadData('avg_strategy.json');
+// let strategy = await loadData('strategy.json');
+// let averageStrategy = await loadData('avg_strategy.json');
+let strategy = await request('strategy', []);
+let averageStrategy = await request('averageStrategy', []);
+
 // loop through data to get the maximum iter value using reduce
 let maxIter = strategy.reduce(function (a, b) {
     return Math.max(a, b.iter);
