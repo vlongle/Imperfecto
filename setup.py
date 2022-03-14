@@ -8,7 +8,7 @@ setup(
     description='Implementation of algorithms for imperfect information games in Python.',
     license='MIT',
     keywords='python imperfect info algorithms',
-    url='https://github.com/vlongle/imperfect_information_games',
+    url='https://github.com/vlongle/Imperfecto',
     packages=[pkg for pkg in find_packages() if pkg != "tests"],
     python_requires='>=3.10',
     install_requires=['click', 'numpy', 'enlighten'],

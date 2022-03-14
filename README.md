@@ -136,7 +136,7 @@ to_train_regret_matching(Game)
 ```
 ## TODOs
 - Implement other variations of counterfactual regret stuff like Monte Carlo, deep counterfactual
-- Implement some cool visualization of training like this (https://medium.com/hackernoon/artificial-intelligence-poker-and-regret-part-2-ee2e329d6571).
+- Implement some cool visualization of training like this (https://medium.com/hackernoon/artificial-intelligence-poker-and-regret-part-2-ee2e329d6571) or this (https://locusofctrl.github.io/blog/posts-output/2019-02-03-male-strategy/).
 - Implement bandit stuff (Exp3 for example, UCB, beta Thompson sampling stuff https://www.youtube.com/watch?v=XxTgX8FlDlI, https://www.cs.ubc.ca/labs/lci/mlrg/slides/Introduction_to_Bandits.pdf). A whole book on bandit lol (https://tor-lattimore.com/downloads/book/book.pdf)
 - Consider opponent modeling as well (https://abhinavrobinson.medium.com/ai-wins-rock-paper-scissors-mostly-65e0542f945b this is a nice summary, and the CMU slides somewhere as well... (
 http://www.cs.cmu.edu/afs/cs/academic/class/15780-s13/www/lec/ganzfried_gt.pdf))

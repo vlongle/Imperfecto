@@ -28,15 +28,13 @@ from imperfecto.games.rock_paper_scissor import (
 )
 
 
-np.random.seed(0)
-
-
 @click.command()
 @click.option("--game", type=click.Choice(["RockPaperScissorGame", "AsymmetricRockPaperScissorGame", "BarCrowdingGame", "PrisonerDilemmaGame", "KuhnPokerGame", ]),
               default="RockPaperScissorGame", help="The game to demo.")
 @click.option("--n_iters", type=int, default=10000, help="The number of iterations to run the game for.")
 @click.option("--verbose_level", type=click.Choice(["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]), default="INFO", help="The verbosity level of the game.")
-def main(game: str, n_iters: int = 10000, verbose_level: str = "INFO"):
+@click.option("--seed", type=int, default=0, help="The random seed to use.")
+def main(game: str, n_iters: int = 10000, verbose_level: str = "INFO", seed: int = 0):
     """Demo for CounterFactualRegretMinimizer (CFR) algorithm for extensive-form games.
 
     Available games:
@@ -52,6 +50,7 @@ def main(game: str, n_iters: int = 10000, verbose_level: str = "INFO"):
     """
     logging.basicConfig(level=getattr(
         logging, verbose_level), format="%(message)s")
+    np.random.seed(seed)
     Game_dict = {
         "RockPaperScissorGame": RockPaperScissorGame,
         "AsymmetricRockPaperScissorGame": AsymmetricRockPaperScissorGame,

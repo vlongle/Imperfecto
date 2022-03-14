@@ -20,12 +20,12 @@ from enum import IntEnum
 import logging
 from typing import List, Sequence
 
+import enlighten
+import numpy as np
 import numpy as np
 
-import enlighten
 from imperfecto.algos.player import Player
 from imperfecto.algos.regret_matching import RegretMatchingPlayer
-from imperfecto.misc.utils import get_action
 
 
 class CounterFactualRegretMinimizerPlayer(Player):
@@ -39,6 +39,7 @@ class CounterFactualRegretMinimizerPlayer(Player):
         player_id (int): the player id of this player in the game.
         cum_regrets (dict): map from infostate to a regret vector of size n_actions.
         strategy_sum (dict): map from infostate to the cumulative strategy at that infostate until now. Useful for calculating the average strategy over many iters.
+        strategy (dict): map from instostate to np.array of shape (n_actions,).
     """
 
     def __init__(self, name: str, player_id: int):
@@ -46,22 +47,14 @@ class CounterFactualRegretMinimizerPlayer(Player):
         self.player_id = player_id
         self.cum_regrets = {}
         self.strategy_sum = {}
+        self.strategy = {}
 
-    def strategy(self, infostate: str) -> np.ndarray:
-        """the strategy for a given player at a infostate.
-
-        Args:
-            infostate: string representing the infostate
-
-        Returns:
-            array of shape (len(game.actions)) representing
-            the action probability distribution.
-        """
+    def update_strategy(self, history: Sequence[IntEnum], player_id: int):
+        del player_id
+        infostate = self.game.get_infostate(history)
         cum_regrets = self.cum_regrets[infostate]
-        return RegretMatchingPlayer.regret_matching_strategy(cum_regrets)
-
-    def act(self, infostate: str) -> int:
-        return get_action(self.strategy(infostate))
+        self.strategy[infostate] = RegretMatchingPlayer.regret_matching_strategy(
+            cum_regrets)
 
     def get_avg_strategies(self) -> dict:
         """Returns the average strategy of the player at each infostate.
@@ -78,6 +71,8 @@ class CounterFactualRegretMinimizerPlayer(Player):
 
 class counterfactualRegretMinimizerTrainer:
     """
+    CFR with chance-sampling.
+
     CFR (Zinkevich et al. "Regret minimization in games with incomplete information" 2008)
     is a self-play algorithm that assumes that the joint strategy of all players in the game is
     public knowledge. The algorithm iteratively updates the regret of each player's action at each
@@ -123,7 +118,10 @@ class counterfactualRegretMinimizerTrainer:
             active_player.cum_regrets[infostate] = np.zeros(
                 len(self.game.actions))
 
-        cur_policy = active_player.strategy(infostate)
+        if infostate not in active_player.strategy:
+            active_player.strategy[infostate] = np.zeros(
+                len(self.game.actions))
+        cur_policy = active_player.strategy[infostate]
 
         counterfactual_values = np.zeros(
             shape=(self.game.n_players, len(self.game.actions)))
@@ -149,6 +147,7 @@ class counterfactualRegretMinimizerTrainer:
 
         # update cumulative regrets, which affect the policy
         active_player.cum_regrets[infostate] += regrets
+        active_player.update_strategy(history, active_player_id)
 
         # update strategy_sum
         if infostate not in active_player.strategy_sum:
@@ -210,7 +209,3 @@ and OpenSpiel's external sampling CFR:
 
 
 """
-
-
-class CounterFactualRegretMinimizerMonteCarlo:
-    pass

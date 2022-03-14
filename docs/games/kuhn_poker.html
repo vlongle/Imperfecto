@@ -199,12 +199,10 @@
 <p>An implement of Kuhn Poker game.</p>
 <p>We have two players. We have three cards: Jack, Queen, King, where King beats Queen and Queen beats
 Jack. In this game, each player gets a random card. On a turn, a player can either</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
 <li><p>pass: do nothing. The opponent wins all chip in the pot.</p></li>
 <li><p>bet: place a chip in the pot.</p></li>
 </ul>
-</div></blockquote>
 <p>After two passes or two bets (not necessarily consecutive), the game ends. Player with the highest card wins.</p>
 <p>The Maximum depth of the game tree is 3. The game tree is as follows.
 Game tree:</p>
@@ -302,7 +300,7 @@ the game starts.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="imperfecto.games.kuhn_poker.KuhnPokerGame">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfecto.games.kuhn_poker.</span></span><span class="sig-name descname"><span class="pre">KuhnPokerGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/kuhn_poker.html#KuhnPokerGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.kuhn_poker.KuhnPokerGame" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">imperfecto.games.game.ExtensiveFormGame</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="game.html#imperfecto.games.game.ExtensiveFormGame" title="imperfecto.games.game.ExtensiveFormGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfecto.games.game.ExtensiveFormGame</span></code></a></p>
 <p>A Kuhn Poker (<a class="reference external" href="https://en.wikipedia.org/wiki/Kuhn_poker">https://en.wikipedia.org/wiki/Kuhn_poker</a>) game class.</p>
 <dl class="simple">
 <dt>Payoff:</dt><dd><p>The winner wins whatever is in the pot. A player can win either in showdown by having the

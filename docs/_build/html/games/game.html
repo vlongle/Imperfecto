@@ -194,8 +194,275 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="base-game">
-<h1>Base Game<a class="headerlink" href="#base-game" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-imperfecto.games.game">
+<span id="base-game"></span><h1>Base Game<a class="headerlink" href="#module-imperfecto.games.game" title="Permalink to this headline">¶</a></h1>
+<p>A collection of base game classes.</p>
+<dl class="simple">
+<dt>Classes:</dt><dd><ul class="simple">
+<li><p>ExtensiveFormGame</p></li>
+<li><p>NormalFormGame</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="imperfecto.games.game.ExtensiveFormGame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfecto.games.game.</span></span><span class="sig-name descname"><span class="pre">ExtensiveFormGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/game.html#ExtensiveFormGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.game.ExtensiveFormGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>Abstract class for extensive form games.</p>
+<p>In an extensive form game, players have some private information, and are unsure
+about the true state of the world.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">ExtensiveFormGame</span></code> subclass must have class-level attribute <code class="docutils literal notranslate"><span class="pre">actions</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">n_players</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>players</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference internal" href="../modules/player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a>]) – The players of the game.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfecto.games.game.ExtensiveFormGame.actions">
+<span class="sig-name descname"><span class="pre">actions</span></span><a class="headerlink" href="#imperfecto.games.game.ExtensiveFormGame.actions" title="Permalink to this definition">¶</a></dt>
+<dd><p>The actions of the game (class-level attribute).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>enum.EnumMeta</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfecto.games.game.ExtensiveFormGame.n_players">
+<span class="sig-name descname"><span class="pre">n_players</span></span><a class="headerlink" href="#imperfecto.games.game.ExtensiveFormGame.n_players" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of players in the game (class-level attribute).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="imperfecto.games.game.ExtensiveFormGame.players">
+<span class="sig-name descname"><span class="pre">players</span></span><a class="headerlink" href="#imperfecto.games.game.ExtensiveFormGame.players" title="Permalink to this definition">¶</a></dt>
+<dd><p>The players of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Sequence[<a class="reference internal" href="../modules/player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player">Player</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">n_players</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></em><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">actions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">enum.EnumMeta</span></em><a class="headerlink" href="#id1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="id2">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">players</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../modules/player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player"><span class="pre">imperfecto.algos.player.Player</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#id2" title="Permalink to this definition">¶</a></dt>
+<dd><p>The players of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference internal" href="../modules/player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfecto.games.game.ExtensiveFormGame.get_active_player">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_active_player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/game.html#ExtensiveFormGame.get_active_player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.game.ExtensiveFormGame.get_active_player" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the active player of the game at the current decision point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a>]) – The history of the game.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../modules/player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The active player of the game at the current decision point.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfecto.games.game.ExtensiveFormGame.is_terminal">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_terminal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/game.html#ExtensiveFormGame.is_terminal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.game.ExtensiveFormGame.is_terminal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the game is in a terminal state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a>]) – The history of the game.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the game is in a terminal state, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfecto.games.game.ExtensiveFormGame.get_payoffs">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_payoffs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/game.html#ExtensiveFormGame.get_payoffs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.game.ExtensiveFormGame.get_payoffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the payoff for each player at the current node.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>history must be a terminal node.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a>]) – The history of the game.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The payoffs of the players at the end of the game.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfecto.games.game.ExtensiveFormGame.get_infostate">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_infostate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/game.html#ExtensiveFormGame.get_infostate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.game.ExtensiveFormGame.get_infostate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the infostate (i.e. the information set) of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a>]) – The history of the game.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string representation of the infostate of the game.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfecto.games.game.ExtensiveFormGame.history_to_str">
+<span class="sig-name descname"><span class="pre">history_to_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/game.html#ExtensiveFormGame.history_to_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.game.ExtensiveFormGame.history_to_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string representation of the history of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a>]) – The history of the game.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string representation of the history of the game.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfecto.games.game.ExtensiveFormGame.play">
+<span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/game.html#ExtensiveFormGame.play"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.game.ExtensiveFormGame.play" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play the game with the current players and their strategies and return the payoffs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.10)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a>], <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>]]</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A tuple of the play-out history of the game and the payoffs of the players.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfecto.games.game.ExtensiveFormGame.shorten_history">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shorten_history</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history_str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/game.html#ExtensiveFormGame.shorten_history"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.game.ExtensiveFormGame.shorten_history" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shorten history string. Games with long action names should
+override this method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>history_str</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>) – history string to shorten.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>a shortened history string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="imperfecto.games.game.NormalFormGame">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">imperfecto.games.game.</span></span><span class="sig-name descname"><span class="pre">NormalFormGame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">players</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/game.html#NormalFormGame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.game.NormalFormGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#imperfecto.games.game.ExtensiveFormGame" title="imperfecto.games.game.ExtensiveFormGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">imperfecto.games.game.ExtensiveFormGame</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<p>N-player normal form game.</p>
+<p>This class of game is a special form of extensive-form games. A normal form game involves every
+player making simultaneous moves. Thus, they are unsure about each other’s move.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>players</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference internal" href="../modules/player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a>]) – The players of the game.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfecto.games.game.NormalFormGame.is_terminal">
+<span class="sig-name descname"><span class="pre">is_terminal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/game.html#NormalFormGame.is_terminal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.game.NormalFormGame.is_terminal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the game is in a terminal state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a>]) – The history of the game.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the game is in a terminal state, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfecto.games.game.NormalFormGame.get_infostate">
+<span class="sig-name descname"><span class="pre">get_infostate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/game.html#NormalFormGame.get_infostate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.game.NormalFormGame.get_infostate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the infostate (i.e. the information set) of the game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a>]) – The history of the game.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A string representation of the infostate of the game.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="imperfecto.games.game.NormalFormGame.get_active_player">
+<span class="sig-name descname"><span class="pre">get_active_player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">history</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/imperfecto/games/game.html#NormalFormGame.get_active_player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#imperfecto.games.game.NormalFormGame.get_active_player" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the active player of the game at the current decision point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>history</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a>]) – The history of the game.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="../modules/player.html#imperfecto.algos.player.Player" title="imperfecto.algos.player.Player"><code class="xref py py-class docutils literal notranslate"><span class="pre">Player</span></code></a></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The active player of the game at the current decision point.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 

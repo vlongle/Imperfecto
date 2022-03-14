@@ -12,6 +12,7 @@ Usage:
 to print the available options.
 """
 
+import logging
 from pprint import pprint
 from typing import Type
 
@@ -27,8 +28,7 @@ from imperfecto.games.rock_paper_scissor import (
     RockPaperScissorGame,
 )
 from imperfecto.misc.evaluate import evaluate_strategies
-from imperfecto.misc.trainer import Trainer
-np.random.seed(0)
+from imperfecto.misc.trainer import NormalFormTrainer
 
 
 def generate_random_prob_dist(n_actions: int) -> np.ndarray:
@@ -87,7 +87,7 @@ def to_train_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int = 10000
     """
     players = [RegretMatchingPlayer(name=f"RM{i}", n_actions=len(Game.actions))
                for i in range(Game.n_players)]
-    trainer = Trainer(Game, players, n_iters=n_iters)
+    trainer = NormalFormTrainer(Game, players, n_iters=n_iters)
     avg_payoffs = trainer.train()
     with np.printoptions(suppress=True, precision=2):
         print(
@@ -96,6 +96,7 @@ def to_train_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int = 10000
         pprint(trainer.avg_strategies)
         print(f'eps_rewards: {avg_payoffs}')
         print()
+    trainer.store_strategies(["strategy.json", "avg_strategy.json"])
 
 
 def to_train_delay_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int = 10000, freeze_duration: int = 10):
@@ -113,7 +114,7 @@ def to_train_delay_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int =
     freeze_interval = n_iters // freeze_duration
     players = [RegretMatchingPlayer(name=f"RM{i}", n_actions=len(Game.actions))
                for i in range(Game.n_players)]
-    trainer = Trainer(Game, players, n_iters=freeze_duration)
+    trainer = NormalFormTrainer(Game, players, n_iters=freeze_duration)
     for _ in range(freeze_interval):
         for i in range(Game.n_players):
             # train player i freezing the rest
@@ -128,6 +129,7 @@ def to_train_delay_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int =
         pprint(trainer.avg_strategies)
         print(f'eps_rewards: {trainer.avg_payoffs}')
         print()
+    trainer.store_strategies(["strategy.json", "avg_strategy.json"])
 
 
 @click.command()
@@ -136,7 +138,9 @@ def to_train_delay_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int =
 @click.option("--n_iters", type=int, default=10000, help="The number of iterations to run the game for.")
 @click.option("--train_regret_matching", is_flag=True, default=False, help="Train regret matching players.")
 @click.option("--train_delay_regret_matching", is_flag=True, default=False, help="Train delay regret matching players.")
-def main(game: str, n_iters: int = 10000, train_regret_matching: bool = False, train_delay_regret_matching: bool = False):
+@click.option("--verbose_level", type=click.Choice(["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]), default="INFO", help="The verbosity level of the game.")
+@click.option("--seed", type=int, default=0, help="The random seed to use for the game.")
+def main(game: str, n_iters: int = 10000, train_regret_matching: bool = False, train_delay_regret_matching: bool = False, verbose_level: str = "INFO", seed: int = 0) -> None:
     """Demo for N-player normal-form games using the regret-matching algorithm.
 
     Available games:
@@ -154,6 +158,9 @@ def main(game: str, n_iters: int = 10000, train_regret_matching: bool = False, t
 
     We will also show the Nash equilibrium for 2-player zero-sum games so the user can verify that the regret matching players' strategies indeed converge to Nash.
     """
+    logging.basicConfig(level=getattr(
+        logging, verbose_level), format="%(message)s")
+    np.random.seed(seed)
     Game_dict = {
         "RockPaperScissorGame": RockPaperScissorGame,
         "AsymmetricRockPaperScissorGame": AsymmetricRockPaperScissorGame,

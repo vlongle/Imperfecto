@@ -36,6 +36,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -211,6 +212,9 @@ different infostates of their opponent. Therefore, not every node (history) in t
 equally likely to be reached, so the reach probs should be taken into account to skew the action
 distribution at that infostate appropriately.</p>
 <p>The cfr formulation looks similar to the advantage function in RL Q-learning.</p>
+<div class="math notranslate nohighlight">
+\[v(\sigma, h)\]</div>
+<p>something inline <span class="math notranslate nohighlight">\(\sigma a^2 + b^2 = c^2\)</span></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="algos.cfr.CounterFactualRegretMinimizerPlayer">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">algos.cfr.</span></span><span class="sig-name descname"><span class="pre">CounterFactualRegretMinimizerPlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">player_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/algos/cfr.html#CounterFactualRegretMinimizerPlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#algos.cfr.CounterFactualRegretMinimizerPlayer" title="Permalink to this definition">¶</a></dt>
@@ -319,7 +323,7 @@ information set. The average strategy of each player in CFR provably converges t
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>Game</strong> (<em>Type</em><em>[</em><a class="reference internal" href="games.html#games.game.ExtensiveFormGame" title="games.game.ExtensiveFormGame"><em>ExtensiveFormGame</em></a><em>]</em>) – the game class to be trained.</p></li>
+<li><p><strong>Game</strong> (<em>Type</em><em>[</em><a class="reference internal" href="games/game.html#imperfecto.games.game.ExtensiveFormGame" title="imperfecto.games.game.ExtensiveFormGame"><em>ExtensiveFormGame</em></a><em>]</em>) – the game class to be trained.</p></li>
 <li><p><strong>players</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference internal" href="#algos.cfr.CounterFactualRegretMinimizerPlayer" title="algos.cfr.CounterFactualRegretMinimizerPlayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">CounterFactualRegretMinimizerPlayer</span></code></a>]) – the players in the game, each of type <code class="docutils literal notranslate"><span class="pre">CounterFactualRegretMinimizerPlayer</span></code>.</p></li>
 <li><p><strong>n_iters</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>) – number of iterations to run the algorithm.</p></li>
 </ul>
@@ -331,7 +335,7 @@ information set. The average strategy of each player in CFR provably converges t
 <dd><p>the game to train on.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="games.html#games.game.ExtensiveFormGame" title="games.game.ExtensiveFormGame">ExtensiveFormGame</a></p>
+<dd class="field-odd"><p><a class="reference internal" href="games/game.html#imperfecto.games.game.ExtensiveFormGame" title="imperfecto.games.game.ExtensiveFormGame">ExtensiveFormGame</a></p>
 </dd>
 </dl>
 </dd></dl>

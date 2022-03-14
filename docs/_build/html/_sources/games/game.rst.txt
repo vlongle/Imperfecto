@@ -1,7 +1,7 @@
 Base Game
 ====================================
 
-.. automodule:: imperfect_info_games.games.game
+.. automodule:: imperfecto.games.game
    :members:
    :undoc-members:
    :show-inheritance:

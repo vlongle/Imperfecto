@@ -12,11 +12,10 @@ from typing import List
 
 import numpy as np
 
-from imperfecto.algos.player import Player
-from imperfecto.misc.utils import get_action
+from imperfecto.algos.player import NormalFormPlayer
 
 
-class RegretMatchingPlayer(Player):
+class RegretMatchingPlayer(NormalFormPlayer):
     """
     Regret Matching (Hart and Mas-Colell 2000) Player works by maintaining a cumulative
     regret vector for each action.
@@ -47,11 +46,6 @@ class RegretMatchingPlayer(Player):
     def __repr__(self):
         return "Regret Matching Agent(" + self.name + ")"
 
-    @property
-    def strategy(self):
-        """The regret matching strategy."""
-        return self.regret_matching_strategy(self.cum_regrets)
-
     @staticmethod
     def regret_matching_strategy(regrets: np.ndarray) -> np.ndarray:
         """Return the regret matching policy.
@@ -68,10 +62,6 @@ class RegretMatchingPlayer(Player):
         else:
             action_probs = np.ones(len(action_probs)) / len(action_probs)
         return action_probs
-
-    def act(self, infostate: str) -> int:
-        del infostate
-        return get_action(self.strategy)
 
     def update_strategy(self, history: List[IntEnum], player_id: int) -> None:
         """Update the cumulative regret vector. This will update the strategy of the player as
@@ -94,3 +84,5 @@ class RegretMatchingPlayer(Player):
 
         self.cum_regrets += counterfactual_rewards - \
             counterfactual_rewards[int(my_action)]
+
+        self.strategy = self.regret_matching_strategy(self.cum_regrets)

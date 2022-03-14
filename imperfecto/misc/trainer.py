@@ -3,16 +3,18 @@
 The players are trained over a number of games by calling each player's ``update_strategy`` method
 after each game. The average payoffs and the average strategies during training are recorded.
 """
+import logging
 from typing import Sequence, Type
 
-import numpy as np
-
 import enlighten
+import numpy as np
+import pandas as pd
+
 from imperfecto.algos.player import Player
 from imperfecto.games.game import ExtensiveFormGame
 
 
-class Trainer:
+class NormalFormTrainer:
     """A class to train players in an extensive form game.
 
     Args:
@@ -57,18 +59,19 @@ class Trainer:
             np.ndarray: The average payoffs of each player during this `train` call.
         """
         ep_payoffs = []
-        for _ in range(self.n_iters):
+        logging.debug("iter | history \t \t | payoffs")
+        for i in range(self.n_iters):
             history, payoffs = self.game.play()
             ep_payoffs.append(payoffs)
             for player_id, player in enumerate(self.game.players):
-                # check if strategy is a property of the player object
-                if hasattr(player, 'strategy'):
-                    self.ep_strategies[player].append(
-                        player.strategy)  # type: ignore
+                self.ep_strategies[player].append(
+                    player.strategy)
                 if player not in freeze_ls:
                     player.update_strategy(history, player_id)
             if self.display_status_bar:
                 self.pbar.update()
+            logging.debug(
+                f'{i:4}  {self.game.history_to_str(history):20} {np.array2string(np.array(payoffs)):2}')
         self.ep_payoffs += ep_payoffs
         return np.mean(ep_payoffs, axis=0)
 
@@ -89,3 +92,44 @@ class Trainer:
             dict: The average strategies of each player.
         """
         return {player: np.mean(strategies, axis=0) for player, strategies in self.ep_strategies.items()}
+
+    def moving_avg(self, arr):
+        """Compute the moving average of an array.
+
+        Args:
+            arr (np.ndarray): The array to compute the moving average of.
+
+        Returns:
+            np.ndarray: The moving average of the array.
+        """
+        avg = np.cumsum(arr, axis=0, dtype=float)
+        discount = np.repeat(
+            np.arange(1, arr.shape[0] + 1), arr.shape[1], axis=0).reshape(arr.shape)
+        return avg / discount
+
+    def store_strategies(self, filenames) -> None:
+        """Store the average strategies of each player in a csv file.
+
+        Args:
+            filename (str): The name of the csv file to store the strategies in.
+        """
+        actions = list(map(str, self.game.actions))  # type: ignore
+        dfs = []
+        avg_dfs = []
+        for player, strategies in self.ep_strategies.items():
+            strategies = np.array(strategies)
+            avg_strategies = self.moving_avg(strategies)
+            df = pd.DataFrame(strategies, columns=actions)
+            avg_df = pd.DataFrame(avg_strategies, columns=actions)
+            df["player"] = player.name
+            df["iter"] = df.index
+            avg_df["player"] = player.name
+            avg_df["iter"] = avg_df.index
+            dfs.append(df)
+            avg_dfs.append(avg_df)
+
+        df = pd.concat(dfs, ignore_index=True)
+        avg_df = pd.concat(avg_dfs, ignore_index=True)
+        # write json to file
+        df.to_json(filenames[0], orient='records', indent=2)
+        avg_df.to_json(filenames[1], orient='records', indent=2)
