@@ -16,14 +16,15 @@ distribution at that infostate appropriately.
 The cfr formulation looks similar to the advantage function in RL Q-learning.
 """
 
+from abc import ABC, abstractmethod
 from enum import IntEnum
 import logging
 from typing import List, Sequence
 
+import enlighten
 import numpy as np
 import numpy as np
 
-import enlighten
 from imperfecto.algos.player import Player
 from imperfecto.algos.regret_matching import RegretMatchingPlayer
 
@@ -70,9 +71,9 @@ class CounterFactualRegretMinimizerPlayer(Player):
         return avg_strats
 
 
-class counterfactualRegretMinimizerTrainer:
+class counterfactualRegretMinimizerTrainer(ABC):
     """
-    CFR with chance-sampling.
+    Base CFR trainer class.
 
     CFR (Zinkevich et al. "Regret minimization in games with incomplete information" 2008)
     is a self-play algorithm that assumes that the joint strategy of all players in the game is
@@ -94,7 +95,64 @@ class counterfactualRegretMinimizerTrainer:
         self.game = Game(players)
         self.n_iters = n_iters
 
-    def cfr(self, history: List[IntEnum], reach_probs: np.ndarray) -> np.ndarray:
+    @abstractmethod
+    def cfr(self) -> float:
+        """TODO: add docstring."""
+        pass
+
+    def train(self) -> None:
+        """Train the game using CFR for `n_iters` iterations."""
+        utils = np.zeros(self.game.n_players)
+        manager = enlighten.get_manager()
+        pbar = manager.counter(
+            total=self.n_iters, desc=f'CFR/{self.game.__class__.__name__}:', unit='ticks')
+        logging.debug(
+            'iter | hist | reach_prob | active_player | infostate |    regrets \t|   policy')
+        logging.debug('-' * 82)
+        for i in range(self.n_iters):
+            logging.debug(i)
+            utils += self.cfr()
+            pbar.update()
+        logging.debug('-' * 82)
+
+        avg_strats = {player: player.get_avg_strategies()
+                      for player in self.game.players}
+        num_spaces = 2 * len(self.game.actions)
+        logging.info(
+            f"info_set |  avg_policy {' ' * num_spaces}|  avg_regrets")
+        logging.info('-' * 82)
+        for player in self.game.players:
+            for info_set in player.cum_regrets:
+                logging.info(
+                    f"{self.game.shorten_history(info_set):10} {np.array2string(avg_strats[player][info_set], precision=2, suppress_small=True):{4  * num_spaces}}"
+                    f"{np.array2string(player.cum_regrets[info_set]/self.n_iters, precision=2, suppress_small=True):{4 * num_spaces}}")
+
+        logging.info('-' * 82)
+        logging.info(
+            f"Average utilities for Game {self.game.__class__.__name__} over {self.n_iters} iters: {np.array2string(utils/self.n_iters, precision=3, suppress_small=True)}")
+
+
+"""
+See
+https://aipokertutorial.com/the-cfr-algorithm/
+and OpenSpiel's external sampling CFR:
+    http://mlanctot.info/files/papers/nips09mccfr.pdf
+    Outcome & external sampling:
+        https://github.com/deepmind/open_spiel/blob/master/open_spiel/python/algorithms/external_sampling_mccfr.py
+        https://github.com/deepmind/open_spiel/blob/master/open_spiel/python/algorithms/outcome_sampling_mccfr.py
+
+
+"""
+
+
+class ChanceSamplingCFRTrainer(counterfactualRegretMinimizerTrainer):
+    def cfr(self):
+        assert(hasattr(self.game, "has_chance_player") and self.game.has_chance_player),\
+            ("Game must have a chance player to use chance sampling CFR.")
+        history = [self.game.chance_action()]
+        return self.cfr_step(history, np.ones(len(self.game.players)))
+
+    def cfr_step(self, history: List[IntEnum], reach_probs: np.ndarray) -> np.ndarray:
         """ Counterfactual regret minimization update step at the current node.
 
         CFR is quite similar to advantage function in classic Q-learning. For example,
@@ -132,7 +190,7 @@ class counterfactualRegretMinimizerTrainer:
         for action in self.game.actions:
             new_reach_probs = reach_probs.copy()
             new_reach_probs[active_player_id] *= cur_policy[int(action)]
-            counterfactual_values[:, action.value] = self.cfr(
+            counterfactual_values[:, action.value] = self.cfr_step(
                 history + [action], new_reach_probs)
 
         for player_id in range(self.game.n_players):
@@ -165,49 +223,14 @@ class counterfactualRegretMinimizerTrainer:
             f"\t  {np.array2string(cur_policy, precision=2, suppress_small=True)}")
         return node_utils
 
-    def train(self) -> None:
-        """Train the game using CFR for `n_iters` iterations."""
-        utils = np.zeros(self.game.n_players)
-        manager = enlighten.get_manager()
-        pbar = manager.counter(
-            total=self.n_iters, desc=f'CFR/{self.game.__class__.__name__}:', unit='ticks')
-        logging.debug(
-            'iter | hist | reach_prob | active_player | infostate |    regrets \t|   policy')
-        logging.debug('-' * 82)
-        for i in range(self.n_iters):
-            logging.debug(i)
-            history = []
-            if hasattr(self.game, "has_chance_player") and self.game.has_chance_player:
-                history = [self.game.chance_action()]
-            utils += self.cfr(history, np.ones(len(self.game.players)))
-            pbar.update()
-        logging.debug('-' * 82)
 
-        avg_strats = {player: player.get_avg_strategies()
-                      for player in self.game.players}
-        num_spaces = 2 * len(self.game.actions)
-        logging.info(
-            f"info_set |  avg_policy {' ' * num_spaces}|  avg_regrets")
-        logging.info('-' * 82)
-        for player in self.game.players:
-            for info_set in player.cum_regrets:
-                logging.info(
-                    f"{self.game.shorten_history(info_set):10} {np.array2string(avg_strats[player][info_set], precision=2, suppress_small=True):{4  * num_spaces}}"
-                    f"{np.array2string(player.cum_regrets[info_set]/self.n_iters, precision=2, suppress_small=True):{4 * num_spaces}}")
-
-        logging.info('-' * 82)
-        logging.info(
-            f"Average utilities for Game {self.game.__class__.__name__} over {self.n_iters} iters: {np.array2string(utils/self.n_iters, precision=3, suppress_small=True)}")
+class VanillaCFRTrainer(counterfactualRegretMinimizerTrainer):
+    pass
 
 
-"""
-See
-https://aipokertutorial.com/the-cfr-algorithm/
-and OpenSpiel's external sampling CFR:
-    http://mlanctot.info/files/papers/nips09mccfr.pdf
-    Outcome & external sampling:
-        https://github.com/deepmind/open_spiel/blob/master/open_spiel/python/algorithms/external_sampling_mccfr.py
-        https://github.com/deepmind/open_spiel/blob/master/open_spiel/python/algorithms/outcome_sampling_mccfr.py
+class OutcomeSamplingCFRTrainer(counterfactualRegretMinimizerTrainer):
+    pass
 
 
-"""
+class ExternalSamplingCFRTrainer(counterfactualRegretMinimizerTrainer):
+    pass

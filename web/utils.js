@@ -36,7 +36,7 @@ export function preprocessData(rawData, time) {
     let names = Object.keys(rawData[0]).filter(function (d) {
         return REVERSED_NAMES.indexOf(d) === -1; // not in REVERSED_NAMES
     });
-    // filter to include only the data for the current time
+    // filter to includes only the data for the current time
     rawData = rawData.filter(function (d) {
         return d.iter == time;
     });
@@ -187,24 +187,52 @@ export function plotPayoffs(payoffs, elt, time) {
 
 }
 
-function drawRockPaperScissorReplay(histories, elt, time) {
+function getActions(histories, time) {
     histories = histories.filter(function (d) {
         return d.iter == time;
     });
-    let history = histories[0].history;
-    let player0_action = history[0];
-    let player1_action = history[1];
+    return histories[0].history;
+}
 
-    const html = `
-    <img src="assets/rockPaperScissor/left_${player0_action}.png" style="margin: 50px 200px 0px 100px;"
-    height=200, width=200>
-    <img src="assets/rockPaperScissor/right_${player1_action}.png" style="margin: 50px 200px 0px 100px;"
-    height=200 width=200>
-    `;
+function drawGameReplayGeneric(histories, elt, time, gameImageFolder) {
+    let actions = getActions(histories, time);
+    let html = "";
+    for (let i = 0; i < actions.length; i++) {
+        html += `<img src="assets/${gameImageFolder}/${actions[i]}.png"
+        style="margin: 50px 200px 0px 100px;" height=200, width=200>`;
+    }
     let gamePlay = document.getElementById(elt);
     gamePlay.innerHTML = html;
-    gamePlay.style.backgroundImage = "url('assets/rockPaperScissor/background.jpg')";
+    gamePlay.style.backgroundColor = "orange";
 }
+function drawRockPaperScissorReplay(histories, elt, time) {
+    // append left to the first action, and right to the second action so that
+    // images are displayed nicely.
+    let histories_copy = JSON.parse(JSON.stringify(histories));
+    histories_copy.forEach(function (d) {
+        d.history[0] = "left_" + d.history[0];
+        d.history[1] = "right_" + d.history[1];
+    });
+    return drawGameReplayGeneric(histories_copy, elt, time, "rockPaperScissor");
+}
+
+function drawPrisonerDilemmaReplay(histories, elt, time) {
+    return drawGameReplayGeneric(histories, elt, time, "prisonerDilemma");
+}
+
+function drawBarCrowdingReplay(histories, elt, time) {
+    return drawGameReplayGeneric(histories, elt, time, "barCrowding");
+}
+
 export function drawGameReplay(histories, elt, time) {
-    drawRockPaperScissorReplay(histories, elt, time);
+    let actions = histories[0].history;
+    if (actions.includes("ROCK") || actions.includes("PAPER") || actions.includes("SCISSORS")) {
+        drawRockPaperScissorReplay(histories, elt, time);
+    } else if (actions.includes("SNITCH") || actions.includes("SILENCE")) {
+        drawPrisonerDilemmaReplay(histories, elt, time);
+    } else if (actions.includes("STAY_HOME") || actions.includes("GO_TO_BAR")) {
+        drawBarCrowdingReplay(histories, elt, time);
+    } else {
+        alert("Error: game not supported");
+    }
 }

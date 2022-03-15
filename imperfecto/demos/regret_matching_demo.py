@@ -10,6 +10,8 @@ Usage:
         $ python3 imperfecto/demos/regret_matching_demo.py --help
 
 to print the available options.
+
+The regret-matching algorithm for normal-form games here is equivalent to external sampling CFR (I think).
 """
 
 import logging
@@ -29,6 +31,7 @@ from imperfecto.games.rock_paper_scissor import (
 )
 from imperfecto.misc.evaluate import evaluate_strategies
 from imperfecto.misc.trainer import NormalFormTrainer
+from imperfecto.misc.utils import run_web
 
 
 def generate_random_prob_dist(n_actions: int) -> np.ndarray:
@@ -98,11 +101,12 @@ def to_train_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int = 10000
         print()
 
     filenames = {
-        'strategy_file': 'strategy.json',
-        'avg_strategy_file': 'avg_strategy.json',
-        'histories_payoffs_file': 'histories_payoffs.json',
+        'strategy_file': Game.__name__ + '_strategy.json',
+        'avg_strategy_file': Game.__name__ + '_avg_strategy.json',
+        'histories_payoffs_file': Game.__name__ + '_histories_payoffs.json',
     }
     trainer.store_data(filenames)
+    run_web(filenames)
 
 
 def to_train_delay_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int = 10000, freeze_duration: int = 10):
@@ -136,11 +140,12 @@ def to_train_delay_regret_matching(Game: Type[ExtensiveFormGame], n_iters: int =
         print(f'eps_rewards: {trainer.avg_payoffs}')
         print()
     filenames = {
-        'strategy_file': 'strategy.json',
-        'avg_strategy_file': 'avg_strategy.json',
-        'histories_payoffs_file': 'histories_payoffs.json',
+        'strategy_file': Game.__name__ + '_strategy.json',
+        'avg_strategy_file': Game.__name__ + '_avg_strategy.json',
+        'histories_payoffs_file': Game.__name__ + '_histories_payoffs.json',
     }
     trainer.store_data(filenames)
+    run_web(filenames)
 
 
 @click.command()

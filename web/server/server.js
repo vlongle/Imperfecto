@@ -14,18 +14,27 @@ let historiesPayoffsFile = "histories_payoffs.json";
 
 // process arguments
 process.argv.forEach(function (val, index, array) {
-    if (val.startsWith('--strategyFile')) {
+    if (val.startsWith('--strategy_file')) {
         strategyFile = val.split('=')[1];
     }
-    else if (val.startsWith('--avgStrategyFile')) {
+    else if (val.startsWith('--avg_strategy_file')) {
         avgStrategyFile = val.split('=')[1];
     }
-    else if (val.startsWith('--historiesPayoffsFile')) {
+    else if (val.startsWith('--histories_payoffs_file')) {
         historiesPayoffsFile = val.split('=')[1];
     }
 });
 
-const webServer = app.listen(process.env.PORT || PORT, () => console.log(`SERVER: server is up in PORT=${PORT}!`));
+const webServer = app.listen(process.env.PORT || PORT, () => {
+    console.log(`SERVER: express server is up at PORT=${PORT}! with the following config`)
+    const config = {
+        port: PORT,
+        strategyFile: strategyFile,
+        avgStrategyFile: avgStrategyFile,
+        historiesPayoffsFile: historiesPayoffsFile,
+    }
+    console.log(config);
+});
 
 app.use(express.static('web'));
 

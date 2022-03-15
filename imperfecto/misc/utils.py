@@ -2,8 +2,22 @@
 A collection of helper functions and classes.
 """
 from enum import Enum
+import os
 
 import numpy as np
+
+
+def run_web(config: dict) -> None:
+    """Run the express server.
+
+    Args:
+        config: a dictionary containing the configuration for the express server
+    """
+    command = "node web/server/server.js"
+    for key, value in config.items():
+        command += f" --{key}={value}"
+    print(f">> Running $ {command}")
+    os.system(command)
 
 
 class lessVerboseEnum(Enum):

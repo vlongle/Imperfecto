@@ -153,8 +153,9 @@ Please see [https://vlongle.github.io/Imperfecto/](https://vlongle.github.io/Imp
 - [](https://www.kaggle.com/ihelon/rock-paper-scissors-agents-comparison)
 
 ## Image Credit
-An image of the French poker player [Patrick Bruel](https://en.wikipedia.org/wiki/Patrick_Bruel).
+- Thumbnail: an image of the French poker player [Patrick Bruel](https://en.wikipedia.org/wiki/Patrick_Bruel).
 Sourced from [knowyourmeme.com](https://knowyourmeme.com/)
+- Images for the RockPaperScissor Web visualizer: [https://github.com/seekpl/rps-game](https://github.com/seekpl/rps-game)
 ## License
 MIT License @ Long Le 2022.
 
